@@ -1,0 +1,32 @@
+*,
+::before,
+::after {
+   box-sizing: border-box;
+}
+
+:root {
+   --text-color-dark: #1A162E;
+   --text-color-light: #9E9DA8;
+   --btn-color: #FFB700;
+   --background-color: #F6F6F6;
+   --background-header: #EEEEEE;
+}
+
+html {
+   font-size: 62.5%;
+}
+
+body {
+   font-size: 1.6rem;
+   font-family: 'Gordita', sans-serif;
+   background: var(--background-color);
+}
+div {
+   width: 200px;
+   height: 200px;
+   background-color: var(--background-header);
+}
+h1 {
+   color: red;
+   font-weight: 700;
+}
