@@ -97,7 +97,7 @@ a {
 
 .header .buy-card {
 
-   gap: 0 10px;
+   gap: 0 5px;
    display: flex;
    align-items: center;
    padding: 13px;
@@ -414,4 +414,47 @@ a {
 }
 .footer .desc-last {
    padding-bottom: 25px;
+}
+
+.row-price-star input {
+   font-size: 15px;
+}
+
+.add-to-cart-button{
+   padding: 10px 10px; 
+   background-color: #38679a; 
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   font-size: 10px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;/* Hiệu ứng màu nền thay đổi khi hover */
+}
+.add-to-cart-button:hover{
+   background-color: #007afc;
+   transform: scale(1.05); /* cai nay la dua tro chuot va phong to thu nho */
+} 
+
+ /* moi biet */
+.checkout-button {
+   padding: 10px 10px; 
+   background-color: #007bff; 
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+   background-color: #0056b3;/* Màu nền thay đổi khi hover */
+}
+
+.cart-list {
+    display: none;
+}
+
+.show-cart .cart-list {
+    display: block;
 }

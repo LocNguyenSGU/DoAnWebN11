@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DoAnWebN11</title>
+        <link rel="stylesheet" href="script.js">
+        <link rel="stylesheet" href="style.css">
         <!-- Favicon -->
         <link
             rel="apple-touch-icon"
@@ -85,13 +87,24 @@
 
                     <div class="buy-card">
                         <img src="./asset/img/header-buy.svg" alt="" />
-                        <span>$65.42</span>
+                        <div class="cart-container">
+                            <div class="cart-list">
+                                <ul class="cart-items"></ul>
+                            </div>
+                            <p>Tổng cộng: <span class="cart-total">$0.00</span></p>
+                            <button class="checkout-button" id="checkoutButton">Thanh toán</button>
+                        </div>
                     </div>
+                            <script src="script.js"></script>
+                        </div>
+                        </span>
                     <img
                         src="./asset/img/header-user.svg"
                         alt=""
                         class="icon-user"
                     />
+                    <script src="script.js"></script>
+                </div>
                 </div>
             </div>
         </header>
@@ -176,6 +189,7 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
+                            <button class="add-to-cart-button" data-product-id="1">Thêm vào giỏ hàng</button>
                         </div>
                     </section>
                     <section class="cart">
@@ -196,6 +210,7 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
+                            <button class="add-to-cart-button" data-product-id="1">Thêm vào giỏ hàng</button>
                         </div>
                     </section>
                     <section class="cart">
@@ -216,6 +231,7 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
+                            <button class="add-to-cart-button" data-product-id="1">Thêm vào giỏ hàng</button>
                         </div>
                     </section>
                     <section class="cart">
@@ -236,6 +252,7 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
+                            <button class="add-to-cart-button" data-product-id="1">Thêm vào giỏ hàng</button>
                         </div>
                     </section>
                     <section class="cart">
@@ -246,7 +263,7 @@
                         />
                         <h3 class="title">Coffee Beans-Express and nice</h3>
                         <span class="brand">Lavazza</span>
-                         
+
                    <div class="row">
                             <span class="price">$47.00</span>
                             <div class="row-price-star">
@@ -257,6 +274,7 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
+                            <button class="add-to-cart-button" data-product-id="1">Thêm vào giỏ hàng</button>
                         </div>
                     </section>
                     <section class="cart">
@@ -278,6 +296,7 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
+                            <button class="add-to-cart-button" data-product-id="1">Thêm vào giỏ hàng</button>
                         </div>
                     </section>
                 </div>
