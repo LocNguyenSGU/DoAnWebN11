@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DoAnWebN11</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./asset/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./asset/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./asset/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./asset/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="./asset/favicon/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- reset CSS -->
+        <link rel="stylesheet" href="./asset/css/reset.css" />
+        <!-- style CSS -->
+        <link rel="stylesheet" href="./asset/css/style.css" />
+        <!-- Font -->
+        <link rel="stylesheet" href="./asset/font/stylesheet.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <img src="./asset/img/header-logo.svg" alt="" class="logo" />
+                <nav class="nav">
+                    <ul>
+                        <li>
+                            <a href="#!">Departments</a>
+                            <img
+                                src="./asset/img/header-arrown.svg"
+                                alt=""
+                                class="arrown"
+                            />
+                        </li>
+                        <li>
+                            <a href="#!">Grocery</a>
+                            <img
+                                src="./asset/img/header-arrown.svg"
+                                alt=""
+                                class="arrown"
+                            />
+                        </li>
+                        <li>
+                            <a href="#!">Beauty</a>
+                            <img
+                                src="./asset/img/header-arrown.svg"
+                                alt=""
+                                class="arrown"
+                            />
+                        </li>
+                    </ul>
+                </nav>
+                <div class="last-icon">
+                    <input
+                        type="search"
+                        name=""
+                        id=""
+                        placeholder="Nhập sản phẩm bạn cần tìm kiếm"
+                        class="hidden"
+                    />
+                    <img
+                        src="./asset/img/header-search.svg"
+                        alt=""
+                        class="search"
+                    />
+                    <div class="buy-card">
+                        <img src="./asset/img/header-buy.svg" alt="" />
+
+                    <img
+                        src="./asset/img/header-user.svg"
+                        alt=""
+                        class="icon-user"
+                    />
+                </div>
+                </div>
+            </div>
+        </header>
+
+
+        <button onclick="returnToMainPage()">Quay lại trang chính</button>
+
+        <script>
+        function returnToMainPage() {
+            window.location.href = "index.html"; // Thay đổi đường dẫn tới trang chính
+            }
+            </script>
+
+        <section id="blog-home" class="pt-5 mt-5 container">
+            <h2 class="title-cart">Shopping Cart</h2>
+            <hr>
+        </section>
+        <section id="cart-container" class="container">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><img src="./asset/img/product-coat/image 56.png" alt=""></td>
+                        <td>
+                            <h5>Coffee Beans-Express and nice</h5>
+                        </td>
+                        <td>
+                            <h5>47.00$</h5>
+                        </td>
+                        <td><input class="w-25 pl-1" value="1" type="number" name="" id=""></td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- column-1 -->
+                    <div class="column">
+                        <img
+                            src="./asset/img/header-logo.svg"
+                            alt="grocerymart"
+                            class="logo"
+                        />
+                        <p class="desc">
+                            Need to help for your new look? trust us. With
+                            cloth, you becomes a lot confident with everybody.
+                        </p>
+                        <div class="list-icon">
+                            <img
+                                class="icon"
+                                src="./asset/img/facebook.svg"
+                                alt=""
+                            />
+
+                            <img
+                                class="icon"
+                                src="./asset/img/tiktok.svg"
+                                alt=""
+                            />
+
+                            <img
+                                class="icon"
+                                src="./asset/img/twitter.svg"
+                                alt=""
+                            />
+
+                            <img
+                                class="icon"
+                                src="./asset/img/instagram.svg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <!-- column-2 -->
+                    <div class="column">
+                        <h3 class="title">Company</h3>
+                        <div class="separate"></div>
+                        <ul class="list-info">
+                            <li>
+                                <a href="#!">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#!">Features</a>
+                            </li>
+                            <li>
+                                <a href="#!">Our Pricing</a>
+                            </li>
+                            <li>
+                                <a href="#!">Latest News</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- column-3 -->
+                    <div class="column">
+                        <h3 class="title">Support</h3>
+                        <div class="separate"></div>
+                        <ul class="list-info">
+                            <li>
+                                <a href="#!">FAQ’s</a>
+                            </li>
+                            <li>
+                                <a href="#!">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a href="#!">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#!">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- column-4 -->
+                    <div class="column">
+                        <h3 class="title">Address</h3>
+                        <div class="separate"></div>
+                        <ul class="list-info">
+                            <li>
+                                <a href="#!"
+                                    ><strong>Location:</strong> 27 Division St,
+                                    New York, NY 10002, USA</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#!"
+                                    ><strong>Email:</strong> email@gmail.com</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#!"
+                                    ><strong>Phone:</strong>+ 000 1234 567
+                                    890</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="separate-last"></div>
+                <p class="desc-last">
+                    Copyright ©2023 webdesign SGU. All rights reserved
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
