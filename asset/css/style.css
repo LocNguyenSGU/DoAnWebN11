@@ -520,3 +520,7 @@ a {
 .lastTableRow td {
    border-color: white !important;
 }
+.returnToMainPage {
+   background-color: yellow;
+   margin: 10px;
+}
