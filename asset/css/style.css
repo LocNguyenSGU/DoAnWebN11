@@ -444,11 +444,13 @@ a {
    font-size: 14px;
    cursor: pointer;
    transition: background-color 0.3s ease;
+   margin: 20px;
 }
 
 .checkout-button:hover {
    transform: scale(1.03); /* cai nay la dua tro chuot va phong to thu nho */
    background-color: #007bff;/* Màu nền thay đổi khi hover */
+
 }
 
 .cart-list {
@@ -514,4 +516,7 @@ a {
    height: 80px;
    object-fit: cover;
    margin-top: 5px;
+}
+.lastTableRow td {
+   border-color: white !important;
 }
