@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html id="loginPage" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <title>DoAnWebN11</title>
+</head>
+<body>
+    <div id="container">
+        <div class="form-box">
+            <div class="ic-account"></div>
+            <form id="login-form" name="login-form">
+                <input id="email" class="login-form-input" placeholder="Email Address">
+                <input id="password" class="login-form-input" placeholder="Password">
+            </form>
+            <button class="login-form-btn" onclick="returnToMainPage()">Login</button>
+            <p class="text"><a href="">Forgot Password</a> or <a href="">Sign up</a></p>
+        </div>
+    </div>
+    <script>
+        function returnToMainPage() {
+            window.location.href = "index.html"; // Thay đổi đường dẫn tới trang chính
+        }
+    </script>
+</body>
+</html>
