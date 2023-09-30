@@ -41,58 +41,55 @@
     <body>
         <header class="header">
             <div class="container">
-                <img src="./asset/img/header-logo.svg" alt="" class="logo" />
+                <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
                 <nav class="nav">
                     <ul>
-                        <li>
-                            <a href="#!">Departments</a>
+                        <li class="header-product">
+                            <a href="#!">Product</a>
                             <img
                                 src="./asset/img/header-arrown.svg"
                                 alt=""
                                 class="arrown"
                             />
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#!">Coat</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Pants</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Shoe</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="#!">Grocery</a>
-                            <img
-                                src="./asset/img/header-arrown.svg"
-                                alt=""
-                                class="arrown"
-                            />
+                            <a href="#!">About</a>
                         </li>
                         <li>
-                            <a href="#!">Beauty</a>
-                            <img
-                                src="./asset/img/header-arrown.svg"
-                                alt=""
-                                class="arrown"
-                            />
+                            <a href="#!">Contact us</a>
                         </li>
                     </ul>
                 </nav>
                 <div class="last-icon">
-                    <input
-                        type="search"
+                     <input
+                        type="text"
                         name=""
                         id=""
-                        placeholder="Nhập sản phẩm bạn cần tìm kiếm"
-                        class="hidden"
+                        placeholder="Search for..."
+                        class="search-field"
                     />
-                    <img
+                    <button class="btn-search">
+                        <img
                         src="./asset/img/header-search.svg"
                         alt=""
-                        class="search"
+                        class="search-icon"
                     />
-                    <div class="buy-card" id="cartContainer">
-                        <img src="./asset/img/header-buy.svg" alt="" id="cartIcon" />
-                        <span class="toggle-cart">Giỏ hàng</span>
-                        <div class="cart-container">
-                            <ul class="cart-items"></ul>
-                            <p>Tổng cộng: <span class="cart-total">$0.00</span></p>
-                            <div class="cart-list">
-                                <!-- Danh sách sản phẩm trong cart -->
-                            </div>
-                        </div>
+                    </button>
+
+                    <div class="buy-card">
+                        <img src="./asset/img/header-buy.svg" alt="" />
+                        <span>$65.42</span>
                     </div>
                     <img
                         src="./asset/img/header-user.svg"
@@ -105,11 +102,33 @@
         </header>
         <main class="main">
             <div class="container">
-                <img
-                    class="img-huge"
-                    src="./asset/img/header-huge-img-1.png"
-                    alt=""
-                />
+                <div class="slider">
+                    <div class="slide">
+                        <img
+                            src="./asset/img/header-huge-img-1.webp"
+                            alt=""
+                            class="img-huge"
+                        />
+                    </div>
+                    <div class="slide">
+                        <img
+                            src="./asset/img/header-huge-img-2.webp"
+                            alt=""
+                            class="img-huge"
+                        />
+                    </div>
+                    <div class="slide">
+                        <img
+                            src="./asset/img/header-huge-img-3.webp"
+                            alt=""
+                            class="img-huge"
+                        />
+                    </div>
+                    <button class="btn-left">&larr;</button>
+                    <button class="btn-right">&rarr;</button>
+                    <div class="dots"></div>
+                </div>
+                <!-- recommend -->
                 <div class="recommend">
                     <h3 class="title">Recommend for you</h3>
                     <div class="row">
@@ -154,6 +173,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- hello and filter -->
                 <div class="row hello-filter">
                     <p class="hello">Hello everybody. Welcome our website</p>
                     <div class="filter">
@@ -165,8 +185,9 @@
                         />
                     </div>
                 </div>
-                <div class="list-show-product" >
-                    <section class="cart" data-product-id="1" data-product-name="Coffee Beans-Express and nice">
+                <!-- display product -->
+                <div class="list-show-product">
+                    <!-- <section class="cart">
                         <img
                             src="./asset/img/product-coat/image 56.png"
                             alt=""
@@ -191,8 +212,8 @@
                             >
                             Thêm vào giỏ hàng</button>
                         </div>
-                    </section>
-                    <section class="cart">
+                    </section> -->
+                    <!-- <section class="cart">
                         <img
                             src="./asset/img/product-coat/image 56.png"
                             alt=""
@@ -210,119 +231,10 @@
                                 />
                                 <span class="star-num">4.3</span>
                             </div>
-                            <button class="add-to-cart-button" 
-                            data-product-id="1"
-                            data-product-name="Coffee Beans-Express and nice"
-                            data-product-price="47.00"
-                            >
-                            Thêm vào giỏ hàng</button>
                         </div>
-                    </section>
-                    <section class="cart">
-                        <img
-                            src="./asset/img/product-coat/image 56.png"
-                            alt=""
-                            class="img-cart"
-                        />
-                        <h3 class="title">Coffee Beans-Express and nice</h3>
-                        <span class="brand">Lavazza</span>
-                        <div class="row">
-                            <span class="price">$47.00</span>
-                            <div class="row-price-star">
-                                <img
-                                    src="./asset/img/main-star.svg"
-                                    alt=""
-                                    class="star"
-                                />
-                                <span class="star-num">4.3</span>
-                            </div>
-                            <button class="add-to-cart-button" 
-                            data-product-id="1"
-                            data-product-name="Coffee Beans-Express and nice"
-                            data-product-price="47.00"
-                            >
-                            Thêm vào giỏ hàng</button>
-                        </div>
-                    </section>
-                    <section class="cart">
-                        <img
-                            src="./asset/img/product-coat/image 56.png"
-                            alt=""
-                            class="img-cart"
-                        />
-                        <h3 class="title">Coffee Beans-Express and nice</h3>
-                        <span class="brand">Lavazza</span>
-                        <div class="row">
-                            <span class="price">$47.00</span>
-                            <div class="row-price-star">
-                                <img
-                                src="./asset/img/main-star.svg"
-                                alt=""
-                                class="star"
-                            />
-                            <span class="star-num">4.3</span>
-                        </div>
-                        <button class="add-to-cart-button" 
-                        data-product-id="1"
-                        data-product-name="Coffee Beans-Express and nice"
-                        data-product-price="47.00"
-                        >
-                        Thêm vào giỏ hàng</button>
-                        </div>
-                    </section>
-                    <section class="cart">
-                        <img
-                            src="./asset/img/product-coat/image 56.png"
-                            alt=""
-                            class="img-cart"
-                        />
-                        <h3 class="title">Coffee Beans-Express and nice</h3>
-                        <span class="brand">Lavazza</span>
-
-                   <div class="row">
-                            <span class="price">$47.00</span>
-                            <div class="row-price-star">
-                                <img
-                                src="./asset/img/main-star.svg"
-                                alt=""
-                                class="star"
-                            />
-                            <span class="star-num">4.3</span>
-                        </div>
-                        <button class="add-to-cart-button" 
-                        data-product-id="1"
-                        data-product-name="Coffee Beans-Express and nice"
-                        data-product-price="47.00"
-                        >
-                        Thêm vào giỏ hàng</button>
-                    </section>
-                    <section class="cart">
-                        <img
-                            src="./asset/img/product-coat/image 56.png"
-                            alt=""
-                            class="img-cart"
-                        />
-                        <h3 class="title">Coffee Beans-Express and nice</h3>
-                        <span class="brand">Lavazza</span>
-                        <!-- ban quan ao -->
-                   <div class="row">
-                            <span class="price">$47.00</span>
-                            <div class="row-price-star">
-                                <img
-                                src="./asset/img/main-star.svg"
-                                alt=""
-                                class="star"
-                            />
-                            <span class="star-num">4.3</span>
-                        </div>
-                        <button class="add-to-cart-button" 
-                        data-product-id="1"
-                        data-product-name="Coffee Beans-Express and nice"
-                        data-product-price="47.00"
-                        >
-                        Thêm vào giỏ hàng</button>
-                    </section>
+                    </section> -->
                 </div>
+                <!-- create account -->
                 <div class="create-acc">
                     <div class="container">
                         <div class="left">
@@ -336,7 +248,7 @@
                 </div>
             </div>
         </main>
-        <div class="footer">
+        <footer class="footer">
             <div class="container">
                 <div class="row">
                     <!-- column-1 -->
@@ -445,101 +357,6 @@
                 </p>
             </div>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-                addToCartButtons.forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        const productId = button.getAttribute("data-product-id");
-                        const productName = button.getAttribute("data-product-name");
-                        const productPrice = parseFloat(button.getAttribute("data-product-price"));
-                        addToCart(productId, productName, productPrice);
-                    });
-                });
-        
-                const cartItems = [];
-        
-                function addToCart(id, name, price) {
-                    const product = {
-                        id: id,
-                        name: name,
-                        price: price,
-                    };
-                    cartItems.push(product);
-                    // Chuyển đến trang giỏ hàng
-                    navigateToCartPage();
-                }
-        
-                function navigateToCartPage() {
-                    // Sử dụng JavaScript để chuyển đến trang giỏ hàng mới
-                    window.location.href = "cart.html"; // Điều hướng đến trang giỏ hàng mới
-                }
-            });
-        </script>
-        
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-                addToCartButtons.forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        const productId = button.getAttribute("data-product-id");
-                        const productName = button.getAttribute("data-product-name");
-                        const productPrice = parseFloat(button.getAttribute("data-product-price"));
-                        addToCart(productId, productName, productPrice);
-                    });
-                });
-    
-                const cartItems = [];
-    
-                function addToCart(id, name, price) {
-                    const product = {
-                        id: id,
-                        name: name,
-                        price: price,
-                    };
-                    cartItems.push(product);
-                    updateCartUI();
-                    calculateTotal();
-                }
-    
-                function updateCartUI() {
-                    const cartList = document.querySelector(".cart-items");
-                    cartList.innerHTML = "";
-    
-                    cartItems.forEach(function (item) {
-                        const listItem = document.createElement("li");
-                        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-                        cartList.appendChild(listItem);
-                    });
-                }
-    
-                function calculateTotal() {
-                    const cartTotalElement = document.querySelector(".cart-total");
-                    const total = cartItems.reduce(function (acc, item) {
-                        return acc + item.price;
-                    }, 0);
-                    cartTotalElement.textContent = `$${total.toFixed(2)}`;
-                }
-    
-                // Toggle cart visibility
-                const toggleCartButton = document.querySelector(".toggle-cart");
-                const cartContainer = document.querySelector(".cart-container");
-                toggleCartButton.addEventListener("click", function () {
-                    cartContainer.classList.toggle("show-cart");
-                });
-    
-                // Checkout button
-                const checkoutButton = document.getElementById("checkoutButton");
-                checkoutButton.addEventListener("click", function () {
-
-                    alert("Đã thanh toán!");
-                    cartItems.length = 0; // Don gio hang
-                    updateCartUI();
-                    calculateTotal();
-                    cartContainer.classList.remove("show-cart");
-                });
-                
-            });
-        </script>
+        <script src="./asset/js/script.js"></script>
     </body>
 </html>
