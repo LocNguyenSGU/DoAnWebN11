@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/1.jpg",
+        "star": "4.1"
+    },
+    {
+        "id": 2,
+        "name": "Quần jean",
+        "price": 39.99,
+        "description": "Quần jean nam nữ",
+        "image": "./asset/img/product-coat/2.jpg",
+        "star": "5"
+    },
+    {
+        "id": 3,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/4.jpg",
+        "star": "4.9"
+    },
+    {
+        "id": 4,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/4.jpg",
+        "star": "4.8"
+    },
+    {
+        "id": 4,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/2.jpg",
+        "star": "4.3"
+    },
+    {
+        "id": 4,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/2.jpg",
+        "star": "4.3"
+    },
+    {
+        "id": 4,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/2.jpg",
+        "star": "4.3"
+    },
+    {
+        "id": 4,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/2.jpg",
+        "star": "4.3"
+    },
+    {
+        "id": 4,
+        "name": "Áo thun",
+        "price": 20.99,
+        "description": "Áo thun đơn giản",
+        "image": "./asset/img/product-coat/2.jpg",
+        "star": "4.3"
+    }
+]
