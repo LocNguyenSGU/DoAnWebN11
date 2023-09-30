@@ -41,7 +41,7 @@
     <body>
         <header class="header">
             <div class="container">
-                <img src="./asset/img/header-logo.svg" alt="" class="logo" />
+                <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
                 <nav class="nav">
                     <ul>
                         <li class="header-product">
@@ -73,17 +73,19 @@
                 </nav>
                 <div class="last-icon">
                      <input
-                        type="search"
+                        type="text"
                         name=""
                         id=""
-                        placeholder="Nhập sản phẩm bạn cần tìm kiếm"
-                        class="hidden"
+                        placeholder="Search for..."
+                        class="search-field"
                     />
-                    <img
+                    <button class="btn-search">
+                        <img
                         src="./asset/img/header-search.svg"
                         alt=""
-                        class="search"
+                        class="search-icon"
                     />
+                    </button>
 
                     <div class="buy-card">
                         <img src="./asset/img/header-buy.svg" alt="" />
@@ -245,7 +247,6 @@
                     </div>
                 </div>
             </div>
-            <script src="./asset/js/script.js"></script>
         </main>
         <footer class="footer">
             <div class="container">
@@ -356,5 +357,6 @@
                 </p>
             </div>
         </div>
+        <script src="./asset/js/script.js"></script>
     </body>
 </html>
