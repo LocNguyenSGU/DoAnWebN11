@@ -111,7 +111,7 @@ a {
 
 .header .buy-card {
 
-   gap: 0 10px;
+   gap: 0 5px;
    display: flex;
    align-items: center;
    padding: 13px;
@@ -479,4 +479,113 @@ a {
 
 .footer .desc-last {
    padding-bottom: 25px;
+}
+
+.row-price-star input {
+   font-size: 15px;
+}
+
+.add-to-cart-button{
+   padding: 10px 10px; 
+   background-color: #3f75af; 
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   font-size: 10px;
+   cursor: pointer;
+}
+.add-to-cart-button:hover{
+   background-color: #007afc;
+   transform: scale(1.05); /* cai nay la dua tro chuot va phong to thu nho */
+} 
+
+ /* moi biet */
+.checkout-button {
+   padding: 10px 10px; 
+   background-color: #074f9d; 
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   margin: 20px;
+}
+
+.checkout-button:hover {
+   transform: scale(1.03); /* cai nay la dua tro chuot va phong to thu nho */
+   background-color: #007bff;/* Màu nền thay đổi khi hover */
+
+}
+
+.cart-list {
+    display: none;
+}
+
+.show-cart .cart-list {
+    display: block;
+}
+
+.cart-container {
+   display: none;
+}
+
+.cart-container.show-cart {
+   display: block;
+}
+ /* Layout cart */
+#cart-container table{
+   border-collapse: collapse;
+   width: 100%;
+   table-layout: fixed;
+}
+
+#cart-container table thead{
+   font-weight: 700;
+}
+
+#cart-container table thead td{
+   background-color: #2e8aed;
+   color: white;
+   border: none;
+   padding: 4px 0;
+}
+
+.title-cart{
+   font-weight: 700;
+   font-size: 30px;
+}
+
+#cart-container table td{
+   border: 1px solid #070707;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#cart-container table td:nth-child(1){
+   width: 100px;
+}
+
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3){
+   width: 200px;
+}
+#cart-container table td:nth-child(4),
+#cart-container table td:nth-child(5),
+#cart-container table td:nth-child(6){
+   width: 17-px;
+}
+
+#cart-container table tbody img {
+   width: 80px;
+   height: 80px;
+   object-fit: cover;
+   margin-top: 5px;
+}
+.lastTableRow td {
+   border-color: white !important;
+}
+.returnToMainPage {
+   background-color: yellow;
+   margin: 10px;
 }
