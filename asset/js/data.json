@@ -65,10 +65,11 @@
     },
     {
         "id": 4,
-        "name": "Áo thun",
+        "name": "Áo khoac",
         "price": 20.99,
         "description": "Áo thun đơn giản",
         "image": "./asset/img/product-coat/2.jpg",
         "star": "4.3"
     }
+   
 ]

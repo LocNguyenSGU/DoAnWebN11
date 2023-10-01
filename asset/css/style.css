@@ -730,3 +730,8 @@ a {
    } 
 }
 /* End login Page */
+
+
+.hide{
+   display: none;
+}
