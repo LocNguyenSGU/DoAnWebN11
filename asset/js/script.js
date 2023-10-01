@@ -172,3 +172,46 @@ dotContainer.addEventListener("click", function (e) {
 //     // Danh sách sản phẩm trong giỏ hàng
 //     const cartItems = [];
 //   });
+
+
+
+
+// tìm kiếm sản phẩm
+// const search=()=>{
+//     const searchbox=document.getElementById("search-item").value.toUpperCase();
+//     const sotoreitems=document.getElementById("product-list");
+//     const product1=document.querySelectorAll(".product1");
+//     const pname=document.getElementsByTagName("h2");
+      
+//       for(var i=0; i<pname.length; i++){
+//       let match=product1[i].getElementsByTagName('h2')[0];
+//         if(match){
+//         let textvalue= match.textContent || match.innerHTML
+//            if(textvalue.toUpperCase().indexOf(searchbox) >-1){
+//            product1[i].style.display="";
+//            }else{
+//             product1[i].style.display="none";
+//            }
+//       }
+//     }
+//   }
+// tìm  kiêms sản phẩm
+document.addEventListener('DOMContentLoaded', function () {
+ var searchInput = document.querySelector('.search-field')
+     searchInput.addEventListener('input',function(e){
+    let txtSearch= e.target.value.trim().toLowerCase()
+    let listProductDom=document.querySelectorAll('.list-show-product .cart')
+         listProductDom.forEach(item=>{
+         if(item.innerText.toLowerCase().includes(txtSearch)){
+            item.classList.remove('hide') // hide xóa khi không tìm thấy
+        }
+        else{
+            item.classList.add('hide')   // hiển thị
+        }
+ })
+ })
+})
+
+
+
+
