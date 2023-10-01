@@ -1,75 +1,143 @@
-[
-    {
-        "id": 1,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/1.jpg",
-        "star": "4.1"
-    },
-    {
-        "id": 2,
-        "name": "Quần jean",
+{
+    "sweater": [
+        {
+            "id": 101,
+            "name": "sweater PEWARN",
+            "price": 20.99,
+            "description": "Korean classic loose long-sleeve PEWARN sweater for plus size men and women",
+            "image": "./asset/img/product-sweater/sweater-101.jpg",
+            "star": "4.5"
+        },
+        {
+            "id": 102,
+            "name": "sweater PEASE STAR",
+            "price": 39.99,
+            "description": "PEASE STAR Letter Printed Felt Hoodie Jacket Korean Fashion Style that men and women wear very well",
+            "image": "./asset/img/product-sweater/sweater-102.jpg",
+            "star": "5"
+        },
+        {
+            "id": 103,
+            "name": "Áo thun",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-103.jpg",
+            "star": "4.9"
+        },
+        {
+            "id": 104,
+            "name": "Áo thun",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-104.jpg",
+            "star": "4.8"
+        },
+        {
+            "id": 105,
+            "name": "Áo thun",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-105.jpg",
+            "star": "4.3"
+        },
+        {
+            "id": 106,
+            "name": "Áo thun",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-106.jpg",
+            "star": "4.3"
+        },
+        {
+            "id": 107,
+            "name": "Áo thun",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-107.jpg",
+            "star": "4.3"
+        },
+        {
+            "id": 108,
+            "name": "Áo thun",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-101.jpg",
+    
+            "star": "4.3"
+        },
+        {
+            "id": 109,
+            "name": "Áo khoac",
+            "price": 20.99,
+            "description": "Áo thun đơn giản",
+            "image": "./asset/img/product-sweater/sweater-101.jpg",
+            "star": "4.3"
+        }
+    ],
+    "pants": [
+      {
+        "id": 201,
+        "name": "Quần jean J1",
         "price": 39.99,
-        "description": "Quần jean nam nữ",
-        "image": "./asset/img/product-coat/2.jpg",
-        "star": "5"
-    },
-    {
-        "id": 3,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/4.jpg",
-        "star": "4.9"
-    },
-    {
-        "id": 4,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/4.jpg",
-        "star": "4.8"
-    },
-    {
-        "id": 4,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/2.jpg",
-        "star": "4.3"
-    },
-    {
-        "id": 4,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/2.jpg",
-        "star": "4.3"
-    },
-    {
-        "id": 4,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/2.jpg",
-        "star": "4.3"
-    },
-    {
-        "id": 4,
-        "name": "Áo thun",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/2.jpg",
-        "star": "4.3"
-    },
-    {
-        "id": 4,
-        "name": "Áo khoac",
-        "price": 20.99,
-        "description": "Áo thun đơn giản",
-        "image": "./asset/img/product-coat/2.jpg",
-        "star": "4.3"
-    }
-   
-]
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-201.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 203,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-203.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 204,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-204.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 205,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-205.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 206,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-206.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 207,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-207.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 208,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-208.jpg",
+        "star": 4.2
+      },
+      {
+        "id": 209,
+        "name": "Quần jean J1",
+        "price": 39.99,
+        "description": "Mô tả sản phẩm quần jean J1",
+        "image": "./asset/img/product-pants/pants-209.jpg",
+        "star": 4.2
+      }    ]
+  }
+  

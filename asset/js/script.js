@@ -3,43 +3,100 @@ fetch("./asset/js/data.json")
     .then((response) => response.json())
     .then((data) => {
         const productList = document.querySelector(".list-show-product");
+        const showShirtsButton = document.querySelector(".btn-sweater");
+        const showPantsButton = document.querySelector(".btn-pants")
 
-        if (productList) {
-            data.forEach((product) => {
-                const productSection = document.createElement("section");
-                productSection.innerHTML = `
-                <section class="cart">
-                    <img
-                        src="${product.image}"
-                        alt="${product.name}"
-                        class="img-cart"
-                    />
-                    <h3 class="title">${product.name}</h3>
-                    <span class="brand">Lavazza</span>
-                    <div class="row">
-                        <span class="price">$${product.price}</span>
-                        <div class="row-price-star">
-                            <img
-                                src="./asset/img/main-star.svg"
-                                alt=""
-                                class="star"
-                            />
-                            <span class="star-num">4.3</span>
+        if (productList && showShirtsButton && showPantsButton) {
+            // Hàm để hiển thị các sản phẩm dựa trên loại (áo hoặc quần)
+            function showProductsByType(productType) {
+                productList.innerHTML = ''; // Xóa bỏ các sản phẩm hiện tại
+
+                data[productType].forEach((product) => {
+                    const productSection = document.createElement("section");
+                    productSection.classList.add("cart");
+                    productSection.innerHTML = `
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            class="img-cart"
+                        />
+                        <h3 class="title">${product.name}</h3>
+                        <span class="brand">Lavazza</span>
+                        <div class="row">
+                            <span class="price">$${product.price}</span>
+                            <div class="row-price-star">
+                                <img
+                                    src="./asset/img/main-star.svg"
+                                    alt=""
+                                    class="star"
+                                />
+                                <span class="star-num">${product.star}</span>
+                            </div>
                         </div>
-                    </div>
-                    <section>
-                `;
-                productList.appendChild(productSection);
-            });
+                    `;
+                    productList.appendChild(productSection);
+                });
+            }
+
+            // Lắng nghe sự kiện khi nút "Hiện áo" được bấm
+            showShirtsButton.addEventListener("click", () => showProductsByType("sweater"));
+
+            // Lắng nghe sự kiện khi nút "Hiện quần" được bấm
+            showPantsButton.addEventListener("click", () => showProductsByType("pants"));
+            showProductsByType("sweater");
         } else {
-            console.error(
-                "Không tìm thấy phần tử có class 'list-show-product'."
-            );
+            console.error("Không tìm thấy phần tử có class 'list-show-product' hoặc nút 'showShirtsButton' hoặc 'showPantsButton'.");
         }
     })
     .catch((error) => {
         console.error("Lỗi khi tải dữ liệu JSON:", error);
     });
+
+
+
+
+
+// fetch("./asset/js/data.json")
+//     .then((response) => response.json())
+//     .then((data) => {
+//         const productList = document.querySelector(".list-show-product");
+
+//         if (productList) {
+//             data.forEach((product) => {
+//                 const productSection = document.createElement("section");
+//                 productSection.innerHTML = `
+//                 <section class="cart">
+//                     <img
+//                         src="${product.image}"
+//                         alt="${product.name}"
+//                         class="img-cart"
+//                     />
+//                     <h3 class="title">${product.name}</h3>
+//                     <span class="brand">Lavazza</span>
+//                     <div class="row">
+//                         <span class="price">$${product.price}</span>
+//                         <div class="row-price-star">
+//                             <img
+//                                 src="./asset/img/main-star.svg"
+//                                 alt=""
+//                                 class="star"
+//                             />
+//                             <span class="star-num">4.3</span>
+//                         </div>
+//                     </div>
+//                     <section>
+//                 `;
+//                 productList.appendChild(productSection);
+//             });
+//         } else {
+//             console.error(
+//                 "Không tìm thấy phần tử có class 'list-show-product'."
+//             );
+//         }
+//     })
+//     .catch((error) => {
+//         console.error("Lỗi khi tải dữ liệu JSON:", error);
+//     });
 
 // hinh anh truot qua lai
 const slides = document.querySelectorAll(".slide");
@@ -196,21 +253,21 @@ dotContainer.addEventListener("click", function (e) {
 //     }
 //   }
 // tìm  kiêms sản phẩm
-document.addEventListener('DOMContentLoaded', function () {
- var searchInput = document.querySelector('.search-field')
-     searchInput.addEventListener('input',function(e){
-    let txtSearch= e.target.value.trim().toLowerCase()
-    let listProductDom=document.querySelectorAll('.list-show-product .cart')
-         listProductDom.forEach(item=>{
-         if(item.innerText.toLowerCase().includes(txtSearch)){
-            item.classList.remove('hide') // hide xóa khi không tìm thấy
-        }
-        else{
-            item.classList.add('hide')   // hiển thị
-        }
- })
- })
-})
+// document.addEventListener('DOMContentLoaded', function () {
+//  var searchInput = document.querySelector('.search-field')
+//      searchInput.addEventListener('input',function(e){
+//     let txtSearch= e.target.value.trim().toLowerCase()
+//     let listProductDom=document.querySelectorAll('.list-show-product .cart')
+//          listProductDom.forEach(item=>{
+//          if(item.innerText.toLowerCase().includes(txtSearch)){
+//             item.classList.remove('hide') // hide xóa khi không tìm thấy
+//         }
+//         else{
+//             item.classList.add('hide')   // hiển thị
+//         }
+//  })
+//  })
+// })
 
 
 
