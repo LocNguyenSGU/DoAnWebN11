@@ -4,12 +4,12 @@ fetch("./asset/js/data.json")
     .then((data) => {
         const productList = document.querySelector(".list-show-product");
         const showShirtsButton = document.querySelector(".btn-sweater");
-        const showPantsButton = document.querySelector(".btn-pants")
+        const showPantsButton = document.querySelector(".btn-pants");
 
         if (productList && showShirtsButton && showPantsButton) {
             // Hàm để hiển thị các sản phẩm dựa trên loại (áo hoặc quần)
             function showProductsByType(productType) {
-                productList.innerHTML = ''; // Xóa bỏ các sản phẩm hiện tại
+                productList.innerHTML = ""; // Xóa bỏ các sản phẩm hiện tại
 
                 data[productType].forEach((product) => {
                     const productSection = document.createElement("section");
@@ -39,22 +39,24 @@ fetch("./asset/js/data.json")
             }
 
             // Lắng nghe sự kiện khi nút "Hiện áo" được bấm
-            showShirtsButton.addEventListener("click", () => showProductsByType("sweater"));
+            showShirtsButton.addEventListener("click", () =>
+                showProductsByType("sweater")
+            );
 
             // Lắng nghe sự kiện khi nút "Hiện quần" được bấm
-            showPantsButton.addEventListener("click", () => showProductsByType("pants"));
+            showPantsButton.addEventListener("click", () =>
+                showProductsByType("pants")
+            );
             showProductsByType("sweater");
         } else {
-            console.error("Không tìm thấy phần tử có class 'list-show-product' hoặc nút 'showShirtsButton' hoặc 'showPantsButton'.");
+            console.error(
+                "Không tìm thấy phần tử có class 'list-show-product' hoặc nút 'showShirtsButton' hoặc 'showPantsButton'."
+            );
         }
     })
     .catch((error) => {
         console.error("Lỗi khi tải dữ liệu JSON:", error);
     });
-
-
-
-
 
 // fetch("./asset/js/data.json")
 //     .then((response) => response.json())
@@ -171,6 +173,30 @@ dotContainer.addEventListener("click", function (e) {
     }
 });
 
+// Xu li nut backToTop
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+    ) {
+        // Hiển thị nút khi người dùng cuộn xuống 20px
+        document.querySelector(".backToTop").style.display = "block";
+    } else {
+        // Ẩn nút khi người dùng ở đầu trang
+        document.querySelector(".backToTop").style.display = "none";
+    }
+}
+
+// Xử lý khi người dùng nhấn nút "Back to Top"
+document.querySelector(".backToTop").onclick = function () {
+    document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
+    document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
+};
+
 // document.addEventListener("DOMContentLoaded", function () {
 
 //     const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
@@ -230,16 +256,13 @@ dotContainer.addEventListener("click", function (e) {
 //     const cartItems = [];
 //   });
 
-
-
-
 // tìm kiếm sản phẩm
 // const search=()=>{
 //     const searchbox=document.getElementById("search-item").value.toUpperCase();
 //     const sotoreitems=document.getElementById("product-list");
 //     const product1=document.querySelectorAll(".product1");
 //     const pname=document.getElementsByTagName("h2");
-      
+
 //       for(var i=0; i<pname.length; i++){
 //       let match=product1[i].getElementsByTagName('h2')[0];
 //         if(match){
@@ -268,7 +291,3 @@ dotContainer.addEventListener("click", function (e) {
 //  })
 //  })
 // })
-
-
-
-
