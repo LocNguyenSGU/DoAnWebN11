@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DoAnWebN11</title>
-        <link rel="stylesheet" href="style.css">
         <!-- Favicon -->
         <link
             rel="apple-touch-icon"
@@ -35,11 +34,12 @@
         <link rel="stylesheet" href="./asset/css/reset.css" />
         <!-- style CSS -->
         <link rel="stylesheet" href="./asset/css/style.css" />
+        <link rel="stylesheet" href="./asset/css/cart.css" />
         <!-- Font -->
         <link rel="stylesheet" href="./asset/font/stylesheet.css" />
     </head>
     <body>
-        <header class="header">
+        <header  id="header" class="header">
             <div class="container">
                 <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
                 <nav class="nav">
@@ -87,11 +87,25 @@
                         class="search-icon"
                     />
                     </button>
-
-                    <div class="buy-card">
-                        <img src="./asset/img/header-buy.svg" alt="" />
-                        <span>$65.42</span>
+                <div id="cart-icon">
+                    <div class="buy-card">            
+                            <img src="./asset/img/header-buy.svg" alt="" />
+                            <div class="cart-items-container">
+                                <ul id="cart-items-list"></ul>
+                            </div>
+                            <span id="cart-quantity">0</span>
+                            <div class="cart-dropdown">
+                                <ul id="cart-items"></ul>
+                                <div class="cart-total">
+                                    Total: $<span id="cart-total">0.00</span>
+                                    <div>
+                                    </div>  
+                                </div>
+                                <button id="checkout-button">Checkout</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
                     <img
                         src="./asset/img/header-user.svg"
                         alt=""
@@ -101,7 +115,7 @@
                 </div>
             </div>
         </header>
-        <main class="main">
+        <main id="main" class="main">
             <div class="container">
                 <div class="slider">
                     <div class="slide">
@@ -187,53 +201,7 @@
                     </div>
                 </div>
                 <!-- display product -->
-                <div class="list-show-product">
-                    <!-- <section class="cart">
-                        <img
-                            src="./asset/img/product-coat/image 56.png"
-                            alt=""
-                            class="img-cart"
-                        />
-                        <h3 class="title">Coffee Beans-Express and nice</h3>
-                        <span class="brand">Lavazza</span>
-                        <div class="row">
-                            <span class="price">$47.00</span>
-                            <div class="row-price-star">
-                                <img
-                                    src="./asset/img/main-star.svg"
-                                    alt=""
-                                    class="star"
-                                />
-                                <span class="star-num">4.3</span>
-                            </div>
-                            <button class="add-to-cart-button"
-                            data-product-id="1"
-                            data-product-name="Coffee Beans-Express and nice"
-                            data-product-price="47.00"
-                            >
-                            Thêm vào giỏ hàng</button>
-                        </div>
-                    </section> -->
-                    <!-- <section class="cart">
-                        <img
-                            src="./asset/img/product-coat/image 56.png"
-                            alt=""
-                            class="img-cart"
-                        />
-                        <h3 class="title">Coffee Beans-Express and nice</h3>
-                        <span class="brand">Lavazza</span>
-                        <div class="row">
-                            <span class="price">$47.00</span>
-                            <div class="row-price-star">
-                                <img
-                                    src="./asset/img/main-star.svg"
-                                    alt=""
-                                    class="star"
-                                />
-                                <span class="star-num">4.3</span>
-                            </div>
-                        </div>
-                    </section> -->
+                <div class="list-show-product">        
                 </div>
                 <!-- create account -->
                 <div class="create-acc">
@@ -248,6 +216,7 @@
                     </div>
                 </div>
             </div>
+            <div id="product-list"></div>
         </main>
         <footer class="footer">
             <div class="container">
@@ -324,7 +293,7 @@
                             </li>
                             <li>
                                 <a href="#!">Contact Us</a>
-                            </li>
+                            </li>   
                         </ul>
                     </div>
                     <!-- column-4 -->
@@ -360,5 +329,6 @@
         </footer>
         <button class="backToTop">&uarr;</button>
         <script src="./asset/js/script.js"></script>
+        <script src="./asset/js/cartt.js"></script>
     </body>
 </html>

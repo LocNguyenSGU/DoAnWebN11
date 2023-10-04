@@ -41,130 +41,46 @@
     </head>
     <body>
         <header class="header">
-            <div class="container">
-                <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
-                <nav class="nav">
-                    <ul>
-                        <li>
-                            <a href="#!">Departments</a>
-                            <img
-                                src="./asset/img/header-arrown.svg"
-                                alt=""
-                                class="arrown"
-                            />
-                        </li>
-                        <li>
-                            <a href="#!">Grocery</a>
-                            <img
-                                src="./asset/img/header-arrown.svg"
-                                alt=""
-                                class="arrown"
-                            />
-                        </li>
-                        <li>
-                            <a href="#!">Beauty</a>
-                            <img
-                                src="./asset/img/header-arrown.svg"
-                                alt=""
-                                class="arrown"
-                            />
-                        </li>
-                    </ul>
-                </nav>
-                <div class="last-icon">
-                    <input
-                        type="search"
-                        name=""
-                        id=""
-                        placeholder="Nhập sản phẩm bạn cần tìm kiếm"
-                        class="hidden"
-                    />
-                    <img
-                        src="./asset/img/header-search.svg"
-                        alt=""
-                        class="search"
-                    />
-                    <div class="buy-card">
-                        <img src="./asset/img/header-buy.svg" alt="" />
-
-                    <img
-                        src="./asset/img/header-user.svg"
-                        alt=""
-                        class="icon-user"
-                    />
-                </div>
-                </div>
-            </div>
+            
         </header>
-
-
-        <button class="returnToMainPage" onclick="returnToMainPage()">Quay lại trang chính</button>
-
-        <script>
-        function returnToMainPage() {
-            window.location.href = "index.html"; // Thay đổi đường dẫn tới trang chính
-            }
-            </script>
-
-        <section id="blog-home" class="pt-5 mt-5 container">
-            <h2 class="title-cart">Shopping Cart</h2>
-            <hr>
-        </section>
-        <section id="cart-container" class="container">
-            <table width="100%">
+        <div class="container">
+            <h1>Your Shopping Cart</h1>
+            <table class="cart-table">
                 <thead>
                     <tr>
-                        <td>Remove</td>
-                        <td>Image</td>
-                        <td>Product</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Total</td>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Dữ liệu sản phẩm trong giỏ hàng sẽ được thêm ở đây -->
                     <tr>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><img src="./asset/img/product-coat/image 56.png" alt=""></td>
-                        <td>
-                            <h5>Coffee Beans-Express and nice</h5>
-                        </td>
-                        <td>
-                            <h5>47.00$</h5>
-                        </td>
-                        <td><input class="w-25 pl-1" value="1" type="number" name="" id=""></td>
-                        <td>
-
-                        </td>
+                        <td>Product Name 1</td>
+                        <td>$25.00</td>
+                        <td>2</td>
+                        <td>$50.00</td>
                     </tr>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><img src="data:image/jpeg;base64,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" alt=""></td>
-                        <td>
-                            <h5>Ghệ đẹp!</h5>
-                        </td>
-                        <td>
-                            <h5>470000.00$</h5>
-                        </td>
-                        <td><input class="w-25 pl-1" value="1" type="number" name="" id=""></td>
-                        <td>
-
-                        </td>
+                    <tr>
+                        <td>Product Name 2</td>
+                        <td>$30.00</td>
+                        <td>1</td>
+                        <td>$30.00</td>
                     </tr>
-                    <tr class="lastTableRow">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><button class="checkout-button">Thanh toán</button></td>
-                    </tr>
+                    <!-- Thêm dòng sản phẩm cho các sản phẩm khác nếu cần -->
                 </tbody>
             </table>
-            
-        </section>
-
-           
- 
+            <div class="cart-total">
+                <p>Total: $80.00</p>
+            </div>
+            <div class="checkout-button">
+                <a href="index.html">Checkout</a>
+            </div>
+        </div>
+        <div class="footer">
+            <!-- ... -->
+        </div>
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -267,7 +183,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> 
                 <div class="separate-last"></div>
                 <p class="desc-last">
                     Copyright ©2023 webdesign SGU. All rights reserved
@@ -275,4 +191,4 @@
             </div>
         </div>
     </body>
-</html>
+</html>  

@@ -1,59 +1,96 @@
-/* Layout cart */
-#cart-container table {
-   border-collapse: collapse;
-   width: 100%;
-   table-layout: fixed;
+.add-to-cart-button{
+    background-color: #007bff;
+    color: aliceblue;
+    border: 1px solid rgb(39, 39, 240);
+    cursor: pointer;
 }
 
-#cart-container table thead {
-   font-weight: 700;
+.add-to-cart-button:hover{
+    background-color: #0056b3;
 }
 
-#cart-container table thead td {
-   background-color: #2e8aed;
-   color: white;
-   border: none;
-   padding: 4px 0;
+/* CSS để điều chỉnh danh sách sản phẩm trong giỏ hàng */
+#cart-items {
+    list-style: none;
+    padding: 0;
 }
 
-.title-cart {
-   font-weight: 700;
-   font-size: 30px;
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px 0;
 }
 
-#cart-container table td {
-   border: 1px solid #070707;
-   text-align: center;
-   vertical-align: middle;
+.cart-item-image {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
 }
 
-#cart-container table td:nth-child(1) {
-   width: 100px;
+.cart-item-details {
+    flex-grow: 1;
 }
 
-#cart-container table td:nth-child(2),
-#cart-container table td:nth-child(3) {
-   width: 200px;
+.cart-item-name {
+    font-weight: bold;
 }
 
-#cart-container table td:nth-child(4),
-#cart-container table td:nth-child(5),
-#cart-container table td:nth-child(6) {
-   width: 17-px;
+.cart-item-price {
+    color: #666;
 }
 
-#cart-container table tbody img {
-   width: 80px;
-   height: 80px;
-   object-fit: cover;
-   margin-top: 5px;
+.cart-item-quantity {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 5px;
 }
 
-.lastTableRow td {
-   border-color: white !important;
+.cart-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
 }
 
-.returnToMainPage {
-   background-color: yellow;
-   margin: 10px;
+/* Trong file style.css hoặc tạo một file CSS riêng cho trang cart.html */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f2f2f2;
+}
+
+.cart-total {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 18px;
+}
+
+.checkout-button {
+    text-align: center;
+}
+
+.checkout-button a {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.checkout-button a:hover {
+    background-color: #156bc7;
 }
