@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DoAnWebN11</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="index.html">
         <!-- Favicon -->
         <link
             rel="apple-touch-icon"
@@ -44,7 +44,7 @@
             
         </header>
         <div class="container">
-            <h1>Your Shopping Cart</h1>
+                <h1>Your Shopping Cart</h1>
             <table class="cart-table">
                 <thead>
                     <tr>
@@ -54,25 +54,12 @@
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Dữ liệu sản phẩm trong giỏ hàng sẽ được thêm ở đây -->
-                    <tr>
-                        <td>Product Name 1</td>
-                        <td>$25.00</td>
-                        <td>2</td>
-                        <td>$50.00</td>
-                    </tr>
-                    <tr>
-                        <td>Product Name 2</td>
-                        <td>$30.00</td>
-                        <td>1</td>
-                        <td>$30.00</td>
-                    </tr>
-                    <!-- Thêm dòng sản phẩm cho các sản phẩm khác nếu cần -->
+                <tbody id="cart-items">
+                   
                 </tbody>
             </table>
             <div class="cart-total">
-                <p>Total: $80.00</p>
+                
             </div>
             <div class="checkout-button">
                 <a href="index.html">Checkout</a>
@@ -190,5 +177,6 @@
                 </p>
             </div>
         </div>
+        <script src="./asset/js/cartt.js"></script>
     </body>
 </html>  

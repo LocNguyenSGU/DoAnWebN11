@@ -1,4 +1,3 @@
-// Render san pham
 fetch("./asset/js/data.json")
     .then((response) => response.json())
     .then((data) => {
@@ -64,7 +63,7 @@ fetch("./asset/js/data.json")
     const cartItems = [];
     function addToCart(product) {
         const existingCartItem = cartItems.find((item) => item.id === product.id);
-    
+        
         if (existingCartItem) {
             existingCartItem.quantity++;
         } else {
