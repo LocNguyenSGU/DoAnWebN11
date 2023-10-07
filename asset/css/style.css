@@ -141,7 +141,7 @@ a {
    display: flex;
    margin-left: auto;
 }
-
+   
 .header .buy-card {
    gap: 0 5px;
    display: flex;
@@ -350,6 +350,65 @@ a {
 }
 
 /* CSS cho giỏ hàng */
+/* Thêm các luật CSS sau vào tệp CSS của bạn */
+
+/* Giỏ hàng */
+.cart {
+   border: 1px solid #ccc;
+   padding: 10px;
+   margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.cart .title {
+   font-size: 18px;
+   margin-top: 10px;
+}
+
+.cart .brand {
+   margin-top: 5px;
+}
+
+.cart .row {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   margin-top: 10px;
+}
+
+.cart .price {
+   font-weight: bold;
+   font-size: 16px;
+}
+
+.cart .star {
+   width: 20px;
+   height: 20px;
+   margin-right: 5px;
+}
+
+.cart .star-num {
+   font-size: 16px;
+}
+
+.cart .add-to-cart-button {
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   padding: 5px 10px;
+   margin-top: 10px;
+   cursor: pointer;
+   font-size: 14px;
+}
+
+.cart .add-to-cart-button:hover {
+   background-color: #0056b3;
+}
+
+
 .cart-container {
    position: relative;
    display: inline-block;
@@ -360,7 +419,7 @@ a {
 }
 
 .cart-dropdown {
-   display: none;
+   /* display: none;
    position: absolute;
    top: 40px;
    right: 0;
@@ -368,7 +427,15 @@ a {
    border: 1px solid #ccc;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
    min-width: 200px;
-   z-index: 1;
+   z-index: 1; */
+   position: absolute;
+    top: 100%; /* Đặt khoảng cách từ cart-icon đến cart-dropdown */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none; /* Ẩn ban đầu */
+    min-width: 200px; /* Đặt chiều rộng tối thiểu */
 }
 
 .cart-dropdown ul {

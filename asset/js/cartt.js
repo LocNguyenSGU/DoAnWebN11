@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   cartIcon.addEventListener("click", () => {
     toggleCartDropdown(cartItems, cartItemsList, cartDropdown);
   });
-
+  
   const checkoutButton = document.getElementById("checkout-button");
   checkoutButton.addEventListener("click", function () {
     // Lưu thông tin giỏ hàng vào Local Storage trước khi chuyển hướng
