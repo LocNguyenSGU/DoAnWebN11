@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const cartItems = getCartItemsFromLocalStorage();
   // Lấy dữ liệu từ tệp JSON và hiển thị giỏ hàng
   fetch("./asset/js/data.json")
     .then((response) => {
@@ -37,9 +38,10 @@ function getCartItemsFromLocalStorage() {
 }
 
 // Hàm hiển thị thông tin giỏ hàng
-function displayCartItems() {
+function displayCartItems(cartItems, data) {
+  console.log("Displaying cart items"); // Kiểm tra xem hàm này đã được gọi hay chưa
+  
   const table = document.querySelector(".cart-table tbody");
-  const cartItems = getCartItemsFromLocalStorage();
 
   cartItems.forEach((cartItem) => {
     const row = table.insertRow(-1);
@@ -47,16 +49,18 @@ function displayCartItems() {
     const priceCell = row.insertCell(1);
     const quantityCell = row.insertCell(2);
     const totalCell = row.insertCell(3);
+    const productImage = document.createElement("img");
+    
+    productImage.src = cartItem.image;
+    productImage.alt = cartItem.name;
 
-    productCell.textContent = cartItem.name;
+    productCell.appendChild(productImage);
+
     priceCell.textContent = `$${cartItem.price.toFixed(2)}`;
     quantityCell.textContent = cartItem.quantity;
     totalCell.textContent = `$${(cartItem.price * cartItem.quantity).toFixed(2)}`;
   });
 }
-document.addEventListener("DOMContentLoaded", function () {
-  displayCartItems();
-});
 
 function toggleCartDropdown(cartItems, cartItemsList, cartDropdown) {
   cartItemsList.innerHTML = "";
