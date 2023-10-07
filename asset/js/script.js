@@ -230,3 +230,15 @@ document.addEventListener('DOMContentLoaded', function () {
  })
  })
 })
+
+//Login button
+document.querySelector('.icon-user').onclick=function(){
+    Object.assign(document.querySelector('.loginBlock').style,{
+        translate: '-350px'
+    })
+}
+document.querySelector('.closeLoginBlock img').onclick=function(){
+    Object.assign(document.querySelector('.loginBlock').style,{
+        translate: '350px'
+    })
+}
