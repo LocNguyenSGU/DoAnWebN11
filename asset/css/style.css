@@ -706,15 +706,6 @@ a {
    /* Màu nền thay đổi khi hover */
 
 }
-
-.cart-list {
-   display: none;
-}
-
-.show-cart .cart-list {
-   display: block;
-}
-
 .cart-container {
    display: none;
 }

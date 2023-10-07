@@ -50,6 +50,7 @@
 .cart-dropdown {
     max-height: 200px;
     overflow-y: auto;
+    margin-top: 50px;
 }
 
 /* Trong file style.css hoặc tạo một file CSS riêng cho trang cart.html */
