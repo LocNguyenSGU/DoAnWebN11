@@ -762,7 +762,7 @@ a {
 .loginBlock {
    width: 350px;
    height: 100%;
-   background-color: yellowgreen;
+   background-color: rgba(255, 255, 255, 1);
    margin: 0px 0px 0px 100%;
    box-sizing: border-box;
    padding: 10px;
@@ -771,16 +771,12 @@ a {
    top: 0;
    z-index: 999999;
 }
-.tab-form {
-   display: flex;
-}
-.tab-login {
-   font-size: 20px;
-   margin: 50px auto 0px;
-}
-.tab-signup {
-   font-size: 20px;
-   margin: 50px auto 0px;
+.tab {
+    font-size: 20px;
+    text-align: center;
+    color: #c23564;
+    opacity: 0.6;
+    cursor: pointer;
 }
 .closeLoginBlock {
    margin: 20px;
@@ -788,4 +784,78 @@ a {
 } 
 .closeLoginBlock img {
    width: 30px;
+}
+.tabs {
+   display: flex;
+   position: relative;
+   margin-bottom: 20px;
+}
+.tabs .line {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 0;
+   height: 6px;
+   border-radius: 15px;
+   background-color: #c23564;
+   transition: all 0.2s ease;
+}
+.tab-item {
+   width: 50%;
+   padding: 16px 20px 11px 20px;
+   margin: auto;
+   font-size: 20px;
+   text-align: center;
+   color: #c23564;
+   background-color: #fff;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom: 5px solid transparent;
+   opacity: 0.6;
+   cursor: pointer;
+   transition: all 0.5s ease;
+}
+.tab-item:hover, .tab-item.active {
+   opacity: 1;
+   background-color: rgba(194, 53, 100, 0.05);
+   border-color: rgba(194, 53, 100, 0.1);
+}
+.tab-pane {
+   display: none;
+}
+.tab-pane.active {
+   display: block;
+}
+.form-group {
+   display: flex;
+   margin-bottom: 16px;
+   flex-direction: column;
+}
+.form-label {
+   font-weight: 700;
+   margin: 10px 0px 7px 0px;
+   line-height: 1.8rem;
+   font-size: 1.6rem;
+}
+.form-control {
+   height: 40px;
+   padding: 8px 12px;
+   border: 1px solid #b3b3b3;
+   border-radius: 6px;
+   outline: none;
+   font-size: 1.4rem;
+}
+.form-submit {
+   margin-top: 20px;
+   width: 100%;
+   border-radius: 6px;
+   font-size: 1.4rem;
+   height: 40px;
+   background-color: #1EBFC1;
+}
+.desc {
+   margin: 20px 0px;
+   text-align: center;
+   font-weight: 500;
+   font-size: 1.6rem;
 }

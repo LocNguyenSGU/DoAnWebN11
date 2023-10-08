@@ -328,13 +328,59 @@
         <button class="backToTop">&uarr;</button>
         <div class="loginBlock">
             <div class="closeLoginBlock"><img src="./asset/img/bx-x.svg"></div>
+            <p class="desc">Mua quần áo giá rẻ mà chất lượng cao tại shop của chúng tôi (^^)/</p>
             <div class="tab-form">
-            <div class="tab-login">
-                <h2>Đăng nhập</h2>              
-            </div>
-            <div class="tab-signup">
-                <h2>Đăng kí</h2>              
-            </div>
+                <div class="tabs">
+                    <div class="tab-item active">
+                      Đăng nhập
+                    </div>
+                    <div class="tab-item">
+                      Đăng kí
+                    </div>
+                    <div class="line"></div>
+                  </div>
+                
+                  <!-- Tab content -->
+                  <div class="tab-content">
+                    <div class="tab-pane active">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                  
+                        <div class="form-group">
+                            <label for="password" class="form-label">Mật khẩu</label>
+                            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                  
+                        <button class="form-submit">Đăng nhập</button>
+                    </div>
+                    <div class="tab-pane">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                  
+                        <div class="form-group">
+                            <label for="password" class="form-label">Mật khẩu</label>
+                            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                  
+                        <div class="form-group">
+                            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                            <span class="form-message"></span>
+                        </div>
+                  
+                        <button class="form-submit">Đăng ký</button>
+                    </div>
+
+                  </div>
+                </div>
             </div>
         </div>
         <script src="./asset/js/script.js"></script>
