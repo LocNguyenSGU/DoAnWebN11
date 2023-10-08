@@ -846,16 +846,27 @@ a {
    font-size: 1.4rem;
 }
 .form-submit {
+   cursor: pointer;
    margin-top: 20px;
    width: 100%;
    border-radius: 6px;
    font-size: 1.4rem;
    height: 40px;
    background-color: #1EBFC1;
+   border: none;
+}
+.form-submit:hover {
+   background-color: #0ba1a3;
 }
 .desc {
    margin: 20px 0px;
    text-align: center;
    font-weight: 500;
    font-size: 1.6rem;
+}
+.loginLogo {
+   margin: 20px;
+   display: grid;
+   text-align: center;
+   justify-items: center;
 }
