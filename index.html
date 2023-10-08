@@ -326,6 +326,7 @@
             </div>
         </footer>
         <button class="backToTop">&uarr;</button>
+                <!-- Login Tab -->
         <div class="loginBlock">
             <div class="closeLoginBlock"><img src="./asset/img/bx-x.svg"></div>
             <p class="desc">Mua quần áo giá rẻ mà chất lượng cao tại shop của chúng tôi (^^)/</p>
@@ -333,16 +334,17 @@
             <div class="tab-form">
                 <div class="tabs">
                     <div class="tab-item active">
-                      Đăng nhập
+                        Đăng nhập
                     </div>
                     <div class="tab-item">
-                      Đăng kí
+                        Đăng kí
                     </div>
-                    <div class="line"></div>
-                  </div>
+                        <div class="line"></div>
+                    </div>
                 
                   <!-- Tab content -->
-                  <div class="tab-content">
+                <div class="tab-content">
+                <form action="" method="POST" class="form" id="form-1">  
                     <div class="tab-pane active">
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
@@ -358,6 +360,8 @@
                   
                         <button class="form-submit">Đăng nhập</button>
                     </div>
+                    </form>
+                    <form action="" method="POST" class="form" id="form-2">  
                     <div class="tab-pane">
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
@@ -379,6 +383,7 @@
                   
                         <button class="form-submit">Đăng ký</button>
                     </div>
+                    </form>
 
                   </div>
                 </div>
@@ -386,5 +391,42 @@
         </div>
         <script src="./asset/js/script.js"></script>
         <script src="./asset/js/cartt.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+          Validator({
+            form: '#form-2',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isEmail('#email'),
+              Validator.minLength('#password', 6),
+              Validator.isRequired('#password_confirmation'),
+              Validator.isConfirmed('#password_confirmation', function () {
+                return document.querySelector('#form-1 #password').value;
+              }, 'Mật khẩu nhập lại không chính xác')
+            ],
+            onSubmit: function (data) {
+              // Call API
+              console.log(data);
+            }
+          });
+  
+  
+          Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isEmail('#email'),
+              Validator.minLength('#password', 6),
+            ],
+            onSubmit: function (data) {
+              // Call API
+              console.log(data);
+            }
+          });
+        });
+      
+          </script>
     </body>
 </html>

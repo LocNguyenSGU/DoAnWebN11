@@ -858,6 +858,11 @@ a {
 .form-submit:hover {
    background-color: #0ba1a3;
 }
+.form-message {
+   margin-top: 2px;
+   color: red;
+   font-size: 1.4rem;
+}
 .desc {
    margin: 20px 0px;
    text-align: center;
