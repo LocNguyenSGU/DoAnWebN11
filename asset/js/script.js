@@ -291,11 +291,9 @@ function Validator(options) {
         }
         
         if (errorMessage) {
-            errorElement.innerText = errorMessage;
-            getParent(inputElement, options.formGroupSelector).classList.add('invalid');
+            errorElement.innerText = errorMessage; 
         } else {
             errorElement.innerText = '';
-            getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
         }
 
         return !errorMessage;
@@ -379,7 +377,6 @@ function Validator(options) {
                 inputElement.oninput = function () {
                     var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
                     errorElement.innerText = '';
-                    getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
                 } 
             });
         });
@@ -397,7 +394,7 @@ Validator.isRequired = function (selector, message) {
     return {
         selector: selector,
         test: function (value) {
-            return value ? undefined :  message || 'Vui lòng nhập trường này'
+            return value.trim() ? undefined :  message || 'Vui lòng nhập trường này'
         }
     };
 }

@@ -421,6 +421,7 @@
             errorSelector: '.form-message',
             rules: [
               Validator.isEmail('#email'),
+              Validator.isRequired('#password'),
               Validator.minLength('#password', 6),
             ],
             onSubmit: function (data) {
