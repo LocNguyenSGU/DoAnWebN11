@@ -174,5 +174,48 @@
         </div>
     </div>
     <script src="./asset/js/cartt.js"></script>
+    <script src="./asset/js/script.js"></script>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const cartItemsList = document.getElementById("cart-items");
+  function getCartItemsFromLocalStorage() {
+    const cartItemsJSON = localStorage.getItem("cart");
+    return JSON.parse(cartItemsJSON) || [];
+  }
+  function displayCartItems() {
+    const cartItems = getCartItemsFromLocalStorage();
+
+    cartItemsList.innerHTML = ""; // Xóa dữ liệu cũ trước khi hiển thị dữ liệu mới
+
+    cartItems.forEach((cartItem) => {
+      const row = document.createElement("tr");
+      const imageCell = document.createElement("td");
+      const productCell = document.createElement("td");
+      const priceCell = document.createElement("td");
+      const quantityCell = document.createElement("td");
+      const totalCell = document.createElement("td");
+
+      const productImage = document.createElement("img");
+      productImage.src = cartItem.image;
+      productImage.alt = cartItem.name;
+
+      imageCell.appendChild(productImage);
+      productCell.textContent = cartItem.name;
+      priceCell.textContent = `$${cartItem.price.toFixed(2)}`;
+      quantityCell.textContent = cartItem.quantity;
+      totalCell.textContent = `$${(cartItem.price * cartItem.quantity).toFixed(2)}`;
+
+      row.appendChild(imageCell);
+      row.appendChild(productCell);
+      row.appendChild(priceCell);
+      row.appendChild(quantityCell);
+      row.appendChild(totalCell);
+
+      cartItemsList.appendChild(row);
+    });
+  }
+  displayCartItems();
+});
+</script>
 </html>

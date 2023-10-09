@@ -51,16 +51,14 @@ fetch("./asset/js/data.json")
             );
             showProductsByType("sweater");
         } else {
-            console.error(
-                "Không tìm thấy phần tử có class 'list-show-product' hoặc nút 'showShirtsButton' hoặc 'showPantsButton'."
-            );
+            console.log(localStorage.getItem("cart"));
         }
     })
     .catch((error) => {
         console.error("Lỗi khi tải dữ liệu JSON:", error);
     });
 // Su kien click add to cart
-    const cartItems = [];
+    var cartItems = [];
     function addToCart(product) {
         const existingCartItem = cartItems.find((item) => item.id === product.id);
         
@@ -75,7 +73,6 @@ fetch("./asset/js/data.json")
                 quantity: 1,
             });
         }
-    
         updateCartDisplay();
     }
     function updateCartDisplay() {
