@@ -20,7 +20,7 @@ html {
 }
 
 body {
-   
+
    font-size: 1.6rem;
    font-family: 'Gordita', sans-serif;
 }
@@ -32,7 +32,7 @@ body {
    margin: 0 auto;
 }
 
-.container h1{
+.container h1 {
    font-size: 30px;
    height: auto;
 }
@@ -95,6 +95,18 @@ a {
    position: relative;
 }
 
+.header .nav ul li a::after {
+   display: flex;
+   content: "";
+   position: absolute;
+   left: 5px;
+   bottom: 0px;
+   width: 90%;
+   height: 1px;
+   background-color: black;
+   display: none;
+}
+
 .header .nav ul li .arrown {
    position: absolute;
    top: 10px;
@@ -142,7 +154,7 @@ a {
    display: flex;
    margin-left: auto;
 }
-   
+
 .header .buy-card {
    gap: 0 5px;
    display: flex;
@@ -360,7 +372,21 @@ a {
    margin-bottom: 10px;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   overflow: hidden;
+   padding: 16px;
+   background-color: #fff;
+   border-radius: 20px;
+}
+.list-show-product .cart .wrap-img-cart {
+   overflow: hidden;
+}
+/* .cart-container {
+   position: relative;
+   display: inline-block;
+} */
+
+.list-show-product .cart:hover {
+   box-shadow: 0px 16px 40px 0px rgba(0, 0, 0, 0.18)
 }
 
 .cart .title {
@@ -396,92 +422,35 @@ a {
 }
 
 .cart .add-to-cart-button {
-   background-color: #007bff;
+   background-color: #1EBFC1;
    color: #fff;
    border: none;
    padding: 5px 10px;
+   margin-left: auto;
    margin-top: 10px;
    cursor: pointer;
    font-size: 14px;
+   max-width: 100px;
 }
 
 .cart .add-to-cart-button:hover {
-   background-color: #0056b3;
-}
-
-
-.cart-container {
-   position: relative;
-   display: inline-block;
+   background-color: #27b6b9;
+   transform: scale(1.05);
 }
 
 .cart-icon {
    cursor: pointer;
 }
 
-.cart-dropdown {
-   /* display: none;
-   position: absolute;
-   top: 40px;
-   right: 0;
-   background-color: #fff;
-   border: 1px solid #ccc;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   min-width: 200px;
-   z-index: 1; */
-   position: absolute;
-    top: 100%; /* Đặt khoảng cách từ cart-icon đến cart-dropdown */
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: none; /* Ẩn ban đầu */
-    min-width: 200px; /* Đặt chiều rộng tối thiểu */
-}
-
-.cart-dropdown ul {
-   list-style-type: none;
-   padding: 0;
-   margin: 0;
-}
-
-.cart-dropdown li {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 10px;
-   border-bottom: 1px solid #ccc;
-}
-
-.cart-total {
-   padding: 10px;
-   text-align: right;
-   font-weight: bold;
-}
-
-#checkout-button {
-   display: block;
-   width: 100%;
-   padding: 10px;
-   background-color: #007bff;
-   color: #fff;
-   border: none;
-   cursor: pointer;
-}
-
-#checkout-button:hover {
-   background-color: #0056b3;
-}
-.list-show-product .cart {
-   padding: 16px;
-   background-color: #fff;
-   border-radius: 20px;
-}
-
 .list-show-product .cart .img-cart {
    width: 280px;
    height: 284px;
    object-fit: cover;
+   transition: all 0.5s;
+}
+
+.list-show-product .cart .img-cart:hover {
+   transform: scale(1.2);
 }
 
 .list-show-product .cart .title {
@@ -489,7 +458,7 @@ a {
    font-size: 1.6rem;
    font-weight: 500;
    line-height: 1.5;
-   margin-bottom: 16px;
+   margin-bottom: 5px;
 }
 
 .list-show-product .brand {
@@ -673,7 +642,7 @@ a {
 
 .add-to-cart-button {
    padding: 10px 10px;
-   background-color: #3f75af;
+   background-color: #1EBFC1;
    color: #fff;
    border: none;
    border-radius: 4px;
@@ -681,32 +650,6 @@ a {
    cursor: pointer;
 }
 
-.add-to-cart-button:hover {
-   background-color: #007afc;
-   transform: scale(1.05);
-   /* cai nay la dua tro chuot va phong to thu nho */
-}
-
-/* moi biet */
-.checkout-button {
-   padding: 10px 10px;
-   background-color: #074f9d;
-   color: #fff;
-   border: none;
-   border-radius: 4px;
-   font-size: 14px;
-   cursor: pointer;
-   transition: background-color 0.3s ease;
-   margin: 20px;
-}
-
-.checkout-button:hover {
-   transform: scale(1.03);
-   /* cai nay la dua tro chuot va phong to thu nho */
-   background-color: #007bff;
-   /* Màu nền thay đổi khi hover */
-
-}
 .cart-container {
    display: none;
 }
@@ -757,8 +700,9 @@ a {
 
 .icon-user:hover {
    cursor: pointer;
-   background-color: rgba(255, 255, 255,0.5);
+   background-color: rgba(255, 255, 255, 0.5);
 }
+
 .loginBlock {
    width: 350px;
    height: 100%;
@@ -771,25 +715,30 @@ a {
    top: 0;
    z-index: 999999;
 }
+
 .tab {
-    font-size: 20px;
-    text-align: center;
-    color: #c23564;
-    opacity: 0.6;
-    cursor: pointer;
+   font-size: 20px;
+   text-align: center;
+   color: #c23564;
+   opacity: 0.6;
+   cursor: pointer;
 }
+
 .closeLoginBlock {
    margin: 20px;
    text-align: right;
-} 
+}
+
 .closeLoginBlock img {
    width: 30px;
 }
+
 .tabs {
    display: flex;
    position: relative;
    margin-bottom: 20px;
 }
+
 .tabs .line {
    position: absolute;
    left: 0;
@@ -800,6 +749,7 @@ a {
    background-color: #c23564;
    transition: all 0.2s ease;
 }
+
 .tab-item {
    width: 50%;
    padding: 16px 20px 11px 20px;
@@ -815,28 +765,35 @@ a {
    cursor: pointer;
    transition: all 0.5s ease;
 }
-.tab-item:hover, .tab-item.active {
+
+.tab-item:hover,
+.tab-item.active {
    opacity: 1;
    background-color: rgba(194, 53, 100, 0.05);
    border-color: rgba(194, 53, 100, 0.1);
 }
+
 .tab-pane {
    display: none;
 }
+
 .tab-pane.active {
    display: block;
 }
+
 .form-group {
    display: flex;
    margin-bottom: 16px;
    flex-direction: column;
 }
+
 .form-label {
    font-weight: 700;
    margin: 10px 0px 7px 0px;
    line-height: 1.8rem;
    font-size: 1.6rem;
 }
+
 .form-control {
    height: 40px;
    padding: 8px 12px;
@@ -845,6 +802,7 @@ a {
    outline: none;
    font-size: 1.4rem;
 }
+
 .form-submit {
    cursor: pointer;
    margin-top: 20px;
@@ -855,21 +813,25 @@ a {
    background-color: #1EBFC1;
    border: none;
 }
+
 .form-submit:hover {
    background-color: #0ba1a3;
 }
+
 .form-message {
    margin-top: 2px;
    color: red;
    font-size: 1.4rem;
    height: 10px;
 }
+
 .desc {
    margin: 20px 0px;
    text-align: center;
    font-weight: 500;
    font-size: 1.6rem;
 }
+
 .loginLogo {
    margin: 20px;
    display: grid;

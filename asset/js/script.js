@@ -14,13 +14,14 @@ fetch("./asset/js/data.json")
                     const productSection = document.createElement("section");
                     productSection.classList.add("cart");
                     productSection.innerHTML = `
+                    <div class="wrap-img-cart">   
                         <img
                             src="${product.image}"
                             alt="${product.name}"
                             class="img-cart"
                         />
+                    </div>
                         <h3 class="title">${product.name}</h3>
-                        <span class="brand">Lavazza</span>
                         <div class="row">
                             <span class="price">$${product.price}</span>
                             <div class="row-price-star">
@@ -35,8 +36,12 @@ fetch("./asset/js/data.json")
                         <button class="add-to-cart-button" data-product-id="1">Add to Cart</button>
                     `;
                     productList.appendChild(productSection);
-                    const addToCartButton = productSection.querySelector(".add-to-cart-button");
-                    addToCartButton.addEventListener("click", () => addToCart(product));
+                    const addToCartButton = productSection.querySelector(
+                        ".add-to-cart-button"
+                    );
+                    addToCartButton.addEventListener("click", () =>
+                        addToCart(product)
+                    );
                 });
             }
 
@@ -60,37 +65,40 @@ fetch("./asset/js/data.json")
         console.error("Lỗi khi tải dữ liệu JSON:", error);
     });
 // Su kien click add to cart
-    const cartItems = [];
-    function addToCart(product) {
-        const existingCartItem = cartItems.find((item) => item.id === product.id);
-        
-        if (existingCartItem) {
-            existingCartItem.quantity++;
-        } else {
-            cartItems.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity: 1,
-            });
-        }
-    
-        updateCartDisplay();
+const cartItems = [];
+
+// Them san pham vao gio hang
+function addToCart(product) {
+    const existingCartItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingCartItem) {
+        existingCartItem.quantity++;
+    } else {
+        cartItems.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1,
+        });
+        console.log(cartItems)
     }
-    function updateCartDisplay() {
-        const cartQuantity = document.getElementById("cart-quantity");
-        const cartTotal = document.getElementById("cart-total");
-        const cartItemsList = document.getElementById("cart-items");
-    
-        let totalQuantity = 0;
-        let totalPrice = 0;
-    
-        cartItemsList.innerHTML = ""; // Xóa bỏ các sản phẩm trong giỏ hàng hiện tại
-    
-        cartItems.forEach((item) => {
-            const cartItem = document.createElement("li");
-            cartItem.innerHTML = `
+
+    updateCartDisplay();
+}
+function updateCartDisplay() {
+    const cartQuantity = document.getElementById("cart-quantity");
+    const cartTotal = document.getElementById("cart-total");
+    const cartItemsList = document.getElementById("cart-items");
+
+    let totalQuantity = 0;
+    let totalPrice = 0;
+
+    cartItemsList.innerHTML = ""; // Xóa bỏ các sản phẩm trong giỏ hàng hiện tại
+
+    cartItems.forEach((item) => {
+        const cartItem = document.createElement("li");
+        cartItem.innerHTML = `
                 <img
                     src="${item.image}"
                     alt="${item.name}"
@@ -98,24 +106,28 @@ fetch("./asset/js/data.json")
                 />
                 <div class="cart-item-details">
                     <span class="cart-item-name">${item.name}</span>
-                    <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
-                    <span class="cart-item-quantity">Quantity: ${item.quantity}</span>
+                    <span class="cart-item-price">$${(
+                        item.price * item.quantity
+                    ).toFixed(2)}</span>
+                    <span class="cart-item-quantity">Quantity: ${
+                        item.quantity
+                    }</span>
                 </div>
             `;
-            cartItemsList.appendChild(cartItem);
-    
-            totalQuantity += item.quantity;
-            totalPrice += item.price * item.quantity;
-        });
-    
-        cartQuantity.textContent = totalQuantity;
-        cartTotal.textContent = totalPrice.toFixed(2);
-    }
-    
-    // Bắt sự kiện khi trang web được tải và cập nhật hiển thị giỏ hàng ban đầu
-    document.addEventListener("DOMContentLoaded", function () {
-        updateCartDisplay();
+        cartItemsList.appendChild(cartItem);
+
+        totalQuantity += item.quantity;
+        totalPrice += item.price * item.quantity;
     });
+
+    cartQuantity.textContent = totalQuantity;
+    cartTotal.textContent = totalPrice.toFixed(2);
+}
+
+// Bắt sự kiện khi trang web được tải và cập nhật hiển thị giỏ hàng ban đầu
+document.addEventListener("DOMContentLoaded", function () {
+    updateCartDisplay();
+});
 
 // hinh anh truot qua lai
 const slides = document.querySelectorAll(".slide");
@@ -214,34 +226,17 @@ document.querySelector(".backToTop").onclick = function () {
     document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
 };
 
-// tìm  kiêms sản phẩm
-document.addEventListener('DOMContentLoaded', function () {
- var searchInput = document.querySelector('.search-field')
-     searchInput.addEventListener('input',function(e){
-    let txtSearch= e.target.value.trim().toLowerCase()
-    let listProductDom=document.querySelectorAll('.list-show-product .cart')
-         listProductDom.forEach(item=>{
-         if(item.innerText.toLowerCase().includes(txtSearch)){
-            item.classList.remove('hide') // hide xóa khi không tìm thấy
-        }
-        else{
-            item.classList.add('hide')   // hiển thị
-        }
- })
- })
-})
-
 //Login button
-document.querySelector('.icon-user').onclick=function(){
-    Object.assign(document.querySelector('.loginBlock').style,{
-        translate: '-350px'
-    })
-}
-document.querySelector('.closeLoginBlock img').onclick=function(){
-    Object.assign(document.querySelector('.loginBlock').style,{
-        translate: '350px'
-    })
-}
+document.querySelector(".icon-user").onclick = function () {
+    Object.assign(document.querySelector(".loginBlock").style, {
+        translate: "-350px",
+    });
+};
+document.querySelector(".closeLoginBlock img").onclick = function () {
+    Object.assign(document.querySelector(".loginBlock").style, {
+        translate: "350px",
+    });
+};
 const tabs = document.querySelectorAll(".tab-item");
 const panes = document.querySelectorAll(".tab-pane");
 tabs.forEach((tab, index) => {
@@ -251,7 +246,7 @@ tabs.forEach((tab, index) => {
         document.querySelector(".tab-pane.active").classList.remove("active");
         this.classList.add("active");
         pane.classList.add("active");
-  };
+    };
 });
 // Đối tượng `Validator`
 function Validator(options) {
@@ -268,20 +263,23 @@ function Validator(options) {
 
     // Hàm thực hiện validate
     function validate(inputElement, rule) {
-        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+        var errorElement = getParent(
+            inputElement,
+            options.formGroupSelector
+        ).querySelector(options.errorSelector);
         var errorMessage;
 
         // Lấy ra các rules của selector
         var rules = selectorRules[rule.selector];
-        
+
         // Lặp qua từng rule & kiểm tra
         // Nếu có lỗi thì dừng việc kiểm
         for (var i = 0; i < rules.length; ++i) {
             switch (inputElement.type) {
-                case 'radio':
-                case 'checkbox':
+                case "radio":
+                case "checkbox":
                     errorMessage = rules[i](
-                        formElement.querySelector(rule.selector + ':checked')
+                        formElement.querySelector(rule.selector + ":checked")
                     );
                     break;
                 default:
@@ -289,11 +287,11 @@ function Validator(options) {
             }
             if (errorMessage) break;
         }
-        
+
         if (errorMessage) {
-            errorElement.innerText = errorMessage; 
+            errorElement.innerText = errorMessage;
         } else {
-            errorElement.innerText = '';
+            errorElement.innerText = "";
         }
 
         return !errorMessage;
@@ -319,17 +317,21 @@ function Validator(options) {
 
             if (isFormValid) {
                 // Trường hợp submit với javascript
-                if (typeof options.onSubmit === 'function') {
-                    var enableInputs = formElement.querySelectorAll('[name]');
-                    var formValues = Array.from(enableInputs).reduce(function (values, input) {
-                        
-                        switch(input.type) {
-                            case 'radio':
-                                values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
+                if (typeof options.onSubmit === "function") {
+                    var enableInputs = formElement.querySelectorAll("[name]");
+                    var formValues = Array.from(enableInputs).reduce(function (
+                        values,
+                        input
+                    ) {
+                        switch (input.type) {
+                            case "radio":
+                                values[input.name] = formElement.querySelector(
+                                    'input[name="' + input.name + '"]:checked'
+                                ).value;
                                 break;
-                            case 'checkbox':
-                                if (!input.matches(':checked')) {
-                                    values[input.name] = '';
+                            case "checkbox":
+                                if (!input.matches(":checked")) {
+                                    values[input.name] = "";
                                     return values;
                                 }
                                 if (!Array.isArray(values[input.name])) {
@@ -337,7 +339,7 @@ function Validator(options) {
                                 }
                                 values[input.name].push(input.value);
                                 break;
-                            case 'file':
+                            case "file":
                                 values[input.name] = input.files;
                                 break;
                             default:
@@ -345,7 +347,8 @@ function Validator(options) {
                         }
 
                         return values;
-                    }, {});
+                    },
+                    {});
                     options.onSubmit(formValues);
                 }
                 // Trường hợp submit với hành vi mặc định
@@ -353,11 +356,10 @@ function Validator(options) {
                     formElement.submit();
                 }
             }
-        }
+        };
 
         // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
         options.rules.forEach(function (rule) {
-
             // Lưu lại các rules cho mỗi input
             if (Array.isArray(selectorRules[rule.selector])) {
                 selectorRules[rule.selector].push(rule.test);
@@ -368,23 +370,23 @@ function Validator(options) {
             var inputElements = formElement.querySelectorAll(rule.selector);
 
             Array.from(inputElements).forEach(function (inputElement) {
-               // Xử lý trường hợp blur khỏi input
+                // Xử lý trường hợp blur khỏi input
                 inputElement.onblur = function () {
                     validate(inputElement, rule);
-                }
+                };
 
                 // Xử lý mỗi khi người dùng nhập vào input
                 inputElement.oninput = function () {
-                    var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
-                    errorElement.innerText = '';
-                } 
+                    var errorElement = getParent(
+                        inputElement,
+                        options.formGroupSelector
+                    ).querySelector(options.errorSelector);
+                    errorElement.innerText = "";
+                };
             });
         });
     }
-
 }
-
-
 
 // Định nghĩa rules
 // Nguyên tắc của các rules:
@@ -394,36 +396,43 @@ Validator.isRequired = function (selector, message) {
     return {
         selector: selector,
         test: function (value) {
-            return value.trim() ? undefined :  message || 'Vui lòng nhập trường này'
-        }
+            return value.trim()
+                ? undefined
+                : message || "Vui lòng nhập trường này";
+        },
     };
-}
+};
 
 Validator.isEmail = function (selector, message) {
     return {
         selector: selector,
         test: function (value) {
             var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            return regex.test(value) ? undefined :  message || 'Trường này phải là email';
-        }
+            return regex.test(value)
+                ? undefined
+                : message || "Trường này phải là email";
+        },
     };
-}
+};
 
 Validator.minLength = function (selector, min, message) {
     return {
         selector: selector,
         test: function (value) {
-            return value.length >= min ? undefined :  message || `Vui lòng nhập tối thiểu ${min} kí tự`;
-        }
+            return value.length >= min
+                ? undefined
+                : message || `Vui lòng nhập tối thiểu ${min} kí tự`;
+        },
     };
-}
+};
 
 Validator.isConfirmed = function (selector, getConfirmValue, message) {
     return {
         selector: selector,
         test: function (value) {
-            return value === getConfirmValue() ? undefined : message || 'Giá trị nhập vào không chính xác';
-        }
-    }
-}
-
+            return value === getConfirmValue()
+                ? undefined
+                : message || "Giá trị nhập vào không chính xác";
+        },
+    };
+};

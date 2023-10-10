@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="./asset/font/stylesheet.css" />
     </head>
     <body>
-        <header  id="header" class="header">
+        <header class="header">
             <div class="container">
                 <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
                 <nav class="nav">
@@ -53,10 +53,10 @@
                             />
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#!" class="btn-sweater">Sweater</a>
+                                    <a href="#recommend" class="btn-sweater">Sweater</a>
                                 </li>
                                 <li>
-                                    <a href="#!" class="btn-pants">Pants</a>
+                                    <a href="#recommend" class="btn-pants">Pants</a>
                                 </li>
                                 <li>
                                     <a href="#!">Shoe</a>
@@ -87,23 +87,10 @@
                         class="search-icon"
                     />
                     </button>
-                <div id="cart-icon">
-                    <div class="buy-card">            
-                            <img style="cursor: pointer;" src="./asset/img/header-buy.svg" alt="" />
-                            <div class="cart-items-container">
-                                <ul id="cart-items-list"></ul>
-                            </div>
-                            <span id="cart-quantity">0</span>
-                            <div class="cart-dropdown">
-                                <span id="cart-items"></span>
-                                <div class="cart-total">
-                                    Total: $<span id="cart-total">0.00</span>
-                                </div>
-                                <button id="checkout-button">Checkout</button>
-                            </div>
-                        </div>
+                    <div class="buy-card">
+                        <img src="./asset/img/header-buy.svg" alt="" />
+                        <span>$65.42</span>
                     </div>
-                </div>
                     <img
                         src="./asset/img/header-user.svg"
                         alt=""
@@ -142,7 +129,7 @@
                     <div class="dots"></div>
                 </div>
                 <!-- recommend -->
-                <div class="recommend">
+                <div class="recommend" id="recommend">
                     <h3 class="title">Recommend for you</h3>
                     <div class="row">
                         <div class="recommend-product">
@@ -187,7 +174,7 @@
                     </div>
                 </div>
                 <!-- hello and filter -->
-                <div class="row hello-filter">
+                <div class="row hello-filter" id="hello">
                     <p class="hello">Hello everybody. Welcome our website</p>
                     <div class="filter">
                         <span>Filter</span>
@@ -199,7 +186,35 @@
                     </div>
                 </div>
                 <!-- display product -->
-                <div class="list-show-product">        
+                <div class="list-show-product">
+                    <section class="cart">
+                        <div class="wrap-img-cart">
+                            <img
+                            src="./asset/img/product-pants/pants-201.jpg"
+                            alt=""
+                            class="img-cart"
+                        />
+                        </div>
+                        <h3 class="title">Coffee Beans-Express and nice</h3>
+                        <span class="brand">Lavazza</span>
+                        <div class="row">
+                            <span class="price">$47.00</span>
+                            <div class="row-price-star">
+                                <img
+                                    src="./asset/img/main-star.svg"
+                                    alt=""
+                                    class="star"
+                                />
+                                <span class="star-num">4.3</span>
+                            </div>
+                            <button class="add-to-cart-button"
+                            data-product-id="1"
+                            data-product-name="Coffee Beans-Express and nice"
+                            data-product-price="47.00"
+                            >
+                            Thêm vào giỏ hàng</button>
+                        </div>
+                    </section> 
                 </div>
                 <!-- create account -->
                 <div class="create-acc">
