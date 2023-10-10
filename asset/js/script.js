@@ -56,9 +56,7 @@ fetch("./asset/js/data.json")
             );
             showProductsByType("sweater");
         } else {
-            console.error(
-                "Không tìm thấy phần tử có class 'list-show-product' hoặc nút 'showShirtsButton' hoặc 'showPantsButton'."
-            );
+            console.log(localStorage.getItem("cart"));
         }
     })
     .catch((error) => {
