@@ -200,6 +200,11 @@ dotContainer.addEventListener("click", function (e) {
     }
 });
 
+const startAutoSlide = function () {
+    autoSlideInterval = setInterval(nextSlide, 3000); // Chuyển slide sau mỗi 3 giây
+};
+startAutoSlide();
+
 // Xu li nut backToTop
 window.onscroll = function () {
     scrollFunction();
