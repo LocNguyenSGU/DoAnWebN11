@@ -326,6 +326,7 @@ a {
    width: 50px;
    height: 50px;
    margin-left: 20px;
+   user-select: none;
 }
 
 
@@ -334,6 +335,7 @@ a {
 .main {
    background-color: var(--background-color);
    padding-bottom: 60px;
+   position: relative;
 }
 
 .main .container {
@@ -859,18 +861,27 @@ a {
    cursor: pointer;
    background-color: rgba(255, 255, 255, 0.8);
 }
-
-.loginBlock {
-   width: 350px;
+.loginBackground{
+   width: 100%;
    height: 100%;
-   background-color: rgba(255, 255, 255, 1);
-   margin: 0px 0px 0px 100%;
-   box-sizing: border-box;
-   padding: 10px;
-   transition: linear 0.3s;
+   visibility: hidden;
+   background: rgba(0, 0, 0, 0.5);
    position: fixed;
    top: 0;
-   z-index: 999999;
+   z-index: 99999;
+   
+}
+.loginBlock {
+   padding: 0 30px;
+   background-color: white;
+   width: 550px;
+   height: 650px;
+   position: relative;
+   top: calc(50% - 325px);
+   left: calc(50% - 275px);
+   display: none;
+   border-radius: 20px;
+   
 }
 
 .tab {
@@ -882,12 +893,13 @@ a {
 }
 
 .closeLoginBlock {
-   margin: 20px;
    text-align: right;
 }
 
 .closeLoginBlock img {
+   margin: 20px 0px 0px 0px;
    width: 30px;
+   user-select: none;
 }
 
 .tabs {
@@ -904,7 +916,6 @@ a {
    height: 6px;
    border-radius: 15px;
    background-color: #c23564;
-   transition: all 0.2s ease;
 }
 
 .tab-item {
@@ -920,7 +931,7 @@ a {
    border-bottom: 5px solid transparent;
    opacity: 0.6;
    cursor: pointer;
-   transition: all 0.5s ease;
+   user-select: none;
 }
 
 .tab-item:hover,
@@ -946,9 +957,10 @@ a {
 
 .form-label {
    font-weight: 700;
-   margin: 10px 0px 7px 0px;
+   margin: 0px 0px 7px 0px;
    line-height: 1.8rem;
    font-size: 1.6rem;
+   user-select: none;
 }
 
 .form-control {
@@ -969,6 +981,7 @@ a {
    height: 40px;
    background-color: #1EBFC1;
    border: none;
+   user-select: none;
 }
 
 .form-submit:hover {
@@ -980,13 +993,15 @@ a {
    color: red;
    font-size: 1.4rem;
    height: 10px;
+   user-select: none;
 }
 
 .desc {
    margin: 20px 0px;
    text-align: center;
    font-weight: 500;
-   font-size: 1.6rem;
+   user-select: none;
+   font-size: 2.0rem;
 }
 
 .loginLogo {
@@ -994,4 +1009,6 @@ a {
    display: grid;
    text-align: center;
    justify-items: center;
+   user-select: none;
 }
+
