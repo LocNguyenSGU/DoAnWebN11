@@ -158,11 +158,56 @@
             <!-- hello and filter -->
             <div class="row hello-filter" id="hello">
                 <p class="hello">Hello everybody. Welcome our website</p>
-                <div class="filter">
-                    <span>Filter</span>
+                <div class="filter-toggle">
+                    <span class="filter-text">Filter</span>
                     <img src="./asset/img/main-filter.svg" alt="" class="icon-filter" />
                 </div>
+                <form class="filter">
+                    <!-- ... Nội dung của form ... -->
+                    <div class="item">
+                        <label>Category</label>
+                        <select name="category">
+                            <option value="">---</option>
+                            <option value="T-shirt">T-shirt</option>
+                            <option value="Shirt">Shirt</option>
+                            <option value="Polo">Polo</option>
+                        </select>
+                    </div>
+                    <div class="item">
+                        <label>Color</label>
+                        <select name="color">
+                            <option value="">---</option>
+                            <option value="white">white</option>
+                            <option value="black">black</option>
+                            <option value="grey">grey</option>
+                            <option value="blue">blue</option>
+                            <option value="brown">brown</option>
+                        </select>
+                    </div>
+                    <div class="item">
+                        <label>Name</label>
+                        <input name="name" type="text">
+                    </div>
+                    <div class="item">
+                        <label>Min Price</label>
+                        <input name="minPrice" type="number">
+                    </div>
+                    <div class="item">
+                        <label>Max Price</label>
+                        <input name="maxPrice" type="number">
+                    </div>
+                    <div id ="item-submit">
+                       <a href="#!">Search</a>
+                    </div>
+                </form>
+                <div class="countResults">
+                    Found <b id="count">5</b> results
+                </div>
+                <div id="list">
+                    <!-- ... Nội dung danh sách kết quả ... -->
+                </div>
             </div>
+
             <!-- display product -->
             <div class="list-show-product">
                 <!-- <section class="cart">
@@ -353,6 +398,7 @@
     <script src="./asset/js/script.js"></script>
     <script src="./asset/js/cartt.js"></script>
     <script src="./asset/js/form.js"></script>
+    <script src="./asset/js/search.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             Validator({

@@ -1012,3 +1012,24 @@ a {
    user-select: none;
 }
 
+/* tim kiem co ban */
+/* tim kiem cb */
+.hide{
+   display: none;
+}
+/* filter */
+.filter.hidde-form {
+   display: none;
+}  
+.filter .item {
+   margin-bottom: 15px; 
+}
+.filter button {
+   background-color: #007bff; 
+   color: #fff; 
+   border: none; 
+   border-radius: 5px; 
+   padding: 10px 20px; 
+}
+.filter button:hover {
+   background-color: #0056b3; }
