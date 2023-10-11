@@ -184,11 +184,10 @@ a {
 .header .buy-cart .list-preview {
    padding: 30px;
    position: absolute;
-   width: 500px;
-   /* height: 500px; */
+   width: 232px;
    background-color: #fff;
-   top: 74px;
-   left: -390px;
+   top: 67px;
+   left: -124px;
    border-radius: 20px;
    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
    opacity: 0;
@@ -250,7 +249,9 @@ a {
 
 .header .list-preview .row-2 {
    display: flex;
-   justify-content: space-between;
+   /* justify-content: space-between; */
+   justify-content: flex-start;
+   gap: 30px;
 }
 
 .header .separate {

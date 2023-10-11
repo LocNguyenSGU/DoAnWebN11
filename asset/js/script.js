@@ -33,9 +33,10 @@ fetch("./asset/js/data.json")
                                 <span class="star-num">${product.star}</span>
                             </div>
                         </div>
-                        <button class="add-to-cart-button" data-product-id="1">Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
                     `;
                     productList.appendChild(productSection);
+
                     const addToCartButton = productSection.querySelector(
                         ".add-to-cart-button"
                     );
@@ -44,7 +45,6 @@ fetch("./asset/js/data.json")
                     );
                 });
             }
-
             // Lắng nghe sự kiện khi nút "Hiện áo" được bấm
             showShirtsButton.addEventListener("click", () =>
                 showProductsByType("sweater")
@@ -62,10 +62,10 @@ fetch("./asset/js/data.json")
     .catch((error) => {
         console.error("Lỗi khi tải dữ liệu JSON:", error);
     });
-// Su kien click add to cart
-const cartItems = [];
 
-// Them san pham vao gio hang
+// Them san pham vao gio hang thong qua mang cartItems
+const cartItems = [];
+// Ham de day du lieu khi an nut addToCart vao mang cartItems
 function addToCart(product) {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
 
@@ -79,53 +79,83 @@ function addToCart(product) {
             image: product.image,
             quantity: 1,
         });
-        console.log(cartItems)
     }
-
     updateCartDisplay();
 }
+
+// goi cac bien day ben ngoai vi ham updateCartDisplay, minh phai click vao addToCart thi no moi thuc thi
+const haveProduct = document.querySelector(".have-product"); 
+const noProduct = document.querySelector(".no-product");
+const listPreview = document.querySelector(".list-preview");
+
 function updateCartDisplay() {
-    const cartQuantity = document.getElementById("cart-quantity");
-    const cartTotal = document.getElementById("cart-total");
-    const cartItemsList = document.getElementById("cart-items");
+    const cartItemsList = document.querySelector(".row-2"); // the cha dung de bao cac the con trong viec render
+    const cartQuantity = document.querySelector(".you-have"); // so luong cai sp dc them vao gio hang
+    const cartTotal = document.querySelector("#price-total"); // tong chi phi cuoi cung (ship + gia sp), cai nay hien khi hover vao
+    const subtotal = document.querySelector(".price-subtotal"); // chi phi khi chua tinh ship
+    const shipping = document.querySelector(".price-shipping"); // tien ship = so luong sp * 10$
+    const feeTotal = document.querySelector(".price-buy-cart"); // tong chi phi cuoi cung (ship + gia sp), cai nay hien o sat ben gio hang
 
     let totalQuantity = 0;
     let totalPrice = 0;
+    let shippingPrice = 10; // gia van chuyen 1 san pham
 
-    cartItemsList.innerHTML = ""; // Xóa bỏ các sản phẩm trong giỏ hàng hiện tại
+    // Render ve mat hinh anh (hinh san pham, ten, gia tien)
+    const renderImageCart = function () {
+        cartItemsList.innerHTML = ""; // hay thu comment lai dong nay de hieu code hon
+        cartItems.forEach((item) => {
+            // duyet qua tung sp
+            const cartItem = document.createElement("div"); // day la cac the con ma duoc the cha bao ben ngoai
+            cartItem.className = "block-each-preview"; // gan cho the con class
+            cartItem.innerHTML = `
+            <img src="${item.image}" alt="" class="img-preview">
+            <h2 class="title">${item.name}</h2>
+            <span class="price">$${(item.price * item.quantity).toFixed(
+                2
+            )}</span>
+        `;
+            cartItemsList.appendChild(cartItem); // cau lenh render, co nhieu cau lenh khac nua..
+        });
+    };
 
-    cartItems.forEach((item) => {
-        const cartItem = document.createElement("li");
-        cartItem.innerHTML = `
-                <img
-                    src="${item.image}"
-                    alt="${item.name}"
-                    class="cart-item-image"
-                />
-                <div class="cart-item-details">
-                    <span class="cart-item-name">${item.name}</span>
-                    <span class="cart-item-price">$${(
-                        item.price * item.quantity
-                    ).toFixed(2)}</span>
-                    <span class="cart-item-quantity">Quantity: ${
-                        item.quantity
-                    }</span>
-                </div>
-            `;
-        cartItemsList.appendChild(cartItem);
+    // Render ve cac so lieu
+    const renderNumberCart = function () {
+        cartItems.forEach((item) => {
+            totalQuantity += item.quantity;
+            totalPrice += item.price * item.quantity;
+            cartQuantity.textContent = `You have ${totalQuantity} item`;
+            subtotal.textContent = `$${totalPrice.toFixed(2)}`;
+            shipping.textContent = `$${shippingPrice * totalQuantity}`;
+            cartTotal.textContent = `$${(
+                totalPrice +
+                shippingPrice * totalQuantity
+            ).toFixed(2)}`; // day la tong tien cuoi cung hien khi hover vao gio hang
+            feeTotal.textContent = cartTotal.textContent; // tong tien cuoi cung hien ben gio hang
+        });
+    };
 
-        totalQuantity += item.quantity;
-        totalPrice += item.price * item.quantity;
-    });
+    console.log(cartItems.length); // chi hien toi da 3 san pham trong gio hang
+    const row2Element = document.querySelector(".header .list-preview .row-2");
 
-    cartQuantity.textContent = totalQuantity;
-    cartTotal.textContent = totalPrice.toFixed(2);
+    // if (cartItems.length >= 3) {  // neu hinh anh lon hon 3 thi phai chinh sua lai 1 chut css cho dep
+    //     console.log(row2Element);
+    //     row2Element.style.removeProperty("justify-content");
+    //     row2Element.style.justify_content = "space-between";
+    //     row2Element.style.removeProperty("gap");
+    // }
+    
+    if(cartItems.length >= 1 && cartItems.length <= 3) {   
+        renderImageCart(); // render ve mat hinh anh la toi da 3 hinh
+        noProduct.classList.add("hidden"); // mac dinh la chua co san pham => khi length = 1 tuc la phai an cai chua co san pham di
+        haveProduct.classList.remove("hidden"); 
+        listPreview.style.width = "500px"; // css lai vi 2 cai chua co sp va co sp no khac nhau ve width
+        listPreview.style.top = "67px";
+        listPreview.style.left = "-372px";
+
+    }
+    renderNumberCart(); // render so lieu thi render het
 }
 
-// Bắt sự kiện khi trang web được tải và cập nhật hiển thị giỏ hàng ban đầu
-document.addEventListener("DOMContentLoaded", function () {
-    updateCartDisplay();
-});
 
 // hinh anh truot qua lai
 const slides = document.querySelectorAll(".slide");
@@ -227,215 +257,4 @@ function scrollFunction() {
 document.querySelector(".backToTop").onclick = function () {
     document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
     document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
-};
-
-//Login button
-document.querySelector(".icon-user").onclick = function () {
-    Object.assign(document.querySelector(".loginBlock").style, {
-        translate: "-350px",
-    });
-};
-document.querySelector(".closeLoginBlock img").onclick = function () {
-    Object.assign(document.querySelector(".loginBlock").style, {
-        translate: "350px",
-    });
-};
-const tabs = document.querySelectorAll(".tab-item");
-const panes = document.querySelectorAll(".tab-pane");
-tabs.forEach((tab, index) => {
-    const pane = panes[index];
-    tab.onclick = function () {
-        document.querySelector(".tab-item.active").classList.remove("active");
-        document.querySelector(".tab-pane.active").classList.remove("active");
-        this.classList.add("active");
-        pane.classList.add("active");
-    };
-});
-// Đối tượng `Validator`
-function Validator(options) {
-    function getParent(element, selector) {
-        while (element.parentElement) {
-            if (element.parentElement.matches(selector)) {
-                return element.parentElement;
-            }
-            element = element.parentElement;
-        }
-    }
-
-    var selectorRules = {};
-
-    // Hàm thực hiện validate
-    function validate(inputElement, rule) {
-        var errorElement = getParent(
-            inputElement,
-            options.formGroupSelector
-        ).querySelector(options.errorSelector);
-        var errorMessage;
-
-        // Lấy ra các rules của selector
-        var rules = selectorRules[rule.selector];
-
-        // Lặp qua từng rule & kiểm tra
-        // Nếu có lỗi thì dừng việc kiểm
-        for (var i = 0; i < rules.length; ++i) {
-            switch (inputElement.type) {
-                case "radio":
-                case "checkbox":
-                    errorMessage = rules[i](
-                        formElement.querySelector(rule.selector + ":checked")
-                    );
-                    break;
-                default:
-                    errorMessage = rules[i](inputElement.value);
-            }
-            if (errorMessage) break;
-        }
-
-        if (errorMessage) {
-            errorElement.innerText = errorMessage;
-        } else {
-            errorElement.innerText = "";
-        }
-
-        return !errorMessage;
-    }
-
-    // Lấy element của form cần validate
-    var formElement = document.querySelector(options.form);
-    if (formElement) {
-        // Khi submit form
-        formElement.onsubmit = function (e) {
-            e.preventDefault();
-
-            var isFormValid = true;
-
-            // Lặp qua từng rules và validate
-            options.rules.forEach(function (rule) {
-                var inputElement = formElement.querySelector(rule.selector);
-                var isValid = validate(inputElement, rule);
-                if (!isValid) {
-                    isFormValid = false;
-                }
-            });
-
-            if (isFormValid) {
-                // Trường hợp submit với javascript
-                if (typeof options.onSubmit === "function") {
-                    var enableInputs = formElement.querySelectorAll("[name]");
-                    var formValues = Array.from(enableInputs).reduce(function (
-                        values,
-                        input
-                    ) {
-                        switch (input.type) {
-                            case "radio":
-                                values[input.name] = formElement.querySelector(
-                                    'input[name="' + input.name + '"]:checked'
-                                ).value;
-                                break;
-                            case "checkbox":
-                                if (!input.matches(":checked")) {
-                                    values[input.name] = "";
-                                    return values;
-                                }
-                                if (!Array.isArray(values[input.name])) {
-                                    values[input.name] = [];
-                                }
-                                values[input.name].push(input.value);
-                                break;
-                            case "file":
-                                values[input.name] = input.files;
-                                break;
-                            default:
-                                values[input.name] = input.value;
-                        }
-
-                        return values;
-                    },
-                    {});
-                    options.onSubmit(formValues);
-                }
-                // Trường hợp submit với hành vi mặc định
-                else {
-                    formElement.submit();
-                }
-            }
-        };
-
-        // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
-        options.rules.forEach(function (rule) {
-            // Lưu lại các rules cho mỗi input
-            if (Array.isArray(selectorRules[rule.selector])) {
-                selectorRules[rule.selector].push(rule.test);
-            } else {
-                selectorRules[rule.selector] = [rule.test];
-            }
-
-            var inputElements = formElement.querySelectorAll(rule.selector);
-
-            Array.from(inputElements).forEach(function (inputElement) {
-                // Xử lý trường hợp blur khỏi input
-                inputElement.onblur = function () {
-                    validate(inputElement, rule);
-                };
-
-                // Xử lý mỗi khi người dùng nhập vào input
-                inputElement.oninput = function () {
-                    var errorElement = getParent(
-                        inputElement,
-                        options.formGroupSelector
-                    ).querySelector(options.errorSelector);
-                    errorElement.innerText = "";
-                };
-            });
-        });
-    }
-}
-
-// Định nghĩa rules
-// Nguyên tắc của các rules:
-// 1. Khi có lỗi => Trả ra message lỗi
-// 2. Khi hợp lệ => Không trả ra cái gì cả (undefined)
-Validator.isRequired = function (selector, message) {
-    return {
-        selector: selector,
-        test: function (value) {
-            return value.trim()
-                ? undefined
-                : message || "Vui lòng nhập trường này";
-        },
-    };
-};
-
-Validator.isEmail = function (selector, message) {
-    return {
-        selector: selector,
-        test: function (value) {
-            var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            return regex.test(value)
-                ? undefined
-                : message || "Trường này phải là email";
-        },
-    };
-};
-
-Validator.minLength = function (selector, min, message) {
-    return {
-        selector: selector,
-        test: function (value) {
-            return value.length >= min
-                ? undefined
-                : message || `Vui lòng nhập tối thiểu ${min} kí tự`;
-        },
-    };
-};
-
-Validator.isConfirmed = function (selector, getConfirmValue, message) {
-    return {
-        selector: selector,
-        test: function (value) {
-            return value === getConfirmValue()
-                ? undefined
-                : message || "Giá trị nhập vào không chính xác";
-        },
-    };
 };
