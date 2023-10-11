@@ -230,16 +230,35 @@ document.querySelector(".backToTop").onclick = function () {
 };
 
 //Login button
+loginBtn()
+function loginBtn(){
 document.querySelector(".icon-user").onclick = function () {
+    Object.assign(document.querySelector(".loginBackground").style, {
+        visibility: 'visible',      
+    });
     Object.assign(document.querySelector(".loginBlock").style, {
-        translate: "-350px",
+        display:'block',      
+    });
+};
+document.querySelector(".btn").onclick = function () {
+    Object.assign(document.querySelector(".loginBackground").style, {
+        visibility: 'visible',      
+    });
+    Object.assign(document.querySelector(".loginBlock").style, {
+        display:'block',      
     });
 };
 document.querySelector(".closeLoginBlock img").onclick = function () {
+    Object.assign(document.querySelector(".loginBackground").style, {
+        visibility: 'hidden',      
+    });
     Object.assign(document.querySelector(".loginBlock").style, {
-        translate: "350px",
+        display:'none',
     });
 };
+}
+
+
 const tabs = document.querySelectorAll(".tab-item");
 const panes = document.querySelectorAll(".tab-pane");
 tabs.forEach((tab, index) => {
