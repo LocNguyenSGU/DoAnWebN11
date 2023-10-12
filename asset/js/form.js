@@ -1,14 +1,49 @@
-//Login button
+//Xử lý ẩn/hiện layout đăng nhập
+loginBtn()
+function loginBtn(){
 document.querySelector(".icon-user").onclick = function () {
-   Object.assign(document.querySelector(".loginBlock").style, {
-       translate: "-350px",
-   });
+    Object.assign(document.querySelector(".loginBackground").style, {
+        visibility: 'visible',      
+    });
+    Object.assign(document.querySelector(".loginBlock").style, {
+        display:'block',      
+    });
+};
+document.querySelector(".btn").onclick = function () {
+    Object.assign(document.querySelector(".loginBackground").style, {
+        visibility: 'visible',      
+    });
+    Object.assign(document.querySelector(".loginBlock").style, {
+        translate: "-350px",
+        display:'block',      
+    });
 };
 document.querySelector(".closeLoginBlock img").onclick = function () {
-   Object.assign(document.querySelector(".loginBlock").style, {
-       translate: "350px",
-   });
+    Object.assign(document.querySelector(".loginBackground").style, {
+        visibility: 'hidden',      
+    });
+    Object.assign(document.querySelector(".loginBlock").style, {
+        display:'none',
+    });
 };
+var loginBackgroundClickState = 1
+document.querySelector('.loginBlock').onclick = function(){
+    loginBackgroundClickState = 0
+}
+document.querySelector('.loginBackground').onclick = function(){
+    if(loginBackgroundClickState === 1){
+        Object.assign(document.querySelector(".loginBackground").style, {
+            visibility: 'hidden',      
+        });
+        Object.assign(document.querySelector(".loginBlock").style, {
+            display:'none',
+        });
+    }
+    loginBackgroundClickState = 1
+}
+}
+
+
 const tabs = document.querySelectorAll(".tab-item");
 const panes = document.querySelectorAll(".tab-pane");
 tabs.forEach((tab, index) => {

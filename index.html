@@ -328,6 +328,7 @@
     </footer>
     <button class="backToTop">&uarr;</button>
     <!-- Login Tab -->
+    <div class="loginBackground">
     <div class="loginBlock">
         <div class="closeLoginBlock"><img src="./asset/img/bx-x.svg"></div>
         <p class="desc">Mua quần áo giá rẻ mà chất lượng cao tại shop của chúng tôi (^^)/</p>
@@ -390,7 +391,7 @@
                         <button class="form-submit">Đăng ký</button>
                     </div>
                 </form>
-
+            </div>
             </div>
         </div>
     </div>
@@ -410,7 +411,7 @@
                     Validator.minLength('#password', 6),
                     Validator.isRequired('#password_confirmation'),
                     Validator.isConfirmed('#password_confirmation', function () {
-                        return document.querySelector('#form-1 #password').value;
+                        return document.querySelector('#form-2 #password').value;
                     }, 'Mật khẩu nhập lại không chính xác')
                 ],
                 onSubmit: function (data) {
