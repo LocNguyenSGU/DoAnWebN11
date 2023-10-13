@@ -4,6 +4,7 @@ function loginBtn(){
 document.querySelector(".icon-user").onclick = function () {
     Object.assign(document.querySelector(".loginBackground").style, {
         visibility: 'visible',      
+        'animation-name': 'backgroundeffect1',
     });
     Object.assign(document.querySelector(".loginBlock").style, {
         display:'block',      
@@ -12,14 +13,15 @@ document.querySelector(".icon-user").onclick = function () {
 document.querySelector(".btn").onclick = function () {
     Object.assign(document.querySelector(".loginBackground").style, {
         visibility: 'visible',      
+        'animation-name': 'backgroundeffect1',
     });
     Object.assign(document.querySelector(".loginBlock").style, {
-        translate: "-350px",
         display:'block',      
     });
 };
 document.querySelector(".closeLoginBlock img").onclick = function () {
     Object.assign(document.querySelector(".loginBackground").style, {
+        'animation-name': 'backgroundefffect2',
         visibility: 'hidden',      
     });
     Object.assign(document.querySelector(".loginBlock").style, {
@@ -33,6 +35,7 @@ document.querySelector('.loginBlock').onclick = function(){
 document.querySelector('.loginBackground').onclick = function(){
     if(loginBackgroundClickState === 1){
         Object.assign(document.querySelector(".loginBackground").style, {
+            'animation-name': 'backgroundefffect2',
             visibility: 'hidden',      
         });
         Object.assign(document.querySelector(".loginBlock").style, {
