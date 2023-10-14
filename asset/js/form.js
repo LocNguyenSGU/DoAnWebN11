@@ -205,7 +205,8 @@ function Validator(options) {
                if (typeof options.onSubmit === "function") {
                    var enableInputs = formElement.querySelectorAll("[name]");
                    var formValues = Array.from(enableInputs).reduce(function (values,input) {
-                        return (values[input.name] = input.value) && values
+                        values[input.name] = input.value
+                        return values;
                    }, {});
                    options.onSubmit(formValues);
                }
