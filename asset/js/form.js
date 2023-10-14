@@ -58,6 +58,94 @@ tabs.forEach((tab, index) => {
        pane.classList.add("active");
    };
 });
+kiemTra()
+function kiemTra(){
+document.addEventListener('DOMContentLoaded', function () {
+    Validator({
+        form: '#form-2',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isEmail('#email2'),
+            Validator.minLength('#password2', 6),
+            Validator.isRequired('#password_confirmation'),
+            Validator.isConfirmed('#password_confirmation', function () {
+                return document.querySelector('#form-2 #password2').value;
+            }, 'Mật khẩu nhập lại không chính xác')
+        ],
+        onSubmit: function (data) {
+            // Call API
+            console.log(data);
+        }
+    });
+
+
+    Validator({
+        form: '#form-1',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isEmail('#email1'),
+            Validator.isRequired('#password1'),
+            Validator.minLength('#password1', 6),
+        ],
+        onSubmit: function (data) {
+            // Call API
+            console.log(data);
+        }
+    });
+});
+}
+
+showPassword1()
+function showPassword1(){
+var showPasswordState = 0
+document.querySelector(".showPassword .password1").onclick = function(){
+    if(showPasswordState === 0 ){
+    document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/show.png')
+    document.querySelector(".showPassword #password1").setAttribute('type','text')
+    showPasswordState = 1;
+    }
+    else{
+    document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/hide.png')
+    document.querySelector(".showPassword #password1").setAttribute('type','password')
+    showPasswordState = 0;
+    }
+}
+}
+showPassword2()
+function showPassword2(){
+var showPasswordState = 0
+document.querySelector(".showPassword .password2").onclick = function(){
+    if(showPasswordState === 0 ){
+    document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/show.png')
+    document.querySelector(".showPassword #password2").setAttribute('type','text')
+    showPasswordState = 1;
+    }
+    else{
+    document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/hide.png')
+    document.querySelector(".showPassword #password2").setAttribute('type','password')
+    showPasswordState = 0;
+    }
+}
+}
+showPassword3()
+function showPassword3(){
+var showPasswordState = 0
+document.querySelector(".showPassword .password_confirmation").onclick = function(){
+    if(showPasswordState === 0 ){
+    document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/show.png')
+    document.querySelector(".showPassword #password_confirmation").setAttribute('type','text')
+    showPasswordState = 1;
+    }
+    else{
+    document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/hide.png')
+    document.querySelector(".showPassword #password_confirmation").setAttribute('type','password')
+    showPasswordState = 0;
+    }
+}
+}
+
 // Đối tượng `Validator`
 function Validator(options) {
    function getParent(element, selector) {
