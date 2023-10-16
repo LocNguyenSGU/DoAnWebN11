@@ -100,15 +100,15 @@ document.addEventListener('DOMContentLoaded', function () {
 showPassword1()
 function showPassword1(){
 var showPasswordState = 0
-document.querySelector(".showPassword .password1").onclick = function(){
+document.querySelector(".password1").onclick = function(){
     if(showPasswordState === 0 ){
-    document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/show.png')
-    document.querySelector(".showPassword #password1").setAttribute('type','text')
+    document.querySelector(".password1").setAttribute('src','./asset/img/show.png')
+    document.querySelector("#password1").setAttribute('type','text')
     showPasswordState = 1;
     }
     else{
-    document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/hide.png')
-    document.querySelector(".showPassword #password1").setAttribute('type','password')
+    document.querySelector(".password1").setAttribute('src','./asset/img/hide.png')
+    document.querySelector("#password1").setAttribute('type','password')
     showPasswordState = 0;
     }
 }
@@ -116,15 +116,15 @@ document.querySelector(".showPassword .password1").onclick = function(){
 showPassword2()
 function showPassword2(){
 var showPasswordState = 0
-document.querySelector(".showPassword .password2").onclick = function(){
+document.querySelector(".password2").onclick = function(){
     if(showPasswordState === 0 ){
-    document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/show.png')
-    document.querySelector(".showPassword #password2").setAttribute('type','text')
+    document.querySelector(".password2").setAttribute('src','./asset/img/show.png')
+    document.querySelector("#password2").setAttribute('type','text')
     showPasswordState = 1;
     }
     else{
-    document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/hide.png')
-    document.querySelector(".showPassword #password2").setAttribute('type','password')
+    document.querySelector(".password2").setAttribute('src','./asset/img/hide.png')
+    document.querySelector("#password2").setAttribute('type','password')
     showPasswordState = 0;
     }
 }
@@ -132,15 +132,15 @@ document.querySelector(".showPassword .password2").onclick = function(){
 showPassword3()
 function showPassword3(){
 var showPasswordState = 0
-document.querySelector(".showPassword .password_confirmation").onclick = function(){
+document.querySelector(".password_confirmation").onclick = function(){
     if(showPasswordState === 0 ){
-    document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/show.png')
-    document.querySelector(".showPassword #password_confirmation").setAttribute('type','text')
+    document.querySelector(".password_confirmation").setAttribute('src','./asset/img/show.png')
+    document.querySelector("#password_confirmation").setAttribute('type','text')
     showPasswordState = 1;
     }
     else{
-    document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/hide.png')
-    document.querySelector(".showPassword #password_confirmation").setAttribute('type','password')
+    document.querySelector(".password_confirmation").setAttribute('src','./asset/img/hide.png')
+    document.querySelector("#password_confirmation").setAttribute('type','password')
     showPasswordState = 0;
     }
 }
@@ -176,8 +176,23 @@ function Validator(options) {
        }
        if (errorMessage) {
            errorElement.innerText = errorMessage;
+            var validateElement = getParent(
+                inputElement,
+                options.formGroupSelector
+            ).querySelector('.div');
+                Object.assign(validateElement.style, {
+                'border-color': 'red',
+            })
        } else {
            errorElement.innerText = "";
+           var validateElement = getParent(
+                inputElement,
+                options.formGroupSelector
+            ).querySelector('.div');
+                Object.assign(validateElement.style, {
+                'border-color': '#b3b3b3',
+            })
+           
        }
        return !errorMessage;
    }
@@ -236,11 +251,18 @@ function Validator(options) {
 
                // Xử lý mỗi khi người dùng nhập vào input
                inputElement.oninput = function () {
-                   var errorElement = getParent(
+                    var errorElement = getParent(
                        inputElement,
                        options.formGroupSelector
-                   ).querySelector(options.errorSelector);
-                   errorElement.innerText = "";
+                    ).querySelector(options.errorSelector);
+                    errorElement.innerText = "";
+                    var validateElement = getParent(
+                        inputElement,
+                        options.formGroupSelector
+                    ).querySelector('.div');
+                    Object.assign(validateElement.style, {
+                        'border-color': '#b3b3b3',
+                    })
                };
    }})}
 }
