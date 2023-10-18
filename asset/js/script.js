@@ -1,70 +1,290 @@
-fetch("./asset/js/data.json")
-    .then((response) => response.json())
-    .then((data) => {
-        const productList = document.querySelector(".list-show-product");
-        const showShirtsButton = document.querySelector(".btn-sweater");
-        const showPantsButton = document.querySelector(".btn-pants");
+const listProducts = [
+    {
+        id: 101,
+        name: "sweater PEWARN",
+        price: 20.99,
+        description:
+            "Korean classic loose long-sleeve PEWARN sweater for plus size men and women",
+        image: "./asset/img/product-sweater/sweater-101.jpg",
+        star: "4.5",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 102,
+        name: "sweater PEASE STAR",
+        price: 39.99,
+        description:
+            "PEASE STAR Letter Printed Felt Hoodie Jacket Korean Fashion Style that men and women wear very well",
+        image: "./asset/img/product-sweater/sweater-102.jpg",
+        star: "5",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 103,
+        name: "Áo thun",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-103.jpg",
+        star: "4.9",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 104,
+        name: "Áo thun",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-104.jpg",
+        star: "4.8",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 105,
+        name: "Áo thun",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-105.jpg",
+        star: "4.3",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 106,
+        name: "Áo thun",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-106.jpg",
+        star: "4.3",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 107,
+        name: "Áo thun",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-107.jpg",
+        star: "4.3",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 108,
+        name: "Áo thun",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-101.jpg",
+        star: "4.3",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 109,
+        name: "Áo khoac",
+        price: 20.99,
+        description: "Áo thun đơn giản",
+        image: "./asset/img/product-sweater/sweater-101.jpg",
+        star: "4.3",
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "sweater",
+        },
+    },
+    {
+        id: 201,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-201.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 203,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-203.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 204,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-204.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 205,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-205.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 206,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-206.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 207,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-207.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 208,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-208.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+    {
+        id: 209,
+        name: "Quần jean J1",
+        price: 39.99,
+        description: "Mô tả sản phẩm quần jean J1",
+        image: "./asset/img/product-pants/pants-209.jpg",
+        star: 4.2,
+        nature: {
+            color: ["white", "black"],
+            size: ["S", "M", "L"],
+            type: "pants",
+        },
+    },
+];
+// Hàm để render danh sách sản phẩm
+let currentProductType = "sweater";
 
-        if (productList && showShirtsButton && showPantsButton) {
-            // Hàm để hiển thị các sản phẩm dựa trên loại (áo hoặc quần)
-            function showProductsByType(productType) {
-                productList.innerHTML = ""; // Xóa bỏ các sản phẩm hiện tại
+function renderProducts() {
+    const productListContainer = document.querySelector(".list-show-product");
+    productListContainer.innerHTML = "";
 
-                data[productType].forEach((product) => {
-                    const productSection = document.createElement("section");
-                    productSection.classList.add("cart");
-                    productSection.innerHTML = `
-                    <div class="wrap-img-cart">   
-                        <img
-                            src="${product.image}"
-                            alt="${product.name}"
-                            class="img-cart"
-                        />
+    // Lặp qua mảng sản phẩm và tạo phần tử HTML cho mỗi sản phẩm
+    listProducts.forEach((product) => {
+        if (product.nature.type === currentProductType) {
+            const productSection = document.createElement("section");
+            productSection.classList.add("cart");
+
+            productSection.innerHTML = `
+                <div class="wrap-img-cart">
+                    <img src="${product.image}" alt="${
+                product.name
+            }" class="img-cart" />
+                </div>
+                <h3 class="title">${product.name}</h3>
+                <div class="row">
+                    <span class="price">$${product.price.toFixed(2)}</span>
+                    <div class="row-price-star">
+                        <img src="./asset/img/main-star.svg" alt="Star Rating" class="star" />
+                        <span class="star-num">${product.star}</span>
                     </div>
-                        <h3 class="title">${product.name}</h3>
-                        <div class="row">
-                            <span class="price">$${product.price}</span>
-                            <div class="row-price-star">
-                                <img
-                                    src="./asset/img/main-star.svg"
-                                    alt=""
-                                    class="star"
-                                />
-                                <span class="star-num">${product.star}</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                    `;
-                    productList.appendChild(productSection);
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+            `;
 
-                    const addToCartButton = productSection.querySelector(
-                        ".add-to-cart-button"
-                    );
-                    addToCartButton.addEventListener("click", () =>
-                        addToCart(product)
-                    );
-                });
-            }
-            // Lắng nghe sự kiện khi nút "Hiện áo" được bấm
-            showShirtsButton.addEventListener("click", () =>
-                showProductsByType("sweater")
-            );
-
-            // Lắng nghe sự kiện khi nút "Hiện quần" được bấm
-            showPantsButton.addEventListener("click", () =>
-                showProductsByType("pants")
-            );
-            showProductsByType("sweater");
-        } else {
-            console.log(localStorage.getItem("cart"));
+            // Thêm sản phẩm vào danh sách sản phẩm
+            productListContainer.appendChild(productSection);
         }
-    })
-    .catch((error) => {
-        console.error("Lỗi khi tải dữ liệu JSON:", error);
     });
+}
+
+// Gọi hàm render để hiển thị sản phẩm
+const showShirtsButton = document.querySelector(".btn-sweater");
+const showPantsButton = document.querySelector(".btn-pants");
+showShirtsButton.addEventListener("click", function () {
+    currentProductType = "sweater";
+    renderProducts();
+});
+showPantsButton.addEventListener("click", function () {
+    currentProductType = "pants";
+    renderProducts();
+});
+renderProducts();
 
 // Them san pham vao gio hang thong qua mang cartItems
 const cartItems = [];
+
+const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+console.log(addToCartButtons);
+addToCartButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        console.log("da tim ok")
+        addToCart(listProducts[index]);
+        updateCartDisplay();
+    })
+})
+
 // Ham de day du lieu khi an nut addToCart vao mang cartItems
 function addToCart(product) {
     const existingCartItem = cartItems.find((item) => item.id === product.id);
@@ -84,7 +304,7 @@ function addToCart(product) {
 }
 
 // goi cac bien day ben ngoai vi ham updateCartDisplay, minh phai click vao addToCart thi no moi thuc thi
-const haveProduct = document.querySelector(".have-product"); 
+const haveProduct = document.querySelector(".have-product");
 const noProduct = document.querySelector(".no-product");
 const listPreview = document.querySelector(".list-preview");
 
@@ -143,19 +363,17 @@ function updateCartDisplay() {
     //     row2Element.style.justify_content = "space-between";
     //     row2Element.style.removeProperty("gap");
     // }
-    
-    if(cartItems.length >= 1 && cartItems.length <= 3) {   
+
+    if (cartItems.length >= 1 && cartItems.length <= 3) {
         renderImageCart(); // render ve mat hinh anh la toi da 3 hinh
         noProduct.classList.add("hidden"); // mac dinh la chua co san pham => khi length = 1 tuc la phai an cai chua co san pham di
-        haveProduct.classList.remove("hidden"); 
+        haveProduct.classList.remove("hidden");
         listPreview.style.width = "500px"; // css lai vi 2 cai chua co sp va co sp no khac nhau ve width
         listPreview.style.top = "67px";
         listPreview.style.left = "-372px";
-
     }
     renderNumberCart(); // render so lieu thi render het
 }
-
 
 // hinh anh truot qua lai
 const slides = document.querySelectorAll(".slide");

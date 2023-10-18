@@ -1,5 +1,16 @@
 {
-    "accounts": [],
+    "accounts": [
+      {
+        "id": 1,
+        "email": "admin@gamil.com",
+        "password" : "123456"
+      },
+      {
+        "id": 2,
+        "email": "user1@gamil.com",
+        "password" : "123456"
+      }
+    ],
     "sweater": [
         {
             "id": 101,

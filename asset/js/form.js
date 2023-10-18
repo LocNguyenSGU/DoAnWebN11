@@ -2,6 +2,15 @@
 loginBtn()
 function loginBtn(){
 document.querySelector(".icon-user").onclick = function () {
+    Object.assign(document.querySelector(".loginBackground").style, { // hiện lên nền background
+        visibility: 'visible',      
+        'animation-name': 'backgroundeffect1', // ẩn r hiện
+    });
+    Object.assign(document.querySelector(".loginBlock").style, {  // hiện lên block form
+        display:'block',        
+    });
+};
+document.querySelector(".btn").onclick = function () { // .btn là nút create ở gần footer
     Object.assign(document.querySelector(".loginBackground").style, {
         visibility: 'visible',      
         'animation-name': 'backgroundeffect1',
@@ -10,18 +19,9 @@ document.querySelector(".icon-user").onclick = function () {
         display:'block',      
     });
 };
-document.querySelector(".btn").onclick = function () {
+document.querySelector(".closeLoginBlock img").onclick = function () { // nút dấu x để tắt form
     Object.assign(document.querySelector(".loginBackground").style, {
-        visibility: 'visible',      
-        'animation-name': 'backgroundeffect1',
-    });
-    Object.assign(document.querySelector(".loginBlock").style, {
-        display:'block',      
-    });
-};
-document.querySelector(".closeLoginBlock img").onclick = function () {
-    Object.assign(document.querySelector(".loginBackground").style, {
-        'animation-name': 'backgroundefffect2',
+        'animation-name': 'backgroundefffect2', // hiện rồi ẩn
         visibility: 'hidden',      
     });
     Object.assign(document.querySelector(".loginBlock").style, {
@@ -29,7 +29,7 @@ document.querySelector(".closeLoginBlock img").onclick = function () {
     });
 };
 var loginBackgroundClickState = 1
-document.querySelector('.loginBlock').onclick = function(){
+document.querySelector('.loginBlock').onclick = function(){  // xử lí khi nhấn vào form k bị ẩn đi
     loginBackgroundClickState = 0
 }
 document.querySelector('.loginBackground').onclick = function(){
@@ -97,54 +97,76 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 }
 
-showPassword1()
-function showPassword1(){
-var showPasswordState = 0
-document.querySelector(".showPassword .password1").onclick = function(){
-    if(showPasswordState === 0 ){
-    document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/show.png')
-    document.querySelector(".showPassword #password1").setAttribute('type','text')
-    showPasswordState = 1;
-    }
-    else{
-    document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/hide.png')
-    document.querySelector(".showPassword #password1").setAttribute('type','password')
-    showPasswordState = 0;
-    }
+// showPassword1()
+// function showPassword1(){
+// var showPasswordState = 0
+// document.querySelector(".showPassword .password1").onclick = function(){
+//     if(showPasswordState === 0 ){
+//     document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/show.png')
+//     document.querySelector(".showPassword #password1").setAttribute('type','text')
+//     showPasswordState = 1;
+//     }
+//     else{
+//     document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/hide.png')
+//     document.querySelector(".showPassword #password1").setAttribute('type','password')
+//     showPasswordState = 0;
+//     }
+// }
+// }
+// showPassword2()
+// function showPassword2(){
+// var showPasswordState = 0
+// document.querySelector(".showPassword .password2").onclick = function(){
+//     if(showPasswordState === 0 ){
+//     document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/show.png')
+//     document.querySelector(".showPassword #password2").setAttribute('type','text')
+//     showPasswordState = 1;
+//     }
+//     else{
+//     document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/hide.png')
+//     document.querySelector(".showPassword #password2").setAttribute('type','password')
+//     showPasswordState = 0;
+//     }
+// }
+// }
+// showPassword3()
+// function showPassword3(){
+// var showPasswordState = 0
+// document.querySelector(".showPassword .password_confirmation").onclick = function(){
+//     if(showPasswordState === 0 ){
+//     document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/show.png')
+//     document.querySelector(".showPassword #password_confirmation").setAttribute('type','text')
+//     showPasswordState = 1;
+//     }
+//     else{
+//     document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/hide.png')
+//     document.querySelector(".showPassword #password_confirmation").setAttribute('type','password')
+//     showPasswordState = 0;
+//     }
+// }
+// }
+
+function showPassword(inputSelector, buttonSelector) {
+    var showPasswordState = 0;
+    var passwordInput = document.querySelector(inputSelector);
+    var passwordButton = document.querySelector(buttonSelector);
+
+    passwordButton.onclick = function() {
+        if (showPasswordState === 0) {
+            passwordButton.setAttribute('src', './asset/img/show.png');
+            passwordInput.setAttribute('type', 'text');
+            showPasswordState = 1;
+        } else {
+            passwordButton.setAttribute('src', './asset/img/hide.png');
+            passwordInput.setAttribute('type', 'password');
+            showPasswordState = 0;
+        }
+    };
 }
-}
-showPassword2()
-function showPassword2(){
-var showPasswordState = 0
-document.querySelector(".showPassword .password2").onclick = function(){
-    if(showPasswordState === 0 ){
-    document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/show.png')
-    document.querySelector(".showPassword #password2").setAttribute('type','text')
-    showPasswordState = 1;
-    }
-    else{
-    document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/hide.png')
-    document.querySelector(".showPassword #password2").setAttribute('type','password')
-    showPasswordState = 0;
-    }
-}
-}
-showPassword3()
-function showPassword3(){
-var showPasswordState = 0
-document.querySelector(".showPassword .password_confirmation").onclick = function(){
-    if(showPasswordState === 0 ){
-    document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/show.png')
-    document.querySelector(".showPassword #password_confirmation").setAttribute('type','text')
-    showPasswordState = 1;
-    }
-    else{
-    document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/hide.png')
-    document.querySelector(".showPassword #password_confirmation").setAttribute('type','password')
-    showPasswordState = 0;
-    }
-}
-}
+
+showPassword(".showPassword #password1", ".showPassword .password1");
+showPassword(".showPassword #password2", ".showPassword .password2");
+showPassword(".showPassword #password_confirmation", ".showPassword .password_confirmation");
 
 // Đối tượng `Validator`
 function Validator(options) {
