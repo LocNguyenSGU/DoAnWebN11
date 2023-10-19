@@ -41,6 +41,7 @@ a {
    background-color: var(--background-header);
    position: sticky;
    top: 0px;
+   z-index: 1;
 }
 
 .header .container {
@@ -62,15 +63,18 @@ a {
 }
 
 .main {
-   background-color: var(--background-color)
+   background-color: var(--background-color);
+   z-index: 0;
 }
 
 .main .navbar {
    width: 20%;
-   margin-top: 20px;
+   margin-top: 150px;
    position: sticky;
-   top: 102px;
-   z-index: 1;
+   position: fixed;
+   top: 0px;
+   z-index: 0;
+   /* background-color: orange; */
 }
 
 .main .navbar ul li {
@@ -126,9 +130,10 @@ a {
 }
 
 .main .main-content {
-   width: 100%;
+   width: 80%;
    padding: 20px;
    height: 2000px;
+   margin-left: auto;
 }
 .main-content .contain-product {
    display: flex;
@@ -153,6 +158,20 @@ a {
 .main-content .product .name {
    font-size: 19px;
 }
+.main-content .add-btn {
+   padding: 5px 20px;
+   background-color: rgb(65, 97, 168);
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 20px;
+   max-width: 200px;
+   cursor: pointer;
+   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+   transition: all 0.3s ease;
+}
 .main-content .product .edit-btn, .main-content .product .delete-btn {
    padding: 10px 20px;
    padding-right: 45px;
@@ -161,7 +180,13 @@ a {
    border-radius: 5px;
    font-size: 20px;
    position: relative;
+   cursor: pointer;  
+   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+   transition: all 0.3s ease;
 }
+
 .main-content .group-btn {
    display: flex;
    gap: 15px;
@@ -178,4 +203,50 @@ a {
    position: absolute;
    top: 5px;
    right: 3px;
+}
+
+.add-btn:hover, .edit-btn:hover, .delete-btn:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+   -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+inset -4px -4px 6px 0 rgba(255,255,255,.2),
+inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+.main-content .product .edit-btn:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+   -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+inset -4px -4px 6px 0 rgba(255,255,255,.2),
+inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+.main-content .product .delete-btn:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+   -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+inset -4px -4px 6px 0 rgba(255,255,255,.2),
+inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+.add-product-search {
+   display: flex;
+   justify-content: space-between;
+}
+.add-product-search .search {
+   display: flex;
+}
+.add-product-search .search-field {
+   width: 280px;
+   border: none;
+   outline: none;
+   padding: 0 12px;
+   font-size: 16px;
+   color: var(--text-color-dark);
+   border-radius: 8px 0 0 8px;
+   border-right: 1px solid #e8dede;
+}
+.add-product-search .btn-search {
+   border: none;
+   padding: 13px;
+   background-color: #fff;
+   border-radius: 0 8px 8px 0;
+}
+.add-product-search .search-icon {
+   width: 24px;
+   height: 24px;
 }

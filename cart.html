@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+    <html style="background-color: rgb(230, 229, 229);" lang="en">
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,12 +34,53 @@
             <!-- Font -->
             <link rel="stylesheet" href="./asset/font/stylesheet.css" />
         </head>
-        <body>
-        <header class="header">
-        
-    </header>
+        <body class="body">
+            <header class="header">
+                <div class="container">
+                    <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
+                    <nav class="nav">
+                        <ul>
+                            <li class="header-product">
+                                <a href="#!">Product</a>
+                                <img src="./asset/img/header-arrown.svg" alt="" class="arrown" />
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#recommend" class="btn-sweater">Sweater</a>
+                                    </li>
+                                    <li>
+                                        <a href="#recommend" class="btn-pants">Pants</a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">Shoe</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#!">About</a>
+                            </li>
+                            <li>
+                                <a href="#!">Contact us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="last-icon">
+                        <input type="text" name="" id="" placeholder="Search for..." class="search-field" />
+                        <button class="btn-search">
+                            <img src="./asset/img/header-search.svg" alt="" class="search-icon" />
+                        </button>
+                        <img src="./asset/img/header-user.svg" alt="" class="icon-user" />
+                    </div>
+                </div>
+                </div>
+            </header>
     <div class="container">
-        <h1>Your Shopping Cart</h1>
+        <div class="container2">
+        <div class="khung">
+            <div>Home</div>
+            <div>></div>
+            <div>checkout</div>
+        </div>
+    <div class="div-table">
         <table class="cart-table">
             <thead>
                 <tr>
@@ -54,6 +95,7 @@
                    
             </tbody>
         </table>
+    </div>
         <div class="cart-total">
             
         </div>
@@ -61,119 +103,11 @@
             <a href="index.html">Checkout</a>
         </div>
     </div>
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <!-- column-1 -->
-                <div class="column">
-                        <img
-                            src="./asset/img/header-logo.svg"
-                            alt="grocerymart"
-                            class="logo"
-                        />
-                    <p class="desc">
-                        Need to help for your new look? trust us. With
-                        cloth, you becomes a lot confident with everybody.
-                    </p>
-                    <div class="list-icon">
-                            <img
-                                class="icon"
-                                src="./asset/img/facebook.svg"
-                                alt=""
-                            />
-
-                            <img
-                                class="icon"
-                                src="./asset/img/tiktok.svg"
-                                alt=""
-                            />
-
-                            <img
-                                class="icon"
-                                src="./asset/img/twitter.svg"
-                                alt=""
-                            />
-
-                            <img
-                                class="icon"
-                                src="./asset/img/instagram.svg"
-                                alt=""
-                            />
-                    </div>
-                </div>
-                <!-- column-2 -->
-                <div class="column">
-                    <h3 class="title">Company</h3>
-                    <div class="separate"></div>
-                    <ul class="list-info">
-                        <li>
-                            <a href="#!">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#!">Features</a>
-                        </li>
-                        <li>
-                            <a href="#!">Our Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#!">Latest News</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- column-3 -->
-                <div class="column">
-                    <h3 class="title">Support</h3>
-                    <div class="separate"></div>
-                    <ul class="list-info">
-                        <li>
-                            <a href="#!">FAQ’s</a>
-                        </li>
-                        <li>
-                            <a href="#!">Terms & Conditions</a>
-                        </li>
-                        <li>
-                            <a href="#!">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#!">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- column-4 -->
-                <div class="column">
-                    <h3 class="title">Address</h3>
-                    <div class="separate"></div>
-                    <ul class="list-info">
-                        <li>
-                            <a href="#!"
-                                ><strong>Location:</strong> 27 Division St,
-                                New York, NY 10002, USA</a
-                            >
-                        </li>
-                        <li>
-                            <a href="#!"
-                                ><strong>Email:</strong> email@gmail.com</a
-                            >
-                        </li>
-                        <li>
-                            <a href="#!"
-                                ><strong>Phone:</strong>+ 000 1234 567
-                                890</a
-                            >
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="separate-last"></div>
-            <p class="desc-last">
-                Copyright ©2023 webdesign SGU. All rights reserved
-            </p>
-        </div>
     </div>
-    <!-- <script src="./asset/js/cartt.js"></script> -->
-    <!-- <script src="./asset/js/script.js"></script> -->
 </body>
-<!-- <script>
+<script src="./asset/js/cartt.js"></script> 
+<script src="./asset/js/script.js"></script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
   const cartItemsList = document.getElementById("cart-items");
   function getCartItemsFromLocalStorage() {
@@ -214,5 +148,5 @@
   }
   displayCartItems();
 });
-</script> -->
+</script>
 </html>

@@ -97,76 +97,54 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 }
 
-// showPassword1()
-// function showPassword1(){
-// var showPasswordState = 0
-// document.querySelector(".showPassword .password1").onclick = function(){
-//     if(showPasswordState === 0 ){
-//     document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/show.png')
-//     document.querySelector(".showPassword #password1").setAttribute('type','text')
-//     showPasswordState = 1;
-//     }
-//     else{
-//     document.querySelector(".showPassword .password1").setAttribute('src','./asset/img/hide.png')
-//     document.querySelector(".showPassword #password1").setAttribute('type','password')
-//     showPasswordState = 0;
-//     }
-// }
-// }
-// showPassword2()
-// function showPassword2(){
-// var showPasswordState = 0
-// document.querySelector(".showPassword .password2").onclick = function(){
-//     if(showPasswordState === 0 ){
-//     document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/show.png')
-//     document.querySelector(".showPassword #password2").setAttribute('type','text')
-//     showPasswordState = 1;
-//     }
-//     else{
-//     document.querySelector(".showPassword .password2").setAttribute('src','./asset/img/hide.png')
-//     document.querySelector(".showPassword #password2").setAttribute('type','password')
-//     showPasswordState = 0;
-//     }
-// }
-// }
-// showPassword3()
-// function showPassword3(){
-// var showPasswordState = 0
-// document.querySelector(".showPassword .password_confirmation").onclick = function(){
-//     if(showPasswordState === 0 ){
-//     document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/show.png')
-//     document.querySelector(".showPassword #password_confirmation").setAttribute('type','text')
-//     showPasswordState = 1;
-//     }
-//     else{
-//     document.querySelector(".showPassword .password_confirmation").setAttribute('src','./asset/img/hide.png')
-//     document.querySelector(".showPassword #password_confirmation").setAttribute('type','password')
-//     showPasswordState = 0;
-//     }
-// }
-// }
-
-function showPassword(inputSelector, buttonSelector) {
-    var showPasswordState = 0;
-    var passwordInput = document.querySelector(inputSelector);
-    var passwordButton = document.querySelector(buttonSelector);
-
-    passwordButton.onclick = function() {
-        if (showPasswordState === 0) {
-            passwordButton.setAttribute('src', './asset/img/show.png');
-            passwordInput.setAttribute('type', 'text');
-            showPasswordState = 1;
-        } else {
-            passwordButton.setAttribute('src', './asset/img/hide.png');
-            passwordInput.setAttribute('type', 'password');
-            showPasswordState = 0;
-        }
-    };
+showPassword1()
+function showPassword1(){
+var showPasswordState = 0
+document.querySelector(".password1").onclick = function(){
+    if(showPasswordState === 0 ){
+    document.querySelector(".password1").setAttribute('src','./asset/img/show.png')
+    document.querySelector("#password1").setAttribute('type','text')
+    showPasswordState = 1;
+    }
+    else{
+    document.querySelector(".password1").setAttribute('src','./asset/img/hide.png')
+    document.querySelector("#password1").setAttribute('type','password')
+    showPasswordState = 0;
+    }
 }
-
-showPassword(".showPassword #password1", ".showPassword .password1");
-showPassword(".showPassword #password2", ".showPassword .password2");
-showPassword(".showPassword #password_confirmation", ".showPassword .password_confirmation");
+}
+showPassword2()
+function showPassword2(){
+var showPasswordState = 0
+document.querySelector(".password2").onclick = function(){
+    if(showPasswordState === 0 ){
+    document.querySelector(".password2").setAttribute('src','./asset/img/show.png')
+    document.querySelector("#password2").setAttribute('type','text')
+    showPasswordState = 1;
+    }
+    else{
+    document.querySelector(".password2").setAttribute('src','./asset/img/hide.png')
+    document.querySelector("#password2").setAttribute('type','password')
+    showPasswordState = 0;
+    }
+}
+}
+showPassword3()
+function showPassword3(){
+var showPasswordState = 0
+document.querySelector(".password_confirmation").onclick = function(){
+    if(showPasswordState === 0 ){
+    document.querySelector(".password_confirmation").setAttribute('src','./asset/img/show.png')
+    document.querySelector("#password_confirmation").setAttribute('type','text')
+    showPasswordState = 1;
+    }
+    else{
+    document.querySelector(".password_confirmation").setAttribute('src','./asset/img/hide.png')
+    document.querySelector("#password_confirmation").setAttribute('type','password')
+    showPasswordState = 0;
+    }
+}
+}
 
 // Đối tượng `Validator`
 function Validator(options) {
@@ -198,8 +176,23 @@ function Validator(options) {
        }
        if (errorMessage) {
            errorElement.innerText = errorMessage;
+            var validateElement = getParent(
+                inputElement,
+                options.formGroupSelector
+            ).querySelector('.div');
+                Object.assign(validateElement.style, {
+                'border-color': 'red',
+            })
        } else {
            errorElement.innerText = "";
+           var validateElement = getParent(
+                inputElement,
+                options.formGroupSelector
+            ).querySelector('.div');
+                Object.assign(validateElement.style, {
+                'border-color': '#b3b3b3',
+            })
+           
        }
        return !errorMessage;
    }
@@ -258,11 +251,18 @@ function Validator(options) {
 
                // Xử lý mỗi khi người dùng nhập vào input
                inputElement.oninput = function () {
-                   var errorElement = getParent(
+                    var errorElement = getParent(
                        inputElement,
                        options.formGroupSelector
-                   ).querySelector(options.errorSelector);
-                   errorElement.innerText = "";
+                    ).querySelector(options.errorSelector);
+                    errorElement.innerText = "";
+                    var validateElement = getParent(
+                        inputElement,
+                        options.formGroupSelector
+                    ).querySelector('.div');
+                    Object.assign(validateElement.style, {
+                        'border-color': '#b3b3b3',
+                    })
                };
    }})}
 }
