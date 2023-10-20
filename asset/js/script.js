@@ -318,7 +318,7 @@ function updateCartDisplay() {
 
     let totalQuantity = 0;
     let totalPrice = 0;
-    let shippingPrice = 10; // gia van chuyen 1 san pham
+    let shippingPrice = 5; // gia van chuyen 1 san pham
 
     // Render ve mat hinh anh (hinh san pham, ten, gia tien)
     const renderImageCart = function () {
