@@ -85,25 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const checkoutButton = document.getElementById("checkout-button");
-checkoutButton.addEventListener("click",function(){
-    window.location.href = "cart.html";
-});
-// Thêm mã sau vào hàm "checkoutButton.addEventListener"
 checkoutButton.addEventListener("click", function () {
   // Lưu thông tin giỏ hàng vào Local Storage trước khi chuyển hướng
   localStorage.setItem("cart", JSON.stringify(cartItems));
   // Xóa thông tin sản phẩm mặc định khỏi Local Storage
   clearDefaultProducts();
-
   window.location.href = "cart.html";
 });
 
-// Thêm hàm để xóa thông tin sản phẩm mặc định khỏi Local Storage
 function clearDefaultProducts() {
-  // Lấy danh sách sản phẩm mặc định từ Local Storage (nếu có)
   const defaultProductsJSON = localStorage.getItem("defaultProducts");
   const defaultProducts = JSON.parse(defaultProductsJSON) || [];
-
   // Xóa danh sách sản phẩm mặc định khỏi Local Storage
   localStorage.removeItem("defaultProducts");
 }
