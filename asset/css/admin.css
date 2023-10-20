@@ -34,6 +34,9 @@ body {
 a {
    text-decoration: none;
 }
+.hidden {
+   display: none;
+}
 
 /* ========= Header ========= */
 
@@ -104,6 +107,11 @@ a {
    height: 18px;
    object-fit: cover;
 }
+
+.main .navbar ul li a {
+   color: var(--text-color-dark);
+}
+
 .navbar ul li a::after {
    display: flex;
    content: "";
@@ -132,14 +140,14 @@ a {
 .main .main-content {
    width: 80%;
    padding: 20px;
-   height: 2000px;
    margin-left: auto;
 }
 .main-content .contain-product {
    display: flex;
    flex-direction: column;
-   gap: 20px;
+   gap: 10px;
 }
+
 .main-content .product {
    padding: 20px;
    display: flex;
@@ -147,17 +155,23 @@ a {
    align-items: center;
    background-color: #fff;
    border-radius: 20px;
-
 }
+
+.main-content .product:hover {
+   box-shadow: 0px 16px 40px 0px rgba(0, 0, 0, 0.18)
+}
+
 .main-content .product .img-product {
    width: 110px;
    height: 100px;
    object-fit: cover;
    border-radius: 10px;
 }
+
 .main-content .product .name {
    font-size: 19px;
 }
+
 .main-content .add-btn {
    padding: 5px 20px;
    background-color: rgb(65, 97, 168);
@@ -167,12 +181,14 @@ a {
    font-size: 20px;
    max-width: 200px;
    cursor: pointer;
-   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+      7px 7px 20px 0px rgba(0, 0, 0, .1),
+      4px 4px 5px 0px rgba(0, 0, 0, .1);
    transition: all 0.3s ease;
 }
-.main-content .product .edit-btn, .main-content .product .delete-btn {
+
+.main-content .product .edit-btn,
+.main-content .product .delete-btn {
    padding: 10px 20px;
    padding-right: 45px;
    color: #fff;
@@ -180,10 +196,10 @@ a {
    border-radius: 5px;
    font-size: 20px;
    position: relative;
-   cursor: pointer;  
-   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+   cursor: pointer;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+      7px 7px 20px 0px rgba(0, 0, 0, .1),
+      4px 4px 5px 0px rgba(0, 0, 0, .1);
    transition: all 0.3s ease;
 }
 
@@ -191,13 +207,17 @@ a {
    display: flex;
    gap: 15px;
 }
+
 .main-content .product .edit-btn {
    background-color: #2260da;
 }
+
 .main-content .product .delete-btn {
    background-color: #dc3139;
 }
-.main-content .product .icon-edit, .main-content .product .icon-delete {
+
+.main-content .product .icon-edit,
+.main-content .product .icon-delete {
    width: 30px;
    height: 30px;
    position: absolute;
@@ -205,31 +225,39 @@ a {
    right: 3px;
 }
 
-.add-btn:hover, .edit-btn:hover, .delete-btn:hover {
-   box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
-   -4px -4px 6px 0 rgba(116, 125, 136, .5), 
-inset -4px -4px 6px 0 rgba(255,255,255,.2),
-inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+.add-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+      -4px -4px 6px 0 rgba(116, 125, 136, .5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
+
 .main-content .product .edit-btn:hover {
-   box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
-   -4px -4px 6px 0 rgba(116, 125, 136, .5), 
-inset -4px -4px 6px 0 rgba(255,255,255,.2),
-inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+      -4px -4px 6px 0 rgba(116, 125, 136, .5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
+
 .main-content .product .delete-btn:hover {
-   box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
-   -4px -4px 6px 0 rgba(116, 125, 136, .5), 
-inset -4px -4px 6px 0 rgba(255,255,255,.2),
-inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+      -4px -4px 6px 0 rgba(116, 125, 136, .5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
+
 .add-product-search {
    display: flex;
    justify-content: space-between;
+   margin-bottom: 20px;
 }
+
 .add-product-search .search {
    display: flex;
 }
+
 .add-product-search .search-field {
    width: 280px;
    border: none;
@@ -240,13 +268,124 @@ inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
    border-radius: 8px 0 0 8px;
    border-right: 1px solid #e8dede;
 }
+
 .add-product-search .btn-search {
    border: none;
    padding: 13px;
    background-color: #fff;
    border-radius: 0 8px 8px 0;
 }
+
+.add-product-search .btn-search:hover {
+   background-color: #e7e1e1;
+}
 .add-product-search .search-icon {
    width: 24px;
    height: 24px;
+}
+
+/* ========= xử lí form ============= */
+.add-edit-product-background-form {
+   width: 100%;
+   height: 100%;
+   visibility: hidden;
+   opacity: 0;
+   position: fixed;
+   top: 0;
+   z-index: 99999;
+   transition: 0.3s;
+   background: rgba(0, 0, 0, 0.5);
+}
+.animate {
+   visibility: visible;
+   opacity: 1;
+}
+.add-edit-product-form {
+   position: relative;
+   background-color: #fff;
+   padding: 30px;
+   width: 550px;
+   top: 0px;
+   left: 0px;
+   transform: translate(88%, 10%);
+   border-radius: 20px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+   7px 7px 20px 0px rgba(0, 0, 0, .1),
+   4px 4px 5px 0px rgba(0, 0, 0, .1);
+}
+
+.add-edit-product-form .head-form {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.head-form .title {
+   color: rgb(34 96 218);
+   font-size: 40px;
+   font-weight: 700;
+   margin-bottom: 15px;
+}
+
+.head-form .closeImg {
+   width: 35px;
+   height: 35px;
+   cursor: pointer;
+   padding: 5px;
+}
+
+.form-group {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 16px;
+}
+.form-group .type-product {
+   padding: 10px;
+}
+
+.form-label {
+   font-weight: 700;
+   margin: 0px 0px 7px 0px;
+   line-height: 1.8rem;
+   font-size: 1.6rem;
+   user-select: none;
+}
+.form-input {
+   width: 100%;
+   height: 40px;
+   padding: 8px 12px;
+   border: none;
+   border-radius: 6px;
+   outline: none;
+   font-size: 1.4rem;
+   border: 1px solid #b3b3b3;
+}
+.form-select {
+   width: 100%;
+   height: 40px;
+   padding: 8px 12px;
+   border: none;
+   border-radius: 6px;
+   outline: none;
+   font-size: 1.4rem;
+   border: 1px solid #b3b3b3;
+}
+.btn-save {
+   font-weight: 700;
+   width: 100%;
+   font-size: 16px;
+   padding: 5px;
+   background-color: rgb(34 96 218);
+   border: none;
+   border-radius: 5px;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+   7px 7px 20px 0px rgba(0, 0, 0, .1),
+   4px 4px 5px 0px rgba(0, 0, 0, .1);
+transition: all 0.3s ease;
+}
+.btn-save:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+      -4px -4px 6px 0 rgba(116, 125, 136, .5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }

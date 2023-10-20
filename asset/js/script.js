@@ -224,7 +224,10 @@ const listProducts = [
     },
 ];
 // Hàm để render danh sách sản phẩm
-let currentProductType = "sweater";
+export { listProducts }
+
+document.addEventListener('DOMContentLoaded', function() {
+    let currentProductType = "sweater";
 
 function renderProducts() {
     const productListContainer = document.querySelector(".list-show-product");
@@ -476,3 +479,5 @@ document.querySelector(".backToTop").onclick = function () {
     document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
     document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
 };
+
+})

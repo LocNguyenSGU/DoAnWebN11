@@ -30,7 +30,7 @@ document.querySelector(".closeLoginBlock img").onclick = function () { // nút d
 };
 var loginBackgroundClickState = 1
 document.querySelector('.loginBlock').onclick = function(){  // xử lí khi nhấn vào form k bị ẩn đi
-    loginBackgroundClickState = 0
+    loginBackgroundClickState = 0;
 }
 document.querySelector('.loginBackground').onclick = function(){
     if(loginBackgroundClickState === 1){
