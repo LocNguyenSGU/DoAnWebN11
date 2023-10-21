@@ -1,4 +1,4 @@
-const listProducts = [
+let listProducts = [
     {
         id: 101,
         name: "sweater PEWARN",
