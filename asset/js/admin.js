@@ -1,11 +1,232 @@
-import { listProducts } from "./script.js";
+let listProducts = localStorage.getItem('listProducts')
+    ? JSON.parse(localStorage.getItem('listProducts'))
+    : [
+          {
+              id: 101,
+              name: "sweater PEWARN",
+              price: 20.99,
+              description:
+                  "Korean classic loose long-sleeve PEWARN sweater for plus size men and women",
+              image: "./asset/img/product-sweater/sweater-101.jpg",
+              star: "4.5",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 102,
+              name: "sweater PEASE STAR",
+              price: 39.99,
+              description:
+                  "PEASE STAR Letter Printed Felt Hoodie Jacket Korean Fashion Style that men and women wear very well",
+              image: "./asset/img/product-sweater/sweater-102.jpg",
+              star: "5",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 103,
+              name: "Áo thun",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-103.jpg",
+              star: "4.9",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 104,
+              name: "Áo thun",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-104.jpg",
+              star: "4.8",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 105,
+              name: "Áo thun",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-105.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 106,
+              name: "Áo thun",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-106.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 107,
+              name: "Áo thun",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-107.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 108,
+              name: "Áo thun",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-101.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 109,
+              name: "Áo khoac",
+              price: 20.99,
+              description: "Áo thun đơn giản",
+              image: "./asset/img/product-sweater/sweater-101.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 201,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-201.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 203,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-203.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 204,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-204.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 205,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-205.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 206,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-206.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 207,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-207.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 208,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-208.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 209,
+              name: "Quần jean J1",
+              price: 39.99,
+              description: "Mô tả sản phẩm quần jean J1",
+              image: "./asset/img/product-pants/pants-209.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+      ];
 
-// // Initialize listProducts from local storage if available
-// let storedProductData = localStorage.getItem("productData");
-// if (storedProductData) {
-//     listProducts = JSON.parse(storedProductData);
-// }
-
+console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
 
 function renderProducts() {
     const productListContainer = document.querySelector(".contain-product");
@@ -48,7 +269,8 @@ function deleteProduct(id) {
             renderProducts();
             console.log("Deleted product with ID " + id);
             // Sau khi xoá sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
-            // localStorage.setItem("productData", JSON.stringify(listProducts));
+            localStorage.setItem('listProducts', JSON.stringify(listProducts));
+
         }
     } else {
         console.log("Product with ID " + id + " not found");
@@ -116,14 +338,14 @@ btnSave.addEventListener("click", function () {
                 type: productType,
             },
         };
-        listProducts.push(product);
+        listProducts.unshift(product);
         clearForm();
         console.log("Added product with ID " + productId);
         renderProducts();
         rmvAnimate();
          // Sau khi thay đổi thông tin sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
-        // localStorage.setItem("productData", JSON.stringify(listProducts));
-        console.log(listProducts);
+        localStorage.setItem("listProducts", JSON.stringify(listProducts));
+
     } else {
         saveEditedProduct();
 
@@ -180,7 +402,7 @@ function saveEditedProduct() {
         productToEdit.nature.type = productType;
         productToEdit.image = productImg;
          // Sau khi thay đổi thông tin sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
-        // localStorage.setItem("productData", JSON.stringify(listProducts));
+        // localStorage.setItem("listProducts", JSON.stringify(product));----can fixx
         console.log("edited success with ID " + productId);
 
     } else {
