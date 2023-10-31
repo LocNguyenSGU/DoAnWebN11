@@ -225,8 +225,6 @@ let listProducts = localStorage.getItem('listProducts')
               },
           },
       ];
-
-console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
 document.addEventListener("DOMContentLoaded", function () {
     let currentProductType = "sweater";
 
@@ -280,8 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Them san pham vao gio hang thong qua mang cartItems
     const cartItems = [];
 
-    const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-    console.log(addToCartButtons);
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-button")
     addToCartButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
             console.log("da tim ok");

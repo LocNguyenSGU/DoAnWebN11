@@ -1,3 +1,11 @@
+var accounts = [
+    {
+        id:         1,
+        isAdmin:    1,
+        email:      'admin123@gmail.com',
+        password:   'admin123'
+    },
+]
 //Xử lý ẩn/hiện layout đăng nhập
 loginBtn()
 function loginBtn(){
@@ -44,57 +52,6 @@ document.querySelector('.loginBackground').onclick = function(){
     }
     loginBackgroundClickState = 1
 }
-}
-
-
-const tabs = document.querySelectorAll(".tab-item");
-const panes = document.querySelectorAll(".tab-pane");
-tabs.forEach((tab, index) => {
-   const pane = panes[index];
-   tab.onclick = function () {
-       document.querySelector(".tab-item.active").classList.remove("active");
-       document.querySelector(".tab-pane.active").classList.remove("active");
-       this.classList.add("active");
-       pane.classList.add("active");
-   };
-});
-kiemTra()
-function kiemTra(){
-document.addEventListener('DOMContentLoaded', function () {
-    Validator({
-        form: '#form-2',
-        formGroupSelector: '.form-group',
-        errorSelector: '.form-message',
-        rules: [
-            Validator.isEmail('#email2'),
-            Validator.minLength('#password2', 6),
-            Validator.isRequired('#password_confirmation'),
-            Validator.isConfirmed('#password_confirmation', function () {
-                return document.querySelector('#form-2 #password2').value;
-            }, 'Mật khẩu nhập lại không chính xác')
-        ],
-        onSubmit: function (data) {
-            // Console.log ra dữ liệu đã nhập vào from đăng kí
-            console.log(data);
-        }
-    });
-
-
-    Validator({
-        form: '#form-1',
-        formGroupSelector: '.form-group',
-        errorSelector: '.form-message',
-        rules: [
-            Validator.isEmail('#email1'),
-            Validator.isRequired('#password1'),
-            Validator.minLength('#password1', 6),
-        ],
-        onSubmit: function (data) {
-            // Console.log ra dữ liệu đã nhập vào from đăng nhập
-            console.log(data);
-        }
-    });
-});
 }
 
 showPassword1()
@@ -146,6 +103,18 @@ document.querySelector(".password_confirmation").onclick = function(){
 }
 }
 
+const tabs = document.querySelectorAll(".tab-item");
+const panes = document.querySelectorAll(".tab-pane");
+tabs.forEach((tab, index) => {
+   const pane = panes[index];
+   tab.onclick = function () {
+       document.querySelector(".tab-item.active").classList.remove("active");
+       document.querySelector(".tab-pane.active").classList.remove("active");
+       this.classList.add("active");
+       pane.classList.add("active");
+   };
+});
+
 // Đối tượng `Validator`
 function Validator(options) {
    function getParent(element, selector) {
@@ -192,7 +161,6 @@ function Validator(options) {
                 Object.assign(validateElement.style, {
                 'border-color': '#b3b3b3',
             })
-           
        }
        return !errorMessage;
    }
@@ -203,9 +171,7 @@ function Validator(options) {
        // Khi submit form
        formElement.onsubmit = function (e) {
            e.preventDefault();
-
            var isFormValid = true;
-
            // Lặp qua từng rules và validate
            options.rules.forEach(function (rule) {
                var inputElement = formElement.querySelector(rule.selector);
@@ -263,6 +229,8 @@ function Validator(options) {
                     Object.assign(validateElement.style, {
                         'border-color': '#b3b3b3',
                     })
+
+                    document.querySelector('.loginError').innerHTML = ''
                };
    }})}
 }
@@ -281,7 +249,6 @@ Validator.isRequired = function (selector, message) {
        },
    };
 };
-
 Validator.isEmail = function (selector, message) {
    return {
        selector: selector,
@@ -293,7 +260,6 @@ Validator.isEmail = function (selector, message) {
        },
    };
 };
-
 Validator.minLength = function (selector, min, message) {
    return {
        selector: selector,
@@ -304,7 +270,6 @@ Validator.minLength = function (selector, min, message) {
        },
    };
 };
-
 Validator.isConfirmed = function (selector, getConfirmValue, message) {
    return {
        selector: selector,
@@ -315,3 +280,88 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
        },
    };
 };
+runCheckRegister()
+runCheckLogin()
+//submit
+function runCheckRegister() {
+    Validator({
+        form: '#form-2',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isEmail('#email2'),
+            Validator.minLength('#password2', 6),
+            Validator.isRequired('#password_confirmation'),
+            Validator.isConfirmed('#password_confirmation', function () {
+                return document.querySelector('#form-2 #password2').value;
+            }, 'Mật khẩu nhập lại không chính xác')
+        ],
+        onSubmit: function (data) {
+            checkRegister(data)
+        }
+})
+function checkRegister(data) {
+    let isFound = false;
+    let errorMessage = ``
+    for (let account of accounts) {
+        if (data.email === account.email) {
+            isFound = true;
+            errorMessage = `Email này đã được đăng ký! `
+        }
+        if (isFound) {
+            document.querySelector('.loginError').innerHTML = `${errorMessage}`
+            break;
+        }
+    }
+    if (!isFound) {
+       updateAccounts(data)
+       window.location = "./index.html"
+    }
+ }
+ function updateAccounts(data) {
+    account.push({
+       email: data.email,
+       password: data.password,
+       typeUser: "member"
+    });
+    loginUser = users[users.length - 1];
+    updateLocalStorage();
+}
+}
+function runCheckLogin() {
+    Validator({
+        form: '#form-1',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isEmail('#email1'),
+            Validator.isRequired('#password1'),
+            Validator.minLength('#password1', 6),
+        ],
+        onSubmit: function (data) {
+            checkLogin(data)
+        }
+    });
+}
+function checkLogin(data) {
+    let isFound = false;
+    for (let account of accounts) {
+       if (data.email === account.email && data.password === account.password && account.isAdmin === 0) {
+          isFound = true;
+          loginAccount = account;
+          updateLocalStorage();
+          window.location = "./index.html"
+       }
+    }
+    if (!isFound) {
+        document.querySelector('.loginError').innerHTML = `Tài khoản hoặc mật khẩu không chính xác!`
+    }
+ }
+ 
+//  function updateLocalStorage() {
+//     let usersData = JSON.stringify(users);
+//     let loginUserData = JSON.stringify(loginUser);
+ 
+//     localStorage.setItem('myUsers', usersData);
+//     localStorage.setItem('loginUser', loginUserData)
+//  }
