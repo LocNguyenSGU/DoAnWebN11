@@ -315,17 +315,27 @@ function checkRegister(data) {
     }
     if (!isFound) {
        updateAccounts(data)
-       window.location = "./index.html"
+    //    window.location = "./index.html"
     }
  }
+ function setId(data){
+    let max=accounts[0].id
+    for(let i=1;i<accounts.length;i++){
+        if(accounts[i].id > max) max=accounts[i].id
+    }
+    return max+1;
+ }
  function updateAccounts(data) {
-    account.push({
-       email: data.email,
-       password: data.password,
-       typeUser: "member"
+    accounts.push({
+        id: setId(),
+        isAdmin: 0,
+        email: data.email,
+        password: data.password,
+       
     });
-    loginUser = users[users.length - 1];
-    updateLocalStorage();
+    console.log(accounts)
+    // loginAccount = accounts[accounts.length - 1];
+    // updateLocalStorage();
 }
 }
 function runCheckLogin() {
