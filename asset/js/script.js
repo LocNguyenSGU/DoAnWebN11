@@ -1,5 +1,5 @@
-let listProducts = localStorage.getItem('listProducts')
-    ? JSON.parse(localStorage.getItem('listProducts'))
+let listProducts = localStorage.getItem("listProducts")
+    ? JSON.parse(localStorage.getItem("listProducts"))
     : [
           {
               id: 101,
@@ -226,11 +226,15 @@ let listProducts = localStorage.getItem('listProducts')
           },
       ];
 
-console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
+// console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
 document.addEventListener("DOMContentLoaded", function () {
     let currentProductType = "sweater";
 
     function renderProducts() {
+        const noProduct = document.querySelector(".no-product-search");
+        noProduct.classList.add("hidden");
+        document.querySelector(".search-field").value = "";
+
         const productListContainer =
             document.querySelector(".list-show-product");
         productListContainer.innerHTML = "";
@@ -281,7 +285,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartItems = [];
 
     const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-    console.log(addToCartButtons);
     addToCartButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
             console.log("da tim ok");
@@ -365,13 +368,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const row2Element = document.querySelector(
             ".header .list-preview .row-2"
         );
-
-        // if (cartItems.length >= 3) {  // neu hinh anh lon hon 3 thi phai chinh sua lai 1 chut css cho dep
-        //     console.log(row2Element);
-        //     row2Element.style.removeProperty("justify-content");
-        //     row2Element.style.justify_content = "space-between";
-        //     row2Element.style.removeProperty("gap");
-        // }
 
         if (cartItems.length >= 1 && cartItems.length <= 3) {
             renderImageCart(); // render ve mat hinh anh la toi da 3 hinh
@@ -461,7 +457,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     startAutoSlide();
 
-
     // Xu li nut backToTop
     window.onscroll = function () {
         scrollFunction();
@@ -485,4 +480,20 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
         document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
     };
+
+    // let isFormVisible = false;
+    // const btnBuyCart = document.querySelector(".buy-cart");
+    // const showlistPreview = document.querySelector(".list-preview");
+    // btnBuyCart.addEventListener("click", function (e) {
+    //     if (isFormVisible) {
+    //         showlistPreview.classList.add("active");
+    //         isFormVisible = false;
+    //         e.stopPropagation();
+    //     } else {
+    //         showlistPreview.classList.remove("active");
+    //         isFormVisible = true;
+    //         e.stopPropagation();
+
+    //     }
+    // });
 });
