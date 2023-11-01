@@ -295,26 +295,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // Them san pham vao gio hang thong qua mang cartItems
     const cartItems = [];
 
-<<<<<<< Updated upstream
+
     const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
     addToCartButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
             console.log("da tim ok");
-            addToCart(listProducts[index]);
-            updateCartDisplay();
-=======
+            addToCart(listProducts[index])
+        });
+        })
+             
     function addToCartPaints(length) {
         const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-        console.log(addToCartButtons);
         addToCartButtons.forEach((button, index) => {
             button.addEventListener("click", () => {
                 addToCart(listProducts[index + length]);
                 updateCartDisplay();
             });
->>>>>>> Stashed changes
         });
     }
-    addToCartPaints(0);
     // Ham de day du lieu khi an nut addToCart vao mang cartItems
     function addToCart(product) {
         const existingCartItem = cartItems.find(
@@ -334,6 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         updateCartDisplay();
     }
+
     
     // goi cac bien day ben ngoai vi ham updateCartDisplay, minh phai click vao addToCart thi no moi thuc thi
     const haveProduct = document.querySelector(".have-product");
@@ -518,4 +517,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //     }
     // });
-});
+    });
