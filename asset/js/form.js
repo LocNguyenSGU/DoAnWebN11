@@ -1,11 +1,12 @@
-var accounts = [
+let accounts = localStorage.getItem('myAccounts') ? JSON.parse(localStorage.getItem('myAccounts')) : [
     {
         id:         1,
         isAdmin:    1,
         email:      'admin123@gmail.com',
         password:   'admin123'
     },
-]
+];
+let loginAccount = JSON.parse(localStorage.getItem('myAccount'))
 //Xử lý ẩn/hiện layout đăng nhập
 loginBtn()
 function loginBtn(){
@@ -316,6 +317,7 @@ function checkRegister(data) {
     if (!isFound) {
        updateAccounts(data)
     //    window.location = "./index.html"
+    console.log(loginAccount)
     }
  }
  function setId(data){
@@ -326,16 +328,15 @@ function checkRegister(data) {
     return max+1;
  }
  function updateAccounts(data) {
-    accounts.push({
+    let obj = {
         id: setId(),
         isAdmin: 0,
         email: data.email,
         password: data.password,
-       
-    });
-    console.log(accounts)
-    // loginAccount = accounts[accounts.length - 1];
-    // updateLocalStorage();
+    }
+    accounts.push(obj)
+    loginAccount = accounts[accounts.length - 1];
+    updateLocalStorage();
 }
 }
 function runCheckLogin() {
@@ -356,11 +357,12 @@ function runCheckLogin() {
 function checkLogin(data) {
     let isFound = false;
     for (let account of accounts) {
-       if (data.email === account.email && data.password === account.password && account.isAdmin === 0) {
+       if (data.email === account.email && data.password === account.password) {
           isFound = true;
           loginAccount = account;
           updateLocalStorage();
-          window.location = "./index.html"
+        //   window.location = "./index.html"
+        console.log(loginAccount)
        }
     }
     if (!isFound) {
@@ -368,10 +370,11 @@ function checkLogin(data) {
     }
  }
  
-//  function updateLocalStorage() {
-//     let usersData = JSON.stringify(users);
-//     let loginUserData = JSON.stringify(loginUser);
- 
-//     localStorage.setItem('myUsers', usersData);
-//     localStorage.setItem('loginUser', loginUserData)
-//  }
+ function updateLocalStorage() {
+    //Nếu không JSON.stringify thì console.log(accounts) sẽ ra [object Object]
+    let usersAccounts = JSON.stringify(accounts);
+    let loginUserAccount = JSON.stringify(loginAccount); 
+
+    localStorage.setItem('myAccounts', usersAccounts);
+    localStorage.setItem('loginAccount', loginUserAccount)
+ }
