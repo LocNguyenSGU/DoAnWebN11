@@ -153,6 +153,9 @@ a {
    border-radius: 0 8px 8px 0;
    /* margin-left: 0px; */
 }
+.header .btn-search:hover {
+   background-color: #e7e1e1;
+}
 
 .header .btn-search:focus~.search-field {
    visibility: visible;
@@ -166,6 +169,13 @@ a {
 .header .last-icon {
    display: flex;
    margin-left: auto;
+   position: relative;
+}
+.header .last-icon svg {
+   position: absolute;
+   top: 18px;
+   left: 252px;
+   color: rgb(182, 175, 175);
 }
 
 .header .buy-cart {
@@ -185,7 +195,7 @@ a {
    position: absolute;
    width: 232px;
    background-color: #fff;
-   top: 67px;
+   top: 65px;
    left: -124px;
    border-radius: 20px;
    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
@@ -460,6 +470,7 @@ a {
 .recommed-product-right {
    padding-left: 15px;
 }
+
 .recommed-product-right .price {
    color: var(--text-color-dark);
    font-size: 2.2rem;
@@ -481,6 +492,7 @@ a {
 }
 
 .hello-filter {
+   position: relative;
    margin: 30px 0;
    justify-content: space-between;
 }
@@ -633,6 +645,11 @@ a {
    display: flex;
    align-items: center;
    gap: 6px;
+}
+
+.no-product-search {
+   font-size: 1.8rem;
+   padding-left: 5px;
 }
 
 /* ========= Create account ============ */
@@ -860,7 +877,8 @@ a {
    cursor: pointer;
    background-color: rgba(255, 255, 255, 0.8);
 }
-.loginBackground{
+
+.loginBackground {
    width: 100%;
    height: 100%;
    visibility: hidden;
@@ -868,16 +886,29 @@ a {
    top: 0;
    z-index: 99999;
    animation-duration: 0.3s;
-   background: rgba(0,0,0,0.5);
+   background: rgba(0, 0, 0, 0.5);
 }
+
 @keyframes backgroundeffect1 {
-   0% { opacity: 0;}
-   100% { opacity: 1;}
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
 }
+
 @keyframes backgroundefffect2 {
-   0% {opacity: 1;}
-   100% {opacity: 0;}
+   0% {
+      opacity: 1;
+   }
+
+   100% {
+      opacity: 0;
+   }
 }
+
 .loginBlock {
    padding: 0 30px;
    background-color: white;
@@ -888,7 +919,7 @@ a {
    left: calc(50% - 275px);
    display: none;
    border-radius: 20px;
-   
+
 }
 
 .tab {
@@ -969,6 +1000,7 @@ a {
    font-size: 1.6rem;
    user-select: none;
 }
+
 .div {
    width: 100%;
    display: flex;
@@ -976,18 +1008,20 @@ a {
    border: 1px solid #b3b3b3;
    border-radius: 6px;
 }
+
 .div img {
    position: relative;
    left: -10px;
    width: 25px;
    height: 25px;
 }
+
 .form-control {
    width: 100%;
    height: 40px;
    padding: 8px 12px;
    border: none;
-   border-radius: 6px;  
+   border-radius: 6px;
    outline: none;
    font-size: 1.4rem;
 }
@@ -1023,33 +1057,122 @@ a {
    user-select: none;
    font-size: 2.0rem;
 }
-
+.loginError {
+   text-align: center;
+   color: red;
+   margin: 10px;
+   padding: 5px 0px 5px 0px;
+}
 .loginLogo {
-   margin: 20px;
+   margin-top: 20px;
    display: grid;
    text-align: center;
    justify-items: center;
    user-select: none;
 }
 
-/* tim kiem co ban */
-/* tim kiem cb */
-.hide{
-   display: none;
+/* =========== Form filter =========== */
+.form-filter {
+   background-color: #fff;
+   /* width: 700px; */
+   /* height: 200px; */
+   position: absolute;
+   top: 54px;
+   right: 27px;
+   z-index: 2;
+   border-radius: 20px;
+   padding: 30px;
+   opacity: 0;
+   visibility: hidden;
+   scale: 0;
+   transition: all 0.3s;
+   transform-origin: 93% top;
 }
-/* filter */
-.filter.hidde-form {
-   display: none;
-}  
-.filter .item {
-   margin-bottom: 15px; 
+.filter-toggle.active ~ .form-filter{
+   opacity: 1;
+   visibility: visible;
+   scale: 1;
 }
-.filter button {
-   background-color: #007bff; 
-   color: #fff; 
-   border: none; 
-   border-radius: 5px; 
-   padding: 10px 20px; 
+
+.form-filter::before {
+   background-color: #fff;
+   content: "";
+   position: absolute;
+   top: -18px;
+   right: 25px;
+   border: 10px solid;
+   border-color: var(--background-color) var(--background-color) #fff;
 }
-.filter button:hover {
-   background-color: #0056b3; }
+
+.filter-toggle {
+   background-color: #fff;
+   padding: 6px 12px;
+   border-radius: 6px;
+   display: flex;
+   gap: 10px;
+}
+
+.title-filter {
+   color: var(--text-color-dark);
+   font-size: 2.2rem;
+   font-weight: 500;
+}
+
+.row-filer {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 30px;
+   gap: 20px;
+}
+
+.form-item {
+   display: flex;
+   flex-direction: column;
+}
+
+.form-item label {
+   color: var(--text-color-dark);
+   font-size: 2rem;
+   font-weight: 450;
+}
+
+.form-item select,
+.form-item input {
+   margin-top: 20px;
+   height: 37px;
+   padding: 7px;
+   border-radius: 6px;
+   border: 1px solid var(--secondary-color-secondary-3, #D2D1D6);
+}
+.form-item #name {
+   width: 280px;
+}
+.form-item #min,
+.form-item #max {
+   width: 100px;
+}
+
+.form-filter .group-btn {
+   display: flex;
+   margin-top: 20px;
+   justify-content: right;
+   gap: 20px;
+}
+
+.form-filter .group-btn .btn-cancel {
+   color: var(--text-color-light);
+   font-size: 1.4rem;
+   font-weight: 400;
+   border: none;
+   background-color: #fff;
+}
+
+.form-filter .group-btn .btn-show-result {
+   color: var(--text-color-dark);
+   font-size: 1.5rem;
+   border: none;
+   font-weight: 550;
+   border-radius: 6px;
+   background-color: #27b6b9;
+   padding: 10px;
+}

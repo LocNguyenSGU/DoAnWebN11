@@ -68,6 +68,7 @@ a {
 .main {
    background-color: var(--background-color);
    z-index: 0;
+   min-height: calc(100vh - 80px);
 }
 
 .main .navbar {
@@ -256,6 +257,15 @@ a {
 
 .add-product-search .search {
    display: flex;
+   position: relative;
+}
+
+.add-product-search .search .icon-delete {
+   position: absolute;
+   color: rgb(182, 175, 175);
+   top: 19px;
+   right: 62px;
+
 }
 
 .add-product-search .search-field {

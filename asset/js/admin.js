@@ -1,5 +1,5 @@
-let listProducts = localStorage.getItem('listProducts')
-    ? JSON.parse(localStorage.getItem('listProducts'))
+let listProducts = localStorage.getItem("listProducts")
+    ? JSON.parse(localStorage.getItem("listProducts"))
     : [
           {
               id: 101,
@@ -228,11 +228,11 @@ let listProducts = localStorage.getItem('listProducts')
 
 console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
 
-function renderProducts() {
+function renderProducts(arr) {
     const productListContainer = document.querySelector(".contain-product");
     productListContainer.innerHTML = "";
 
-    listProducts.forEach((product) => {
+    arr.forEach((product) => {
         const productDiv = document.createElement("div");
         productDiv.classList.add("product"); // Add the "product" class
 
@@ -255,7 +255,7 @@ function renderProducts() {
         productListContainer.appendChild(productDiv);
     });
 }
-renderProducts();
+renderProducts(listProducts);
 
 // hàm xoá
 function deleteProduct(id) {
@@ -266,11 +266,10 @@ function deleteProduct(id) {
         );
         if (shouldDelete) {
             listProducts.splice(index, 1);
-            renderProducts();
+            renderProducts(listProducts);
             console.log("Deleted product with ID " + id);
             // Sau khi xoá sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
-            localStorage.setItem('listProducts', JSON.stringify(listProducts));
-
+            localStorage.setItem("listProducts", JSON.stringify(listProducts));
         }
     } else {
         console.log("Product with ID " + id + " not found");
@@ -283,9 +282,6 @@ document.addEventListener("click", (event) => {
         deleteProduct(productId);
     }
 });
-
-
-// renderProducts(); 
 
 // ============= Xu li form an hien ================
 const btnCloseForm = document.querySelector(".closeImg");
@@ -300,8 +296,7 @@ function addAnimate() {
     addEditProductForm.classList.add("animate");
 }
 function rmvAnimate() {
-    if(checkEdit == 1)
-        clearForm();
+    if (checkEdit == 1) clearForm();
     addEditProductBackgroundForm.classList.remove("animate");
     addEditProductForm.classList.remove("animate");
 }
@@ -318,10 +313,17 @@ addEditProductForm.onclick = function (event) {
 let checkEdit = 0;
 const btnSave = document.querySelector(".btn-save");
 btnSave.addEventListener("click", function () {
-    if (checkEdit == 0) {   // nếu mà không sửa thì thêm
-        const productId = parseInt(document.getElementById("idProduct").value, 10);
+    if (checkEdit == 0) {
+        // nếu mà không sửa thì thêm
+        const productId = parseInt(
+            document.getElementById("idProduct").value,
+            10
+        );
         const productName = document.getElementById("nameProduct").value;
-        const productPrice = parseFloat(document.getElementById("price").value, 2);
+        const productPrice = parseFloat(
+            document.getElementById("price").value,
+            2
+        );
         const productDesc = document.getElementById("desc").value;
         const productType = document.getElementById("type").value;
         const productImg = document.getElementById("linkImage").value;
@@ -341,14 +343,12 @@ btnSave.addEventListener("click", function () {
         listProducts.unshift(product);
         clearForm();
         console.log("Added product with ID " + productId);
-        renderProducts();
+        renderProducts(listProducts);
         rmvAnimate();
-         // Sau khi thay đổi thông tin sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
+        // Sau khi thay đổi thông tin sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
         localStorage.setItem("listProducts", JSON.stringify(listProducts));
-
     } else {
         saveEditedProduct();
-
         checkEdit = 0;
         clearForm();
         rmvAnimate();
@@ -377,14 +377,16 @@ function openEditForm(product) {
 document.addEventListener("click", (event) => {
     if (event.target && event.target.classList.contains("edit-btn")) {
         const productId = parseInt(event.target.getAttribute("data-id"), 10);
-        const productToEdit = listProducts.find((product) => product.id === productId);
+        const productToEdit = listProducts.find(
+            (product) => product.id === productId
+        );
         openEditForm(productToEdit);
         checkEdit = 1;
     }
 });
 
 //  ========== Hàm thay đổi thông tin sản phẩm ==============
-function saveEditedProduct() { 
+function saveEditedProduct() {
     const productId = parseInt(document.getElementById("idProduct").value, 10);
     const productName = document.getElementById("nameProduct").value;
     const productPrice = parseFloat(document.getElementById("price").value, 2);
@@ -392,7 +394,9 @@ function saveEditedProduct() {
     const productType = document.getElementById("type").value;
     const productImg = document.getElementById("linkImage").value;
 
-    const productToEdit = listProducts.find((product) => product.id === productId);
+    const productToEdit = listProducts.find(
+        (product) => product.id === productId
+    );
 
     if (productToEdit) {
         productToEdit.id = productId;
@@ -401,16 +405,14 @@ function saveEditedProduct() {
         productToEdit.description = productDesc;
         productToEdit.nature.type = productType;
         productToEdit.image = productImg;
-         // Sau khi thay đổi thông tin sản phẩm, lưu trữ lại dữ liệu sản phẩm vào Local Storage
-        // localStorage.setItem("listProducts", JSON.stringify(product));----can fixx
+        localStorage.setItem("listProducts", JSON.stringify(listProducts));
         console.log("edited success with ID " + productId);
-
     } else {
         console.log("Product not found for editing with ID " + productId);
     }
 
     rmvAnimate();
-    renderProducts();
+    renderProducts(listProducts);
 }
 
 function clearForm() {
@@ -451,7 +453,38 @@ closeIcon.addEventListener("click", () => {
     clearTimeout(timer2);
 });
 
+const textInput = document.querySelector(".search-field");
+const iconDelete = document.querySelector(".icon-delete");
 
+function search() {
+    let productSearch = listProducts.filter((value) => {
+        return value.name
+            .toLowerCase()
+            .trim()
+            .includes(textInput.value.trim().toLowerCase());
+    });
+    if (productSearch.length == 0) {
+        console.log("No products found");
+    }
+    renderProducts(productSearch);
+}
+document.querySelector(".btn-search").addEventListener("click", search);
 
-
-
+function deleteText() {
+    textInput.addEventListener("input", function () {
+        if (textInput.value.length > 0) {
+            iconDelete.classList.remove("hidden");
+            console.log("thay");
+            iconDelete.addEventListener("click", function () {
+                textInput.value = "";
+                iconDelete.classList.add("hidden");
+                search();
+            });
+        } else {
+            iconDelete.classList.add("hidden");
+            console.log("k thay");
+        }
+    });
+    console.log(iconDelete);
+}
+deleteText();
