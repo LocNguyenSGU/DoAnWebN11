@@ -229,6 +229,14 @@ let listProducts = localStorage.getItem("listProducts")
 // console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
 document.addEventListener("DOMContentLoaded", function () {
     let currentProductType = "sweater";
+    let sumSweater = 0;
+    let sumPants = 0;
+    listProducts.map(item => {
+        if(item.nature.type === 'sweater') {
+            sumSweater ++;
+        }
+        else sumPants++;
+    }) 
 
     function renderProducts() {
         const noProduct = document.querySelector(".no-product-search");
@@ -261,12 +269,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="add-to-cart-button">Add to Cart</button>
                     </div>
                 `;
-
+                
                 // Thêm sản phẩm vào danh sách sản phẩm
                 productListContainer.appendChild(productSection);
             }
         });
-    }
+}
 
     // Gọi hàm render để hiển thị sản phẩm
     const showShirtsButton = document.querySelector(".btn-sweater");
@@ -274,25 +282,39 @@ document.addEventListener("DOMContentLoaded", function () {
     showShirtsButton.addEventListener("click", function () {
         currentProductType = "sweater";
         renderProducts();
+        addToCartPaints(0);
     });
     showPantsButton.addEventListener("click", function () {
         currentProductType = "pants";
+        console.log(currentProductType);
         renderProducts();
+        addToCartPaints(sumSweater);
     });
     renderProducts();
 
     // Them san pham vao gio hang thong qua mang cartItems
     const cartItems = [];
 
+<<<<<<< Updated upstream
     const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
     addToCartButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
             console.log("da tim ok");
             addToCart(listProducts[index]);
             updateCartDisplay();
+=======
+    function addToCartPaints(length) {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+        console.log(addToCartButtons);
+        addToCartButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                addToCart(listProducts[index + length]);
+                updateCartDisplay();
+            });
+>>>>>>> Stashed changes
         });
-    });
-
+    }
+    addToCartPaints(0);
     // Ham de day du lieu khi an nut addToCart vao mang cartItems
     function addToCart(product) {
         const existingCartItem = cartItems.find(
@@ -312,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         updateCartDisplay();
     }
-
+    
     // goi cac bien day ben ngoai vi ham updateCartDisplay, minh phai click vao addToCart thi no moi thuc thi
     const haveProduct = document.querySelector(".have-product");
     const noProduct = document.querySelector(".no-product");
