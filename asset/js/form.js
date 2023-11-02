@@ -3,12 +3,17 @@ let accounts = localStorage.getItem('myAccounts') ? JSON.parse(localStorage.getI
         id:         1,
         isAdmin:    1,
         email:      'admin123@gmail.com',
-        password:   'admin123'
+        password:   'admin123',
     },
 ];
-let loginAccount = JSON.parse(localStorage.getItem('myAccount'))
+
+let loginAccount = JSON.parse(localStorage.getItem('loginAccount'))
+updateLocalStorage()
+renderUser()
+
+console.log(loginAccount)
 //Xử lý ẩn/hiện layout đăng nhập
-loginBtn()
+
 function loginBtn(){
 document.querySelector(".icon-user").onclick = function () {
     Object.assign(document.querySelector(".loginBackground").style, { // hiện lên nền background
@@ -316,7 +321,7 @@ function checkRegister(data) {
     }
     if (!isFound) {
        updateAccounts(data)
-    //    window.location = "./index.html"
+       window.location = "./index.html"
     console.log(loginAccount)
     }
  }
@@ -353,7 +358,7 @@ function runCheckLogin() {
             checkLogin(data)
         }
     });
-}
+
 function checkLogin(data) {
     let isFound = false;
     for (let account of accounts) {
@@ -361,7 +366,7 @@ function checkLogin(data) {
           isFound = true;
           loginAccount = account;
           updateLocalStorage();
-        //   window.location = "./index.html"
+          window.location = "./index.html"
         console.log(loginAccount)
        }
     }
@@ -369,7 +374,22 @@ function checkLogin(data) {
         document.querySelector('.loginError').innerHTML = `Tài khoản hoặc mật khẩu không chính xác!`
     }
  }
- 
+} 
+ function renderUser(){
+    var iconUser = document.querySelector('.iconUser')
+    if(!loginAccount){
+    iconUser.innerHTML = `<img src="./asset/img/header-user.svg" alt="" class="icon-user" />`
+    loginBtn()
+    }
+    else{
+        if(loginAccount.isAdmin === 1){
+            iconUser.innerHTML = `<img src="./asset/img/admin-delete-product.png" alt="" class="icon-logout" onclick ='logout()' />`
+        }
+        else{
+            iconUser.innerHTML = `<img src="./asset/img/admin-delete-product.png" alt="" class="icon-logout" onclick ='logout()'/>`
+        }
+    }
+ }
  function updateLocalStorage() {
     //Nếu không JSON.stringify thì console.log(accounts) sẽ ra [object Object]
     let usersAccounts = JSON.stringify(accounts);
@@ -377,4 +397,9 @@ function checkLogin(data) {
 
     localStorage.setItem('myAccounts', usersAccounts);
     localStorage.setItem('loginAccount', loginUserAccount)
+ }
+ function logout() {
+    loginAccount = null;
+    updateLocalStorage();
+    window.location = "./index.html"
  }
