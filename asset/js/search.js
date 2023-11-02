@@ -258,24 +258,29 @@ function renderProducts(arr) {
 }
 const textInput = document.querySelector(".search-field");
 const iconDelete = document.querySelector(".icon-delete");
+const textInputAdvance = document.getElementById("name");
+const iconDeleteAdvance = document.querySelector(".icon-delete-advance");
 
-function deleteText() {
-    textInput.addEventListener("input", function () {
-        if (textInput.value.length > 0) {
-            iconDelete.classList.remove("hidden");
+// ============ Xoa text in input =================
+function deleteText(nameObj, nameIcon) {
+    nameObj.addEventListener("input", function () {
+        if (nameObj.value.length > 0) {
+            nameIcon.classList.remove("hidden");
             console.log("thay");
-            iconDelete.addEventListener("click", function () {
-                textInput.value = "";
-                iconDelete.classList.add("hidden");
+            nameIcon.addEventListener("click", function () {
+                nameObj.value = "";
+                nameIcon.classList.add("hidden");
             });
         } else {
-            iconDelete.classList.add("hidden");
+            nameIcon.classList.add("hidden");
             console.log("k thay");
         }
     });
-    console.log(iconDelete);
 }
-deleteText();
+deleteText(textInput, iconDelete); // Xoa ở header
+deleteText(textInputAdvance, iconDeleteAdvance); // Xoá ở phần form tìm kiếm nâng cao
+
+// =========== Tim kiem co ban ==============
 function search() {
     const noProduct = document.querySelector(".no-product-search");
     if (textInput.value.trim() === "") return;
@@ -292,122 +297,7 @@ function search() {
 
 document.querySelector(".btn-search").addEventListener("click", search);
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const filterToggle = document.querySelector('.filter-toggle');
-//   const filterForm = document.querySelector('.filter');
-
-//   // Ban đầu ẩn form
-//   filterForm.classList.add('hidde-form');
-
-//   // Theo dõi trạng thái hiện tại của form
-//   let isFormVisible = false;
-
-//   // Thêm sự kiện click vào phần tử "filter-toggle"
-//   filterToggle.addEventListener('click', function () {
-//       console.log("Click event fired");
-//       if (isFormVisible) {
-//           // Nếu form đang hiển thị, ẩn form
-//           filterForm.classList.add('hidde-form');
-//           isFormVisible = false;
-//       } else {
-//           // Nếu form đang ẩn, hiển thị form
-//           filterForm.classList.remove('hidde-form');
-//           isFormVisible = true;
-//       }
-//   });
-// });
-
-// // const itemSubmit = document.getElementById("item submit");
-// // itemSubmit.addEventListener("click", function () {
-// //   // Lưu thông tin giỏ hàng vào Local Storage trước khi chuyển hướng
-// //   localStorage.setItem("index", JSON.stringify(SearchItems));
-
-// //   // window.location.href = "index.html";
-// // });
-
-// function showProduct(productFilter) {
-//   // Clear the existing product list
-//   list.
-
-// innerHTML = '';
-
-//   // Check if any products are found after filtering
-//   if (productFilter.length === 0) {
-//     list.
-//     list
-// innerHTML = '<p>No products found.</p>';
-//   } else {
-//     // Update the product count
-//     count.
-
-// innerText = productFilter.length;
-
-// // Iterate through the filtered products and display them
-//     productFilter.
-//     product
-
-// forEach(item => {
-//       let newItem = document.createElement('div');
-//       newItem.classList.add('item');
-
-//       // Create image
-//       let newImage = new Image();
-//       newImage.src = item.image;
-//       newItem.
-
-// appendChild(newImage);
-
-// // Create product name
-
-// let newTitle = document.createElement('div');
-//       newTitle.classList.add('title');
-//       newTitle.innerText = item.name;
-//       newItem.
-
-// appendChild(newTitle);
-
-//       // Create price
-//       let newPrice = document.createElement('div');
-//       newPrice.classList.add('price');
-//       newPrice.innerText = item.price.toLocaleString() + ' đ';
-//       newItem.appendChild(newPrice);
-
-//       // Append the new item to the product list
-//       list.appendChild(newItem);
-//     });
-//   }
-// }
-// const SearchItems = [];
-// const itemSubmitButton = document.getElementById("item-submit");
-
-// if (itemSubmitButton) {
-//   itemSubmitButton.addEventListener("click", function () {
-//     localStorage.setItem("index", JSON.stringify(SearchItems));
-//   });
-
-// }
-
-// let list = document.getElementById('list');
-// let count = document.getElementById('count');
-// let filter = document.querySelector('.filter');
-// let productType;
-// filter.addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   let valueFilter = event.target.elements.category.value;
-
-//   if (data[productType]) {
-//     let  productFilter = data[productType].filter(item => {
-//           if (valueFilter !== '') {
-//               return item.nature.type === valueFilter;
-//           }
-//           return true;
-//       });
-
-//       // Tiếp tục xử lý sản phẩm sau khi đã lọc
-//       showProduct(productFilter);
-//   }
-// })
-
+// ===================   An-hien form tim kiem nang cao ====================
 let isFormVisible = false;
 const btnForm = document.querySelector(".filter-toggle");
 btnForm.addEventListener("click", function () {
@@ -419,3 +309,76 @@ btnForm.addEventListener("click", function () {
         isFormVisible = false;
     }
 });
+
+// ============== tim kiem nang cao  ==================
+const type = document.getElementById("type");
+const color = document.getElementById("color");
+// const textInputAdvance đã gọi bên trên
+const minPrice = document.getElementById("min");
+const maxPrice = document.getElementById("max");
+
+function searchAdvance(type, color, name, minPrice, maxPrice) {
+    console.log(listProducts);
+    console.log(type);
+    console.log(color);
+    const noProduct = document.querySelector(".no-product-search");
+    const productSearchAdvance = listProducts.filter((product, i) => {
+        if (
+            name &&
+            !product.name
+                .trim()
+                .toLowerCase()
+                .includes(name.trim().toLowerCase())
+        ) {
+            return false;
+        }
+        if (
+            (minPrice && product.price < minPrice) ||
+            (maxPrice && product.price > maxPrice)
+        ) {
+            return false;
+        }
+        if (type && !(product.nature.type == `${type}`)) {
+            return false;
+        }
+        if (color && !product.nature.color.includes(color)) {
+            return false;
+        }
+        return true;
+    });
+
+    if (productSearchAdvance.length === 0) {
+        noProduct.classList.remove("hidden");
+    } else {
+        noProduct.classList.add("hidden");
+    }
+    renderProducts(productSearchAdvance); // Render the filtered products
+}
+
+const btnShowResultAdvance = document.querySelector(".btn-show-result");
+const btnCancelAdvance = document.querySelector(".btn-cancel");
+
+btnShowResultAdvance.addEventListener("click", function (e) {
+    e.preventDefault();
+    searchAdvance(
+        type.value,
+        color.value,
+        textInputAdvance.value,
+        minPrice.value,
+        maxPrice.value
+    );
+    cancelAfterSearched();
+});
+
+btnCancelAdvance.onclick = cancelAfterSearched;
+// ========== hàm dùng để huỷ các giá trị và ẩn form
+function cancelAfterSearched(e) {
+    if (e) e.preventDefault(); // nếu không có if(e) thì chương trình bị lỗi
+    type.value = "";
+    color.value = "";
+    textInputAdvance.value = "";
+    minPrice.value = "";
+    maxPrice.value = "";
+    btnForm.classList.remove("active");
+    isFormVisible = false;
+}

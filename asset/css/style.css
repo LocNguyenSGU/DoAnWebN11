@@ -139,7 +139,7 @@ a {
    width: 280px;
    border: none;
    outline: none;
-   padding: 0 12px;
+   padding: 0 36px 0 12px;
    font-size: 16px;
    color: var(--text-color-dark);
    border-radius: 8px 0 0 8px;
@@ -153,6 +153,7 @@ a {
    border-radius: 0 8px 8px 0;
    /* margin-left: 0px; */
 }
+
 .header .btn-search:hover {
    background-color: #e7e1e1;
 }
@@ -171,6 +172,7 @@ a {
    margin-left: auto;
    position: relative;
 }
+
 .header .last-icon svg {
    position: absolute;
    top: 18px;
@@ -328,7 +330,8 @@ a {
    background-color: #f5bb0b;
 }
 
-.header .icon-user, .icon-logout {
+.header .icon-user,
+.icon-logout {
    border-radius: 8px;
    padding: 13px;
    background-color: #fff;
@@ -492,11 +495,16 @@ a {
    height: 116px;
 }
 
+
 .hello-filter {
    position: relative;
    margin: 30px 0;
    justify-content: space-between;
 }
+
+
+
+
 
 .hello-filter .hello,
 .recommend .title {
@@ -1058,12 +1066,14 @@ a {
    user-select: none;
    font-size: 2.0rem;
 }
+
 .loginError {
    text-align: center;
    color: red;
    margin: 10px;
    padding: 5px 0px 5px 0px;
 }
+
 .loginLogo {
    margin-top: 20px;
    display: grid;
@@ -1089,7 +1099,8 @@ a {
    transition: all 0.3s;
    transform-origin: 93% top;
 }
-.filter-toggle.active ~ .form-filter{
+
+.filter-toggle.active ~ .form-filter {
    opacity: 1;
    visibility: visible;
    scale: 1;
@@ -1111,6 +1122,10 @@ a {
    border-radius: 6px;
    display: flex;
    gap: 10px;
+   cursor: pointer;
+}
+.filter-toggle:hover {
+   background-color: rgba(255, 255, 255, 0.8);
 }
 
 .title-filter {
@@ -1129,6 +1144,7 @@ a {
 .form-item {
    display: flex;
    flex-direction: column;
+   position: relative;
 }
 
 .form-item label {
@@ -1145,9 +1161,12 @@ a {
    border-radius: 6px;
    border: 1px solid var(--secondary-color-secondary-3, #D2D1D6);
 }
+
 .form-item #name {
    width: 280px;
+   padding-right: 35px;
 }
+
 .form-item #min,
 .form-item #max {
    width: 100px;
@@ -1168,12 +1187,28 @@ a {
    background-color: #fff;
 }
 
+.form-filter .group-btn .btn-cancel:hover {
+   color: var(--text-color-dark);
+}
+
 .form-filter .group-btn .btn-show-result {
    color: var(--text-color-dark);
    font-size: 1.5rem;
    border: none;
    font-weight: 550;
    border-radius: 6px;
-   background-color: #27b6b9;
+   background-color: #1EBFC1;
    padding: 10px;
+}
+
+.form-filter .group-btn .btn-show-result:hover {
+   background-color: #27b6b9;
+   transform: scale(1.05);
+}
+
+.form-item>svg {
+   color: rgb(182, 175, 175);
+   position: absolute;
+   top: 49px;
+   right: 11px;
 }
