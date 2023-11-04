@@ -226,7 +226,9 @@ let listProducts = localStorage.getItem("listProducts")
           },
       ];
 
-// console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
+console.log(listProducts); // danh sách sản phẩm từ localStorage
+// localStorage.setItem("listProducts", JSON.stringify(listProducts));
+
 document.addEventListener("DOMContentLoaded", function () {
     let currentProductType = "sweater";
     let sumSweater = 0;
@@ -246,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".list-show-product");
         productListContainer.innerHTML = "";
 
+        // let indexOffset = 0;
         // Lặp qua mảng sản phẩm và tạo phần tử HTML cho mỗi sản phẩm
         listProducts.forEach((product) => {
             if (product.nature.type === currentProductType) {
@@ -268,6 +271,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="add-to-cart-button">Add to Cart</button>
                     </div>
                 `;
+                
+                productSection.querySelector(".add-to-cart-button").addEventListener("click", () => {
+                    // addToCart(listProducts[index + indexOffset]);
+                    updateCartDisplay();
+                  });
 
                 // Thêm sản phẩm vào danh sách sản phẩm
                 productListContainer.appendChild(productSection);
@@ -302,25 +310,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function addToCartPaints(length) {
-        const addToCartButtons = document.querySelectorAll(
-            ".add-to-cart-button"
-        );
+        const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
         addToCartButtons.forEach((button, index) => {
             button.addEventListener("click", () => {
                 addToCart(listProducts[index + length]);
-                updateCartDisplay();
             });
         });
     }
     // Ham de day du lieu khi an nut addToCart vao mang cartItems
     function addToCart(product) {
-        const existingCartItem = cartItems.find(
+        const existingCartItemIndex = cartItems.findIndex(
             (item) => item.id === product.id
         );
-
-        if (existingCartItem) {
-            existingCartItem.quantity++;
+        if (existingCartItemIndex !== -1) {
+            // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng lên 1
+            cartItems[existingCartItemIndex].quantity++;
         } else {
+            // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm sản phẩm mới vào giỏ hàng
             cartItems.push({
                 id: product.id,
                 name: product.name,
@@ -365,7 +371,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
                 cartItemsList.appendChild(cartItem); // cau lenh render, co nhieu cau lenh khac nua..
             });
-        };
+        }; 
 
         // Render ve cac so lieu
         const renderNumberCart = function () {
@@ -385,7 +391,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log(cartItems.length); // chi hien toi da 3 san pham trong gio hang
         const row2Element = document.querySelector(
-            ".header .list-preview .row-2"
+        ".header .list-preview .row-2"
         );
 
         if (cartItems.length >= 1 && cartItems.length <= 3) {

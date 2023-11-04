@@ -142,6 +142,7 @@
                         <button id="total-button" onclick="calculateTotal()">Total Price</button>
                       </div>
                       <div id="total-amount"></div>
+                      <button id="clear-cart-button" onclick="clearCart()">Clear Cart</button>
                 </div>
             </form>
         </div>
@@ -151,46 +152,36 @@
     <script src="./asset/js/cartt.js"></script> 
     <script src="./asset/js/script.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const cartItemsList = document.getElementById("cart-items");
-    function getCartItemsFromLocalStorage() {
-        const cartItemsJSON = localStorage.getItem("cart");
-        return JSON.parse(cartItemsJSON) || [];
-    }
-    function displayCartItems() {
-        const cartItems = getCartItemsFromLocalStorage();
-
-        cartItemsList.innerHTML = ""; // Xóa dữ liệu cũ trước khi hiển thị dữ liệu mới
-
-        cartItems.forEach((cartItem) => {
-            const row = document.createElement("tr");
-            const imageCell = document.createElement("td");
-            const productCell = document.createElement("td");
-            const priceCell = document.createElement("td");
-            const quantityCell = document.createElement("td");
-            const totalCell = document.createElement("td");
-
-            const productImage = document.createElement("img");
-            productImage.src = cartItem.image;
-            productImage.alt = cartItem.name;
-
-            imageCell.appendChild(productImage);
-            productCell.textContent = cartItem.name;
-            priceCell.textContent = `$${cartItem.price.toFixed(2)}`;
-            quantityCell.textContent = cartItem.quantity;
-            totalCell.textContent = `$${(cartItem.price * cartItem.quantity).toFixed(2)}`;
-
-            row.appendChild(imageCell);
-            row.appendChild(productCell);
-            row.appendChild(priceCell);
-            row.appendChild(quantityCell);
-            row.appendChild(totalCell);
-
-            cartItemsList.appendChild(row);
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItemsList = document.getElementById("cart-items");
+            function getCartItemsFromLocalStorage() {
+                const cartItemsJSON = localStorage.getItem("cart");
+                return JSON.parse(cartItemsJSON) || [];
+            }
+            const cartItems = getCartItemsFromLocalStorage();
+            displayCartItems(cartItems);
+            function displayCartItems(cartItems) {
+                cartItemsList.innerHTML = ""; // Xóa tất cả các mục trong div trước khi hiển thị dữ liệu mới
+                cartItems.forEach((cartItem) => {
+                    const itemContainer = document.createElement("div");
+                    itemContainer.classList.add("cart-item");
+                    const productImage = document.createElement("img");
+                    productImage.src = cartItem.image;
+                    productImage.alt = cartItem.name;
+                    const productName = document.createElement("h3");
+                    productName.textContent = cartItem.name;
+                    const productPrice = document.createElement("p");
+                    productPrice.textContent = `$${cartItem.price.toFixed(2)}`;
+                    const productQuantity = document.createElement("p");
+                    productQuantity.textContent = `Quantity: ${cartItem.quantity}`;
+                    itemContainer.appendChild(productImage);
+                    itemContainer.appendChild(productName);
+                    itemContainer.appendChild(productPrice);
+                    itemContainer.appendChild(productQuantity);
+                    cartItemsList.appendChild(itemContainer);
+                });
+            }
         });
-    }
-    displayCartItems();
-});
     </script>
 </body>
 </html>
