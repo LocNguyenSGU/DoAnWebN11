@@ -12,15 +12,14 @@ let DataUsers = localStorage.getItem('DataUsers') ? JSON.parse(localStorage.getI
                 price: "",
                 image: "",
                 quantity: 0,
+                check: 0,
             }
-        ]
+        ],
     },
 ];
 let loginUser = JSON.parse(localStorage.getItem('loginUser'))
 updateLocalStorage()
 renderUser()
-
-console.log(DataUsers)
 //Xử lý ẩn/hiện layout đăng nhập
 
 function loginBtn(){
@@ -356,6 +355,7 @@ function checkRegister(data) {
                     price: "",
                     image: "",
                     quantity: 0,
+                    check: 0,
                 }
             ],
         }

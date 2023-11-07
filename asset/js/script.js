@@ -269,23 +269,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     else{
                         alert("Bạn phải đăng nhập để mua hàng")
                         //sau đó hiện hộp thoại đăng nhập
-                            Object.assign(document.querySelector(".loginBackground").style, { // hiện lên nền background
+                            Object.assign(document.querySelector(".loginBackground").style, { 
                                 visibility: 'visible',      
-                                'animation-name': 'backgroundeffect1', // ẩn r hiện
+                                'animation-name': 'backgroundeffect1', 
                             });
-                            Object.assign(document.querySelector(".loginBlock").style, {  // hiện lên block form
+                            Object.assign(document.querySelector(".loginBlock").style, {  
                                 display:'block',        
                             });
                         };                           
                   });
-
                 // Thêm sản phẩm vào danh sách sản phẩm
                 productListContainer.appendChild(productSection);
             }
         });
     }
 }
-
     // Gọi hàm render để hiển thị sản phẩm
     const showShirtsButton = document.querySelector(".btn-sweater");
     const showPantsButton = document.querySelector(".btn-pants");
