@@ -226,8 +226,12 @@ let listProducts = localStorage.getItem("listProducts")
           },
       ];
 
-console.log(listProducts); // danh sách sản phẩm từ localStorage
-// localStorage.setItem("listProducts", JSON.stringify(listProducts));
+console.log(listProducts);
+
+function updateCartItemsInLocalStorage(cartItems) {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     let currentProductType = "sweater";
@@ -241,11 +245,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderProducts() {
         const noProduct = document.querySelector(".no-product-search");
-        noProduct.classList.add("hidden");
+        if (noProduct) {
+            noProduct.classList.add("hidden");
+        }
         document.querySelector(".search-field").value = "";
 
         const productListContainer =
-            document.querySelector(".list-show-product");
+        document.querySelector(".list-show-product");
+        if (productListContainer) {
         productListContainer.innerHTML = "";
 
         // let indexOffset = 0;
@@ -282,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+}
 
     // Gọi hàm render để hiển thị sản phẩm
     const showShirtsButton = document.querySelector(".btn-sweater");
@@ -336,6 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         updateCartDisplay();
+        updateCartItemsInLocalStorage(cartItems);
     }
 
     // goi cac bien day ben ngoai vi ham updateCartDisplay, minh phai click vao addToCart thi no moi thuc thi
