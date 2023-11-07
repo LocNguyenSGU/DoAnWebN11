@@ -384,9 +384,12 @@ function checkLogin(data) {
     else{
         if(loginAccount.isAdmin === 1){
             iconUser.innerHTML = `<img src="./asset/img/admin-delete-product.png" alt="" class="icon-logout" onclick ='logout()' />`
+            window.location = "./admin.html";
+            loginAccount = null;
+            updateLocalStorage();
         }
         else{
-            iconUser.innerHTML = `<img src="./asset/img/admin-delete-product.png" alt="" class="icon-logout" onclick ='logout()'/>`
+            iconUser.innerHTML = `<img src="./asset/img/admin-logout-icon.svg" alt="" class="icon-logout" onclick ='logout()'/>`
         }
     }
  }

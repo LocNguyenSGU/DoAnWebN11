@@ -2,7 +2,7 @@ let listProducts = localStorage.getItem("listProducts")
     ? JSON.parse(localStorage.getItem("listProducts"))
     : [
           {
-              id: 101,
+              id: 1,
               name: "sweater PEWARN",
               price: 20.99,
               description:
@@ -16,7 +16,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 102,
+              id: 2,
               name: "sweater PEASE STAR",
               price: 39.99,
               description:
@@ -30,7 +30,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 103,
+              id: 3,
               name: "Áo thun",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -43,7 +43,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 104,
+              id: 4,
               name: "Áo thun",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -56,7 +56,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 105,
+              id: 5,
               name: "Áo thun",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -69,7 +69,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 106,
+              id: 6,
               name: "Áo thun",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -82,7 +82,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 107,
+              id: 7,
               name: "Áo thun",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -95,7 +95,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 108,
+              id: 8,
               name: "Áo thun",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -108,7 +108,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 109,
+              id: 9,
               name: "Áo khoac",
               price: 20.99,
               description: "Áo thun đơn giản",
@@ -121,7 +121,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 201,
+              id: 10,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -134,7 +134,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 203,
+              id: 11,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -147,7 +147,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 204,
+              id: 12,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -160,7 +160,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 205,
+              id: 13,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -173,7 +173,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 206,
+              id: 14,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -186,7 +186,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 207,
+              id: 15,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -199,7 +199,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 208,
+              id: 16,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -212,7 +212,7 @@ let listProducts = localStorage.getItem("listProducts")
               },
           },
           {
-              id: 209,
+              id: 17,
               name: "Quần jean J1",
               price: 39.99,
               description: "Mô tả sản phẩm quần jean J1",
@@ -318,9 +318,6 @@ const minPrice = document.getElementById("min");
 const maxPrice = document.getElementById("max");
 
 function searchAdvance(type, color, name, minPrice, maxPrice) {
-    console.log(listProducts);
-    console.log(type);
-    console.log(color);
     const noProduct = document.querySelector(".no-product-search");
     const productSearchAdvance = listProducts.filter((product, i) => {
         if (

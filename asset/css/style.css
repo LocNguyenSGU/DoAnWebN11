@@ -256,6 +256,7 @@ a {
    width: 120px;
    height: 120px;
    object-fit: cover;
+   border-radius: 7px;
 }
 
 .header .list-preview .row-2 {
@@ -280,7 +281,11 @@ a {
    font-weight: 400;
    line-height: 1.42;
 }
-
+.header .list-preview .row-2 .quatity {
+   padding-left: 35px;
+   color: var(--text-color-light);
+   font-size: 12px;
+}
 .header .list-preview .price {
    line-height: 1.46;
 }
@@ -493,6 +498,7 @@ a {
 .recommend-product .img-product {
    width: 116px;
    height: 116px;
+   border-radius: 4px;
 }
 
 
@@ -553,6 +559,7 @@ a {
 
 .list-show-product .cart .wrap-img-cart {
    overflow: hidden;
+   border-radius: 7px;
 }
 
 /* .cart-container {
