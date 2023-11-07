@@ -926,16 +926,14 @@ a {
 }
 
 .loginBlock {
-   padding: 0 30px;
    background-color: white;
    width: 550px;
-   height: 650px;
    position: relative;
-   top: calc(50% - 325px);
+   top: calc(50% - 338px);
    left: calc(50% - 275px);
+   padding: 25px 30px;
    display: none;
    border-radius: 20px;
-
 }
 
 .tab {
@@ -951,7 +949,6 @@ a {
 }
 
 .closeLoginBlock img {
-   margin: 20px 0px 0px 0px;
    width: 30px;
    user-select: none;
 }
@@ -1066,13 +1063,6 @@ a {
    user-select: none;
 }
 
-.desc {
-   margin: 20px 0px;
-   text-align: center;
-   font-weight: 500;
-   user-select: none;
-   font-size: 2.0rem;
-}
 
 .loginError {
    text-align: center;

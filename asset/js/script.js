@@ -5,8 +5,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 1,
               name: "sweater PEWARN",
               price: 20.99,
-              description:
-                  "Korean classic loose long-sleeve PEWARN sweater for plus size men and women",
               image: "./asset/img/product-sweater/sweater-101.jpg",
               star: "4.5",
               nature: {
@@ -19,8 +17,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 2,
               name: "sweater PEASE STAR",
               price: 39.99,
-              description:
-                  "PEASE STAR Letter Printed Felt Hoodie Jacket Korean Fashion Style that men and women wear very well",
               image: "./asset/img/product-sweater/sweater-102.jpg",
               star: "5",
               nature: {
@@ -33,7 +29,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 3,
               name: "Áo thun",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-103.jpg",
               star: "4.9",
               nature: {
@@ -46,7 +41,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 4,
               name: "Áo thun",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-104.jpg",
               star: "4.8",
               nature: {
@@ -59,7 +53,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 5,
               name: "Áo thun",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-105.jpg",
               star: "4.3",
               nature: {
@@ -72,7 +65,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 6,
               name: "Áo thun",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-106.jpg",
               star: "4.3",
               nature: {
@@ -85,7 +77,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 7,
               name: "Áo thun",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-107.jpg",
               star: "4.3",
               nature: {
@@ -98,7 +89,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 8,
               name: "Áo thun",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-101.jpg",
               star: "4.3",
               nature: {
@@ -111,7 +101,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 9,
               name: "Áo khoac",
               price: 20.99,
-              description: "Áo thun đơn giản",
               image: "./asset/img/product-sweater/sweater-101.jpg",
               star: "4.3",
               nature: {
@@ -124,7 +113,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 10,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-201.jpg",
               star: 4.2,
               nature: {
@@ -137,7 +125,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 11,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-203.jpg",
               star: 4.2,
               nature: {
@@ -150,7 +137,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 12,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-204.jpg",
               star: 4.2,
               nature: {
@@ -163,7 +149,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 13,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-205.jpg",
               star: 4.2,
               nature: {
@@ -176,7 +161,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 14,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-206.jpg",
               star: 4.2,
               nature: {
@@ -189,7 +173,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 15,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-207.jpg",
               star: 4.2,
               nature: {
@@ -202,7 +185,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 16,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-208.jpg",
               star: 4.2,
               nature: {
@@ -215,7 +197,6 @@ let listProducts = localStorage.getItem("listProducts")
               id: 17,
               name: "Quần jean J1",
               price: 39.99,
-              description: "Mô tả sản phẩm quần jean J1",
               image: "./asset/img/product-pants/pants-209.jpg",
               star: 4.2,
               nature: {
@@ -281,7 +262,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 productSection.querySelector(".add-to-cart-button").addEventListener("click", () => {
                     // addToCart(listProducts[index + indexOffset]);
-                    updateCartDisplay();
+                    if(loginUser){
+                        // updateCartDisplay();
+                        // addToCart();
+                    }
+                    else{
+                        alert("Bạn phải đăng nhập để mua hàng")
+                        //sau đó hiện hộp thoại đăng nhập
+                            Object.assign(document.querySelector(".loginBackground").style, { // hiện lên nền background
+                                visibility: 'visible',      
+                                'animation-name': 'backgroundeffect1', // ẩn r hiện
+                            });
+                            Object.assign(document.querySelector(".loginBlock").style, {  // hiện lên block form
+                                display:'block',        
+                            });
+                        };                           
                   });
 
                 // Thêm sản phẩm vào danh sách sản phẩm
@@ -313,7 +308,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
     addToCartButtons.forEach((button, index) => {
         button.addEventListener("click", () => {
-            addToCart(listProducts[index]);
+            if(loginUser){
+                addToCart(listProducts[index]);
+            }
         });
     });
 
@@ -321,7 +318,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
         addToCartButtons.forEach((button, index) => {
             button.addEventListener("click", () => {
+                if(loginUser){
                 addToCart(listProducts[index + length]);
+            }
             });
         });
     }

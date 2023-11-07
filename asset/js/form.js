@@ -1,17 +1,26 @@
-let accounts = localStorage.getItem('myAccounts') ? JSON.parse(localStorage.getItem('myAccounts')) : [
+let DataUsers = localStorage.getItem('DataUsers') ? JSON.parse(localStorage.getItem('DataUsers')) : [
     {
         id:         1,
         isAdmin:    1,
+        name: "",
         email:      'admin123@gmail.com',
         password:   'admin123',
+        cartItem: [
+            {
+                idProduct: "",
+                nameProduct: "",
+                price: "",
+                image: "",
+                quantity: 0,
+            }
+        ]
     },
 ];
-
-let loginAccount = JSON.parse(localStorage.getItem('loginAccount'))
+let loginUser = JSON.parse(localStorage.getItem('loginUser'))
 updateLocalStorage()
 renderUser()
 
-console.log(loginAccount)
+console.log(DataUsers)
 //Xử lý ẩn/hiện layout đăng nhập
 
 function loginBtn(){
@@ -296,6 +305,7 @@ function runCheckRegister() {
         errorSelector: '.form-message',
         rules: [
             Validator.isEmail('#email2'),
+            Validator.isRequired('#name'),
             Validator.minLength('#password2', 6),
             Validator.isRequired('#password_confirmation'),
             Validator.isConfirmed('#password_confirmation', function () {
@@ -309,8 +319,8 @@ function runCheckRegister() {
 function checkRegister(data) {
     let isFound = false;
     let errorMessage = ``
-    for (let account of accounts) {
-        if (data.email === account.email) {
+    for (let DataUser of DataUsers) {
+        if (data.email === DataUser.email) {
             isFound = true;
             errorMessage = `Email này đã được đăng ký! `
         }
@@ -320,29 +330,40 @@ function checkRegister(data) {
         }
     }
     if (!isFound) {
-       updateAccounts(data)
+       updateDataUsers(data)
        window.location = "./index.html"
-    console.log(loginAccount)
     }
  }
- function setId(data){
-    let max=accounts[0].id
-    for(let i=1;i<accounts.length;i++){
-        if(accounts[i].id > max) max=accounts[i].id
+ function setId(){
+    let max=DataUsers[0].id
+    for(let i=1;i<DataUsers.length;i++){
+        if(DataUsers[i].id > max) max=DataUsers[i].id
     }
     return max+1;
  }
- function updateAccounts(data) {
-    let obj = {
-        id: setId(),
-        isAdmin: 0,
-        email: data.email,
-        password: data.password,
-    }
-    accounts.push(obj)
-    loginAccount = accounts[accounts.length - 1];
+ function updateDataUsers(data) {
+    DataUsers.push(
+        {
+            id: setId(),
+            isAdmin: 0,
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            cartItem: [
+                {
+                    id: "",
+                    name: "",
+                    price: "",
+                    image: "",
+                    quantity: 0,
+                }
+            ],
+        }
+    )
+    loginUser = DataUsers[DataUsers.length - 1];
     updateLocalStorage();
 }
+
 }
 function runCheckLogin() {
     Validator({
@@ -361,13 +382,12 @@ function runCheckLogin() {
 
 function checkLogin(data) {
     let isFound = false;
-    for (let account of accounts) {
-       if (data.email === account.email && data.password === account.password) {
+    for (let DataUser of DataUsers) {
+       if (data.email === DataUser.email && data.password === DataUser.password) {
           isFound = true;
-          loginAccount = account;
+          loginUser = DataUser;
           updateLocalStorage();
           window.location = "./index.html"
-        console.log(loginAccount)
        }
     }
     if (!isFound) {
@@ -377,15 +397,15 @@ function checkLogin(data) {
 } 
  function renderUser(){
     var iconUser = document.querySelector('.iconUser')
-    if(!loginAccount){
+    if(!loginUser){
     iconUser.innerHTML = `<img src="./asset/img/header-user.svg" alt="" class="icon-user" />`
     loginBtn()
     }
     else{
-        if(loginAccount.isAdmin === 1){
+        if(loginUser.isAdmin === 1){
             iconUser.innerHTML = `<img src="./asset/img/admin-delete-product.png" alt="" class="icon-logout" onclick ='logout()' />`
             window.location = "./admin.html";
-            loginAccount = null;
+            loginUser = null;
             updateLocalStorage();
         }
         else{
@@ -395,14 +415,14 @@ function checkLogin(data) {
  }
  function updateLocalStorage() {
     //Nếu không JSON.stringify thì console.log(accounts) sẽ ra [object Object]
-    let usersAccounts = JSON.stringify(accounts);
-    let loginUserAccount = JSON.stringify(loginAccount); 
+    let usersData = JSON.stringify(DataUsers);
+    let loginUserAccount = JSON.stringify(loginUser); 
 
-    localStorage.setItem('myAccounts', usersAccounts);
-    localStorage.setItem('loginAccount', loginUserAccount)
+    localStorage.setItem('DataUsers', usersData);
+    localStorage.setItem('loginUser', loginUserAccount)
  }
  function logout() {
-    loginAccount = null;
+    loginUser = null;
     updateLocalStorage();
     window.location = "./index.html"
  }
