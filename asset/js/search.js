@@ -1,4 +1,4 @@
-let listProducts = localStorage.getItem("listProducts")
+let listProduct = localStorage.getItem("listProducts")
     ? JSON.parse(localStorage.getItem("listProducts"))
     : [
           {
@@ -226,7 +226,7 @@ let listProducts = localStorage.getItem("listProducts")
           },
       ];
 
-function renderProducts(arr) {
+function renderProductsForSearch(arr) {
     const productListContainer = document.querySelector(".list-show-product");
     productListContainer.innerHTML = "";
 
@@ -248,7 +248,9 @@ function renderProducts(arr) {
                             <img src="./asset/img/main-star.svg" alt="Star Rating" class="star" />
                             <span class="star-num">${product.star}</span>
                         </div>
-                        <button class="add-to-cart-button">Add to Cart</button>
+                        <button class="add-to-cart-button" onclick = "addToCart(${
+                            product.id
+                        })">Add to Cart</button>
                     </div>
                 `;
 
@@ -266,14 +268,12 @@ function deleteText(nameObj, nameIcon) {
     nameObj.addEventListener("input", function () {
         if (nameObj.value.length > 0) {
             nameIcon.classList.remove("hidden");
-            console.log("thay");
             nameIcon.addEventListener("click", function () {
                 nameObj.value = "";
                 nameIcon.classList.add("hidden");
             });
         } else {
             nameIcon.classList.add("hidden");
-            console.log("k thay");
         }
     });
 }
@@ -292,7 +292,7 @@ function search() {
     });
     if (productSearch.length == 0) noProduct.classList.remove("hidden");
     if (productSearch.length > 0) noProduct.classList.add("hidden");
-    renderProducts(productSearch);
+    renderProductsForSearch(productSearch);
 }
 
 document.querySelector(".btn-search").addEventListener("click", search);
@@ -349,7 +349,7 @@ function searchAdvance(type, color, name, minPrice, maxPrice) {
     } else {
         noProduct.classList.add("hidden");
     }
-    renderProducts(productSearchAdvance); // Render the filtered products
+    renderProductsForSearch(productSearchAdvance); // Render the filtered products
 }
 
 const btnShowResultAdvance = document.querySelector(".btn-show-result");

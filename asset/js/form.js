@@ -5,15 +5,7 @@ let DataUsers = localStorage.getItem('DataUsers') ? JSON.parse(localStorage.getI
         name: "",
         email:      'admin123@gmail.com',
         password:   'admin123',
-        cartItem: [
-            {
-                idProduct: "",
-                nameProduct: "",
-                price: "",
-                image: "",
-                quantity: 0,
-                check: 0,
-            }
+        cartItems: [
         ],
     },
 ];
@@ -348,15 +340,7 @@ function checkRegister(data) {
             name: data.name,
             email: data.email,
             password: data.password,
-            cartItem: [
-                {
-                    id: "",
-                    name: "",
-                    price: "",
-                    image: "",
-                    quantity: 0,
-                    check: 0,
-                }
+            cartItems: [
             ],
         }
     )
@@ -423,6 +407,7 @@ function checkLogin(data) {
  }
  function logout() {
     loginUser = null;
-    updateLocalStorage();
+    // updateLocalStorage();
+    localStorage.setItem("loginUser", JSON.stringify(loginUser));
     window.location = "./index.html"
  }

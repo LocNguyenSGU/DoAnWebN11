@@ -328,18 +328,18 @@ function addProduct() {
 
 // Function to delete a product
 function deleteProduct(productId) {
-    const shouldDelete = window.confirm(
-        "Are you sure you want to delete this product"
-    );
-    for (let i = 0; i < listProducts.length; i++) {
-        if (listProducts[i].id === productId && shouldDelete) {
-            listProducts.splice(i, 1);
-            console.log("da xoa  " + listProducts[i].id);
-            console.log(listProducts);
-        }
-    }
-    localStorage.setItem("listProducts", JSON.stringify(listProducts));
-    renderProducts(listProducts);
+    // const shouldDelete = window.confirm(
+    //     "Are you sure you want to delete this product"
+    // );
+    // for (let i = 0; i < listProducts.length; i++) {
+    //     if (listProducts[i].id === productId && shouldDelete) {
+    //         listProducts.splice(i, 1);
+    //         console.log("da xoa  " + listProducts[i].id);
+    //         console.log(listProducts);
+    //     }
+    // }
+    // localStorage.setItem("listProducts", JSON.stringify(listProducts));
+    // renderProducts(listProducts);
 }
 
 // Function to edit a product

@@ -281,11 +281,13 @@ a {
    font-weight: 400;
    line-height: 1.42;
 }
+
 .header .list-preview .row-2 .quatity {
    padding-left: 35px;
    color: var(--text-color-light);
    font-size: 12px;
 }
+
 .header .list-preview .price {
    line-height: 1.46;
 }
@@ -346,8 +348,6 @@ a {
    cursor: pointer;
    user-select: none;
 }
-
-
 
 /* ========= main ========== */
 .main {
@@ -508,13 +508,16 @@ a {
    justify-content: space-between;
 }
 
-
-
-
-
 .hello-filter .hello,
 .recommend .title {
    color: var(--text-color-dark);
+   font-size: 2.4rem;
+   font-weight: 700;
+   line-height: 1.41;
+}
+
+.hello-filter .hello-name {
+   color: #1EBFC1;
    font-size: 2.4rem;
    font-weight: 700;
    line-height: 1.41;
@@ -889,7 +892,8 @@ a {
    border-color: white !important;
 }
 
-.icon-user:hover {
+.icon-user:hover,
+.icon-logout:hover {
    cursor: pointer;
    background-color: rgba(255, 255, 255, 0.8);
 }
@@ -1097,7 +1101,7 @@ a {
    transform-origin: 93% top;
 }
 
-.filter-toggle.active ~ .form-filter {
+.filter-toggle.active~.form-filter {
    opacity: 1;
    visibility: visible;
    scale: 1;
@@ -1121,6 +1125,7 @@ a {
    gap: 10px;
    cursor: pointer;
 }
+
 .filter-toggle:hover {
    background-color: rgba(255, 255, 255, 0.8);
 }

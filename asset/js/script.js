@@ -207,37 +207,19 @@ let listProducts = localStorage.getItem("listProducts")
           },
       ];
 
-console.log(listProducts);
-
-function updateCartItemsInLocalStorage(cartItems) {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    let currentProductType = "sweater";
-    let sumSweater = 0;
-    let sumPants = 0;
-    listProducts.map((item) => {
-        if (item.nature.type === "sweater") {
-            sumSweater++;
-        } else sumPants++;
-    });
-
-    function renderProducts() {
-        const noProduct = document.querySelector(".no-product-search");
-        if (noProduct) {
-            noProduct.classList.add("hidden");
-        }
-        document.querySelector(".search-field").value = "";
-
-        const productListContainer =
-        document.querySelector(".list-show-product");
-        if (productListContainer) {
+//  ============= Hàm render ra giao diện sản phẩm =============
+let currentProductType = "sweater";
+function renderProducts() {
+    const noProduct = document.querySelector(".no-product-search");
+    if (noProduct) {
+        noProduct.classList.add("hidden");
+    }
+    document.querySelector(".search-field").value = "";
+    document.querySelector(".icon-delete").classList.add("hidden");
+    const productListContainer = document.querySelector(".list-show-product");
+    if (productListContainer) {
         productListContainer.innerHTML = "";
 
-        // let indexOffset = 0;
-        // Lặp qua mảng sản phẩm và tạo phần tử HTML cho mỗi sản phẩm
         listProducts.forEach((product) => {
             if (product.nature.type === currentProductType) {
                 const productSection = document.createElement("section");
@@ -256,260 +238,277 @@ document.addEventListener("DOMContentLoaded", function () {
                             <img src="./asset/img/main-star.svg" alt="Star Rating" class="star" />
                             <span class="star-num">${product.star}</span>
                         </div>
-                        <button class="add-to-cart-button">Add to Cart</button>
+                        <button class="add-to-cart-button" onclick = "addToCart(${
+                            product.id
+                        })">Add to Cart</button>
                     </div>
                 `;
-                
-                productSection.querySelector(".add-to-cart-button").addEventListener("click", () => {
-                    // addToCart(listProducts[index + indexOffset]);
-                    if(loginUser){
-                        // updateCartDisplay();
-                        // addToCart();
-                    }
-                    else{
-                        alert("Bạn phải đăng nhập để mua hàng")
-                        //sau đó hiện hộp thoại đăng nhập
-                            Object.assign(document.querySelector(".loginBackground").style, { 
-                                visibility: 'visible',      
-                                'animation-name': 'backgroundeffect1', 
-                            });
-                            Object.assign(document.querySelector(".loginBlock").style, {  
-                                display:'block',        
-                            });
-                        };                           
-                  });
+
                 // Thêm sản phẩm vào danh sách sản phẩm
                 productListContainer.appendChild(productSection);
             }
         });
     }
 }
-    // Gọi hàm render để hiển thị sản phẩm
-    const showShirtsButton = document.querySelector(".btn-sweater");
-    const showPantsButton = document.querySelector(".btn-pants");
-    showShirtsButton.addEventListener("click", function () {
-        currentProductType = "sweater";
-        renderProducts();
-        addToCartPaints(0);
-    });
-    showPantsButton.addEventListener("click", function () {
-        currentProductType = "pants";
-        console.log(currentProductType);
-        renderProducts();
-        addToCartPaints(sumSweater);
-    });
+
+// ============= Gọi hàm render để hiển thị sản phẩm ============
+const showShirtsButton = document.querySelector(".btn-sweater");
+const showPantsButton = document.querySelector(".btn-pants");
+showShirtsButton.addEventListener("click", function () {
+    currentProductType = "sweater";
     renderProducts();
+});
+showPantsButton.addEventListener("click", function () {
+    currentProductType = "pants";
+    renderProducts();
+});
+renderProducts();
 
-    // Them san pham vao gio hang thong qua mang cartItems
-    const cartItems = [];
+// ========== 2 biến toàn cục là dữ liệu data và tài khoản hiện tại đang login ==========
+let dataUsers = JSON.parse(localStorage.getItem("DataUsers"));
+let login = JSON.parse(localStorage.getItem("loginUser"));
 
-    const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-    addToCartButtons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-            if(loginUser){
-                addToCart(listProducts[index]);
-            }
+// =========== Thêm sản phẩm vào giỏ hàng =============
+function addToCart(productId) {
+    if (!login) {
+        alert("Bạn phải đăng nhập để mua hàng");
+        //sau đó hiện hộp thoại đăng nhập
+        Object.assign(document.querySelector(".loginBackground").style, {
+            visibility: "visible",
+            "animation-name": "backgroundeffect1",
         });
-    });
-
-    function addToCartPaints(length) {
-        const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-        addToCartButtons.forEach((button, index) => {
-            button.addEventListener("click", () => {
-                if(loginUser){
-                addToCart(listProducts[index + length]);
-            }
-            });
+        Object.assign(document.querySelector(".loginBlock").style, {
+            display: "block",
         });
+        return;
     }
-    // Ham de day du lieu khi an nut addToCart vao mang cartItems
-    function addToCart(product) {
-        const existingCartItemIndex = cartItems.findIndex(
-            (item) => item.id === product.id
+    let userIndex = dataUsers.findIndex((user) => user.id == login.id);
+
+    if (userIndex !== -1) {
+        let productToAdd = listProducts.find(
+            (product) => product.id == productId
         );
-        if (existingCartItemIndex !== -1) {
-            // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng lên 1
-            cartItems[existingCartItemIndex].quantity++;
-        } else {
-            // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm sản phẩm mới vào giỏ hàng
-            cartItems.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity: 1,
-            });
+
+        if (productToAdd) {
+            const existingCartItemIndex = dataUsers[
+                userIndex
+            ].cartItems.findIndex((item) => item.idProduct == productId);
+
+            if (
+                existingCartItemIndex !== -1 &&
+                dataUsers[userIndex].cartItems[existingCartItemIndex].check == 0
+            ) {
+                dataUsers[userIndex].cartItems[existingCartItemIndex]
+                    .quantity++;
+            } else {
+                let cartItem = {
+                    idProduct: productToAdd.id,
+                    nameProduct: productToAdd.name,
+                    price: productToAdd.price,
+                    image: productToAdd.image,
+                    quantity: 1,
+                    check: 0,
+                    time: new Date(),
+                };
+                dataUsers[userIndex].cartItems.push(cartItem);
+            }
+            localStorage.setItem("DataUsers", JSON.stringify(dataUsers));
+            renderCartUI();
         }
-        updateCartDisplay();
-        updateCartItemsInLocalStorage(cartItems);
     }
+}
 
-    // goi cac bien day ben ngoai vi ham updateCartDisplay, minh phai click vao addToCart thi no moi thuc thi
-    const haveProduct = document.querySelector(".have-product");
+// ============ render UI layout Cart ==============
+function renderCartUI() {
     const noProduct = document.querySelector(".no-product");
+    const haveProduct = document.querySelector(".have-product");
+    // const listPreview = document.querySelector(".list-preview");
+    if (!login) {
+        return;
+    }
+    let userIndex = dataUsers.findIndex((user) => user.id === login.id);
+    if (dataUsers[userIndex].cartItems.length > 0) {
+        renderImageCart(dataUsers[userIndex].cartItems);
+        renderNumberCart(dataUsers[userIndex].cartItems);
+        // noProduct.classList.add("hidden");
+        // haveProduct.classList.remove("hidden");
+        // listPreview.style.width = "500px";
+        // listPreview.style.top = "67px";
+        // listPreview.style.left = "-372px";
+    } else {
+        noProduct.classList.remove("hidden");
+        haveProduct.classList.add("hidden");
+    }
+}
+renderCartUI();
+
+// ============ render UI Cart về hình ảnh ============
+function renderImageCart(cartItems) {
+    const cartItemsList = document.querySelector(".row-2");
+    const noProduct = document.querySelector(".no-product");
+    const haveProduct = document.querySelector(".have-product");
     const listPreview = document.querySelector(".list-preview");
+    cartItemsList.innerHTML = "";
 
-    function updateCartDisplay() {
-        const cartItemsList = document.querySelector(".row-2"); // the cha dung de bao cac the con trong viec render
-        const cartQuantity = document.querySelector(".you-have"); // so luong cai sp dc them vao gio hang
-        const cartTotal = document.querySelector("#price-total"); // tong chi phi cuoi cung (ship + gia sp), cai nay hien khi hover vao
-        const subtotal = document.querySelector(".price-subtotal"); // chi phi khi chua tinh ship
-        const shipping = document.querySelector(".price-shipping"); // tien ship = so luong sp * 10$
-        const feeTotal = document.querySelector(".price-buy-cart"); // tong chi phi cuoi cung (ship + gia sp), cai nay hien o sat ben gio hang
+    let itemCount = 1;
 
-        let totalQuantity = 0;
-        let totalPrice = 0;
-        let shippingPrice = 10; // gia van chuyen 1 san pham
-
-        // Render ve mat hinh anh (hinh san pham, ten, gia tien)
-        const renderImageCart = function () {
-            cartItemsList.innerHTML = ""; // hay thu comment lai dong nay de hieu code hon
-            cartItems.forEach((item) => {
-                // duyet qua tung sp
-                const cartItem = document.createElement("div"); // day la cac the con ma duoc the cha bao ben ngoai
-                cartItem.className = "block-each-preview"; // gan cho the con class
-                cartItem.innerHTML = `
+    cartItems.forEach((item) => {
+        if (itemCount <= 3 && item.check == 0) {
+            const cartItem = document.createElement("div");
+            cartItem.className = "block-each-preview";
+            cartItem.innerHTML = `
                 <img src="${item.image}" alt="" class="img-preview">
                 <h2 class="title">${item.name}</h2>
                 <span class="price">$${(item.price * item.quantity).toFixed(
                     2
                 )}</span>
-                <span class="quatity">x ${item.quantity}</span>
+                <span class="quantity">x ${item.quantity}</span>
             `;
-                cartItemsList.appendChild(cartItem); // cau lenh render, co nhieu cau lenh khac nua..
-            });
-        }; 
-
-        // Render ve cac so lieu
-        const renderNumberCart = function () {
-            cartItems.forEach((item) => {
-                totalQuantity += item.quantity;
-                totalPrice += item.price * item.quantity;
-                cartQuantity.textContent = `You have ${totalQuantity} item`;
-                subtotal.textContent = `$${totalPrice.toFixed(2)}`;
-                shipping.textContent = `$${shippingPrice * totalQuantity}`;
-                cartTotal.textContent = `$${(
-                    totalPrice +
-                    shippingPrice * totalQuantity
-                ).toFixed(2)}`; // day la tong tien cuoi cung hien khi hover vao gio hang
-                feeTotal.textContent = cartTotal.textContent; // tong tien cuoi cung hien ben gio hang
-            });
-        };
-
-        console.log(cartItems.length); // chi hien toi da 3 san pham trong gio hang
-        const row2Element = document.querySelector(
-        ".header .list-preview .row-2"
-        );
-
-        if (cartItems.length >= 1 && cartItems.length <= 3) {
-            renderImageCart(); // render ve mat hinh anh la toi da 3 hinh
-            noProduct.classList.add("hidden"); // mac dinh la chua co san pham => khi length = 1 tuc la phai an cai chua co san pham di
+            cartItemsList.appendChild(cartItem);
+            itemCount++;
+            noProduct.classList.add("hidden");
             haveProduct.classList.remove("hidden");
-            listPreview.style.width = "500px"; // css lai vi 2 cai chua co sp va co sp no khac nhau ve width
+            listPreview.style.width = "500px";
             listPreview.style.top = "67px";
             listPreview.style.left = "-372px";
         }
-        renderNumberCart(); // render so lieu thi render het
-    }
-
-    // hinh anh truot qua lai
-    const slides = document.querySelectorAll(".slide");
-    const slider = document.querySelector(".slider");
-    const btnLeft = document.querySelector(".btn-left");
-    const btnRight = document.querySelector(".btn-right");
-    const dotContainer = document.querySelector(".dots");
-
-    let curSlide = 0;
-
-    const goToSlide = function (slide) {
-        slides.forEach(
-            (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-        );
-    };
-
-    const nextSlide = function () {
-        if (curSlide === slides.length - 1) {
-            curSlide = 0;
-        } else {
-            curSlide++;
-        }
-        goToSlide(curSlide);
-        activateDot(curSlide);
-    };
-    const prevSlide = function () {
-        if (curSlide == 0) {
-            curSlide = slides.length - 1;
-        } else {
-            curSlide--;
-        }
-        goToSlide(curSlide);
-        activateDot(curSlide);
-    };
-    // Nhan nut de qua lai slide
-    btnRight.addEventListener("click", nextSlide);
-    btnLeft.addEventListener("click", prevSlide);
-    // Nhan ban phim mui ten de qua lai slide
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowLeft") prevSlide();
-        if (e.key === "ArrowRight") nextSlide();
     });
-    // Dot
-    const createDots = function () {
-        slides.forEach(function (_, i) {
-            dotContainer.insertAdjacentHTML(
-                "beforeend",
-                `<button class="dots__dot" data-slide="${i}"></button>`
-            );
-        });
-    };
-    const activateDot = function (slide) {
-        document
-            .querySelectorAll(".dots__dot")
-            .forEach((dot) => dot.classList.remove("dots__dot--active"));
+}
 
-        document
-            .querySelector(`.dots__dot[data-slide="${slide}"]`)
-            .classList.add("dots__dot--active");
-    };
-    const init = function () {
-        goToSlide(0);
-        createDots();
-        activateDot(0);
-    };
-    init();
-    dotContainer.addEventListener("click", function (e) {
-        if (e.target.classList.contains("dots__dot")) {
-            const { slide } = e.target.dataset;
-            goToSlide(slide);
-            activateDot(slide);
+// ============ render UI Cart về số liệu =============
+function renderNumberCart(cartItems) {
+    const cartQuantity = document.querySelector(".you-have"); // Số lượng sản phẩm trong giỏ hàng
+    const cartTotal = document.querySelector("#price-total"); // Tổng giá trị cuối cùng
+    const subtotal = document.querySelector(".price-subtotal"); // Tổng giá trị trước khi tính phí vận chuyển
+    const shipping = document.querySelector(".price-shipping"); // Phí vận chuyển
+    const feeTotal = document.querySelector(".price-buy-cart"); // Tổng giá trị cuối cùng trong giỏ hàng
+
+    let totalQuantity = 0; // Tổng số lượng tất cả sản phẩm
+    let totalPrice = 0; // Tổng giá tiền tất cả sản phẩm
+    let shippingPrice = 10; // Giá vận chuyển cho mỗi sản phẩm
+
+    cartItems.forEach((item) => {
+        if (item.check == 0) {
+            totalQuantity += item.quantity;
+            totalPrice += item.price * item.quantity;
         }
     });
-    const startAutoSlide = function () {
-        let autoSlideInterval = setInterval(nextSlide, 3000);
-    };
-    startAutoSlide();
 
-    // Xu li nut backToTop
-    window.onscroll = function () {
-        scrollFunction();
-    };
+    cartQuantity.textContent = `You have ${totalQuantity} item`;
+    subtotal.textContent = `$${totalPrice.toFixed(2)}`;
+    shipping.textContent = `$${shippingPrice * totalQuantity}`;
+    cartTotal.textContent = `$${(
+        totalPrice +
+        shippingPrice * totalQuantity
+    ).toFixed(2)}`;
+    feeTotal.textContent = cartTotal.textContent;
+}
 
-    function scrollFunction() {
-        if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-        ) {
-            // Hiển thị nút khi người dùng cuộn xuống 20px
-            document.querySelector(".backToTop").style.display = "block";
-        } else {
-            // Ẩn nút khi người dùng ở đầu trang
-            document.querySelector(".backToTop").style.display = "none";
-        }
+// ============ render tên người dùng khi đăng nhập ===============
+function renderName() {
+    const name = document.querySelector(".hello-name");
+    if (login) {
+        name.textContent = login.name;
     }
+}
+renderName();
 
-    // Xử lý khi người dùng nhấn nút "Back to Top"
-    document.querySelector(".backToTop").onclick = function () {
-        document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
-        document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
-    };
+// ============== hinh anh truot qua lai ===============
+const slides = document.querySelectorAll(".slide");
+const btnLeft = document.querySelector(".btn-left");
+const btnRight = document.querySelector(".btn-right");
+const dotContainer = document.querySelector(".dots");
+
+let curSlide = 0;
+
+const goToSlide = function (slide) {
+    slides.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+};
+
+const nextSlide = function () {
+    if (curSlide === slides.length - 1) {
+        curSlide = 0;
+    } else {
+        curSlide++;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+};
+const prevSlide = function () {
+    if (curSlide == 0) {
+        curSlide = slides.length - 1;
+    } else {
+        curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+};
+// Nhan nut de qua lai slide
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", prevSlide);
+// Nhan ban phim mui ten de qua lai slide
+document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") prevSlide();
+    if (e.key === "ArrowRight") nextSlide();
 });
+// Dot
+const createDots = function () {
+    slides.forEach(function (_, i) {
+        dotContainer.insertAdjacentHTML(
+            "beforeend",
+            `<button class="dots__dot" data-slide="${i}"></button>`
+        );
+    });
+};
+const activateDot = function (slide) {
+    document
+        .querySelectorAll(".dots__dot")
+        .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+    document
+        .querySelector(`.dots__dot[data-slide="${slide}"]`)
+        .classList.add("dots__dot--active");
+};
+const init = function () {
+    goToSlide(0);
+    createDots();
+    activateDot(0);
+};
+init();
+dotContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("dots__dot")) {
+        const { slide } = e.target.dataset;
+        goToSlide(slide);
+        activateDot(slide);
+    }
+});
+const startAutoSlide = function () {
+    setInterval(nextSlide, 3000);
+};
+startAutoSlide();
+
+// =============== Xu li nut backToTop ======================
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (
+        document.body.scrollTop > 30 ||
+        document.documentElement.scrollTop > 30
+    ) {
+        // Hiển thị nút khi người dùng cuộn xuống 30px
+        document.querySelector(".backToTop").style.display = "block";
+    } else {
+        // Ẩn nút khi người dùng ở đầu trang
+        document.querySelector(".backToTop").style.display = "none";
+    }
+}
+
+// Xử lý khi người dùng nhấn nút "Back to Top"
+document.querySelector(".backToTop").onclick = function () {
+    document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
+    document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
+};
