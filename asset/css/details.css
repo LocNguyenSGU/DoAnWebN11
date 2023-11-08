@@ -793,6 +793,7 @@ a {
 }
 
 .custom .customer-cart .custom-rating .user .note .desc {
+ 
     margin-top: 10px;
     width: 267px;
     color: var(--secondary-color-secondary-1, #1a162e);

@@ -1,154 +1,182 @@
 <!DOCTYPE html>
-    <html style="background-color: rgb(230, 229, 229);" lang="en">
-        <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>DoAnWebN11</title>
-            <link rel="stylesheet" href="index.html">
-            <!-- Favicon -->
-            <link rel="apple-touch-icon" 
-            sizes="76x76" 
-            href="./asset/favicon/apple-touch-icon.png" />
-            <link rel="icon" 
-            type="image/png" 
+<html style="background-color: rgb(230, 229, 229)" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DoAnWebN11</title>
+        <link rel="stylesheet" href="index.html" />
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./asset/favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
             sizes="32x32"
-            href="./asset/favicon/favicon-32x32.png" />
-            <link rel="icon" 
-            type="image/png" 
-            sizes="16x16" 
-            href="./asset/favicon/favicon-16x16.png" />
-            <link rel="manifest" 
-            href="./asset/favicon/site.webmanifest" />
-            <link rel="mask-icon" 
-            href="./asset/favicon/safari-pinned-tab.svg" 
-            color="#5bbad5" />
-            <meta name="msapplication-TileColor" 
-            content="#da532c" />
-            <meta name="theme-color" 
-            content="#ffffff" />
-            <!-- reset CSS -->
-            <link rel="stylesheet" href="./asset/css/reset.css" />
-            <!-- style CSS -->
-            <link rel="stylesheet" href="./asset/css/style.css">
-            <link rel="stylesheet" href="./asset/css/cart.css" />
-            <!-- Font -->
-            <link rel="stylesheet" href="./asset/font/stylesheet.css" />
-        </head>
-        <body class="body">
-            <header class="header">
-                <div class="container">
-                    <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
-                    <nav class="nav">
-                        <ul>
-                            <li class="header-product">
-                                <a href="#!">Product</a>
-                                <img src="./asset/img/header-arrown.svg" alt="" class="arrown" />
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="#recommend" class="btn-sweater">Sweater</a>
-                                    </li>
-                                    <li>
-                                        <a href="#recommend" class="btn-pants">Pants</a>
-                                    </li>
-                                    <li>
-                                        <a href="#!">Shoe</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#!">About</a>
-                            </li>
-                            <li>
-                                <a href="#!">Contact us</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="last-icon">
-                        <input type="text" name="" id="" placeholder="Search for..." class="search-field" />
-                        <button class="btn-search">
-                            <img src="./asset/img/header-search.svg" alt="" class="search-icon" />
-                        </button>
-                        <img src="./asset/img/header-user.svg" alt="" class="icon-user" />
+            href="./asset/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./asset/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./asset/favicon/site.webmanifest" />
+        <link
+            rel="mask-icon"
+            href="./asset/favicon/safari-pinned-tab.svg"
+            color="#5bbad5"
+        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <!-- reset CSS -->
+        <link rel="stylesheet" href="./asset/css/reset.css" />
+        <!-- style CSS -->
+        <link rel="stylesheet" href="./asset/css/style.css" />
+        <link rel="stylesheet" href="./asset/css/cart.css" />
+        <!-- Font -->
+        <link rel="stylesheet" href="./asset/font/stylesheet.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <a href="#"
+                    ><img src="./asset/img/header-logo.svg" alt="" class="logo"
+                /></a>
+                <nav class="nav">
+                    <ul>
+                        <li class="header-product">
+                            <a href="#!">Product</a>
+                            <img
+                                src="./asset/img/header-arrown.svg"
+                                alt=""
+                                class="arrown"
+                            />
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#recommend" class="btn-sweater"
+                                        >Sweater</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#recommend" class="btn-pants"
+                                        >Pants</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#!">Shoe</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#!">About</a>
+                        </li>
+                        <li>
+                            <a href="#!">Contact us</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="last-icon">
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Search for..."
+                        class="search-field"
+                        spellcheck="false"
+                    />
+                    <svg
+                        xmlns=""
+                        height="1em"
+                        viewBox="0 0 512 512"
+                        class="icon-delete hidden"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                        ></path>
+                    </svg>
+                    <button class="btn-search">
+                        <img
+                            src="./asset/img/header-search.svg"
+                            alt=""
+                            class="search-icon"
+                        />
+                    </button>
+                    <div class="buy-cart">
+                        <img src="./asset/img/header-buy.svg" alt="" />
+                        <span class="price price-buy-cart">$0.00</span>
+                        <div class="list-preview">
+                            <p class="no-product">No product in your cart</p>
+                            <div class="have-product hidden">
+                                <div class="row-1">
+                                    <p class="you-have">You have 0 item</p>
+                                    <a href="./cart.html" class="see-all"
+                                        >See all</a
+                                    >
+                                </div>
+                                <div class="row-2">
+                                    <!-- <div class="block-each-preview">
+                                            <img src="./asset/img/product-sweater/sweater-102.jpg" alt="" class="img-preview">
+                                            <h2 class="title">Sweater 1874A</h2>
+                                            <span class="price">$100</span>
+                                            <span class="quatity">x 5</span>
+                                        </div>
+                                        <div class="block-each-preview">
+                                            <img src="./asset/img/product-sweater/sweater-102.jpg" alt="" class="img-preview">
+                                            <h2 class="title">Sweater 1874A</h2>
+                                            <span class="price">$100</span>
+                                            <span class="quatity">x 5</span>
+                                        </div>
+                                        <div class="block-each-preview">
+                                            <img src="./asset/img/product-sweater/sweater-102.jpg" alt="" class="img-preview">
+                                            <h2 class="title">Sweater 1874A</h2>
+                                            <span class="price">$100</span>
+                                            <span class="quatity">x 5</span>
+                                        </div> -->
+                                </div>
+                                <div class="separate"></div>
+                                <div class="row-3 row">
+                                    <p class="subtotal">Subtotal:</p>
+                                    <span class="price price-subtotal"
+                                        >$0.00</span
+                                    >
+                                </div>
+                                <div class="row-4 row">
+                                    <p class="shipping">Shipping:</p>
+                                    <span class="price price-shipping"
+                                        >$0.00</span
+                                    >
+                                </div>
+                                <div class="row-5 row">
+                                    <p class="total-price">Total price:</p>
+                                    <span class="price" id="price-total"
+                                        >$0.00</span
+                                    >
+                                </div>
+                                <div class="separate"></div>
+                                <button
+                                    id="checkout-button"
+                                    class="checkout-button"
+                                >
+                                    Check Out All
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="iconUser">
+                        <img
+                            src="./asset/img/header-user.svg"
+                            alt=""
+                            class="icon-user"
+                        />
                     </div>
                 </div>
-                </div>
-            </header>
-    <div class="container">
-        <div class="container2">
-        <div class="khung">
-            <div><a href="index.html">Home</a></div>
-            <div>-></div>
-            <div>Checkout</div>
-        </div>
-    <div class="div-table">
-        <table class="cart-table">
-            <thead>
-                <tr>    
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="cart-items">
+            </div>
+        </header>
 
-            </tbody>
-        </table>
-    </div>
-        <div class="content-container-body">
-            <h3>Shipment Details</h3>
-            <form class="form-order">
-                <div>
-                    <label for="order-type">
-                        <h4> Delivery way </h4>
-                    </label>
-                    <div class="order-type">
-                        <input class="form-input" type="radio" name="order-type" value="save">
-                        <!-- giao hang tiet kiem  -->
-                        <span>Economical delivery</span>
-                    </div>
-                    <div class="order-type">
-                        <input class="form-input" type="radio" name="order-type" value="save">
-                        <span>Express delivery</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="address">
-                        <h4>Shipping address</h4>
-                    </label>
-                    <input class="form-input" type="text" name="address">
-                    <br>
-                    <span class="message-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for="name">
-                        <h4>Receiver</h4>
-                    </label>
-                    <input class="form-input" type="text" name="name">
-                    <br>
-                    <span class="message-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for="phone">
-                        <h4>Phone Number</h4>
-                    </label>
-                    <input class="form-input" type="text" name="phone">
-                    <br>
-                    <span class="message-error"></span>
-                </div>
-                <div class="cart-total">
-                    <div id="total-button-container">
-                        <button id="total-button" onclick="calculateTotal()">Total Price</button>
-                      </div>
-                      <div id="total-amount"></div>
-                </div>
-            </form>
-        </div>
-
-    </div>
-    </div>
-    <script src="./asset/js/cartt.js"></script> 
-    <script src="./asset/js/script.js"></script>
-</body>
+        <main style="height: 5000px;"></main>
+    </body>
 </html>
