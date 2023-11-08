@@ -358,7 +358,7 @@ function renderImageCart(cartItems) {
             cartItem.className = "block-each-preview";
             cartItem.innerHTML = `
                 <img src="${item.image}" alt="" class="img-preview">
-                <h2 class="title">${item.name}</h2>
+                <h2 class="title">${item.nameProduct}</h2>
                 <span class="price">$${(item.price * item.quantity).toFixed(
                     2
                 )}</span>
