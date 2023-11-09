@@ -5,3 +5,241 @@
 html {
     font-size: 62.5%;
 }
+
+body {
+    font-size: 1.6rem;
+    font-family: "Gordita", sans-serif;
+}
+/* ---------- Filter ---------- */
+.filter .body {
+    display: flex;
+    align-items: center;
+    width: 1340px;
+    margin: 30px 0;
+    height: 64px;
+    border-radius: 10px;
+    background: var(--Background-2, #f6f6f6);
+    box-shadow: 0px 20px 60px 10px rgba(237, 237, 246, 0.2);
+}
+
+.filter .body-filter {
+    margin-left: 20px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.body-filter .title {
+    color: var(--secondary-color-secondary-2, #9e9da8);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.5; /* 150% */
+}
+
+.body-filter .title:hover {
+    color: #1a162e;
+}
+
+.body-filter img {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    padding: 5px 0px;
+    margin: 0px 20px 0 8px;
+    align-items: center;
+}
+
+/* ---------- Main-product ---------- */
+.main {
+}
+.body-main {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    background: #ebeaf0;
+}
+
+.main-left {
+    width: 919px;
+}
+
+.main-left__product {
+    overflow: auto;
+    height: 700px;
+}
+
+.main-left .main-product {
+    padding: 30px;
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+.main-product::after {
+    position: absolute;
+    content: "";
+    margin-left: 30px;
+    left: 0;
+    top: 230px;
+    width: 859px;
+    height: 1px;
+    background: #d2d1d6;
+}
+
+.main-left .main-product .image {
+    width: 175px;
+    height: 172px;
+    object-fit: cover;
+}
+
+.main-left .main-product .info-product {
+    width: 654px;
+}
+
+.main-left .main-product .info-product .info-product__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-product .info-product__title .heading {
+    width: 374px;
+    color: #1a162e;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.44; /* 144.444% */
+}
+
+.info-product .info-product__title .price {
+    color: #1a162e;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.45; /* 145.455% */
+}
+
+.info-product__action {
+    margin-top: 58px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-product__action .amount-aciton {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #d2d1d6;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.amount-aciton .up-and-down {
+    border-radius: 7px;
+    text-align: center;
+    border: 1px solid;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.delete-action {
+    display: flex;
+}
+
+.delete-action img {
+    padding-right: 10px;
+}
+
+.delete-action .title {
+    color: #9e9da8;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.continue {
+    gap: 10px;
+    margin-top: 50px;
+    display: flex;
+    padding: 30px;
+}
+
+.continue .title {
+    color: #1a162e;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+/* Right */
+.main-sidebar {
+    padding: 30px 30px 0 0;
+}
+
+.main-sidebar__checkout {
+    background: #fff;
+    padding: 30px;
+}
+
+.show-info {
+    width: 280px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-info:first-child {
+    margin-top: 0;
+}
+
+.show-info .title strong {
+    color: #1a162e;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.5; /* 150% */
+}
+
+.show-info .title {
+    color: #1a162e;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.show-info .show-number {
+    color: #1a162e;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5; /* 150% */
+}
+
+.main-sidebar__checkout .total {
+    margin-top: 28px;
+    position: relative;
+}
+
+.main-sidebar__checkout .total::after {
+    position: absolute;
+    content: "";
+    top: -14px;
+    width: 280px;
+    height: 1px;
+    background: #d2d1d6;
+}
+
+.action-checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    margin-top: 30px;
+    border-radius: 50px;
+    height: 32px;
+}
+
+.action-checkout .title {
+    color: #1a162e;
+    width: 280px;
+    line-height: 32px;
+    text-align: center;
+    padding: 18px 96px;
+    font-weight: 400;
+    /* line-height: 1.45; */
+}
