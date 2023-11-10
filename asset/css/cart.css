@@ -4,12 +4,26 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     font-size: 1.6rem;
     font-family: "Gordita", sans-serif;
 }
+
+/* ---------- Common ---------- */
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp, 2);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.break-all {
+    word-break: break-word;
+}
+
 /* ---------- Filter ---------- */
 .filter .body {
     display: flex;
@@ -59,6 +73,7 @@ body {
     gap: 30px;
     justify-content: space-between;
     background: #ebeaf0;
+    padding-bottom: 50px;
 }
 
 .main-left {
@@ -225,21 +240,49 @@ body {
 }
 
 .action-checkout {
+    background: #ffb700;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 280px;
     margin-top: 30px;
     border-radius: 50px;
     height: 32px;
+    cursor: pointer;
 }
 
 .action-checkout .title {
     color: #1a162e;
-    width: 280px;
-    line-height: 32px;
-    text-align: center;
-    padding: 18px 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.main-sidebar__gift {
+    margin-top: 30px;
+    display: flex;
+    padding: 30px;
+    background: #fff;
+}
+
+.main-sidebar__gift-info {
+    margin-left: 20px;
+}
+
+.main-sidebar__gift-info .title {
+    color: #1a162e;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.44; /* 144.444% */
+}
+
+.main-sidebar__gift-info .desc {
+    margin-top: 10px;
+    color: #1a162e;
+    font-size: 1.4rem;
+    font-style: normal;
     font-weight: 400;
-    /* line-height: 1.45; */
+    line-height: 1.42;
 }
