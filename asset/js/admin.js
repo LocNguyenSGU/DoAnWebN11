@@ -255,6 +255,17 @@ function rmvAnimate() {
     if (checkEdit == 1) clearForm();
     addEditProductBackgroundForm.classList.remove("animate");
     addEditProductForm.classList.remove("animate");
+    var allDiv = document.querySelectorAll('.div')
+    var allFormError = document.querySelectorAll('.form-error')
+
+    for(let i=0;i<allDiv.length;i++){
+        Object.assign(allDiv[i].style, {
+            'border-color': '#b3b3b3',
+       })
+    }
+    for(let j=0;j<allFormError.length;j++){
+        allFormError[j].innerText = ''
+    }
 }
 btnAddProduct.addEventListener("click", addAnimate);
 btnCloseForm.addEventListener("click", rmvAnimate);
@@ -317,29 +328,27 @@ function deleteProduct(productId) {
 }
 
 // Function to edit a product
-// function editProduct() {
-//     const productId = parseInt(document.getElementById("idProduct").value);
-//     const productName = document.getElementById("nameProduct").value;
-//     const productPrice = parseFloat(document.getElementById("price").value);
-//     const productDesc = document.getElementById("desc").value;
-//     const productType = document.getElementById("type").value;
-//     const productImg = document.getElementById("linkImage").value;
-//     const productToEdit = listProducts.find(
-//         (product) => product.id === productId
-//     );
-//     if (productToEdit) {
-//         productToEdit.name = productName;
-//         productToEdit.price = productPrice;
-//         productToEdit.description = productDesc;
-//         productToEdit.nature.type = productType;
-//         productToEdit.image = productImg;
-//         localStorage.setItem("listProducts", JSON.stringify(listProducts));
-//         renderProducts(listProducts);
-//         rmvAnimate();
-//     } else {
-//         console.log("Product not found for editing with ID " + productId);
-//     }
-//  }
+function editProduct() {
+    const productId = parseInt(document.getElementById("idProduct").value);
+    const productName = document.getElementById("nameProduct").value;
+    const productPrice = parseFloat(document.getElementById("price").value);
+    const productType = document.getElementById("type").value;
+    const productImg = document.getElementById("linkImage").value;
+    const productToEdit = listProducts.find(
+        (product) => product.id === productId
+    );
+    if (productToEdit) {
+        productToEdit.name = productName;
+        productToEdit.price = productPrice;
+        productToEdit.nature.type = productType;
+        productToEdit.image = productImg;
+        localStorage.setItem("listProducts", JSON.stringify(listProducts));
+        renderProducts(listProducts);
+        rmvAnimate();
+    } else {
+        console.log("Product not found for editing with ID " + productId);
+    }
+ }
 
 // Function to clear the form
 function clearForm() {
@@ -565,7 +574,6 @@ function Validator(options) {
                      Object.assign(validateElement.style, {
                          'border-color': '#b3b3b3',
                      })
- 
                      document.querySelector('.form-error').innerHTML = ''
                 };
     }})}
@@ -593,9 +601,14 @@ function Validator(options) {
             Validator.isRequired("#linkImage",      'Vui lòng chọn link hình ảnh'),
          ],
          onSubmit: function (data) {
-            console.log(data);
-            clearForm();
-            addProduct(data);
+            if(checkEdit === 0 ){
+                console.log(data);
+                clearForm();
+                addProduct(data);
+            }
+            else{
+                editProduct()
+            }
          }
      });
 }
