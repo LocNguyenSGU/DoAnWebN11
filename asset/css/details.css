@@ -295,6 +295,7 @@ a {
 }
 
 .header .buy-cart .list-preview .checkout-button {
+    color: black;
     cursor: pointer;
     padding: 15px 40px;
     border: none;
@@ -605,11 +606,15 @@ a {
     align-items: center;
     gap: 10px;
     border-radius: 6px;
-    background: var(--yellow-yellow, #ffb700);
+    background: var(--yellow-yellow, #1EBFC1);
     color: var(--secondary-color-secondary-1, #1a162e);
     font-size: 1.8rem;
     font-weight: 500;
 }
+.product .body-card .action .btn:hover{
+    background-color: #27b6b9;
+    transform: scale(1.05);
+} 
 
 .product .body-card .action img {
     display: flex;

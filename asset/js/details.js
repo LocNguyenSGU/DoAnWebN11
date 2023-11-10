@@ -207,71 +207,63 @@ let listProducts = localStorage.getItem("listProducts")
           },
       ];
 
-//  ============= Hàm render ra giao diện sản phẩm =============
-let currentProductType = "sweater";
-function renderProducts() {
-    const noProduct = document.querySelector(".no-product-search");
-    if (noProduct) {
-        noProduct.classList.add("hidden");
-    }
-    document.querySelector(".search-field").value = "";
-    document.querySelector(".icon-delete").classList.add("hidden");
-    const productListContainer = document.querySelector(".list-show-product");
-    if (productListContainer) {
-        productListContainer.innerHTML = "";
-
-        listProducts.forEach((product) => {
-            if (product.nature.type === currentProductType) {
-                const productSection = document.createElement("section");
-                productSection.classList.add("cart");
-
-                productSection.innerHTML = `
-                    <div class="wrap-img-cart">
-                    <a href="./details.html?id=${product.id}">
-                        <img src="${product.image}" alt="${
-                    product.name
-                }" class="img-cart" />
-                </a>
-                    </div>
-                    <h3 class="title">${product.name}</h3>
-                    <div class="row">
-                        <span class="price">$${product.price.toFixed(2)}</span>
-                        <div class="row-price-star">
-                            <img src="./asset/img/main-star.svg" alt="Star Rating" class="star" />
-                            <span class="star-num">${product.star}</span>
-                        </div>
-                        <button class="add-to-cart-button" onclick = "addToCart(${
-                            product.id
-                        })">Add to Cart</button>
-                    </div>
-                `;
-
-                // Thêm sản phẩm vào danh sách sản phẩm
-                productListContainer.appendChild(productSection);
-            }
-        });
-    }
+    // Lấy ID sản phẩm từ URL
+function getProductIdFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get("id");
+    return parseInt(productId); // Chuyển đổi thành số nguyên
 }
 
-// ============= Gọi hàm render để hiển thị sản phẩm ============
-const showShirtsButton = document.querySelector(".btn-sweater");
-const showPantsButton = document.querySelector(".btn-pants");
-showShirtsButton.addEventListener("click", function () {
-    currentProductType = "sweater";
-    renderProducts();
-});
-showPantsButton.addEventListener("click", function () {
-    currentProductType = "pants";
-    renderProducts();
-});
-renderProducts();
+// Tìm sản phẩm dựa trên ID
+function findProductById(productId) {
+    return listProducts.find(product => product.id === productId);
+}
+document.addEventListener("DOMContentLoaded", displayProduct);
 
-// ========== 2 biến toàn cục là dữ liệu data và tài khoản hiện tại đang login ==========
+// Hiển thị thông tin sản phẩm
+function displayProductDetails(product) {
+    if (product) {
+    const productTitle = document.querySelector(".heading");
+    const productPrice = document.querySelector(".card .body-card .heading");
+    const productImage = document.querySelector(".product-image");
+    const productReviews = document.querySelector(".row-review .title");
+    const addToCartButton=document.querySelector(".btn.add-to-cart-button.add-to-cart .addToCart2");
+    // const addToCart=document.querySelector(".addToCart2");
+    
+    productTitle.textContent = product.name;
+    productPrice.textContent = "$" + product.price.toFixed(2);
+    productImage.src = product.image;
+    productReviews.textContent = `(${product.star}) 1100 reviews`;
+
+    if (addToCartButton) {
+        addToCartButton.onclick = function () {
+            addToCart2(product.id); // Assuming product.id is the unique identifier for the product
+        };
+    } 
+    } else {
+        console.error("Sản phẩm không tồn tại");
+ }
+}
+
+// Hàm chính để hiển thị chi tiết sản phẩm
+function displayProduct() {
+    const productId = getProductIdFromURL();
+    const product = findProductById(productId);
+    displayProductDetails(product);  
+}
+
+// Gọi hàm để hiển thị sản phẩm khi trang được tải
+document.addEventListener("DOMContentLoaded", displayProduct);
+
+
+
+
+
 let dataUsers = JSON.parse(localStorage.getItem("DataUsers"));
 let login = JSON.parse(localStorage.getItem("loginUser"));
 
 // =========== Thêm sản phẩm vào giỏ hàng =============
-function addToCart(productId) {
+function addToCartButton(productId) {
     if (!login) {
         alert("Bạn phải đăng nhập để mua hàng");
         //sau đó hiện hộp thoại đăng nhập
@@ -414,103 +406,3 @@ function renderName() {
     }
 }
 renderName();
-
-// ============== hinh anh truot qua lai ===============
-const slides = document.querySelectorAll(".slide");
-const btnLeft = document.querySelector(".btn-left");
-const btnRight = document.querySelector(".btn-right");
-const dotContainer = document.querySelector(".dots");
-
-let curSlide = 0;
-
-const goToSlide = function (slide) {
-    slides.forEach(
-        (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-    );
-};
-
-const nextSlide = function () {
-    if (curSlide === slides.length - 1) {
-        curSlide = 0;
-    } else {
-        curSlide++;
-    }
-    goToSlide(curSlide);
-    activateDot(curSlide);
-};
-const prevSlide = function () {
-    if (curSlide == 0) {
-        curSlide = slides.length - 1;
-    } else {
-        curSlide--;
-    }
-    goToSlide(curSlide);
-    activateDot(curSlide);
-};
-// Nhan nut de qua lai slide
-btnRight.addEventListener("click", nextSlide);
-btnLeft.addEventListener("click", prevSlide);
-// Nhan ban phim mui ten de qua lai slide
-document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft") prevSlide();
-    if (e.key === "ArrowRight") nextSlide();
-});
-// Dot
-const createDots = function () {
-    slides.forEach(function (_, i) {
-        dotContainer.insertAdjacentHTML(
-            "beforeend",
-            `<button class="dots__dot" data-slide="${i}"></button>`
-        );
-    });
-};
-const activateDot = function (slide) {
-    document
-        .querySelectorAll(".dots__dot")
-        .forEach((dot) => dot.classList.remove("dots__dot--active"));
-
-    document
-        .querySelector(`.dots__dot[data-slide="${slide}"]`)
-        .classList.add("dots__dot--active");
-};
-const init = function () {
-    goToSlide(0);
-    createDots();
-    activateDot(0);
-};
-init();
-dotContainer.addEventListener("click", function (e) {
-    if (e.target.classList.contains("dots__dot")) {
-        const { slide } = e.target.dataset;
-        goToSlide(slide);
-        activateDot(slide);
-    }
-});
-const startAutoSlide = function () {
-    setInterval(nextSlide, 3000);
-};
-startAutoSlide();
-
-// =============== Xu li nut backToTop ======================
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    if (
-        document.body.scrollTop > 30 ||
-        document.documentElement.scrollTop > 30
-    ) {
-        // Hiển thị nút khi người dùng cuộn xuống 30px
-        document.querySelector(".backToTop").style.display = "block";
-    } else {
-        // Ẩn nút khi người dùng ở đầu trang
-        document.querySelector(".backToTop").style.display = "none";
-    }
-}
-
-// Xử lý khi người dùng nhấn nút "Back to Top"
-document.querySelector(".backToTop").onclick = function () {
-    document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
-    document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
-};
