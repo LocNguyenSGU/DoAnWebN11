@@ -398,7 +398,7 @@ function checkLogin(data) {
     }
  }
  function updateLocalStorage() {
-    //Nếu không JSON.stringify thì console.log(accounts) sẽ ra [object Object]
+    //Nếu không JSON.stringify thì console.log(DataUsers) sẽ ra [object Object]
     let usersData = JSON.stringify(DataUsers);
     let loginUserAccount = JSON.stringify(loginUser); 
 

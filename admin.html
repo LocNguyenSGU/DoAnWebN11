@@ -163,64 +163,66 @@
                     <h2 class="title">Product</h2>
                     <img src="./asset/img/bx-x.svg" alt="" class="closeImg" />
                 </div>
-                <form action="" method="post" autocomplete="off">
+                <form action="" method="post" autocomplete="off" id="add-form">
                     <input type="hidden" id="idProduct" value="">
                     <div class="form-group">
                         <label for="nameProduct" class="form-label"
                             >Name Product</label
                         >
+                        <div class="div">
                         <input
                             type="text"
                             id="nameProduct"
+                            name="nameProduct"
                             class="form-input"
                             placeholder="Enter name product"
                         />
+                        </div>
                         <p class="form-error"></p>
                     </div>
                     <div class="form-group">
                         <label for="price" class="form-label">Price</label>
+                        <div class="div">
                         <input
                             type="number"
                             id="price"
+                            name="price"
                             class="form-input"
                             placeholder="Enter price"
                         />
-                        <p class="form-error"></p>
-                    </div>
-                    <div class="form-group">
-                        <label for="desc" class="form-label">Description</label>
-                        <input
-                            type="text"
-                            id="desc"
-                            class="form-input"
-                            placeholder="Enter Description"
-                        />
+                        </div>
                         <p class="form-error"></p>
                     </div>
                     <div class="form-group">
                         <label for="type" class="form-label">Type</label>
+                        <div class="div">
                         <select name="type" id="type" class="form-select">
                             <option value="" hidden>Choose type product</option>
                             <option value="sweater">Sweater</option>
                             <option value="pants">Pants</option>
                             <option value="shoe">Shoe</option>
                         </select>
+                        </div>
                         <p class="form-error"></p>
                     </div>
                     <div class="form-group">
                         <label for="linkImage" class="form-label"
                             >Link image</label
                         >
+                        <div class="div">
                         <input
                             type="text"
                             id="linkImage"
+                            name="linkImage"
                             class="form-input"
                             placeholder="Enter link image"
                         />
+                        </div>
                         <p class="form-error"></p>
                     </div>
+                    <button class="btn-save">Save</button>
                 </form>
-                <button class="btn-save">Save</button>
+                
             </div>
         </div>
         <div class="toast">
@@ -258,6 +260,6 @@
 
             <div class="progress"></div>
         </div>
-        <script type="module" src="./asset/js/admin.js" async></script>
+        <script src="./asset/js/admin.js" async></script>
     </body>
 </html>
