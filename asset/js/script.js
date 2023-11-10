@@ -227,11 +227,8 @@ function renderProducts() {
 
                 productSection.innerHTML = `
                     <div class="wrap-img-cart">
-                    <a href="./details.html?id=${product.id}">
-                        <img src="${product.image}" alt="${
-                    product.name
-                }" class="img-cart" />
-                </a>
+                        <img src="${product.image}" alt="${product.name}" 
+                        class="img-cart" onclick="window.location = './details.html?id=${product.id}' " />
                     </div>
                     <h3 class="title">${product.name}</h3>
                     <div class="row">

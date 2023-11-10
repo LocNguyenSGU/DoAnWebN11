@@ -227,7 +227,7 @@ function displayProductDetails(product) {
     const productPrice = document.querySelector(".card .body-card .heading");
     const productImage = document.querySelector(".product-image");
     const productReviews = document.querySelector(".row-review .title");
-    const addToCartButton=document.querySelector(".btn.add-to-cart-button.add-to-cart .addToCart2");
+    const addToCartButton=document.querySelector(".add-to-cart-button");
     // const addToCart=document.querySelector(".addToCart2");
     
     productTitle.textContent = product.name;
@@ -237,7 +237,7 @@ function displayProductDetails(product) {
 
     if (addToCartButton) {
         addToCartButton.onclick = function () {
-            addToCart2(product.id); // Assuming product.id is the unique identifier for the product
+            addToCart(product.id); // Assuming product.id is the unique identifier for the product
         };
     } 
     } else {
@@ -263,10 +263,8 @@ let dataUsers = JSON.parse(localStorage.getItem("DataUsers"));
 let login = JSON.parse(localStorage.getItem("loginUser"));
 
 // =========== Thêm sản phẩm vào giỏ hàng =============
-document.querySelector('.btn add-to-cart-button add-to-cart').onclick = addToCartButton()
-function addToCartButton(productId) {
-    console.log(loginUser)
-    if (!loginUser) {
+function addToCart(productId) {
+    if (!login) {
         alert("Bạn phải đăng nhập để mua hàng");
         //sau đó hiện hộp thoại đăng nhập
         Object.assign(document.querySelector(".loginBackground").style, {
