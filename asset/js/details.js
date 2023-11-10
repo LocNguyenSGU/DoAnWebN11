@@ -263,8 +263,10 @@ let dataUsers = JSON.parse(localStorage.getItem("DataUsers"));
 let login = JSON.parse(localStorage.getItem("loginUser"));
 
 // =========== Thêm sản phẩm vào giỏ hàng =============
+document.querySelector('.btn add-to-cart-button add-to-cart').onclick = addToCartButton()
 function addToCartButton(productId) {
-    if (!login) {
+    console.log(loginUser)
+    if (!loginUser) {
         alert("Bạn phải đăng nhập để mua hàng");
         //sau đó hiện hộp thoại đăng nhập
         Object.assign(document.querySelector(".loginBackground").style, {
