@@ -317,6 +317,19 @@ function addToCart(productId) {
     }
 }
 
+function handleDeleteCartItem(productId) {
+    // Xử lý xóa sản phẩm từ giỏ hàng, cập nhật Local Storage và cập nhật giao diện
+    const storedCartItems = localStorage.getItem("DataUsers");
+    const cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+
+    const updatedCartItems = cartItems.filter(item => item.idProduct !== productId);
+
+    localStorage.setItem("DataUsers", JSON.stringify(updatedCartItems));
+
+    window.location.href = "cart.html";
+  }
+
+
 // ============ render UI layout Cart ==============
 function renderCartUI() {
     const noProduct = document.querySelector(".no-product");

@@ -84,6 +84,10 @@ body {
     overflow: auto;
     height: 700px;
 }
+.main-left__product .main-product .product-image{
+    width: 200px;
+    height: 208px;
+}
 
 .main-left .main-product {
     padding: 30px;

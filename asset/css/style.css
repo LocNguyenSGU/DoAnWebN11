@@ -315,6 +315,9 @@ a {
    font-size: 2rem;
    font-weight: 500;
 }
+.checkout-button a{
+   color: black;
+}
 
 .header .buy-cart .list-preview .checkout-button {
    cursor: pointer;
