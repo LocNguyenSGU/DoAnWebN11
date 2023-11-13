@@ -84,10 +84,67 @@ body {
     overflow: auto;
     height: 700px;
 }
-.main-left__product .main-product .product-image{
-    width: 200px;
-    height: 208px;
+/* -------------------------- Phần css của class riêng của Cu Huy -------------------------- */
+.main-left__product .main-product .product-image {
+    width: 175px;
+    height: 172px;
+    object-fit: cover;
 }
+
+.main-left__product .main-product .information-product {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-left__product .main-product .product-details .product-title {
+    color: #1a162e;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.44; /* 144.444% */
+}
+
+.main-left__product .main-product .product-details .data {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.main-left__product .main-product .product-details .product-price {
+    color: #1a162e;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.45; /* 145.455% */
+}
+
+.main-left__product .main-product .product-details .product-price:hover {
+    color: #44b0a5;
+}
+
+.main-left__product .main-product .product-details .product-quantity {
+    margin-left: 10px;
+    color: #9e9da8;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.44; /* 144.444% */
+}
+
+.main-left__product .main-product .delete-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    border-radius: 12px;
+    border: 2px solid #8d960faa;
+}
+
+.main-left__product .main-product .delete-button:hover {
+    background: #44b0a5;
+    color: #ff6f00;
+}
+/*  */
 
 .main-left .main-product {
     padding: 30px;
@@ -102,7 +159,7 @@ body {
     margin-left: 30px;
     left: 0;
     top: 230px;
-    width: 859px;
+    width: 780px;
     height: 1px;
     background: #d2d1d6;
 }
