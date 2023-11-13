@@ -259,7 +259,9 @@ function renderProductsForSearch(arr) {
     });
 }
 const textInput = document.querySelector(".search-field");
+const textInputMb = document.querySelector(".search-field-mb"); // mobile
 const iconDelete = document.querySelector(".icon-delete");
+const iconDeleteMb = document.querySelector(".icon-delete-mb");
 const textInputAdvance = document.getElementById("name");
 const iconDeleteAdvance = document.querySelector(".icon-delete-advance");
 
@@ -278,6 +280,7 @@ function deleteText(nameObj, nameIcon) {
     });
 }
 deleteText(textInput, iconDelete); // Xoa ở header
+deleteText(textInputMb, iconDeleteMb); // Xoa ở header mobile
 deleteText(textInputAdvance, iconDeleteAdvance); // Xoá ở phần form tìm kiếm nâng cao
 
 // =========== Tim kiem co ban ==============
@@ -296,6 +299,23 @@ function search() {
 }
 
 document.querySelector(".btn-search").addEventListener("click", search);
+
+function searchMb() {
+    console.log("Search");
+    const noProduct = document.querySelector(".no-product-search");
+    if (textInputMb.value.trim() === "") return;
+    let productSearch = listProducts.filter((value) => {
+        return value.name
+            .toLowerCase()
+            .trim()
+            .includes(textInputMb.value.trim().toLowerCase());
+    });
+    if (productSearch.length == 0) noProduct.classList.remove("hidden");
+    if (productSearch.length > 0) noProduct.classList.add("hidden");
+    renderProductsForSearch(productSearch);
+}
+
+document.querySelector(".btn-search-Mb").addEventListener("click", searchMb);
 
 // ===================   An-hien form tim kiem nang cao ====================
 let isFormVisible = false;
