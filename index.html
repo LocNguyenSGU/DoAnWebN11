@@ -18,6 +18,7 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="./asset/css/style.css" />
     <link rel="stylesheet" href="./asset/css/cart.css" />
+    <link rel="stylesheet" href="./asset/css/responsive.css">
     <!-- Font -->
     <link rel="stylesheet" href="./asset/font/stylesheet.css" />
 </head>
@@ -25,7 +26,11 @@
 <body>
     <header class="header">
         <div class="container">
-            <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo" /></a>
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" class="bar hide-on-desktop">
+                <path fill="currentColor"
+                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+            </svg>
+            <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo hide-on-tablet" /></a>
             <nav class="nav">
                 <ul>
                     <li class="header-product">
@@ -52,25 +57,27 @@
                 </ul>
             </nav>
             <div class="last-icon">
-                <input type="text" name="" id="" placeholder="Search for..." class="search-field" spellcheck="false" />
-                <svg xmlns="" height="1em" viewBox="0 0 512 512" class="icon-delete hidden">
-                <path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                <input type="text" name="" id="" placeholder="Search for..." class="search-field hide-on-mobile" spellcheck="false" />
+                <svg xmlns="" height="1em" viewBox="0 0 512 512" class="icon-delete hidden hide-on-mobile">
+                    <path fill="currentColor"
+                        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z">
+                    </path>
                 </svg>
-                <button class="btn-search">
+                <button class="btn-search hide-on-mobile">
                     <img src="./asset/img/header-search.svg" alt="" class="search-icon" />
                 </button>
-                <div class="buy-cart">
-                        <img src="./asset/img/header-buy.svg" alt="" />
-                        <span class="price price-buy-cart">$0.00</span>
-                        <div class="list-preview">
-                            <p class="no-product">No product in your cart</p>
-                            <div class="have-product hidden">
-                                <div class="row-1">
-                                    <p class="you-have">You have 0 item </p>
-                                    <a href="./cart.html" class="see-all">See all</a>
-                                </div>
-                                <div class="row-2">
-                                    <!-- <div class="block-each-preview">
+                <div class="buy-cart hide-on-mobile">
+                    <img src="./asset/img/header-buy.svg" alt="" />
+                    <span class="price price-buy-cart">$0.00</span>
+                    <div class="list-preview">
+                        <p class="no-product">No product in your cart</p>
+                        <div class="have-product hidden">
+                            <div class="row-1">
+                                <p class="you-have">You have 0 item </p>
+                                <a href="./cart.html" class="see-all">See all</a>
+                            </div>
+                            <div class="row-2">
+                                <!-- <div class="block-each-preview">
                                         <img src="./asset/img/product-sweater/sweater-102.jpg" alt="" class="img-preview">
                                         <h2 class="title">Sweater 1874A</h2>
                                         <span class="price">$100</span>
@@ -88,33 +95,76 @@
                                         <span class="price">$100</span>
                                         <span class="quatity">x 5</span>
                                     </div> -->
-                                </div>
-                                <div class="separate"></div>
-                                <div class="row-3 row">
-                                    <p class="subtotal">Subtotal: </p>
-                                    <span class="price price-subtotal">$0.00</span>
-                                </div>
-                                <div class="row-4 row">
-                                    <p class="shipping">Shipping: </p>
-                                    <span class="price price-shipping">$0.00</span>
-                                </div>
-                                <div class="row-5 row">
-                                    <p class="total-price">Total price: </p>
-                                    <span class="price" id="price-total">$0.00</span>
-                                </div>
-                                <div class="separate"></div>
-                                <button id="checkout-button" class="checkout-button">Check Out All</button>
                             </div>
+                            <div class="separate"></div>
+                            <div class="row-3 row">
+                                <p class="subtotal">Subtotal: </p>
+                                <span class="price price-subtotal">$0.00</span>
+                            </div>
+                            <div class="row-4 row">
+                                <p class="shipping">Shipping: </p>
+                                <span class="price price-shipping">$0.00</span>
+                            </div>
+                            <div class="row-5 row">
+                                <p class="total-price">Total price: </p>
+                                <span class="price" id="price-total">$0.00</span>
+                            </div>
+                            <div class="separate"></div>
+                            <button id="checkout-button" class="checkout-button">Check Out All</button>
                         </div>
-                </div>             
+                    </div>
+                </div>
                 <div class="iconUser">
                     <!-- <img src="./asset/img/header-user.svg" alt="" class="icon-user"> -->
                 </div>
             </div>
         </div>
     </header>
+    <header class="header-mobile hide-on-desktop">
+        <div class="menu-overlay"></div>
+        <div class="menu-content">
+            <div class="container">
+                <a href="#"><img src="./asset/img/header-logo.svg" alt="" class="logo hide-on-mobile" /></a>
+                <div class="group-cart hide-on-tablet">
+                    <img src="./asset/img/header-buy.svg" alt="" class="buy-cart"/>
+                    <span class="cart-text">cart</span>
+                    <span class="cart-quantity">5</span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li>
+                            <a href="#hello" class="btn-sweater">Sweater</a>
+                        </li>
+                        <li>
+                            <a href="#hello" class="btn-pants">Pants</a>
+                        </li>
+                        <li>
+                            <a href="#!">Shoe</a>
+                        </li>
+                        <li>
+                            <a href="#!">About</a>
+                        </li>
+                        <li>
+                            <a href="#!">Contact us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
     <main id="main" class="main">
         <div class="container">
+            <div class="group-search hide-on-desktop hide-on-tablet">
+                <input type="text" name="" id="" placeholder="Search for..." class="search-field search-field-mb" spellcheck="false" />
+                <svg xmlns="" height="1em" viewBox="0 0 512 512" class="icon-delete-mb hidden">
+                    <path fill="currentColor"
+                        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z">
+                    </path>
+                </svg>
+                <button class="btn-search btn-search-Mb">
+                    <img src="./asset/img/header-search.svg" alt="" class="search-icon" />
+                </button>
+            </div>
             <div class="slider">
                 <div class="slide">
                     <img src="./asset/img/header-img-huge-1.jpg" alt="" class="img-huge" />
@@ -125,8 +175,8 @@
                 <div class="slide">
                     <img src="./asset/img/header-img-huge-3.jpg" alt="" class="img-huge" />
                 </div>
-                <button class="btn-left">&larr;</button>
-                <button class="btn-right">&rarr;</button>
+                <button class="btn-left hide-on-mobile">&larr;</button>
+                <button class="btn-right hide-on-mobile">&rarr;</button>
                 <div class="dots"></div>
             </div>
             <!-- recommend -->
@@ -172,48 +222,54 @@
                 <form action="" class="form-filter">
                     <h3 class="title-filter">Filter</h3>
                     <div class="row-filer">
-                        <div class="form-item">
-                            <label for="type">Type</label>
-                            <select name="type" id="type">
-                                <option value="">---</option>
-                                <option value="sweater">sweater</option>
-                                <option value="pants">pants</option>
-                                <option value="shoe">shoe</option>
-                            </select>
-                        </div>
-                        <div class="form-item">
-                            <label for="color">Color</label>
-                            <select name="color" id="color">
-                                <option value="">---</option>
-                                <option value="white">white</option>
-                                <option value="black">black</option>
-                                <option value="grey">grey</option>
-                                <option value="blue">blue</option>
-                                <option value="brown">brown</option>
-                            </select>
+                        <div class="group-form">
+                            <div class="form-item">
+                                <label for="type">Type</label>
+                                <select name="type" id="type">
+                                    <option value="">---</option>
+                                    <option value="sweater">sweater</option>
+                                    <option value="pants">pants</option>
+                                    <option value="shoe">shoe</option>
+                                </select>
+                            </div>
+                            <div class="form-item">
+                                <label for="color">Color</label>
+                                <select name="color" id="color">
+                                    <option value="">---</option>
+                                    <option value="white">white</option>
+                                    <option value="black">black</option>
+                                    <option value="grey">grey</option>
+                                    <option value="blue">blue</option>
+                                    <option value="brown">brown</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-item">
                             <label for="name">Name</label>
                             <input type="text" id="name" placeholder="Search name product">
                             <svg xmlns="" height="1em" viewBox="0 0 512 512" class="icon-delete-advance hidden">
-                                <path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                                <path fill="currentColor"
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z">
+                                </path>
                             </svg>
                         </div>
-                        <div class="form-item">
-                            <label for="min">Min Price</label>
-                            <input type="number" name="" id="min">
+                        <div class="group-form">
+                            <div class="form-item">
+                                <label for="min">Min Price</label>
+                                <input type="number" name="" id="min">
 
-                        </div>
-                        <div class="form-item">
-                            <label for="max">Max Price</label>
-                            <input type="number" name="" id="max">
+                            </div>
+                            <div class="form-item">
+                                <label for="max">Max Price</label>
+                                <input type="number" name="" id="max">
+                            </div>
                         </div>
                     </div>
                     <div class="group-btn">
                         <button class="btn-cancel">Cancel</button>
                         <button class="btn-show-result">Show Result</button>
                     </div>
-                </form>         
+                </form>
             </div>
 
             <!-- display product -->
@@ -236,7 +292,7 @@
                     </div>
                 </section> -->
             </div>
-            <p class="no-product-search hidden">//  No product for search</p>
+            <p class="no-product-search hidden">// No product for search</p>
             <!-- create account -->
             <div class="create-acc">
                 <div class="container">
@@ -371,7 +427,7 @@
                                 <label for="password1" class="form-label">Mật khẩu</label>
                                 <div class="div">
                                     <input id="password1" name="password" type="password" placeholder="Nhập mật khẩu"
-                                        class="form-control"> 
+                                        class="form-control">
                                     <img class="password1" src="./asset/img/hide.png">
                                 </div>
                                 <span class="form-message"></span>
@@ -425,12 +481,14 @@
             </div>
         </div>
     </div>
-    
+
     </div>
     <script src="./asset/js/script.js"></script>
     <script src="./asset/js/cartt.js"></script>
     <script src="./asset/js/form.js"></script>
     <script src="./asset/js/search.js"></script>
     <script src="./asset/js/details.js"></script>
+    <script src="./asset/js/responsive.js"></script>
 </body>
+
 </html>

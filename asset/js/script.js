@@ -228,7 +228,9 @@ function renderProducts() {
                 productSection.innerHTML = `
                     <div class="wrap-img-cart">
                         <img src="${product.image}" alt="${product.name}" 
-                        class="img-cart" onclick="window.location = './details.html?id=${product.id}' " />
+                        class="img-cart" onclick="window.location = './details.html?id=${
+                            product.id
+                        }' " />
                     </div>
                     <h3 class="title">${product.name}</h3>
                     <div class="row">
@@ -251,16 +253,30 @@ function renderProducts() {
 }
 
 // ============= Gọi hàm render để hiển thị sản phẩm ============
-const showShirtsButton = document.querySelector(".btn-sweater");
-const showPantsButton = document.querySelector(".btn-pants");
-showShirtsButton.addEventListener("click", function () {
-    currentProductType = "sweater";
-    renderProducts();
+const showShirtsButtons = document.querySelectorAll(".btn-sweater");
+const showPantsButtons = document.querySelectorAll(".btn-pants");
+
+showShirtsButtons.forEach(function (item) {
+    item.addEventListener("click", function () {
+        currentProductType = "sweater";
+        renderProducts();
+    });
 });
-showPantsButton.addEventListener("click", function () {
-    currentProductType = "pants";
-    renderProducts();
+
+showPantsButtons.forEach(function (item) {
+    item.addEventListener("click", function () {
+        currentProductType = "pants";
+        renderProducts();
+    });
 });
+// showShirtsButton.addEventListener("click", function () {
+//     currentProductType = "sweater";
+//     renderProducts();
+// });
+// showPantsButton.addEventListener("click", function () {
+//     currentProductType = "pants";
+//     renderProducts();
+// });
 renderProducts();
 
 // ========== 2 biến toàn cục là dữ liệu data và tài khoản hiện tại đang login ==========
@@ -313,9 +329,27 @@ function addToCart(productId) {
             }
             localStorage.setItem("DataUsers", JSON.stringify(dataUsers));
             renderCartUI();
+            renderProductQuantityMb()
         }
     }
 }
+// =========== thêm sản phẩm của mobile ===============
+// hiển thị tổng số lượng sản phẩm
+
+function renderProductQuantityMb() {
+    let screenWidthNow = window.innerWidth;
+    let maxWidthMobile = 767.98;
+    if (screenWidthNow < maxWidthMobile) {
+        let userIndex = dataUsers.findIndex((user) => user.id == login.id);
+        const cartQuantity = document.querySelector(".cart-quantity");
+        let totalQuantity = 0;
+        dataUsers[userIndex].cartItems.forEach((item) => {
+            if (item.check == 0) totalQuantity += item.quantity;
+        });
+        cartQuantity.textContent = totalQuantity;
+    }
+}
+renderProductQuantityMb();
 
 // ============ render UI layout Cart ==============
 function renderCartUI() {
