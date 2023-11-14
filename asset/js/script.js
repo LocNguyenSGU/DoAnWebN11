@@ -431,7 +431,7 @@ function renderNumberCart(cartItems) {
 
     let totalQuantity = 0; // Tổng số lượng tất cả sản phẩm
     let totalPrice = 0; // Tổng giá tiền tất cả sản phẩm
-    let shippingPrice = 10; // Giá vận chuyển cho mỗi sản phẩm
+    let shippingPrice = 5; // Giá vận chuyển cho mỗi sản phẩm
 
     cartItems.forEach((item) => {
         if (item.check == 0) {

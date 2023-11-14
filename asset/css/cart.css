@@ -210,6 +210,10 @@ body {
     gap: 10px;
 }
 
+.info-product__action .delete-action img{
+    cursor: pointer;
+}
+
 .amount-aciton .up-and-down {
     border-radius: 7px;
     text-align: center;
