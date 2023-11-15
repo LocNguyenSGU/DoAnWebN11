@@ -329,7 +329,7 @@ function addToCart(productId) {
             }
             localStorage.setItem("DataUsers", JSON.stringify(dataUsers));
             renderCartUI();
-            renderProductQuantityMb()
+            renderProductQuantityMb();
         }
     }
 }
@@ -340,6 +340,7 @@ function renderProductQuantityMb() {
     let screenWidthNow = window.innerWidth;
     let maxWidthMobile = 767.98;
     if (screenWidthNow < maxWidthMobile) {
+        if (login == null) return;
         let userIndex = dataUsers.findIndex((user) => user.id == login.id);
         const cartQuantity = document.querySelector(".cart-quantity");
         let totalQuantity = 0;
@@ -356,13 +357,14 @@ function handleDeleteCartItem(productId) {
     const storedCartItems = localStorage.getItem("DataUsers");
     const cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
 
-    const updatedCartItems = cartItems.filter(item => item.idProduct !== productId);
+    const updatedCartItems = cartItems.filter(
+        (item) => item.idProduct !== productId
+    );
 
     localStorage.setItem("DataUsers", JSON.stringify(updatedCartItems));
 
     window.location.href = "cart.html";
-  }
-
+}
 
 // ============ render UI layout Cart ==============
 function renderCartUI() {
@@ -558,3 +560,39 @@ document.querySelector(".backToTop").onclick = function () {
     document.body.scrollTop = 0; // Cho trình duyệt Chrome, Safari, Edge
     document.documentElement.scrollTop = 0; // Cho trình duyệt Firefox, IE
 };
+
+// ========= chức năng xem lại đơn hàng đã mua =============
+function displayHideHistory() {
+    const history = document.querySelector(".historyOrder");
+    history.classList.toggle("active");
+}
+displayHideHistory();
+
+displayHideHistory();
+const btnHistory = document.querySelector(".history");
+btnHistory.addEventListener("click", () => {
+    displayHideHistory();
+});
+const btnCloseHistory = document.querySelector(".close-history");
+btnCloseHistory.addEventListener("click", () => {
+    displayHideHistory();
+});
+
+// render trong historyOrder
+function renderHistoryOrder() {
+    if (login == null) return;
+    const table = document.querySelector(".tableHistory");
+    let userIndex = dataUsers.findIndex((user) => user.id == login.id);
+    dataUsers[userIndex].cartItems.forEach((item) => {
+        let row = `<tr>
+        <td>1</td>
+        <td><img class="img-history" src="${item.image}" alt=""></td>
+        <td>${item.nameProduct}</td>
+        <td>${item.quantity}</td>
+        <td>$${item.price}</td>
+        <td>${item.time}</td>
+    </tr>`;
+        table.innerHTML += row;
+    });
+}
+// renderHistoryOrder();
