@@ -198,6 +198,7 @@ body {
     margin-top: 58px;
     display: flex;
     justify-content: space-between;
+    padding-top: 25px;
 }
 
 .info-product__action .amount-aciton {
@@ -212,6 +213,7 @@ body {
 
 .info-product__action .delete-action img{
     cursor: pointer;
+    width: 35px;
 }
 
 .amount-aciton .up-and-down {

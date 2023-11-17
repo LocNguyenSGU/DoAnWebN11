@@ -1,0 +1,196 @@
+
+ /* ============ Tablet & mobile ============ */
+ @media screen and (max-width: 991.98px) {
+ 
+    /* header */
+.header .nav {
+       display: none;
+    }
+}
+
+.header .nav {
+    display: none;
+ }
+
+ .header .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-right: 100px;
+ }
+
+ .header .last-icon svg {
+    left: 233px;
+ }
+
+ .header .bar {
+    width: 30px;
+    height: 30px;
+    color: #666;
+ }
+
+ .header-mobile .logo {
+    width: 200px;
+ }
+
+ .header-mobile .menu-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+ }
+
+ .header-mobile .menu-content {
+    position: fixed;
+    background-color: #fff;
+    inset: 0 40% 0 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+@media screen and (max-width:991.98px){
+   .body-main {
+      display: grid;
+      gap:16px;
+      width: 335px;
+   }
+   .filter{
+      width: 365px;
+   }
+   .filter .body {
+      display: flex;
+      width: 335px;
+      padding: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 20px;
+      background: var(--secondary-color-background, #FFF);
+      box-shadow: 0px 20px 60px 10px rgba(237, 237, 246, 0.20);
+   }
+   .body-main .continue{
+      margin-top: 20px;
+   }
+}
+
+@media screen and(max-width:991.98px) {
+   .main-left {
+      display: flex;
+      width: 303px;
+      align-items: flex-start;
+      gap: 16px;
+   }
+   .main-left .main-product{
+      display: flex;
+      
+      align-items: flex-start;
+      gap: 16px;
+   }
+}
+
+@media screen and (max-width:991.98px){
+   .main > .container{
+      height: 100px;
+   }
+   .main-left{
+      width: 300px;
+   }
+   .main .main-left__product{
+      overflow: auto;
+      height: 300px;
+   }
+   
+   .main-left .main-left__product .main-product{
+      padding:16px;
+      position: relative;
+
+   }
+   .main-left .main-product .info-product .info-product__title {
+      display: grid;
+      width: 300px;
+   }
+   .main-left  .main-left__product .main-product .image {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+   }
+   .main-left .main-product .info-product{
+      width: 300px;
+   }
+
+   .main-left  .main-left__product .main-product .info-product .heading{
+      width: 233px;
+      color: var(--secondary-color-secondary-1, #1A162E);
+      font-family: Gordita;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+   }
+   .main-left  .main-left__product .main-product .info-product .price {
+      color: var(--secondary-color-secondary-2, #9E9DA8);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Gordita;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26px;   
+   }
+   .info-product__action {
+      display: grid;
+   }
+   .delete-action img {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      padding: 2.751px 3.292px 2.749px 3.75px;
+      justify-content: center;
+      align-items: center;
+   }
+}
+
+@media screen and (max-width:991.98px) {
+   .main-sidebar {
+      width: 300px;
+   }
+   .main-sidebar .main-sidebar__checkout{
+      display: flex;
+      width: 300px;
+      padding: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 20px;
+      background: var(--secondary-color-background, #FFF);
+      box-shadow: 0px 20px 60px 10px rgba(237, 237, 246, 0.20);
+   }
+   .main-sidebar .main-sidebar__checkout .action-checkout{
+      height: 50px;
+   }
+   .main-sidebar .main-sidebar__checkout .action-checkout .title{
+      font-size: 20px;
+   }
+   .main-sidebar__gift {
+      margin-top: 1px;
+      padding: 15px;
+      width: 300px;
+   }
+   .main-sidebar__gift img{
+      width: 50px;
+   }
+   .main-sidebar__gift .main-sidebar__gift-info .title{
+      color: var(--secondary-color-secondary-1, #1A162E);
+      font-family: Gordita;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+   }
+}
