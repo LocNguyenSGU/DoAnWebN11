@@ -93,10 +93,8 @@ a {
    display: flex;
    align-items: center;
    gap: 6px;
-}
-
-.main .navbar ul li a {
-   color: var(--text-color-dark);
+   cursor: pointer;
+   user-select: none;
 }
 
 .main .navbar .logout-relative {
@@ -109,11 +107,10 @@ a {
    object-fit: cover;
 }
 
-.main .navbar ul li a {
+.main .navbar ul li p {
    color: var(--text-color-dark);
 }
-
-.navbar ul li a::after {
+.navbar ul li p::after {
    display: flex;
    content: "";
    position: absolute;
@@ -126,14 +123,13 @@ a {
    transform: scaleX(0);
    transform-origin: right;
    transition: transform 0.5s;
-
 }
 
-.navbar ul li:hover>a {
+.navbar ul li:hover>p {
    color: #1EBFC1;
 }
 
-.navbar ul li:hover>a::after {
+.navbar ul li:hover>p::after {
    transform: scale(1);
    transform-origin: left;
 }
