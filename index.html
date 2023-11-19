@@ -48,11 +48,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li id="aboutLink">
                         <a href="#!">About</a>
                     </li>
                     <li>
-                        <a href="#!">Contact us</a>
+                        <a href="#footer">Contact us</a>
                     </li>
                 </ul>
             </nav>
@@ -318,7 +318,7 @@
         </div>
         <!-- <div id="product-list"></div> -->
     </main>
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="row">
                 <!-- column-1 -->
@@ -579,6 +579,17 @@
         </div>
     </div>
 
+     <!-- Popup hỗ trợ -->
+        <div id="supportPopup" class="popup" style="visibility: visible; animation-name: backgroundeffect1;"> 
+            <div class="popup-content"  >
+                <div class="close" id="closeSupportPopup"><img src="./asset/img/bx-x.svg" alt=""></div>
+                    <!-- Thêm nội dung chi tiết của trang hỗ trợ -->
+                    <div id="supportContent">
+
+                    </div>
+            </div>             
+        </div>
+        
     </div>
     <script src="./asset/js/script.js"></script>
     <script src="./asset/js/cartt.js"></script>
@@ -586,6 +597,7 @@
     <script src="./asset/js/search.js"></script>
     <script src="./asset/js/details.js"></script>
     <script src="./asset/js/responsive.js"></script>
+    <script src="./asset/js/PupopAbout.js"></script>
 </body>
 
 </html>

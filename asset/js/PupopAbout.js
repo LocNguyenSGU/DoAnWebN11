@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var closeSupportButton = document.getElementById("closeSupportPopup");
     var supportPopup = document.getElementById("supportPopup");
     var aboutLink = document.getElementById("aboutLink");
-    var popupbg = document.getElementById("popup-bg");
 
     closeSupportButton.addEventListener("click", function () {
         supportPopup.style.display = "none";
