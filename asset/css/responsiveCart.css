@@ -100,7 +100,7 @@
       height: 100px;
    }
    .main-left{
-      width: 300px;
+      width: auto;
    }
    .main .main-left__product{
       overflow: auto;
@@ -108,6 +108,8 @@
    }
    .main-product::after {
       width: 270px;
+      left: 0;
+      top: 0px;
    }
    
    .main-left .main-left__product .main-product{
@@ -147,7 +149,10 @@
       line-height: 26px;   
    }
    .info-product__action {
-      display: grid;
+      margin-top: 0px;
+      display: flex;
+      width: 195px;
+      align-items: center;
    }
    .delete-action img {
       display: flex;
