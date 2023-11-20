@@ -118,8 +118,8 @@
 
    }
    .main-left .main-product .info-product .info-product__title {
-      display: grid;
-      width: 300px;
+      display: flex;
+      width: 195px;
    }
    .main-left  .main-left__product .main-product .image {
       width: 60px;
