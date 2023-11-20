@@ -1365,7 +1365,9 @@ td {
     width: 1340px;
     background-color: white;
     top: 90px;
-    left: 89px;
+    /* left: 89px; */
+    left: 50%;
+    transform: translate(-50%,0%);
     position: fixed;
     padding: 30px 30px 30px 30px;
     border-radius: 10px;
