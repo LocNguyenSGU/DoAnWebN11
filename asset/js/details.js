@@ -228,12 +228,15 @@ function displayProductDetails(product) {
     const productImage = document.querySelector(".product-image");
     const productReviews = document.querySelector(".row-review .title");
     const addToCartButton=document.querySelector(".add-to-cart-button");
+    const titlePrice = document.querySelector(".title-price");
+    
     // const addToCart=document.querySelector(".addToCart2");
     
     productTitle.textContent = product.name;
     productPrice.textContent = "$" + product.price.toFixed(2);
     productImage.src = product.image;
     productReviews.textContent = `(${product.star}) 1100 reviews`;
+    titlePrice.textContent = "$" + (product.price * 1.1).toFixed(2);
 
     if (addToCartButton) {
         addToCartButton.onclick = function () {
@@ -379,7 +382,7 @@ function renderNumberCart(cartItems) {
 
     let totalQuantity = 0; // Tổng số lượng tất cả sản phẩm
     let totalPrice = 0; // Tổng giá tiền tất cả sản phẩm
-    let shippingPrice = 10; // Giá vận chuyển cho mỗi sản phẩm
+    let shippingPrice = 5; // Giá vận chuyển cho mỗi sản phẩm
 
     cartItems.forEach((item) => {
         if (item.check == 0) {
@@ -387,7 +390,6 @@ function renderNumberCart(cartItems) {
             totalPrice += item.price * item.quantity;
         }
     });
-
     cartQuantity.textContent = `You have ${totalQuantity} item`;
     subtotal.textContent = `$${totalPrice.toFixed(2)}`;
     shipping.textContent = `$${shippingPrice * totalQuantity}`;
@@ -399,10 +401,10 @@ function renderNumberCart(cartItems) {
 }
 
 // ============ render tên người dùng khi đăng nhập ===============
-function renderName() {
-    const name = document.querySelector(".hello-name");
-    if (login) {
-        name.textContent = login.name;
-    }
-}
-renderName();
+// function renderName() {
+//     const name = document.querySelector(".hello-name");
+//     if (login) {
+//         name.textContent = login.name;
+//     }
+// }
+// renderName();
