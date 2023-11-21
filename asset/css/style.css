@@ -695,6 +695,31 @@ a {
     padding-left: 5px;
 }
 
+.pagnigation ul {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+}
+.pagnigation ul li {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    line-height: 25px;
+    width: 30px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid rgb(159, 155, 155);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+.pagnigation .active {
+    background-color: #1ebfc1;
+    font-size: 20px;
+    color: var(--text-color-dark);
+}
+
 /* ========= Create account ============ */
 .create-acc {
     background-color: #cceae9;

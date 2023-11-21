@@ -298,6 +298,7 @@ function renderOrderManagement(){
     const orderManagementContainer = document.querySelector(".contain-add-product-search");
     orderManagementContainer.innerHTML = `
         <p>I'm Order Management</p>
+        
     `;
 }
 function renderUserManagement(){
