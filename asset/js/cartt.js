@@ -72,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
         totalPrice.textContent = totalPriceFull.toFixed(2);
     }
     renderPrice();
+    checkOut();
 });
+let listOrders = localStorage.getItem('listOrders') ? JSON.parse(localStorage.getItem('listOrders')): [];
+
 let dataUsersNow = JSON.parse(localStorage.getItem("DataUsers"));
 
 const loginUserNow = JSON.parse(localStorage.getItem("loginUser"));
@@ -131,23 +134,6 @@ function deleteProduct(idProduct) {
     }
 }
 
-
-function deleteProduct(idProduct) {
-    const indexToDelete = dataUsersNow[userIndex].cartItems.findIndex(item => item.idProduct === idProduct);
-    if (indexToDelete !== -1) {
-        const deletedItem = dataUsersNow[userIndex].cartItems.splice(indexToDelete, 1)[0];
-        localStorage.setItem("DataUsers", JSON.stringify(dataUsersNow));
-        const productDiv = document.querySelector(`.main-product #amount-${idProduct}`).closest(".main-product");
-        if (productDiv) {
-            productDiv.remove();
-            renderPriceAfter(deletedItem);
-            render(dataUsersNow[userIndex].cartItems);
-            renderPrice();
-        }
-    }
-}
-
-
 function renderPriceAfter(deletedItem) {
     const totalQuantity = document.querySelector(".total-quantity");
     const price = document.querySelector(".price-checkout");
@@ -173,3 +159,28 @@ function renderPriceAfter(deletedItem) {
     totalPrice.textContent = totalPriceFull.toFixed(2);
 }
 
+function checkOut(){
+    const checkOutBtn = document.querySelector('.action-checkout')
+    checkOutBtn.onclick = function(){
+        updateListOrders(dataUsersNow[userIndex])
+    }
+}
+function updateListOrders(data){
+    listOrders.push(
+        {
+            id: data.id,
+            order: data.cartItems,
+        }
+    )
+    updateListOrderstoLocalStorage()
+    afterUpdate()
+}
+function updateListOrderstoLocalStorage(){
+    let cartItem = JSON.stringify(listOrders);
+    localStorage.setItem('listOrders', cartItem);
+}
+function afterUpdate(){
+    dataUsersNow[userIndex].cartItems = [];
+    localStorage.setItem("DataUsers", JSON.stringify(dataUsersNow));
+    window.location = "./index.html"
+}
