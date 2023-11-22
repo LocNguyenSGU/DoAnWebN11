@@ -176,8 +176,8 @@ function updateListOrders(data){
     afterUpdate()
 }
 function updateListOrderstoLocalStorage(){
-    let cartItem = JSON.stringify(listOrders);
-    localStorage.setItem('listOrders', cartItem);
+    let order = JSON.stringify(listOrders);
+    localStorage.setItem('listOrders', order);
 }
 function afterUpdate(){
     dataUsersNow[userIndex].cartItems = [];
