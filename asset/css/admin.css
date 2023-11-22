@@ -497,3 +497,13 @@ transition: all 0.3s ease;
 .form-error {
    color: red;
 }
+.userTable {
+   text-align: center;
+   width: 100%;
+}
+.userTable th{
+   padding: 10px 0px;
+}
+.userTable td{
+   padding: 25px 0px;
+}
