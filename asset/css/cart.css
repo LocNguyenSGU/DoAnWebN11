@@ -170,6 +170,13 @@ body {
     object-fit: cover;
 }
 
+.your-cart {
+    padding-left: 400px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: black;  
+}
+
 .main-left .main-product .info-product {
     width: 654px;
 }
