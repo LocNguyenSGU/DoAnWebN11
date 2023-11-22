@@ -625,26 +625,42 @@ const btnCloseHistory = document.querySelector(".close-history");
 btnCloseHistory.addEventListener("click", () => {
     displayHideHistory();
 });
+let ListOrders = localStorage.getItem('listOrders') ? JSON.parse(localStorage.getItem('listOrders')): [];
 
 // render trong historyOrder
 function renderHistoryOrder() {
     if (login == null) return;
     const table = document.querySelector(".tableHistory");
     let userIndex = dataUsers.findIndex((user) => user.id == login.id);
-    dataUsers[userIndex].cartItems.forEach((item) => {
-        let row = `<tr>
-        <td>1</td>
-        <td><img class="img-history" src="${item.image}" alt=""></td>
-        <td>${item.nameProduct}</td>
-        <td>${item.quantity}</td>
-        <td>$${item.price}</td>
-        <td>${item.time}</td>
-    </tr>`;
+    let number = 0;
+    for(var i=0;i<ListOrders.length;i++){
+        if(dataUsers[userIndex].id == ListOrders[i].id){
+            ListOrders[i].order.forEach((item) => {
+                number ++;
+                let row = `
+                <tr>
+                    <td>${number}</td>
+                    <td><img class="img-history" src="${item.image}" alt=""></td>
+                    <td>${item.nameProduct}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${item.price}</td>
+                    <td>Format lại</td>
+                    <td>${status(item.check)}</td>
+                </tr>`;
         table.innerHTML += row;
     });
+        }
+    }
 }
-// renderHistoryOrder();
-
+renderHistoryOrder();
+function status(check){
+    if(check==0){
+        return "Đang chờ..."
+    }
+    else{
+        return "Đã xác nhận!"
+    }
+}
 const textInput = document.querySelector(".search-field");
 const textInputMb = document.querySelector(".search-field-mb"); // mobile
 const iconDelete = document.querySelector(".icon-delete");
