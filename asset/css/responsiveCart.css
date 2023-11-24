@@ -24,14 +24,14 @@
 }
 
 .header .bar {
-   width: 30px;
-   height: 30px;
+   width: 30;
+   height: 30;
    color: #666;
 }
 
 .header-mobile .logo {
    width: 237px;
-   visibility: hidden;
+   /* visibility: hidden; */
 }
 
 .header-mobile .menu-overlay {
@@ -253,7 +253,7 @@
 }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
    .main .container .body-main {
       display: flex;
       height: 700px;
