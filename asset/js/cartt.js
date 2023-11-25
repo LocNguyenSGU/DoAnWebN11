@@ -165,10 +165,18 @@ function checkOut(){
         updateListOrders(dataUsersNow[userIndex])
     }
 }
+function setId(){
+    let max=0
+    for(let i=0;i<listOrders.length;i++){
+        if(listOrders[i].id > max) max=listOrders[i].id
+    }
+    return max+1;
+ }
 function updateListOrders(data){
     listOrders.push(
         {
-            id: data.id,
+            id: setId(),
+            userId: data.id,
             email: data.email,
             order: data.cartItems,
         }
@@ -181,6 +189,7 @@ function updateListOrderstoLocalStorage(){
     localStorage.setItem('listOrders', order);
 }
 function afterUpdate(){
+    alert("Cảm ơn đã mua hàng!")
     dataUsersNow[userIndex].cartItems = [];
     localStorage.setItem("DataUsers", JSON.stringify(dataUsersNow));
     window.location = "./index.html"

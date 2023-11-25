@@ -634,7 +634,7 @@ function renderHistoryOrder() {
     let userIndex = dataUsers.findIndex((user) => user.id == login.id);
     let number = 0;
     for(var i=0;i<ListOrders.length;i++){
-        if(dataUsers[userIndex].id == ListOrders[i].id){
+        if(dataUsers[userIndex].id == ListOrders[i].userId){
             ListOrders[i].order.forEach((item) => {
                 number ++;
                 let row = `

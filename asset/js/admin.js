@@ -488,10 +488,11 @@ function renderUser(arr) {
                 <td>${user.id}</td>
                 <td>${user.email}</td>
                 <td>${user.password}</td>
+                <td>
                 <button class="delete-btn product" onclick = "deleteUser(${user.id})">
-                    <img src="./asset/img/admin-delete-product.png" alt="" class="icon-delete" />
-                    Delete Product
+                    Delete User
                 </button>
+                </td>
         `;
         userManagementContainer.appendChild(userTr);
     });
