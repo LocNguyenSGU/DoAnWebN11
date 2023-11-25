@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeSupportButton.addEventListener("click", function () {
         supportPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
     });
 
     aboutLink.addEventListener("click", function () {
         // Hiển thị popup
         supportPopup.style.display = "block";
+        document.body.classList.add("popup-open");
 
         // Điều chỉnh nội dung chi tiết của trang hỗ trợ
         var supportContent = document.getElementById("supportContent");
@@ -114,10 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("click", function (event) {
         if (event.target === supportPopup) {
             supportPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
         }
     });
 });
-
 
 // about reponsive cho trang Support
 document.addEventListener("DOMContentLoaded", function () {
@@ -127,12 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeSupportButton.addEventListener("click", function () {
         supportPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
     });
 
     aboutLinkmobile.addEventListener("click", function () {
         // Hiển thị popup
-        console.log("ccc");
         supportPopup.style.display = "block";
+        document.body.classList.add("popup-open");
 
         // Điều chỉnh nội dung chi tiết của trang hỗ trợ
         var supportContent = document.getElementById("supportContent");
@@ -237,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("click", function (event) {
         if (event.target === supportPopup) {
             supportPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
         }
     });
 });

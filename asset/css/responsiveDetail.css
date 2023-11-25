@@ -10,10 +10,10 @@
 }
 
 .header .logo {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     margin-right: 100px;
 }
 
@@ -22,9 +22,10 @@
 }
 
 .header .bar {
-    width: 30px;
+    display: none;
+    /* width: 30px;
     height: 30px;
-    color: #666;
+    color: #666; */
 }
 
 .header-mobile .logo {

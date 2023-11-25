@@ -1519,4 +1519,8 @@ td {
     background: #e6d7d7;
     color: #1ebfc1;
 }
+
+.popup-open {
+    overflow: hidden;
+}
 /*  */
