@@ -169,6 +169,7 @@ function updateListOrders(data){
     listOrders.push(
         {
             id: data.id,
+            email: data.email,
             order: data.cartItems,
         }
     )

@@ -157,14 +157,18 @@ a {
 .main-content .product:hover {
    box-shadow: 0px 16px 40px 0px rgba(0, 0, 0, 0.18)
 }
-
 .main-content .product .img-product {
    width: 110px;
    height: 100px;
    object-fit: cover;
    border-radius: 10px;
 }
-
+.main-content .product .img-history {
+   width: 110px;
+   height: 100px;
+   object-fit: cover;
+   border-radius: 10px;
+}
 .main-content .product .name {
    font-size: 19px;
 }
@@ -506,4 +510,85 @@ transition: all 0.3s ease;
 }
 .userTable td{
    padding: 25px 0px;
+}
+.historyOrder {
+   margin: 20px;
+   background-color: #fff;
+   border-radius: 20px;
+   box-shadow: 0px 16px 40px 0px rgba(0, 0, 0, 0.18);
+}
+
+.table-header {
+   width: 100%;
+   height: 10%;
+   background-color: #fff4;
+   padding: 0.8rem 1rem;
+   justify-content: space-between;
+   align-items: center;
+}
+.table-header .title {
+   padding-top: 10px;
+   font-size: 2.8rem;
+   font-weight: 500;
+   text-align: center;
+}
+
+.historyOrder .container {
+   position: relative;
+}
+
+.historyOrder table {
+   width: 100%;
+   text-align: left;
+   margin-top: 20px;
+}
+
+.historyOrder .img-history {
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+   border-radius: 8px;
+   vertical-align: middle;
+}
+
+table th {
+   position: sticky;
+   font-weight: 550;
+   top: -3px;
+   left: 0px;
+   background-color: var(--background-header);
+}
+
+table th,
+td {
+   padding: 20px 5px;
+   border-collapse: collapse;
+   border-bottom: 1px solid #ccc;
+}
+.helloUser-Order {
+   font-size: 25px;
+   padding: 25px 0px 0px 25px;
+}
+.adminAcceptOrder {
+   right: 0px;
+   margin: 20px;
+   margin-left: 720px;
+   padding: 5px 20px;
+   background-color: rgb(65, 97, 168);
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 20px;
+   max-width: 200px;
+   cursor: pointer;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+      7px 7px 20px 0px rgba(0, 0, 0, .1),
+      4px 4px 5px 0px rgba(0, 0, 0, .1);
+   
+}
+.adminAcceptOrder:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+      -4px -4px 6px 0 rgba(116, 125, 136, .5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }

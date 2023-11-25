@@ -228,6 +228,10 @@ function renderAdmin() {
     };
 }
 function renderProductManagement() {
+    document.querySelector('.div-title').innerHTML = `
+        <h1 class="title">Product Management</h1>
+    `
+
     document.querySelector(".contain-add-product-search").innerHTML = `
     <div class="add-product-search">
         <button class="add-btn" onclick = "openAddForm()">Add Product</button>
@@ -294,14 +298,169 @@ function renderProducts(arr) {
     });
 }
 function renderOrderManagement() {
+    document.querySelector('.div-title').innerHTML = `
+        <h1 class="title">Order Management</h1>
+    `
     const orderManagementContainer = document.querySelector(
         ".contain-add-product-search"
     );
     orderManagementContainer.innerHTML = `
-        <p>I'm Order Management</p>
+    <div class="historyOrder">
+    <p class="helloUser-Order">User kjashhdkjash@gmail.com</p>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Quatity</th>    
+                    <th>Price</th>
+                    <th>Order time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class = "tableHistory">
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="adminAcceptOrder">Xac nhan don hang</button>
+</div>
+<div class="historyOrder">
+    <p class="helloUser-Order">User kjashhdkjash@gmail.com</p>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Quatity</th>    
+                    <th>Price</th>
+                    <th>Order time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class = "tableHistory">
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
+                    <td>Sweater</td>
+                    <td>2</td>
+                    <td>$32</td>
+                    <td>8:32 13/10/2023</td>
+                    <td>Dang cho</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="adminAcceptOrder">Xac nhan don hang</button>
+</div>
     `;
 }
 function renderUserManagement() {
+    document.querySelector('.div-title').innerHTML = `
+        <h1 class="title">User Management</h1>
+    `
     document.querySelector(".contain-add-product-search").innerHTML = `
         <table class="userTable">
             <thead>
@@ -338,6 +497,9 @@ function renderUser(arr) {
     });
 }
 function renderOrderStartictis() {
+    document.querySelector('.div-title').innerHTML = `
+        <h1 class="title">Order Startictis</h1>
+    `
     const orderStartictisContainer = document.querySelector(
         ".contain-add-product-search"
     );
