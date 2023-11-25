@@ -208,6 +208,7 @@ let listProducts = localStorage.getItem("listProducts")
       ];
 let listUsers = JSON.parse(localStorage.getItem("DataUsers"));
 console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
+let listOrders = localStorage.getItem('listOrders') ? JSON.parse(localStorage.getItem('listOrders')): [];
 renderAdmin();
 function renderAdmin() {
     renderProductManagement();
@@ -301,161 +302,70 @@ function renderOrderManagement() {
     document.querySelector('.div-title').innerHTML = `
         <h1 class="title">Order Management</h1>
     `
+    renderOrder(listOrders);
+}
+function renderOrder(arr){
     const orderManagementContainer = document.querySelector(
         ".contain-add-product-search"
     );
-    orderManagementContainer.innerHTML = `
-    <div class="historyOrder">
-    <p class="helloUser-Order">User kjashhdkjash@gmail.com</p>
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Quatity</th>    
-                    <th>Price</th>
-                    <th>Order time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody class = "tableHistory">
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <button class="adminAcceptOrder">Xac nhan don hang</button>
-</div>
-<div class="historyOrder">
-    <p class="helloUser-Order">User kjashhdkjash@gmail.com</p>
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Quatity</th>    
-                    <th>Price</th>
-                    <th>Order time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody class = "tableHistory">
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td><img class="img-history" src="./asset/img/product-sweater/sweater-106.jpg" alt=""></td>
-                    <td>Sweater</td>
-                    <td>2</td>
-                    <td>$32</td>
-                    <td>8:32 13/10/2023</td>
-                    <td>Dang cho</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <button class="adminAcceptOrder">Xac nhan don hang</button>
-</div>
+    orderManagementContainer.innerHTML = "";
+    arr.forEach((order) => {
+        const orderDiv = document.createElement("div");
+        orderDiv.classList.add("historyOrder"); 
+        var orderid=order.id
+        orderDiv.setAttribute("id",orderid)
+        orderDiv.innerHTML = `
+        <p class="helloUser-Order">User: ${order.email}</p>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quatity</th>    
+                        <th>Price</th>
+                        <th>Order time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class = "tableHistory">
+                    
+                </tbody>
+            </table>
+        </div>
+        <button class="adminAcceptOrder" onclick = "acceptOrder(${orderid})">Xác nhận đơn hàng</button>
     `;
+    orderManagementContainer.appendChild(orderDiv);
+    renderOrderItem(order.order,orderid)
+    }) 
+    
+}
+function renderOrderItem(arr,orderid){
+    const orderManagementTbody = document.getElementById(orderid).querySelector('.tableHistory');
+    let number = 0;
+    arr.forEach((item) => {
+        number ++;
+        const orderTr = document.createElement("tr");
+        orderTr.innerHTML = `
+            <td>${number}</td>
+            <td><img class="img-history" src="${item.image}" alt=""></td>
+            <td>${item.nameProduct}</td>
+            <td>${item.quantity}</td>
+            <td>$${item.price}</td>
+            <td>Format lại</td>
+            <td>${status(item.check)}</td>
+        `;
+        orderManagementTbody.appendChild(orderTr);
+    });
+}
+function status(check){
+    if(check==0){
+        return "Đang chờ..."
+    }
+    else{
+        return "Đã xác nhận!"
+    }
 }
 function renderUserManagement() {
     document.querySelector('.div-title').innerHTML = `
@@ -479,8 +389,8 @@ function renderUserManagement() {
     renderUser(listUsers);
 }
 function renderUser(arr) {
-    const userManagementContainer = document.querySelector(".userTable tbody");
-    userManagementContainer.innerHTML = "";
+    const userManagementTbody = document.querySelector(".userTable tbody");
+    userManagementTbody.innerHTML = "";
 
     arr.forEach((user) => {
         const userTr = document.createElement("tr");
@@ -494,7 +404,7 @@ function renderUser(arr) {
                 </button>
                 </td>
         `;
-        userManagementContainer.appendChild(userTr);
+        userManagementTbody.appendChild(userTr);
     });
 }
 function renderOrderStartictis() {
@@ -744,6 +654,30 @@ function addSuccessForm() {
         clearTimeout(timer2);
     });
 }
+
+function acceptOrder(orderid){
+    for(var i=0;i<listOrders.length;i++){
+        if(listOrders[i].id === orderid){
+            if(listOrders[i].order[0].check === 0){
+                listOrders[i].order.forEach((item) => {
+                    item.check = 1;
+                })
+            }
+            else{
+                return;
+            }
+        }
+    }    
+    updateListOrderstoLocalStorage()
+    alert("Đã xác nhận!")
+    renderOrderManagement()
+
+}
+function updateListOrderstoLocalStorage(){
+    let order = JSON.stringify(listOrders);
+    localStorage.setItem('listOrders', order);
+}
+
 // Đối tượng `Validator`
 function Validator(options) {
     function getParent(element, selector) {
@@ -901,98 +835,3 @@ function runCheckAddForm() {
         },
     });
 }
-
-// // order.js
-
-// // Function to render detailed order information
-// function renderOrderDetails(orderIndex) {
-//     // Retrieve orders from localStorage or from your server
-//     let orders = JSON.parse(localStorage.getItem('DataUsers'));
-
-//     // Check if orders exist and if the given index is valid
-//     if (orders && orderIndex >= 0 && orderIndex < orders.length) {
-//         let order = orders[orderIndex];
-
-//         // Assuming you have an element with the ID "order-details"
-//         let orderDetailsContainer = document.getElementById('order-details');
-
-//         // Clear previous content if any
-//         orderDetailsContainer.innerHTML = '';
-
-//         // Render order details
-//         orderDetailsContainer.innerHTML += '<h2>Order Details</h2>';
-//         orderDetailsContainer.innerHTML += '<p><strong>Customer Name:</strong> ' + order.name + '</p>';
-//         orderDetailsContainer.innerHTML += '<p><strong>Phone:</strong> ' + order.phone + '</p>';
-//         orderDetailsContainer.innerHTML += '<p><strong>Address:</strong> ' + order.address + '</p>';
-//         orderDetailsContainer.innerHTML += '<h3>Order Items</h3>';
-
-//         // Render each item in the order
-//         order.cart.forEach(function (item, index) {
-//             orderDetailsContainer.innerHTML += '<div class="order-item">';
-//             orderDetailsContainer.innerHTML += '<p><strong>Product Name:</strong> ' + item.name + '</p>';
-//             orderDetailsContainer.innerHTML += '<p><strong>Price:</strong> ' + item.price + '</p>';
-//             orderDetailsContainer.innerHTML += '<p><strong>Quantity:</strong> ' + item.quantity + '</p>';
-//             orderDetailsContainer.innerHTML += '</div>';
-//         });
-
-//         // Add more details as needed
-//     } else {
-//         console.error('Invalid order index or no orders available.');
-//     }
-// }
-
-// // Function to show order customer table
-// function showOrderCustomer() {
-//     let order = JSON.parse(localStorage.getItem('DataUsers'));
-//     let orderTable = '<div class="order-heading">ID</div>' +
-//         '<div class="order-heading">Tên khách hàng</div>' +
-//         '<div class="order-heading">Đơn hàng</div>' +
-//         '<div class="order-heading">Số điện thoại</div>' +
-//         '<div class="order-heading">Địa chỉ</div>' +
-//         '<div class="order-heading">Tổng tiền</div>' +
-//         '<div class="order-heading">Tình trạng</div>';
-//     let id = 1;
-
-//     for (let i = 0; i < order.length; i++) {
-//         let total = 0;
-//         let order_price = order[i].cart;
-
-//         for (let j = 0; j < order_price.length; j++) {
-//             total += parseFloat(order_price[j].price) * parseFloat(order_price[j].quantity);
-//         }
-
-//         orderTable += '<div class="order-heading">' + (id++) + '</div>' +
-//             '<div class="order-heading">' + order[i].name + '</div>' +
-//             '<button class="check-order-btn" data-order-index="' + i + '">Xem đơn hàng</button>' +
-//             '<div class="order-heading">' + order[i].phone + '</div>' +
-//             '<div class="order-heading">' + order[i].address + '</div>' +
-//             '<div class="order-heading">' + total + '.000Đ' + '</div>' +
-//             '<div class="order-heading">' +
-//             '<select type="text" class="check-order-status-optn">' +
-//             '<option value="isDelivered">Đã giao hàng</option>' +
-//             '<option value="isNotDelivered">Đang xử lí</option>' +
-//             '</select>' +
-//             '</div>';
-//     }
-
-//     // Assuming you have an element with the ID "render-order"
-//     document.getElementById('render-order').innerHTML = orderTable;
-
-//     // Add click event listeners to the "Xem đơn hàng" buttons
-//     let buttons = document.querySelectorAll('.check-order-btn');
-//     buttons.forEach(function (button) {
-//         button.addEventListener('click', function () {
-//             // Extract the order index from the data attribute
-//             let orderIndex = parseInt(button.getAttribute('data-order-index'), 10);
-//             renderOrderDetails(orderIndex);
-//         });
-//     });
-// }
-
-// // Attach the click event handler to the "Order Startictis" list item
-// document.querySelector('.orderManagement').addEventListener('click', function () {
-//     // Call the showOrderCustomer function to display order information
-//     showOrderCustomer();
-
-//     // You can add additional logic or functions here if needed
-// });
