@@ -130,6 +130,13 @@
         font-weight: 500;
         line-height: 1.46;
     }
+    
+    /* thong bao add to cart thanh cong */
+    .notification{
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+    }
 
     /* recommend */
     .recommend .row {

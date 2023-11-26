@@ -332,6 +332,19 @@ renderPageNumber(listProducts, perPage);
 
 
 // =========== Thêm sản phẩm vào giỏ hàng =============
+function showNotification(message) {
+    const notification = document.createElement("div");
+    notification.className = "notification";
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    notification.style.display = "flex";
+
+    setTimeout(function () {
+        document.body.removeChild(notification);
+    }, 3000);
+}
+
 function addToCart(productId) {
     if (!login) {
         alert("Bạn phải đăng nhập để mua hàng");
@@ -380,6 +393,7 @@ function addToCart(productId) {
             renderProductQuantityMb();
         }
     }
+    showNotification("Add to cart successfully");
 }
 // =========== thêm sản phẩm của mobile ===============
 // hiển thị tổng số lượng sản phẩm

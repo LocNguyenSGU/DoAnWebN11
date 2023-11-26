@@ -249,6 +249,25 @@ a {
     justify-content: space-between;
 }
 
+.notification {
+    width: 20%;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 999;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .header .list-preview .row-1 .you-have {
     color: var(--text-color-dark);
     font-size: 2rem;
