@@ -1,4 +1,4 @@
-let listProducts = localStorage.getItem("listProducts")
+let ListProducts = localStorage.getItem("listProducts")
     ? JSON.parse(localStorage.getItem("listProducts"))
     : [
           {
@@ -216,7 +216,7 @@ function getProductIdFromURL() {
 
 // Tìm sản phẩm dựa trên ID
 function findProductById(productId) {
-    return listProducts.find(product => product.id === productId);
+    return ListProducts.find(product => product.id === productId);
 }
 document.addEventListener("DOMContentLoaded", displayProduct);
 
@@ -262,12 +262,12 @@ document.addEventListener("DOMContentLoaded", displayProduct);
 
 
 
-let dataUsers = JSON.parse(localStorage.getItem("DataUsers"));
-let login = JSON.parse(localStorage.getItem("loginUser"));
+let datausers = JSON.parse(localStorage.getItem("DataUsers"));
+let Login = JSON.parse(localStorage.getItem("loginUser"));
 
 // =========== Thêm sản phẩm vào giỏ hàng =============
 function addToCart(productId) {
-    if (!login) {
+    if (!Login) {
         alert("Bạn phải đăng nhập để mua hàng");
         //sau đó hiện hộp thoại đăng nhập
         Object.assign(document.querySelector(".loginBackground").style, {
@@ -279,23 +279,23 @@ function addToCart(productId) {
         });
         return;
     }
-    let userIndex = dataUsers.findIndex((user) => user.id == login.id);
+    let userIndex = datausers.findIndex((user) => user.id == Login.id);
 
     if (userIndex !== -1) {
-        let productToAdd = listProducts.find(
+        let productToAdd = ListProducts.find(
             (product) => product.id == productId
         );
 
         if (productToAdd) {
-            const existingCartItemIndex = dataUsers[
+            const existingCartItemIndex = datausers[
                 userIndex
             ].cartItems.findIndex((item) => item.idProduct == productId);
 
             if (
                 existingCartItemIndex !== -1 &&
-                dataUsers[userIndex].cartItems[existingCartItemIndex].check == 0
+                datausers[userIndex].cartItems[existingCartItemIndex].check == 0
             ) {
-                dataUsers[userIndex].cartItems[existingCartItemIndex]
+                datausers[userIndex].cartItems[existingCartItemIndex]
                     .quantity++;
             } else {
                 let cartItem = {
@@ -307,9 +307,9 @@ function addToCart(productId) {
                     check: 0,
                     time: new Date(),
                 };
-                dataUsers[userIndex].cartItems.push(cartItem);
+                datausers[userIndex].cartItems.push(cartItem);
             }
-            localStorage.setItem("DataUsers", JSON.stringify(dataUsers));
+            localStorage.setItem("Datausers", JSON.stringify(datausers));
             renderCartUI();
         }
     }
@@ -320,13 +320,13 @@ function renderCartUI() {
     const noProduct = document.querySelector(".no-product");
     const haveProduct = document.querySelector(".have-product");
     // const listPreview = document.querySelector(".list-preview");
-    if (!login) {
+    if (!Login) {
         return;
     }
-    let userIndex = dataUsers.findIndex((user) => user.id === login.id);
-    if (dataUsers[userIndex].cartItems.length > 0) {
-        renderImageCart(dataUsers[userIndex].cartItems);
-        renderNumberCart(dataUsers[userIndex].cartItems);
+    let userIndex = datausers.findIndex((user) => user.id === Login.id);
+    if (datausers[userIndex].cartItems.length > 0) {
+        renderImageCart(datausers[userIndex].cartItems);
+        renderNumberCart(datausers[userIndex].cartItems);
         // noProduct.classList.add("hidden");
         // haveProduct.classList.remove("hidden");
         // listPreview.style.width = "500px";
