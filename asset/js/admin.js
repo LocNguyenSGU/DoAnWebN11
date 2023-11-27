@@ -207,97 +207,97 @@ let listProducts = localStorage.getItem("listProducts")
           },
       ];
 let listUsers = JSON.parse(localStorage.getItem("DataUsers"));
-console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
+// console.log(listProducts); // Đây là danh sách sản phẩm từ localStorage
 let listOrders = localStorage.getItem('listOrders') ? JSON.parse(localStorage.getItem('listOrders')): [];
 renderAdmin();
-function renderAdmin() {
-    renderProductManagement();
-    document.querySelector(".productManagement").onclick = function () {
-        renderProductManagement();
-    };
-    document.querySelector(".orderManagement").onclick = function () {
-        renderOrderManagement();
-    };
-    document.querySelector(".userManagement").onclick = function () {
-        renderUserManagement();
-    };
-    document.querySelector(".orderStartictis").onclick = function () {
-        renderOrderStartictis();
-    };
-    document.querySelector(".logout").onclick = function () {
-        window.location = "./index.html";
-    };
-}
-function renderProductManagement() {
-    document.querySelector('.div-title').innerHTML = `
-        <h1 class="title">Product Management</h1>
-    `
+// function renderAdmin() {
+//     renderProductManagement();
+//     document.querySelector(".productManagement").onclick = function () {
+//         renderProductManagement();
+//     };
+//     document.querySelector(".orderManagement").onclick = function () {
+//         renderOrderManagement();
+//     };
+//     document.querySelector(".userManagement").onclick = function () {
+//         renderUserManagement();
+//     };
+//     document.querySelector(".orderStartictis").onclick = function () {
+//         renderOrderStartictis();
+//     };
+//     document.querySelector(".logout").onclick = function () {
+//         window.location = "./index.html";
+//     };
+// }
+// function renderProductManagement() {
+//     document.querySelector('.div-title').innerHTML = `
+//         <h1 class="title">Product Management</h1>
+//     `
 
-    document.querySelector(".contain-add-product-search").innerHTML = `
-    <div class="add-product-search">
-        <button class="add-btn" onclick = "openAddForm()">Add Product</button>
-            <div class="search">
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Search for..."
-                    class="search-field"
-                    />
-                <svg
-                    xmlns=""
-                    height="1em"
-                    viewBox="0 0 512 512"
-                    class="icon-delete hidden"
-                >
-                    <path
-                        fill="currentColor"
-                        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
-                        ></path>
-                </svg>
-                <button class="btn-search">
-                    <img
-                        src="./asset/img/header-search.svg"
-                        alt=""
-                        class="search-icon"
-                    />
-                </button>
-            </div>
-            </div>
-            <div class="contain-product">
-        </div>    
-    `;
-    renderProducts(listProducts);
-    handleProductManagement();
-}
+//     document.querySelector(".contain-add-product-search").innerHTML = `
+//     <div class="add-product-search">
+//         <button class="add-btn" onclick = "openAddForm()">Add Product</button>
+//             <div class="search">
+//                 <input
+//                     type="text"
+//                     name=""
+//                     id=""
+//                     placeholder="Search for..."
+//                     class="search-field"
+//                     />
+//                 <svg
+//                     xmlns=""
+//                     height="1em"
+//                     viewBox="0 0 512 512"
+//                     class="icon-delete hidden"
+//                 >
+//                     <path
+//                         fill="currentColor"
+//                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+//                         ></path>
+//                 </svg>
+//                 <button class="btn-search">
+//                     <img
+//                         src="./asset/img/header-search.svg"
+//                         alt=""
+//                         class="search-icon"
+//                     />
+//                 </button>
+//             </div>
+//             </div>
+//             <div class="contain-product">
+//         </div>    
+//     `;
+//     renderProducts(listProducts);
+//     handleProductManagement();
+// }
 
-function renderProducts(arr) {
-    const productListContainer = document.querySelector(".contain-product");
-    productListContainer.innerHTML = "";
+// function renderProducts(arr) {
+//     const productListContainer = document.querySelector(".contain-product");
+//     productListContainer.innerHTML = "";
 
-    arr.forEach((product) => {
-        const productDiv = document.createElement("div");
-        productDiv.classList.add("product"); // Add the "product" class
+//     arr.forEach((product) => {
+//         const productDiv = document.createElement("div");
+//         productDiv.classList.add("product"); // Add the "product" class
 
-        productDiv.innerHTML = `
-            <img src="${product.image}" alt="" class="img-product" />
-            <h2 class="name">${product.name}</h2>
-            <span class="price">${product.price}</span>
-            <div class="group-btn">
-                <button class="edit-btn" onclick = "openEditForm(${product.id})">
-                    <img src="./asset/img/admin-edit-product.png" alt="" class="icon-edit" />
-                    Edit Product
-                </button>
-                <button class="delete-btn" onclick = "deleteProduct(${product.id})">
-                    <img src="./asset/img/admin-delete-product.png" alt="" class="icon-delete" />
-                    Delete Product
-                </button>
-            </div>
-        `;
+//         productDiv.innerHTML = `
+//             <img src="${product.image}" alt="" class="img-product" />
+//             <h2 class="name">${product.name}</h2>
+//             <span class="price">${product.price}</span>
+//             <div class="group-btn">
+//                 <button class="edit-btn" onclick = "openEditForm(${product.id})">
+//                     <img src="./asset/img/admin-edit-product.png" alt="" class="icon-edit" />
+//                     Edit Product
+//                 </button>
+//                 <button class="delete-btn" onclick = "deleteProduct(${product.id})">
+//                     <img src="./asset/img/admin-delete-product.png" alt="" class="icon-delete" />
+//                     Delete Product
+//                 </button>
+//             </div>
+//         `;
 
-        productListContainer.appendChild(productDiv);
-    });
-}
+//         productListContainer.appendChild(productDiv);
+//     });
+// }
 function renderOrderManagement() {
     document.querySelector('.div-title').innerHTML = `
         <h1 class="title">Order Management</h1>
@@ -353,7 +353,7 @@ function renderOrderItem(arr,orderid){
             <td>${item.nameProduct}</td>
             <td>${item.quantity}</td>
             <td>$${item.price}</td>
-            <td>Format lại</td>
+            <td>${item.time}</td>
             <td>${status(item.check)}</td>
         `;
         orderManagementTbody.appendChild(orderTr);
@@ -468,6 +468,7 @@ function handleProductManagement() {
     //    }
     // })
 }
+
 function addAnimate() {
     addEditProductBackgroundForm.classList.add("animate");
     addEditProductForm.classList.add("animate");

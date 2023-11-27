@@ -384,7 +384,7 @@ function addToCart(productId) {
                     image: productToAdd.image,
                     quantity: 1,
                     check: 0,
-                    time: new Date(),
+                    time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }),
                 };
                 dataUsers[userIndex].cartItems.push(cartItem);
             }
@@ -658,7 +658,7 @@ function renderHistoryOrder() {
                     <td>${item.nameProduct}</td>
                     <td>${item.quantity}</td>
                     <td>$${item.price}</td>
-                    <td>Format lại</td>
+                    <td>${item.time}</td>
                     <td>${status(item.check)}</td>
                 </tr>`;
         table.innerHTML += row;
@@ -702,7 +702,7 @@ deleteText(textInputAdvance, iconDeleteAdvance); // Xoá ở phần form tìm ki
 
 // =========== Tim kiem co ban ==============
 const pagnigation = document.querySelector(".pagnigation");
-console.log(listProducts);
+// console.log(listProducts);
 function search() {
     const noProduct = document.querySelector(".no-product-search");
     if (textInput.value.trim() === "") {

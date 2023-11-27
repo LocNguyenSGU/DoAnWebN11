@@ -1,10 +1,10 @@
 let minWidthTablet = 768;
 let maxWidthTablet = 991.98;
 const bar = document.querySelector(".bar");
-console.log(bar);
+// console.log(bar);
 const overlay = document.querySelector(".menu-overlay");
 const menuContent = document.querySelector(".menu-content");
-console.log(overlay);
+// console.log(overlay);
 
 
 
