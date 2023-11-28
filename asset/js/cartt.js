@@ -178,6 +178,7 @@ function updateListOrders(data){
             id: setId(),
             userId: data.id,
             email: data.email,
+            nameCustomer: data.name,
             order: data.cartItems,
         }
     )

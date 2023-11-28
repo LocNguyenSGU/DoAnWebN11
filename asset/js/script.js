@@ -383,6 +383,7 @@ function addToCart(productId) {
                     price: productToAdd.price,
                     image: productToAdd.image,
                     quantity: 1,
+                    type: productToAdd.nature.type,
                     check: 0,
                     time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }),
                 };
