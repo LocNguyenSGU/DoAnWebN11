@@ -60,7 +60,6 @@ document.querySelector('.loginBackground').onclick = function(){
 }
 }
 
-showPassword1()
 function showPassword1(){
 var showPasswordState = 0
 document.querySelector(".password1").onclick = function(){
@@ -76,7 +75,6 @@ document.querySelector(".password1").onclick = function(){
     }
 }
 }
-showPassword2()
 function showPassword2(){
 var showPasswordState = 0
 document.querySelector(".password2").onclick = function(){
@@ -92,7 +90,6 @@ document.querySelector(".password2").onclick = function(){
     }
 }
 }
-showPassword3()
 function showPassword3(){
 var showPasswordState = 0
 document.querySelector(".password_confirmation").onclick = function(){
@@ -384,6 +381,9 @@ function checkLogin(data) {
     if(!loginUser){
     iconUser.innerHTML = `<img src="./asset/img/header-user.svg" alt="" class="icon-user" />`
     loginBtn()
+    showPassword1()
+    showPassword2()
+    showPassword3()
     }
     else{
         if(loginUser.isAdmin === 1){
