@@ -3,55 +3,55 @@ let listProducts = localStorage.getItem("listProducts")
     : [
         {
             id: 1,
-            name: "sweater PEWARN",
+            name: "Áo Khoác",
             price: 20.99,
             image: "./asset/img/product-sweater/sweater-101.jpg",
-            star: "4.5",
+            star: "4.6",
             nature: {
-                color: ["white", "black"],
+                color: ["blue"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
         {
             id: 2,
-            name: "sweater PEASE STAR",
+            name: "Áo khoác 2",
             price: 39.99,
             image: "./asset/img/product-sweater/sweater-102.jpg",
             star: "5",
             nature: {
-                color: ["white", "black"],
+                color: ["white", "grey"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
         {
             id: 3,
-            name: "Áo thun",
+            name: "Áo thun nam cổ",
             price: 20.99,
             image: "./asset/img/product-sweater/sweater-103.jpg",
             star: "4.9",
             nature: {
-                color: ["white", "black"],
+                color: ["white", "blue"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
         {
             id: 4,
-            name: "Áo thun",
+            name: "Áo thun nam nữ",
             price: 20.99,
             image: "./asset/img/product-sweater/sweater-104.jpg",
             star: "4.8",
             nature: {
-                color: ["white", "black"],
+                color: ["white", "brown"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
         {
             id: 5,
-            name: "Áo thun",
+            name: "Áo len",
             price: 20.99,
             image: "./asset/img/product-sweater/sweater-105.jpg",
             star: "4.3",
@@ -63,54 +63,43 @@ let listProducts = localStorage.getItem("listProducts")
         },
         {
             id: 6,
-            name: "Áo thun",
+            name: "Áo thun 2",
             price: 20.99,
             image: "./asset/img/product-sweater/sweater-106.jpg",
             star: "4.3",
             nature: {
-                color: ["white", "black"],
+                color: ["white", "grey"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
         {
             id: 7,
-            name: "Áo thun",
+            name: "Hoddie",
             price: 20.99,
             image: "./asset/img/product-sweater/sweater-107.jpg",
             star: "4.3",
             nature: {
-                color: ["white", "black"],
+                color: ["white", "grey"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
+       
         {
             id: 8,
-            name: "Áo thun",
+            name: "Hoddie nam",
             price: 20.99,
-            image: "./asset/img/product-sweater/sweater-101.jpg",
+            image: "./asset/img/product-sweater/sweater-108.jpg",
             star: "4.3",
             nature: {
-                color: ["white", "black"],
+                color: ["white", "black","grey"],
                 size: ["S", "M", "L"],
                 type: "sweater",
             },
         },
         {
             id: 9,
-            name: "Áo khoac",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-101.jpg",
-            star: "4.3",
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 10,
             name: "Quần jean J1",
             price: 39.99,
             image: "./asset/img/product-pants/pants-201.jpg",
@@ -122,32 +111,32 @@ let listProducts = localStorage.getItem("listProducts")
             },
         },
         {
-            id: 11,
-            name: "Quần jean J1",
+            id: 10,
+            name: "Quần Thun J1",
             price: 39.99,
-            image: "./asset/img/product-pants/pants-203.jpg",
+            image: "./asset/img/product-pants/pants-206.jpg",
             star: 4.2,
             nature: {
-                color: ["white", "black"],
+                color: ["white", "blue"],
+                size: ["S", "M", "L"],
+                type: "pants",
+            },
+        },
+        {
+            id: 11,
+            name: "Đầm J1",
+            price: 39.99,
+            image: "./asset/img/product-pants/pants-204.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "grey"],
                 size: ["S", "M", "L"],
                 type: "pants",
             },
         },
         {
             id: 12,
-            name: "Quần jean J1",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-204.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 13,
-            name: "Quần jean J1",
+            name: "Quần ngắn J1",
             price: 39.99,
             image: "./asset/img/product-pants/pants-205.jpg",
             star: 4.2,
@@ -158,63 +147,162 @@ let listProducts = localStorage.getItem("listProducts")
             },
         },
         {
-            id: 14,
-            name: "Quần jean J1",
+            id: 13,
+            name: "Quần Thun J2",
             price: 39.99,
             image: "./asset/img/product-pants/pants-206.jpg",
             star: 4.2,
             nature: {
-                color: ["white", "black"],
+                color: ["white", "blue"],
+                size: ["S", "M", "L"],
+                type: "pants",
+            },
+        },
+        {
+            id: 14,
+            name: "Quần Ngắn J2",
+            price: 39.99,
+            image: "./asset/img/product-pants/pants-207.jpg",
+            star: 4.2,
+            nature: {
+                color: ["blue", "black"],
                 size: ["S", "M", "L"],
                 type: "pants",
             },
         },
         {
             id: 15,
-            name: "Quần jean J1",
+            name: "Quần jean J2",
             price: 39.99,
-            image: "./asset/img/product-pants/pants-207.jpg",
+            image: "./asset/img/product-pants/pants-208.jpg",
             star: 4.2,
             nature: {
-                color: ["white", "black"],
+                color: ["white", "black","blue"],
                 size: ["S", "M", "L"],
                 type: "pants",
             },
         },
         {
             id: 16,
-            name: "Quần jean J1",
+            name: "Quần jean J3",
             price: 39.99,
-            image: "./asset/img/product-pants/pants-208.jpg",
+            image: "./asset/img/product-pants/pants-209.jpg",
             star: 4.2,
             nature: {
-                color: ["white", "black"],
+                color: ["white", "black","blue"],
                 size: ["S", "M", "L"],
                 type: "pants",
             },
         },
         {
             id: 17,
-            name: "Quần jean J1",
+            name: "AIR JORDAN 1",
             price: 39.99,
-            image: "./asset/img/product-pants/pants-209.jpg",
+            image: "./asset/img/product-shoe/shoe1.jpg",
+            star: 4.2,
+            nature: {
+                color: ["blue", "black"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 18,
+            name: "NIKE SB FORCE 58",
+            price: 39.99,image: "./asset/img/product-shoe/shoe2.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "brown"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 19,
+            name: "AIR MAX 2017",
+            price: 39.99,
+            image: "./asset/img/product-shoe/shoe3.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "grey"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 20,
+            name: "AIR JORDAN 1 MID SE",
+            price: 39.99,
+            image: "./asset/img/product-shoe/shoe4.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black","blue"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 21,
+            name: "NIKE TECH HERA",
+            price: 39.99,
+            image: "./asset/img/product-shoe/shoe5.jpg",
             star: 4.2,
             nature: {
                 color: ["white", "black"],
                 size: ["S", "M", "L"],
-                type: "pants",
+                type: "shoe",
+            },
+        },
+        {
+            id: 22,
+            name: "NIKE AIR MAX 90",
+            price: 39.99,
+            image: "./asset/img/product-shoe/shoe6.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black","blue"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 23,
+            name: "ADIDAS NMD_G1",
+            price: 39.99,
+            image: "./asset/img/product-shoe/shoe7.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black","browm"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 24,
+            name: "AIR JORDAN LEGACY 312 LOW",
+            price: 39.99,
+            image: "./asset/img/product-shoe/shoe8.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black"],
+                size: ["S", "M", "L"],
+                type: "shoe",
             },
         },
     ];
 
 let productSweaters = [];
 let productPants = [];
+let productshoe = [];
 function fillterProduct() {
     listProducts.forEach((product) => {
         if (product.nature.type === "sweater") {
             productSweaters.push(product);
         } else if (product.nature.type === "pants") {
             productPants.push(product);
+        }
+        else if (product.nature.type === "shoe") {
+            productshoe.push(product);
         }
     })
 }
@@ -223,6 +311,7 @@ fillterProduct();
 // ============= Gọi hàm render để hiển thị sản phẩm ============
 const showShirtsButtons = document.querySelectorAll(".btn-sweater");
 const showPantsButtons = document.querySelectorAll(".btn-pants");
+const showshoeButtons = document.querySelectorAll(".btn-shoe");
 
 showShirtsButtons.forEach(e => {
     e.addEventListener("click", function () {
@@ -248,6 +337,19 @@ showPantsButtons.forEach(e => {
         currentProductList = productPants;
         getProduct(productPants);
         renderPageNumber(productPants, perPage);
+    })
+})
+showshoeButtons.forEach(e => {
+    e.addEventListener("click", function () {
+        document.querySelector(".no-product-search").classList.add("hidden");
+        document.querySelector(".search-field").value = "";
+        document.querySelector(".icon-delete").classList.add("hidden");
+        pagnigation.classList.remove("hidden");
+        productshoe.splice(0, productshoe.length);
+        fillterProduct();
+        currentProductList = productshoe;
+        getProduct(productshoe);
+        renderPageNumber(productshoe, perPage);
     })
 })
 
