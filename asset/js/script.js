@@ -1013,6 +1013,11 @@ function search() {
         pagnigation.classList.remove("hidden")
     };
 }
+    textInput.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+            search();
+    }
+    });
 
 document.querySelector(".btn-search").addEventListener("click", search);
 
@@ -1137,7 +1142,6 @@ function cancelAfterSearched(e) {
     if (e) e.preventDefault(); // nếu không có if(e) thì chương trình bị lỗi
     type.value = "";
     color.value = "";
-    textInputAdvance.value = "";
     minPrice.value = "";
     maxPrice.value = "";
     btnForm.classList.remove("active");
