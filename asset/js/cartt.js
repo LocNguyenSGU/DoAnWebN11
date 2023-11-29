@@ -173,7 +173,7 @@ function setId(){
     return max+1;
  }
 function updateListOrders(data){
-    listOrders.push(
+    listOrders.unshift(
         {
             id: setId(),
             userId: data.id,

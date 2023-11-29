@@ -670,3 +670,8 @@ td {
    color: #fff;
    background-color: #dc3139;
 }
+.orderManagementHeader {
+   display: flex;
+   gap: 30%;
+   justify-content: center;
+}

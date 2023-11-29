@@ -731,27 +731,105 @@ function displayHideHistory() {
     const history = document.querySelector(".historyOrder");
     history.classList.toggle("active");
 }
-displayHideHistory();
-
-displayHideHistory();
+function hideHistoryOrder1(){
 const btnHistory = document.querySelector(".history");
 btnHistory.addEventListener("click", () => {
     displayHideHistory();
 });
+}
+function hideHistoryOrder2(){
 const btnCloseHistory = document.querySelector(".close-history");
 btnCloseHistory.addEventListener("click", () => {
     displayHideHistory();
 });
+}
 let ListOrders = localStorage.getItem('listOrders') ? JSON.parse(localStorage.getItem('listOrders')): [];
 
 // render trong historyOrder
-function renderHistoryOrder() {
+function handleRenderHistoryOrder() {
     if (login == null) return;
-    const table = document.querySelector(".tableHistory");
+    const historyOrder = document.querySelector('.historyOrder')
+    historyOrder.innerHTML = `
+        <div class="table-header">
+            <h2 class="title">History Order</h2>
+        </div>
+        <div class="container">
+            <img class="close-history" src="./asset/img/bx-x.svg" alt="">
+            <table>
+                <thead class = "tableHistoryHead"> 
+            
+                </thead>
+                <tbody class = "tableHistoryBody">
+
+                </tbody>
+            </table>
+        </div>
+    `;
+    const tableHead = document.querySelector(".tableHistoryHead")
+    tableHead.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Order Id</th>
+            <th>Order time</th>
+            <th>Status</th>
+        </tr> 
+    `
+    hideHistoryOrder1()
+    hideHistoryOrder2()
+    const tableBody = document.querySelector(".tableHistoryBody");
     let userIndex = dataUsers.findIndex((user) => user.id == login.id);
     let number = 0;
+    ListOrders.forEach((item) => {
+        if(dataUsers[userIndex].id == item.userId){
+                number ++;
+                let row = `
+                <tr onclick = "renderHistoryOrderItem(${item.id})">
+                    <td>${number}</td>
+                    <td>${item.id}</td>
+                    <td>${item.order[0].time}</td>
+                    <td>${status(item.order[0].check)}</td>
+                </tr>`;
+        tableBody.innerHTML += row;
+        }
+    });
+}
+function renderHistoryOrderItem(orderId){
+    const historyOrder = document.querySelector('.historyOrder')
+    historyOrder.innerHTML = `
+        <div class="table-header">
+            <h2 class="title">History Order</h2>
+        </div>
+        <div class="container">
+            <div>
+                <img class="close-history" src="./asset/img/back_3114883.png" alt="Quay lại" onclick="handleRenderHistoryOrder()">
+            </div>
+            <table>
+                <thead class = "tableHistoryHead"> 
+            
+                </thead>
+                <tbody class = "tableHistoryBody">
+
+                </tbody>
+            </table>
+        </div>
+    `;
+    hideHistoryOrder1()
+    const tableHead = document.querySelector(".tableHistoryHead")
+    tableHead.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Quatity</th>    
+            <th>Price</th>
+        </tr> 
+    `
+    const table = document.querySelector(".tableHistoryBody");
+    table.innerHTML = "";
+    let number = 0;
+    let totalPrice = 0;
     for(var i=0;i<ListOrders.length;i++){
-        if(dataUsers[userIndex].id == ListOrders[i].userId){
+        if(ListOrders[i].id === orderId){
             ListOrders[i].order.forEach((item) => {
                 number ++;
                 let row = `
@@ -761,15 +839,13 @@ function renderHistoryOrder() {
                     <td>${item.nameProduct}</td>
                     <td>${item.quantity}</td>
                     <td>$${item.price}</td>
-                    <td>${item.time}</td>
-                    <td>${status(item.check)}</td>
                 </tr>`;
         table.innerHTML += row;
     });
         }
     }
 }
-renderHistoryOrder();
+handleRenderHistoryOrder();
 function status(check){
     if(check==0){
         return "Đang chờ..."

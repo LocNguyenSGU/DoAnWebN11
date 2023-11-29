@@ -388,14 +388,30 @@ function renderOrderManagement() {
   document.querySelector(".div-title").innerHTML = `
         <h1 class="title">Order Management</h1>
     `;
-  renderOrder(listOrders);
-}
-function renderOrder(arr) {
   const orderManagementContainer = document.querySelector(
     ".contain-add-product-search"
   );
-  orderManagementContainer.innerHTML = "";
+  orderManagementContainer.innerHTML = ` 
+    <div class="orderManagementHeader">
+      <button class="add-btn" onclick = "renderWaitOrder(listOrders)" >
+        Các đơn hàng chưa xác nhận
+      </button>
+      <button class="add-btn" onclick = "renderAcceptedOrder(listOrders)">
+        Các đơn hàng đã xác nhận
+      </button>
+    </div>
+    <div class="orderManagementBody">
+
+    </div>
+  `;
+  //Render ra các đơn hàng đã xác nhận thay vì để trống
+  renderWaitOrder(listOrders);
+}
+function renderWaitOrder(arr) {
+  const orderManagementBody = document.querySelector(".orderManagementBody")
+  orderManagementBody.innerHTML = "";
   arr.forEach((order) => {
+    if(order.order[0].check === 0){
     const orderDiv = document.createElement("div");
     orderDiv.classList.add("historyOrder");
     var orderid = order.id;
@@ -422,8 +438,44 @@ function renderOrder(arr) {
         </div>
         <button class="adminAcceptOrder" onclick = "acceptOrder(${orderid})">Xác nhận đơn hàng</button>
     `;
-    orderManagementContainer.appendChild(orderDiv);
+    orderManagementBody.appendChild(orderDiv);
     renderOrderItem(order.order, orderid);
+    }
+  });
+}
+function renderAcceptedOrder(arr){
+  const orderManagementBody = document.querySelector(".orderManagementBody")
+  orderManagementBody.innerHTML = "";
+  arr.forEach((order) => {
+    if(order.order[0].check === 1){
+    const orderDiv = document.createElement("div");
+    orderDiv.classList.add("historyOrder");
+    var orderid = order.id;
+    orderDiv.setAttribute("id", orderid);
+    orderDiv.innerHTML = `
+        <p class="helloUser-Order">User: ${order.email}</p>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quatity</th>    
+                        <th>Price</th>
+                        <th>Order time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class = "tableHistory">
+                    
+                </tbody>
+            </table>
+        </div>
+    `;
+    orderManagementBody.appendChild(orderDiv);
+    renderOrderItem(order.order, orderid);
+    }
   });
 }
 function renderOrderItem(arr, orderid) {
