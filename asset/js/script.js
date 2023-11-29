@@ -289,8 +289,103 @@ let listProducts = localStorage.getItem("listProducts")
                 type: "shoe",
             },
         },
+        {
+            id: 25,
+            name: "Long bào",
+            price: 69.99,
+            image: "./asset/img/product-sweater/sweater-109.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black"],
+                size: ["S", "M", "L"],
+                type: "sweater",
+            },
+        },
+        {
+            id: 26,
+            name: "Áo phông ngộ nghĩnh",
+            price: 19.99,
+            image: "./asset/img/product-sweater/sweater-110.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black"],
+                size: ["S", "M", "L"],
+                type: "sweater",
+            },
+        },
+        {
+            id: 27,
+            name: "Áo thun",
+            price: 21.99,
+            image: "./asset/img/product-sweater/sweater-111.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black"],
+                size: ["S", "M", "L"],
+                type: "sweater",
+            },
+        },
+        {
+            id: 28,
+            name: "Quần túi hộp cargo",
+            price: 27.99,
+            image: "./asset/img/product-pants/pants-210.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black","blue"],
+                size: ["S", "M", "L"],
+                type: "pants",
+            },
+        },
+        {
+            id: 29,
+            name: "Quần short",
+            price: 14.99,
+            image: "./asset/img/product-pants/pants-211.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black","blue"],
+                size: ["S", "M", "L"],
+                type: "pants",
+            },
+        },
+        {
+            id: 30,
+            name: "Quần short thun",
+            price: 12.99,
+            image: "./asset/img/product-pants/pants-212.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black","blue"],
+                size: ["S", "M", "L"],
+                type: "pants",
+            },
+        },
+        {
+            id: 31,
+            name: "Giầy cầu lông LI-NING",
+            price: 42.99,
+            image: "./asset/img/product-shoe/shoe9.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
+        {
+            id: 32,
+            name: "AIR JORDAN LEGACY 312 LOW",
+            price: 59.99,
+            image: "./asset/img/product-shoe/shoe10.jpg",
+            star: 4.2,
+            nature: {
+                color: ["white", "black"],
+                size: ["S", "M", "L"],
+                type: "shoe",
+            },
+        },
     ];
-
 let productSweaters = [];
 let productPants = [];
 let productshoe = [];
@@ -412,8 +507,11 @@ function renderPageNumber(arr, perPage) {
     for (let i = 1; i <= totalPage; i++) {
         document.querySelector(".pagnigation-ul").innerHTML += `<li class="li li${i}" onclick="handlePageNumber(event, ${i})">${i}</li>`;
     }
-    if (totalPage >= 1) {
+    if (totalPage > 1) {
         document.querySelector(".li1").classList.add("active");
+    }
+    else if(totalPage <=1){
+        document.querySelector(".li1").style.display="none";
     }
 
 }
