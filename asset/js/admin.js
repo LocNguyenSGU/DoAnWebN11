@@ -1021,9 +1021,10 @@ function deleteProduct(productId) {
   );
   for (let i = 0; i < listProducts.length; i++) {
     if (listProducts[i].id === productId && shouldDelete) {
-      listProducts.splice(i, 1);
       console.log("da xoa  " + listProducts[i].id);
       console.log(listProducts);
+      listProducts.splice(i, 1);
+      
     }
   }
   localStorage.setItem("listProducts", JSON.stringify(listProducts));
