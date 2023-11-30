@@ -1273,11 +1273,14 @@ btnShowResultAdvance.addEventListener("click", function (e) {
 btnCancelAdvance.onclick = cancelAfterSearched;
 // ========== hàm dùng để huỷ các giá trị và ẩn form
 function cancelAfterSearched(e) {
+    const iconDeleteAdvance = document.querySelector(".icon-delete-advance");
     if (e) e.preventDefault(); // nếu không có if(e) thì chương trình bị lỗi
+    textInputAdvance.value = "";
     type.value = "";
     color.value = "";
     minPrice.value = "";
     maxPrice.value = "";
     btnForm.classList.remove("active");
+    iconDeleteAdvance.classList.add("hidden");
     isFormVisible = false;
 }

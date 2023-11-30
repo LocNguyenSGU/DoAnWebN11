@@ -66,8 +66,8 @@ body {
 }
 
 /* ---------- Main-product ---------- */
-.main {
-}
+/* .main { */
+/* } */
 .body-main {
     display: flex;
     gap: 30px;
