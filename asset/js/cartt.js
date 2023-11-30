@@ -32,13 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         +
                     </button>
                 </div>
-                <div class="delete-action">
-
+                <div class="delete-action" onclick="deleteProduct(${product.idProduct})">
                         <img
-                            onclick="deleteProduct(${product.idProduct})"
                             src="./asset/img/Delete.svg"
                             alt="Delete"/>
-                    <div class="title"></div>
+                    <div class="title">Delete</div>
                 </div>
             </div>
         </div>

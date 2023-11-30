@@ -728,9 +728,10 @@ function fillterTopSale() {
   listOrders.forEach((item) => {
     item.order.forEach((itemOrder) => {
       const productId = itemOrder.idProduct;
-
+       let check = itemOrder.check;    // == 0 la chua mua, 1 la mua roi
+        console.log(check);
       // If the product is not in the map, initialize it
-      if (!productQuantities[productId]) {
+      if (!productQuantities[productId] && check == 1) {
         productQuantities[productId] = {
           imgProduct: itemOrder.image,
           nameProduct: itemOrder.nameProduct,
@@ -740,7 +741,8 @@ function fillterTopSale() {
       }
 
       // Update the total quantity for the product
-      productQuantities[productId].totalQuantity += itemOrder.quantity;
+      if(check == 1)
+        productQuantities[productId].totalQuantity += itemOrder.quantity;
     });
   });
 
@@ -795,7 +797,8 @@ function fillterTopCustomer() {
           totalPrice: 0,
         };
       }
-      customer[userId].totalPrice += itemOrder.quantity * itemOrder.price;
+      if(itemOrder.check == 1) // khi da mua roi moi cong them tien
+        customer[userId].totalPrice += itemOrder.quantity * itemOrder.price;
     });
   });
   listTopCustomer = Object.values(customer);
@@ -829,21 +832,29 @@ function handleTopCustomer() {
   renderTopCustomer();
   renderTopCustomerPerson();
 }
-let listFillter = [];
 
+let listFilter = [];
 
 function filterOrdersByTime() {
+  // Input elements
   const startDate = document.querySelector("#start-date");
   const endDate = document.querySelector("#end-date");
   const typeProduct = document.querySelector("#type");
 
-  listFillter = []; // Clear the previous filtered list
+  // Clear the previous filtered list
+  listFilter = [];
+
+  // Validate input values
+  if (!startDate.value || !endDate.value) {
+    console.error("Invalid input. Please provide both start and end dates.");
+    return;
+  }
 
   const startDateTime = new Date(startDate.value);
   let endDateTime;
 
+  // If the end date is not specified, set it to the current date
   if (endDate.value === '') {
-    // If the end date is not specified, set it to the current date
     endDateTime = new Date();
   } else {
     endDateTime = new Date(endDate.value);
@@ -852,46 +863,53 @@ function filterOrdersByTime() {
   }
 
   listOrders.forEach((item) => {
-    // Check if at least one order falls within the specified date range
-    const isInRange = item.order.some((order) => {
+    const filteredOrders = item.order.filter((order) => {
       const orderTime = new Date(order.time);
       return orderTime >= startDateTime && orderTime < endDateTime;
     });
 
-    // Check if the product type matches (if applicable)
-    const matchesType = typeProduct.value === '' || item.order.some(order => order.type === typeProduct.value);
+    const matchesType = typeProduct.value !== '' ? filteredOrders.some(order => order.type === typeProduct.value) : true;
 
-    if (isInRange && matchesType) {
-      // Add the item to the filtered list
-      listFillter.push(item);
-    }
+if (filteredOrders.length > 0 && matchesType) {
+  // Create a new filtered object with only the necessary properties
+  const filteredItem = {
+    email: item.email,
+    id: item.id,
+    nameCustomer: item.nameCustomer,
+    order: filteredOrders.filter(order => typeProduct.value === '' || order.type === typeProduct.value),
+    userId: item.userId
+  };
+
+  // Add the item to the filtered list
+  listFilter.push(filteredItem);
+}
+
   });
 
-  // Do something with the filtered list (listFilter)
-  console.log("Da chay vo ham loc");
-  console.log(listFillter);
-  console.log("Chay xong ham loc");
+  console.log("Filtered Orders:");
+  console.log(listFilter);
+  console.log("Filtering completed.");
 }
 
 function renderOrderStartictisProduct() {
-  console.log("da fhsahfsahfh sfsaf");
   const bodyOrderStartics = document.querySelector(".body-order-startictis");
-  console.log(bodyOrderStartics);
   let count = 0;
   bodyOrderStartics.innerHTML = "";
-  for (let i = 0; i < listFillter.length; i++) {
-    for (let j = 0; j < listFillter[i].order.length; j++) {
-      count++;
-      let row = `<tr>
-        <td>${count}</td>
-        <td>${listFillter[i].email}</td>
-        <td><img class="img" src="${listFillter[i].order[j].image}" alt=""></td>
-        <td>${listFillter[i].order[j].nameProduct}</td>
-        <td>${listFillter[i].order[j].quantity}</td>
-        <td>$${listFillter[i].order[j].price}</td>
-        <td>${listFillter[i].order[j].time}</td>
-    </tr>`;
-      bodyOrderStartics.innerHTML += row;
+  for (let i = 0; i < listFilter.length; i++) {
+    for (let j = 0; j < listFilter[i].order.length; j++) {
+      if (listFilter[i].order[j].check == 1) {
+        count++;
+        let row = `<tr>
+          <td>${count}</td>
+          <td>${listFilter[i].email}</td>
+          <td><img class="img" src="${listFilter[i].order[j].image}" alt=""></td>
+          <td>${listFilter[i].order[j].nameProduct}</td>
+          <td>${listFilter[i].order[j].quantity}</td>
+          <td>$${listFilter[i].order[j].price}</td>
+          <td>${listFilter[i].order[j].time}</td>
+      </tr>`;
+        bodyOrderStartics.innerHTML += row;
+      }
     }
   }
   console.log("da renderlayout xong");
@@ -899,11 +917,8 @@ function renderOrderStartictisProduct() {
 
 function handleOrderStartictis() {
   renderTableBody();
-  listFillter = [];
   filterOrdersByTime();
   renderOrderStartictisProduct();
-  console.log("sau khi day data");
-  console.log(listFillter);
 }
 
 function handleProductManagement() {
@@ -942,19 +957,6 @@ function handleProductManagement() {
   }
   deleteText();
 
-  // console.log(btnSave);
-  // btnSave.addEventListener("click", function() {
-  //    if(checkEdit === 0)
-  //    {
-  //       addProduct();
-  //       console.log("day la add");
-  //    }
-  //    else {
-  //       editProduct();
-  //       checkEdit = 0;
-  //       console.log("day la edit")
-  //    }
-  // })
 }
 
 function addAnimate() {

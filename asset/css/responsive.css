@@ -315,6 +315,15 @@
         line-height: 1.46;
         cursor: pointer;
     }
+    .header-mobile .cart-text a {
+        text-decoration: none;
+        color: var(--text-color-dark);
+        font-family: Gordita;
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 1.46;
+        cursor: pointer;
+    }
 
     /* slider */
     .main .slider {
