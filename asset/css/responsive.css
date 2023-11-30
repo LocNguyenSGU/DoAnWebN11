@@ -130,9 +130,9 @@
         font-weight: 500;
         line-height: 1.46;
     }
-    
+
     /* thong bao add to cart thanh cong */
-    .notification{
+    .notification {
         width: 30%;
         justify-content: center;
         align-items: center;
@@ -186,6 +186,36 @@
       top: calc(50% - 297px);
       left: calc(50% - 272px);
    } */
+
+    /* HistoryOrder */
+    .historyOrder {
+        width: 80%;
+    }
+
+    .historyOrder .title {
+        font-size: 2.4rem;
+    }
+
+    .historyOrder .close-history {
+        width: 10%;
+        height: 10%;
+    }
+
+    .historyOrder .tableHistoryHead {
+        width: 80%;
+    }
+
+    .historyOrder .container {
+        width: 80%;
+    }
+
+    .historyOrder .tableHistoryHead th {
+        width: fit-content;
+    }
+
+    .historyOrder .tableHistoryBody td {
+        font-weight: 500;
+    }
 
     /* PopupAbout */
     #supportPopup .popup-content {
@@ -511,7 +541,47 @@
     }
 
     #supportPopup .popup-content .footer-popup {
-      text-align: center;
-      font-size: 1.4rem;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 525px) and (max-width: 682px) {
+    .historyOrder .title {
+        font-size: 2rem;
+    }
+
+    .historyOrder .tableHistoryHead th {
+        font-size: 1.5rem;
+    }
+
+    .historyOrder .tableHistoryBody td {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .historyOrder .img-history {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 525px) {
+    .historyOrder .title {
+        font-size: 1.5rem;
+    }
+
+    .historyOrder .tableHistoryHead th {
+        font-size: 1.3rem;
+    }
+
+    .historyOrder .tableHistoryBody td {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .historyOrder .img-history {
+        width: 40px;
+        height: 40px;
     }
 }

@@ -1,391 +1,392 @@
 let listProducts = localStorage.getItem("listProducts")
     ? JSON.parse(localStorage.getItem("listProducts"))
     : [
-        {
-            id: 1,
-            name: "Áo Khoác",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-101.jpg",
-            star: "4.6",
-            nature: {
-                color: ["blue"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 2,
-            name: "Áo khoác 2",
-            price: 39.99,
-            image: "./asset/img/product-sweater/sweater-102.jpg",
-            star: "5",
-            nature: {
-                color: ["white", "grey"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 3,
-            name: "Áo thun nam cổ",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-103.jpg",
-            star: "4.9",
-            nature: {
-                color: ["white", "blue"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 4,
-            name: "Áo thun nam nữ",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-104.jpg",
-            star: "4.8",
-            nature: {
-                color: ["white", "brown"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 5,
-            name: "Áo len",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-105.jpg",
-            star: "4.3",
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 6,
-            name: "Áo thun 2",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-106.jpg",
-            star: "4.3",
-            nature: {
-                color: ["white", "grey"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 7,
-            name: "Hoddie",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-107.jpg",
-            star: "4.3",
-            nature: {
-                color: ["white", "grey"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-       
-        {
-            id: 8,
-            name: "Hoddie nam",
-            price: 20.99,
-            image: "./asset/img/product-sweater/sweater-108.jpg",
-            star: "4.3",
-            nature: {
-                color: ["white", "black","grey"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 9,
-            name: "Quần jean J1",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-201.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 10,
-            name: "Quần Thun J1",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-206.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 11,
-            name: "Đầm J1",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-204.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "grey"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 12,
-            name: "Quần ngắn J1",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-205.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 13,
-            name: "Quần Thun J2",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-206.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 14,
-            name: "Quần Ngắn J2",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-207.jpg",
-            star: 4.2,
-            nature: {
-                color: ["blue", "black"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 15,
-            name: "Quần jean J2",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-208.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 16,
-            name: "Quần jean J3",
-            price: 39.99,
-            image: "./asset/img/product-pants/pants-209.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 17,
-            name: "AIR JORDAN 1",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe1.jpg",
-            star: 4.2,
-            nature: {
-                color: ["blue", "black"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 18,
-            name: "NIKE SB FORCE 58",
-            price: 39.99,image: "./asset/img/product-shoe/shoe2.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "brown"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 19,
-            name: "AIR MAX 2017",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe3.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "grey"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 20,
-            name: "AIR JORDAN 1 MID SE",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe4.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 21,
-            name: "NIKE TECH HERA",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe5.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 22,
-            name: "NIKE AIR MAX 90",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe6.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 23,
-            name: "ADIDAS NMD_G1",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe7.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","browm"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 24,
-            name: "AIR JORDAN LEGACY 312 LOW",
-            price: 39.99,
-            image: "./asset/img/product-shoe/shoe8.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 25,
-            name: "Long bào",
-            price: 69.99,
-            image: "./asset/img/product-sweater/sweater-109.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 26,
-            name: "Áo phông ngộ nghĩnh",
-            price: 19.99,
-            image: "./asset/img/product-sweater/sweater-110.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 27,
-            name: "Áo thun",
-            price: 21.99,
-            image: "./asset/img/product-sweater/sweater-111.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "sweater",
-            },
-        },
-        {
-            id: 28,
-            name: "Quần túi hộp cargo",
-            price: 27.99,
-            image: "./asset/img/product-pants/pants-210.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 29,
-            name: "Quần short",
-            price: 14.99,
-            image: "./asset/img/product-pants/pants-211.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 30,
-            name: "Quần short thun",
-            price: 12.99,
-            image: "./asset/img/product-pants/pants-212.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black","blue"],
-                size: ["S", "M", "L"],
-                type: "pants",
-            },
-        },
-        {
-            id: 31,
-            name: "Giầy cầu lông LI-NING",
-            price: 42.99,
-            image: "./asset/img/product-shoe/shoe9.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-        {
-            id: 32,
-            name: "AIR JORDAN LEGACY 312 LOW",
-            price: 59.99,
-            image: "./asset/img/product-shoe/shoe10.jpg",
-            star: 4.2,
-            nature: {
-                color: ["white", "black"],
-                size: ["S", "M", "L"],
-                type: "shoe",
-            },
-        },
-    ];
+          {
+              id: 1,
+              name: "Áo Khoác",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-101.jpg",
+              star: "4.6",
+              nature: {
+                  color: ["blue"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 2,
+              name: "Áo khoác 2",
+              price: 39.99,
+              image: "./asset/img/product-sweater/sweater-102.jpg",
+              star: "5",
+              nature: {
+                  color: ["white", "grey"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 3,
+              name: "Áo thun nam cổ",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-103.jpg",
+              star: "4.9",
+              nature: {
+                  color: ["white", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 4,
+              name: "Áo thun nam nữ",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-104.jpg",
+              star: "4.8",
+              nature: {
+                  color: ["white", "brown"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 5,
+              name: "Áo len",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-105.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 6,
+              name: "Áo thun 2",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-106.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "grey"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 7,
+              name: "Hoddie",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-107.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "grey"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+
+          {
+              id: 8,
+              name: "Hoddie nam",
+              price: 20.99,
+              image: "./asset/img/product-sweater/sweater-108.jpg",
+              star: "4.3",
+              nature: {
+                  color: ["white", "black", "grey"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 9,
+              name: "Quần jean J1",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-201.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 10,
+              name: "Quần Thun J1",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-206.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 11,
+              name: "Đầm J1",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-204.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "grey"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 12,
+              name: "Quần ngắn J1",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-205.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 13,
+              name: "Quần Thun J2",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-206.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 14,
+              name: "Quần Ngắn J2",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-207.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["blue", "black"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 15,
+              name: "Quần jean J2",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-208.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 16,
+              name: "Quần jean J3",
+              price: 39.99,
+              image: "./asset/img/product-pants/pants-209.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 17,
+              name: "AIR JORDAN 1",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe1.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["blue", "black"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 18,
+              name: "NIKE SB FORCE 58",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe2.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "brown"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 19,
+              name: "AIR MAX 2017",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe3.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "grey"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 20,
+              name: "AIR JORDAN 1 MID SE",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe4.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 21,
+              name: "NIKE TECH HERA",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe5.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 22,
+              name: "NIKE AIR MAX 90",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe6.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 23,
+              name: "ADIDAS NMD_G1",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe7.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "browm"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 24,
+              name: "AIR JORDAN LEGACY 312 LOW",
+              price: 39.99,
+              image: "./asset/img/product-shoe/shoe8.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 25,
+              name: "Long bào",
+              price: 69.99,
+              image: "./asset/img/product-sweater/sweater-109.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 26,
+              name: "Áo phông ngộ nghĩnh",
+              price: 19.99,
+              image: "./asset/img/product-sweater/sweater-110.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 27,
+              name: "Áo thun",
+              price: 21.99,
+              image: "./asset/img/product-sweater/sweater-111.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "sweater",
+              },
+          },
+          {
+              id: 28,
+              name: "Quần túi hộp cargo",
+              price: 27.99,
+              image: "./asset/img/product-pants/pants-210.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 29,
+              name: "Quần short",
+              price: 14.99,
+              image: "./asset/img/product-pants/pants-211.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 30,
+              name: "Quần short thun",
+              price: 12.99,
+              image: "./asset/img/product-pants/pants-212.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black", "blue"],
+                  size: ["S", "M", "L"],
+                  type: "pants",
+              },
+          },
+          {
+              id: 31,
+              name: "Giầy cầu lông LI-NING",
+              price: 42.99,
+              image: "./asset/img/product-shoe/shoe9.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+          {
+              id: 32,
+              name: "AIR JORDAN LEGACY 312 LOW",
+              price: 59.99,
+              image: "./asset/img/product-shoe/shoe10.jpg",
+              star: 4.2,
+              nature: {
+                  color: ["white", "black"],
+                  size: ["S", "M", "L"],
+                  type: "shoe",
+              },
+          },
+      ];
 let productSweaters = [];
 let productPants = [];
 let productshoe = [];
@@ -395,11 +396,10 @@ function fillterProduct() {
             productSweaters.push(product);
         } else if (product.nature.type === "pants") {
             productPants.push(product);
-        }
-        else if (product.nature.type === "shoe") {
+        } else if (product.nature.type === "shoe") {
             productshoe.push(product);
         }
-    })
+    });
 }
 fillterProduct();
 
@@ -408,7 +408,7 @@ const showShirtsButtons = document.querySelectorAll(".btn-sweater");
 const showPantsButtons = document.querySelectorAll(".btn-pants");
 const showshoeButtons = document.querySelectorAll(".btn-shoe");
 
-showShirtsButtons.forEach(e => {
+showShirtsButtons.forEach((e) => {
     e.addEventListener("click", function () {
         document.querySelector(".no-product-search").classList.add("hidden");
         document.querySelector(".search-field").value = "";
@@ -419,9 +419,9 @@ showShirtsButtons.forEach(e => {
         currentProductList = productSweaters;
         getProduct(productSweaters);
         renderPageNumber(productSweaters, perPage);
-    })
-})
-showPantsButtons.forEach(e => {
+    });
+});
+showPantsButtons.forEach((e) => {
     e.addEventListener("click", function () {
         document.querySelector(".no-product-search").classList.add("hidden");
         document.querySelector(".search-field").value = "";
@@ -432,9 +432,9 @@ showPantsButtons.forEach(e => {
         currentProductList = productPants;
         getProduct(productPants);
         renderPageNumber(productPants, perPage);
-    })
-})
-showshoeButtons.forEach(e => {
+    });
+});
+showshoeButtons.forEach((e) => {
     e.addEventListener("click", function () {
         document.querySelector(".no-product-search").classList.add("hidden");
         document.querySelector(".search-field").value = "";
@@ -445,8 +445,8 @@ showshoeButtons.forEach(e => {
         currentProductList = productshoe;
         getProduct(productshoe);
         renderPageNumber(productshoe, perPage);
-    })
-})
+    });
+});
 
 // ========== 2 biến toàn cục là dữ liệu data và tài khoản hiện tại đang login ==========
 let dataUsers = JSON.parse(localStorage.getItem("DataUsers"));
@@ -461,7 +461,6 @@ let perProduct = [];
 let productSearch = [];
 
 function renderProduct(arr) {
-
     const productListContainer = document.querySelector(".list-show-product");
     if (productListContainer) {
         productListContainer.innerHTML = "";
@@ -473,8 +472,9 @@ function renderProduct(arr) {
             productSection.innerHTML = `
                     <div class="wrap-img-cart">
                         <img src="${product.image}" alt="${product.name}" 
-                        class="img-cart" onclick="window.location = './details.html?id=${product.id
-                }' " />
+                        class="img-cart" onclick="window.location = './details.html?id=${
+                            product.id
+                        }' " />
                     </div>
                     <h3 class="title">${product.name}</h3>
                     <div class="row">
@@ -483,8 +483,9 @@ function renderProduct(arr) {
                             <img src="./asset/img/main-star.svg" alt="Star Rating" class="star" />
                             <span class="star-num">${product.star}</span>
                         </div>
-                        <button class="add-to-cart-button" onclick = "addToCart(${product.id
-                })">Add to Cart</button>
+                        <button class="add-to-cart-button" onclick = "addToCart(${
+                            product.id
+                        })">Add to Cart</button>
                     </div>
                 `;
 
@@ -495,7 +496,10 @@ function renderProduct(arr) {
 }
 
 function getProduct(arr) {
-    perProduct = arr.slice((currentPage - 1) * perPage, (currentPage - 1) * perPage + perPage);
+    perProduct = arr.slice(
+        (currentPage - 1) * perPage,
+        (currentPage - 1) * perPage + perPage
+    );
     renderProduct(perProduct);
     currentPage = 1;
 }
@@ -505,15 +509,15 @@ function renderPageNumber(arr, perPage) {
 
     document.querySelector(".pagnigation-ul").innerHTML = "";
     for (let i = 1; i <= totalPage; i++) {
-        document.querySelector(".pagnigation-ul").innerHTML += `<li class="li li${i}" onclick="handlePageNumber(event, ${i})">${i}</li>`;
+        document.querySelector(
+            ".pagnigation-ul"
+        ).innerHTML += `<li class="li li${i}" onclick="handlePageNumber(event, ${i})">${i}</li>`;
     }
     if (totalPage > 1) {
         document.querySelector(".li1").classList.add("active");
+    } else if (totalPage <= 1) {
+        document.querySelector(".li1").style.display = "none";
     }
-    else if(totalPage <=1){
-        document.querySelector(".li1").style.display="none";
-    }
-
 }
 
 let currentProductList = listProducts;
@@ -530,13 +534,12 @@ function handlePageNumber(event, num) {
 
 renderPageNumber(listProducts, perPage);
 
-
 // =========== Thêm sản phẩm vào giỏ hàng =============
 function showNotification(message) {
     const notification = document.createElement("div");
     notification.className = "notification";
     notification.textContent = message;
-    
+
     document.body.appendChild(notification);
     notification.style.display = "flex";
 
@@ -585,7 +588,9 @@ function addToCart(productId) {
                     quantity: 1,
                     type: productToAdd.nature.type,
                     check: 0,
-                    time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }),
+                    time: new Date().toLocaleString("en-US", {
+                        timeZone: "Asia/Ho_Chi_Minh",
+                    }),
                 };
                 dataUsers[userIndex].cartItems.push(cartItem);
             }
@@ -671,8 +676,8 @@ function renderImageCart(cartItems) {
                 <img src="${item.image}" alt="" class="img-preview">
                 <h2 class="title">${item.nameProduct}</h2>
                 <span class="price">$${(item.price * item.quantity).toFixed(
-                2
-            )}</span>
+                    2
+                )}</span>
                 <span class="quantity">x ${item.quantity}</span>
             `;
             cartItemsList.appendChild(cartItem);
@@ -829,24 +834,26 @@ function displayHideHistory() {
     const history = document.querySelector(".historyOrder");
     history.classList.toggle("active");
 }
-function hideHistoryOrder1(){
-const btnHistory = document.querySelector(".history");
-btnHistory.addEventListener("click", () => {
-    displayHideHistory();
-});
+function hideHistoryOrder1() {
+    const btnHistory = document.querySelector(".history");
+    btnHistory.addEventListener("click", () => {
+        displayHideHistory();
+    });
 }
-function hideHistoryOrder2(){
-const btnCloseHistory = document.querySelector(".close-history");
-btnCloseHistory.addEventListener("click", () => {
-    displayHideHistory();
-});
+function hideHistoryOrder2() {
+    const btnCloseHistory = document.querySelector(".close-history");
+    btnCloseHistory.addEventListener("click", () => {
+        displayHideHistory();
+    });
 }
-let ListOrders = localStorage.getItem('listOrders') ? JSON.parse(localStorage.getItem('listOrders')): [];
+let ListOrders = localStorage.getItem("listOrders")
+    ? JSON.parse(localStorage.getItem("listOrders"))
+    : [];
 
 // render trong historyOrder
 function handleRenderHistoryOrder() {
     if (login == null) return;
-    const historyOrder = document.querySelector('.historyOrder')
+    const historyOrder = document.querySelector(".historyOrder");
     historyOrder.innerHTML = `
         <div class="table-header">
             <h2 class="title">History Order</h2>
@@ -863,7 +870,7 @@ function handleRenderHistoryOrder() {
             </table>
         </div>
     `;
-    const tableHead = document.querySelector(".tableHistoryHead")
+    const tableHead = document.querySelector(".tableHistoryHead");
     tableHead.innerHTML = `
         <tr>
             <th>STT</th>
@@ -871,28 +878,28 @@ function handleRenderHistoryOrder() {
             <th>Order time</th>
             <th>Status</th>
         </tr> 
-    `
-    hideHistoryOrder1()
-    hideHistoryOrder2()
+    `;
+    hideHistoryOrder1();
+    hideHistoryOrder2();
     const tableBody = document.querySelector(".tableHistoryBody");
     let userIndex = dataUsers.findIndex((user) => user.id == login.id);
     let number = 0;
     ListOrders.forEach((item) => {
-        if(dataUsers[userIndex].id == item.userId){
-                number ++;
-                let row = `
+        if (dataUsers[userIndex].id == item.userId) {
+            number++;
+            let row = `
                 <tr onclick = "renderHistoryOrderItem(${item.id})">
                     <td>${number}</td>
                     <td>${item.id}</td>
                     <td>${item.order[0].time}</td>
                     <td>${status(item.order[0].check)}</td>
                 </tr>`;
-        tableBody.innerHTML += row;
+            tableBody.innerHTML += row;
         }
     });
 }
-function renderHistoryOrderItem(orderId){
-    const historyOrder = document.querySelector('.historyOrder')
+function renderHistoryOrderItem(orderId) {
+    const historyOrder = document.querySelector(".historyOrder");
     historyOrder.innerHTML = `
         <div class="table-header">
             <h2 class="title">History Order</h2>
@@ -911,8 +918,8 @@ function renderHistoryOrderItem(orderId){
             </table>
         </div>
     `;
-    hideHistoryOrder1()
-    const tableHead = document.querySelector(".tableHistoryHead")
+    hideHistoryOrder1();
+    const tableHead = document.querySelector(".tableHistoryHead");
     tableHead.innerHTML = `
         <tr>
             <th>STT</th>
@@ -921,15 +928,15 @@ function renderHistoryOrderItem(orderId){
             <th>Quatity</th>    
             <th>Price</th>
         </tr> 
-    `
+    `;
     const table = document.querySelector(".tableHistoryBody");
     table.innerHTML = "";
     let number = 0;
     let totalPrice = 0;
-    for(var i=0;i<ListOrders.length;i++){
-        if(ListOrders[i].id === orderId){
+    for (var i = 0; i < ListOrders.length; i++) {
+        if (ListOrders[i].id === orderId) {
             ListOrders[i].order.forEach((item) => {
-                number ++;
+                number++;
                 let row = `
                 <tr>
                     <td>${number}</td>
@@ -938,18 +945,17 @@ function renderHistoryOrderItem(orderId){
                     <td>${item.quantity}</td>
                     <td>$${item.price}</td>
                 </tr>`;
-        table.innerHTML += row;
-    });
+                table.innerHTML += row;
+            });
         }
     }
 }
 handleRenderHistoryOrder();
-function status(check){
-    if(check==0){
-        return "Đang chờ..."
-    }
-    else{
-        return "Đã xác nhận!"
+function status(check) {
+    if (check == 0) {
+        return "Đang chờ...";
+    } else {
+        return "Đã xác nhận!";
     }
 }
 const textInput = document.querySelector(".search-field");
@@ -977,6 +983,136 @@ deleteText(textInput, iconDelete); // Xoa ở header
 deleteText(textInputMb, iconDeleteMb); // Xoa ở header mobile
 deleteText(textInputAdvance, iconDeleteAdvance); // Xoá ở phần form tìm kiếm nâng cao
 
+// ========= chức năng xem lại đơn hàng đã mua Mobile =============
+function displayHideHistoryMB() {
+    const history = document.querySelector(".historyOrder");
+    history.classList.toggle("active");
+}
+function hideHistoryOrderMB1() {
+    const btnHistoryMB = document.querySelector(".group-history");
+    btnHistoryMB.addEventListener("click", () => {
+        displayHideHistoryMB();
+    });
+}
+function hideHistoryOrderMB2() {
+    const btnCloseHistoryMB = document.querySelector(".close-history");
+    btnCloseHistoryMB.addEventListener("click", () => {
+        displayHideHistoryMB();
+    });
+}
+let ListOrdersMB = localStorage.getItem("listOrders")
+    ? JSON.parse(localStorage.getItem("listOrders"))
+    : [];
+
+// render trong historyOrder
+function handleRenderHistoryOrderMB() {
+    if (login == null) return;
+    const historyOrder = document.querySelector(".historyOrder");
+    historyOrder.innerHTML = `
+        <div class="table-header">
+            <h2 class="title">History Order</h2>
+        </div>
+        <div class="container">
+            <img class="close-history" src="./asset/img/bx-x.svg" alt="">
+            <table>
+                <thead class = "tableHistoryHead"> 
+            
+                </thead>
+                <tbody class = "tableHistoryBody">
+
+                </tbody>
+            </table>
+        </div>
+    `;
+    const tableHead = document.querySelector(".tableHistoryHead");
+    tableHead.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Order Id</th>
+            <th>Order time</th>
+            <th>Status</th>
+        </tr> 
+    `;
+    hideHistoryOrderMB1();
+    hideHistoryOrderMB2();
+    const tableBody = document.querySelector(".tableHistoryBody");
+    let userIndex = dataUsers.findIndex((user) => user.id == login.id);
+    let number = 0;
+    ListOrdersMB.forEach((item) => {
+        if (dataUsers[userIndex].id == item.userId) {
+            number++;
+            let row = `
+                <tr onclick = "renderHistoryOrderItem(${item.id})">
+                    <td>${number}</td>
+                    <td>${item.id}</td>
+                    <td>${item.order[0].time}</td>
+                    <td>${status(item.order[0].check)}</td>
+                </tr>`;
+            tableBody.innerHTML += row;
+        }
+    });
+}
+function renderHistoryOrderItem(orderId) {
+    const historyOrder = document.querySelector(".historyOrder");
+    historyOrder.innerHTML = `
+        <div class="table-header">
+            <h2 class="title">History Order</h2>
+        </div>
+        <div class="container">
+            <div>
+                <img class="close-history" src="./asset/img/back_3114883.png" alt="Quay lại" onclick="handleRenderHistoryOrderMB()">
+            </div>
+            <table>
+                <thead class = "tableHistoryHead"> 
+            
+                </thead>
+                <tbody class = "tableHistoryBody">
+
+                </tbody>
+            </table>
+        </div>
+    `;
+    hideHistoryOrderMB1();
+    const tableHead = document.querySelector(".tableHistoryHead");
+    tableHead.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Quatity</th>    
+            <th>Price</th>
+        </tr> 
+    `;
+    const table = document.querySelector(".tableHistoryBody");
+    table.innerHTML = "";
+    let number = 0;
+    let totalPrice = 0;
+    for (var i = 0; i < ListOrdersMB.length; i++) {
+        if (ListOrdersMB[i].id === orderId) {
+            ListOrdersMB[i].order.forEach((item) => {
+                number++;
+                let row = `
+                <tr>
+                    <td>${number}</td>
+                    <td><img class="img-history" src="${item.image}" alt=""></td>
+                    <td>${item.nameProduct}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${item.price}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+    }
+}
+handleRenderHistoryOrderMB();
+function status(check) {
+    if (check == 0) {
+        return "Đang chờ...";
+    } else {
+        return "Đã xác nhận!";
+    }
+}
+
 // =========== Tim kiem co ban ==============
 const pagnigation = document.querySelector(".pagnigation");
 // console.log(listProducts);
@@ -988,10 +1124,10 @@ function search() {
         getProduct(listProducts);
         renderPageNumber(listProducts, perPage);
         document.querySelector(".li1").classList.add("active");
-        noProduct.classList.add("hidden")
+        noProduct.classList.add("hidden");
         pagnigation.classList.remove("hidden");
         return;
-    };
+    }
     productSearch = listProducts.filter((value) => {
         return value.name
             .toLowerCase()
@@ -999,25 +1135,25 @@ function search() {
             .includes(textInput.value.trim().toLowerCase());
     });
     if (productSearch.length == 0) {
-        noProduct.classList.remove("hidden")
-        pagnigation.classList.add("hidden")
+        noProduct.classList.remove("hidden");
+        pagnigation.classList.add("hidden");
         getProduct(productSearch);
-        renderPageNumber(productSearch, perPage)
+        renderPageNumber(productSearch, perPage);
         return;
-    };
+    }
     if (productSearch.length > 0) {
         currentProductList = productSearch;
         getProduct(productSearch);
         renderPageNumber(productSearch, perPage);
-        noProduct.classList.add("hidden")
-        pagnigation.classList.remove("hidden")
-    };
-}
-    textInput.addEventListener("keyup", function (e) {
-        if (e.key === "Enter") {
-            search();
+        noProduct.classList.add("hidden");
+        pagnigation.classList.remove("hidden");
     }
-    });
+}
+textInput.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+        search();
+    }
+});
 
 document.querySelector(".btn-search").addEventListener("click", search);
 
@@ -1034,8 +1170,8 @@ function searchMb() {
     if (productSearch.length == 0) {
         noProduct.classList.remove("hidden");
 
-        noProduct.classList.remove("hidden")
-        pagnigation.classList.add("hidden")
+        noProduct.classList.remove("hidden");
+        pagnigation.classList.add("hidden");
         getProduct(productSearch);
     }
     if (productSearch.length > 0) {
@@ -1043,8 +1179,8 @@ function searchMb() {
         currentProductList = productSearch;
         getProduct(productSearch);
         renderPageNumber(productSearch, perPage);
-        noProduct.classList.add("hidden")
-        pagnigation.classList.remove("hidden")
+        noProduct.classList.add("hidden");
+        pagnigation.classList.remove("hidden");
     }
 }
 
@@ -1104,27 +1240,25 @@ function searchAdvance(type, color, name, minPrice, maxPrice) {
     }
     // renderProduct(productSearchAdvance); // Render the filtered products
     if (productSearch.length == 0) {
-
-        noProduct.classList.remove("hidden")
-        pagnigation.classList.add("hidden")
+        noProduct.classList.remove("hidden");
+        pagnigation.classList.add("hidden");
         getProduct(productSearch);
         return;
-    };
+    }
     if (productSearch.length > 0) {
-
         currentProductList = productSearch;
         getProduct(productSearch);
         renderPageNumber(productSearch, perPage);
-        noProduct.classList.add("hidden")
-        pagnigation.classList.remove("hidden")
-    };
+        noProduct.classList.add("hidden");
+        pagnigation.classList.remove("hidden");
+    }
 }
 
 const btnShowResultAdvance = document.querySelector(".btn-show-result");
 const btnCancelAdvance = document.querySelector(".btn-cancel");
 
 btnShowResultAdvance.addEventListener("click", function (e) {
-    console.log("da search advance")
+    console.log("da search advance");
     e.preventDefault();
     searchAdvance(
         type.value,
