@@ -1333,13 +1333,22 @@ a {
 .historyOrder .container {
     position: relative;
 }
-
+.historyOrder td,th{
+    vertical-align: middle;
+    text-align: center;
+}
 .historyOrder .close-history {
     width: 35px;
     height: 35px;
     position: sticky;
     top: 2%;
     left: 100%;
+    z-index: 1;
+    cursor: pointer;
+}
+.historyOrder .showmore {
+    width: 35px;
+    height: 35px;
     z-index: 1;
     cursor: pointer;
 }

@@ -877,6 +877,7 @@ function handleRenderHistoryOrder() {
             <th>Order Id</th>
             <th>Order time</th>
             <th>Status</th>
+            <th></th>
         </tr> 
     `;
     hideHistoryOrder1();
@@ -888,11 +889,14 @@ function handleRenderHistoryOrder() {
         if (dataUsers[userIndex].id == item.userId) {
             number++;
             let row = `
-                <tr onclick = "renderHistoryOrderItem(${item.id})">
+                <tr>
                     <td>${number}</td>
                     <td>${item.id}</td>
                     <td>${item.order[0].time}</td>
                     <td>${status(item.order[0].check)}</td>
+                    <td onclick = "renderHistoryOrderItem(${item.id})">
+                        <img class="showmore" src="./asset/img/showmore.png" alt="">
+                    </td>
                 </tr>`;
             tableBody.innerHTML += row;
         }
@@ -1031,6 +1035,7 @@ function handleRenderHistoryOrderMB() {
             <th>Order Id</th>
             <th>Order time</th>
             <th>Status</th>
+            <th></th>
         </tr> 
     `;
     hideHistoryOrderMB1();
@@ -1042,11 +1047,14 @@ function handleRenderHistoryOrderMB() {
         if (dataUsers[userIndex].id == item.userId) {
             number++;
             let row = `
-                <tr onclick = "renderHistoryOrderItem(${item.id})">
+                <tr>
                     <td>${number}</td>
                     <td>${item.id}</td>
                     <td>${item.order[0].time}</td>
                     <td>${status(item.order[0].check)}</td>
+                    <td onclick = "renderHistoryOrderItem(${item.id})">
+                        <img class="showmore" src="./asset/img/showmore.png" alt="">
+                    </td>
                 </tr>`;
             tableBody.innerHTML += row;
         }
