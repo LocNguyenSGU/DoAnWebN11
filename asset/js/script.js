@@ -511,7 +511,9 @@ function renderPageNumber(arr, perPage) {
     for (let i = 1; i <= totalPage; i++) {
         document.querySelector(
             ".pagnigation-ul"
-        ).innerHTML += `<li class="li li${i}" onclick="handlePageNumber(event, ${i})">${i}</li>`;
+        ).innerHTML += `
+        <a href="#recommend"><li class="li li${i}" onclick="handlePageNumber(event, ${i})">${i}</li></a>
+        `;
     }
     if (totalPage > 1) {
         document.querySelector(".li1").classList.add("active");
@@ -890,8 +892,8 @@ function handleRenderHistoryOrder() {
             number++;
             let row = `
                 <tr>
-                    <td>${number}</td>
-                    <td>${item.order[0].time}</td>
+                    <td>${number}</td> // day la doan can them ham render de tinh totalprice // kho hieu
+                    <td>${item.order[0].time}</td> // tai sao lai k hien dc ma qua ham MB ms hien duoc
                     <td></td>
                     <td>${status(item.order[0].check)}</td>
                     <td onclick = "renderHistoryOrderItem(${item.id})">
@@ -1013,6 +1015,29 @@ let ListOrdersMB = localStorage.getItem("listOrders")
     ? JSON.parse(localStorage.getItem("listOrders"))
     : [];
 
+    function renderTotalPriceUser(arrOfOrderInListOrder) {
+        let sumQuantity = 0;
+        let sumPrice = 0;
+        let shipTotal = 0;
+        arrOfOrderInListOrder.forEach((item) => {
+            sumQuantity += item.quantity;
+            sumPrice += item.price * item.quantity;
+            shipTotal += 5 * item.quantity;
+        })
+        let totalPriceFull = sumPrice + shipTotal;
+        return totalPriceFull.toFixed(2);
+    }
+    function renderTotalShipUser(arrOfOrderInListOrder) {
+        let sumQuantity = 0;
+        let sumPrice = 0;
+        let shipTotal = 0;
+        arrOfOrderInListOrder.forEach((item) => {
+            sumQuantity += item.quantity;
+            sumPrice += item.price * item.quantity;
+            shipTotal += 5 * item.quantity;
+        })
+        return shipTotal;
+    }
 // render trong historyOrder
 function handleRenderHistoryOrderMB() {
     if (login == null) return;
@@ -1048,14 +1073,16 @@ function handleRenderHistoryOrderMB() {
     const tableBody = document.querySelector(".tableHistoryBody");
     let userIndex = dataUsers.findIndex((user) => user.id == login.id);
     let number = 0;
+    console.log("day la nhiem vu: ");
+    console.log(ListOrdersMB);
     ListOrdersMB.forEach((item) => {
-        if (dataUsers[userIndex].id == item.userId) {
+        if (dataUsers[userIndex].id == item.userId) { // kiem tra tk hien thoi
             number++;
             let row = `
                 <tr>
                     <td>${number}</td>
                     <td>${item.order[0].time}</td>
-                    <td></td>
+                    <td>$${renderTotalPriceUser(item.order)}</td>
                     <td>${status(item.order[0].check)}</td>
                     <td onclick = "renderHistoryOrderItem(${item.id})">
                         <img class="showmore" src="./asset/img/showmore.png" alt="">
@@ -1075,6 +1102,8 @@ function renderHistoryOrderItem(orderId) {
             <div>
                 <img class="close-history" src="./asset/img/back_3114883.png" alt="Quay lại" onclick="handleRenderHistoryOrderMB()">
             </div>
+            <span class = "fee_shipping" >Fee shipping: $10</span>
+
             <table>
                 <thead class = "tableHistoryHead"> 
             
@@ -1114,6 +1143,7 @@ function renderHistoryOrderItem(orderId) {
                 </tr>`;
                 table.innerHTML += row;
             });
+           document.querySelector(".fee_shipping").textContent = "Fee shipping: $" + renderTotalShipUser(ListOrdersMB[i].order)
         }
     }
 }

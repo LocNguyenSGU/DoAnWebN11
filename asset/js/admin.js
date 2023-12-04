@@ -506,6 +506,19 @@ function renderOrderManagement() {
   //Render ra các đơn hàng đã xác nhận thay vì để trống
   renderWaitOrder(listOrders);
 }
+function renderTotalPriceAdmin(arrOfOrderInListOrder) {
+  let sumQuantity = 0;
+  let sumPrice = 0;
+  let shipTotal = 0;
+  arrOfOrderInListOrder.forEach((item) => {
+      sumQuantity += item.quantity;
+      sumPrice += item.price * item.quantity;
+      shipTotal += 5 * item.quantity;
+  })
+  let totalPriceFull = sumPrice + shipTotal;
+  return totalPriceFull.toFixed(2);
+} 
+
 function renderWaitOrder(arr) {
   const orderManagementBody = document.querySelector(".orderManagementBody")
   orderManagementBody.innerHTML = "";
@@ -516,10 +529,13 @@ function renderWaitOrder(arr) {
     var orderid = order.id;
     orderDiv.setAttribute("id", orderid);
     orderDiv.innerHTML = `
-        <div class="helloUser-Order">
-          <p>User: ${order.email}</p>
-          <p class="total">Total: </p>
-        </div>
+    <div class="helloUser-Order">
+    <div class="sub-hello">
+      <p>User: ${order.email}</p>
+      <p class="total">Total: $${renderTotalPriceAdmin(order.order)}</p>
+    </div>
+      <span class = "fee_shipping fee_shipping${order.id}" >Fee shipping: $10</span>
+  </div>
         <div class="container">
             <table>
                 <thead>
@@ -563,8 +579,11 @@ function renderAcceptedOrder(arr){
     orderDiv.setAttribute("id", orderid);
     orderDiv.innerHTML = `
         <div class="helloUser-Order">
-          <p>User: ${order.email}</p>
-          <p class="total">Total: </p>
+          <div class="sub-hello">
+            <p>User: ${order.email}</p>
+            <p class="total">Total: $${renderTotalPriceAdmin(order.order)}</p>
+          </div>
+            <span class = "fee_shipping fee_shipping${order.id}" >Fee shipping: $10</span>
         </div>
         <div class="container">
             <table>
@@ -601,9 +620,12 @@ function renderRejectedOrder(arr){
     orderDiv.setAttribute("id", orderid);
     orderDiv.innerHTML = `
         <div class="helloUser-Order">
+        <div class="sub-hello">
           <p>User: ${order.email}</p>
-          <p>Total: </p>
+          <p class="total">Total: $${renderTotalPriceAdmin(order.order)}</p>
         </div>
+          <span class = "fee_shipping fee_shipping${order.id}" >Fee shipping: $10</span>
+      </div>
         <div class="container">
             <table>
                 <thead>
@@ -628,10 +650,24 @@ function renderRejectedOrder(arr){
     }
   });
 }
+function renderTotalShipAdmin(arrOfOrderInListOrder) {
+  let sumQuantity = 0;
+  let sumPrice = 0;
+  let shipTotal = 0;
+  arrOfOrderInListOrder.forEach((item) => {
+      sumQuantity += item.quantity;
+      sumPrice += item.price * item.quantity;
+      shipTotal += 5 * item.quantity;
+  })
+  return shipTotal;
+}
+
 function renderOrderItem(arr, orderid) {
   const orderManagementTbody = document
     .getElementById(orderid)
     .querySelector(".tableHistory");
+    var variableNeed = ".fee_shipping" + orderid
+  document.querySelector(variableNeed).textContent = "Fee shipping: $" + renderTotalShipAdmin(arr);
   let number = 0;
   arr.forEach((item) => {
     number++;
@@ -857,7 +893,7 @@ function fillterTopCustomer() {
         };
       }
       if(itemOrder.check == 1) // khi da mua roi moi cong them tien
-        customer[userId].totalPrice += itemOrder.quantity * itemOrder.price;
+        customer[userId].totalPrice += itemOrder.quantity * itemOrder.price + itemOrder.quantity * 5;
     });
   });
   listTopCustomer = Object.values(customer);
@@ -902,12 +938,6 @@ function filterOrdersByTime() {
 
   // Clear the previous filtered list
   listFilter = [];
-
-  // Validate input values
-  if (!startDate.value || !endDate.value) {
-    console.error("Invalid input. Please provide both start and end dates.");
-    return;
-  }
 
   const startDateTime = new Date(startDate.value);
   let endDateTime;

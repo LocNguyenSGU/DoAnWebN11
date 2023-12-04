@@ -188,7 +188,7 @@ function updateListOrderstoLocalStorage(){
     localStorage.setItem('listOrders', order);
 }
 function afterUpdate(){
-    alert("Thanks you!")
+    alert("Thank you!")
     dataUsersNow[userIndex].cartItems = [];
     localStorage.setItem("DataUsers", JSON.stringify(dataUsersNow));
     window.location = "./index.html"
