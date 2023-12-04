@@ -874,8 +874,8 @@ function handleRenderHistoryOrder() {
     tableHead.innerHTML = `
         <tr>
             <th>STT</th>
-            <th>Order Id</th>
             <th>Order time</th>
+            <th>Total Price</th>
             <th>Status</th>
             <th></th>
         </tr> 
@@ -891,8 +891,8 @@ function handleRenderHistoryOrder() {
             let row = `
                 <tr>
                     <td>${number}</td>
-                    <td>${item.id}</td>
                     <td>${item.order[0].time}</td>
+                    <td></td>
                     <td>${status(item.order[0].check)}</td>
                     <td onclick = "renderHistoryOrderItem(${item.id})">
                         <img class="showmore" src="./asset/img/showmore.png" alt="">
@@ -957,11 +957,16 @@ function renderHistoryOrderItem(orderId) {
 handleRenderHistoryOrder();
 function status(check) {
     if (check == 0) {
-        return "Đang chờ...";
+      return "Đang chờ...";
     } else {
-        return "Đã xác nhận!";
+        if(check == 1){
+          return "Đã xác nhận!";
+        }
+        else{
+          return "Đã hủy";
+      }
     }
-}
+  }
 const textInput = document.querySelector(".search-field");
 const textInputMb = document.querySelector(".search-field-mb"); // mobile
 const iconDelete = document.querySelector(".icon-delete");
@@ -1032,8 +1037,8 @@ function handleRenderHistoryOrderMB() {
     tableHead.innerHTML = `
         <tr>
             <th>STT</th>
-            <th>Order Id</th>
             <th>Order time</th>
+            <th>Total Price</th>
             <th>Status</th>
             <th></th>
         </tr> 
@@ -1049,8 +1054,8 @@ function handleRenderHistoryOrderMB() {
             let row = `
                 <tr>
                     <td>${number}</td>
-                    <td>${item.id}</td>
                     <td>${item.order[0].time}</td>
+                    <td></td>
                     <td>${status(item.order[0].check)}</td>
                     <td onclick = "renderHistoryOrderItem(${item.id})">
                         <img class="showmore" src="./asset/img/showmore.png" alt="">
@@ -1115,11 +1120,16 @@ function renderHistoryOrderItem(orderId) {
 handleRenderHistoryOrderMB();
 function status(check) {
     if (check == 0) {
-        return "Đang chờ...";
+      return "Đang chờ...";
     } else {
-        return "Đã xác nhận!";
+        if(check == 1){
+          return "Đã xác nhận!";
+        }
+        else{
+          return "Đã hủy";
+      }
     }
-}
+  }
 
 // =========== Tim kiem co ban ==============
 const pagnigation = document.querySelector(".pagnigation");

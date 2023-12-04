@@ -568,11 +568,11 @@ td {
 .helloUser-Order {
    font-size: 25px;
    padding: 25px 0px 0px 25px;
+   display: flex;
+   gap: 35%;
 }
 .adminAcceptOrder {
-   right: 0px;
    margin: 20px;
-   margin-left: 720px;
    padding: 5px 20px;
    background-color: rgb(65, 97, 168);
    border-radius: 5px;
@@ -591,6 +591,32 @@ td {
       -4px -4px 6px 0 rgba(116, 125, 136, .5),
       inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
       inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+.adminRejectOrder {
+   margin: 20px;
+   padding: 5px 20px;
+   background-color: #dc3139;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 20px;
+   max-width: 200px;
+   cursor: pointer;
+   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+      7px 7px 20px 0px rgba(0, 0, 0, .1),
+      4px 4px 5px 0px rgba(0, 0, 0, .1);
+   
+}
+.adminRejectOrder:hover {
+   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+      -4px -4px 6px 0 rgba(116, 125, 136, .5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+.handleAcceptOrder {
+   gap: 50%;
+   justify-content: center;
+   display: flex;
 }
 /* ================== CSS order startic */
 .form-input-startics {
@@ -672,6 +698,10 @@ td {
 }
 .orderManagementHeader {
    display: flex;
-   gap: 30%;
+   gap: 10%;
    justify-content: center;
+}
+.container td,th{
+   vertical-align: middle;
+   text-align: center;
 }

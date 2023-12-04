@@ -495,6 +495,9 @@ function renderOrderManagement() {
       <button class="add-btn" onclick = "renderAcceptedOrder(listOrders)">
         Các đơn hàng đã xác nhận
       </button>
+      <button class="add-btn" onclick = "renderRejectedOrder(listOrders)">
+        Các đơn hàng bị hủy
+      </button>
     </div>
     <div class="orderManagementBody">
 
@@ -513,7 +516,10 @@ function renderWaitOrder(arr) {
     var orderid = order.id;
     orderDiv.setAttribute("id", orderid);
     orderDiv.innerHTML = `
-        <p class="helloUser-Order">User: ${order.email}</p>
+        <div class="helloUser-Order">
+          <p>User: ${order.email}</p>
+          <p class="total">Total: </p>
+        </div>
         <div class="container">
             <table>
                 <thead>
@@ -532,7 +538,14 @@ function renderWaitOrder(arr) {
                 </tbody>
             </table>
         </div>
-        <button class="adminAcceptOrder" onclick = "acceptOrder(${orderid})">Xác nhận đơn hàng</button>
+        <div class="handleAcceptOrder">
+          <div>
+            <button class="adminAcceptOrder" onclick = "acceptOrder(${orderid})">Xác nhận</button>
+          </div>
+          <div>
+            <button class="adminRejectOrder" onclick = "rejectOrder(${orderid})">Hủy</button>
+          </div>
+        </div>
     `;
     orderManagementBody.appendChild(orderDiv);
     renderOrderItem(order.order, orderid);
@@ -549,7 +562,48 @@ function renderAcceptedOrder(arr){
     var orderid = order.id;
     orderDiv.setAttribute("id", orderid);
     orderDiv.innerHTML = `
-        <p class="helloUser-Order">User: ${order.email}</p>
+        <div class="helloUser-Order">
+          <p>User: ${order.email}</p>
+          <p class="total">Total: </p>
+        </div>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quatity</th>    
+                        <th>Price</th>
+                        <th>Order time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class = "tableHistory">
+                    
+                </tbody>
+            </table>
+        </div>
+    `;
+    orderManagementBody.appendChild(orderDiv);
+    renderOrderItem(order.order, orderid);
+    }
+  });
+}
+function renderRejectedOrder(arr){
+  const orderManagementBody = document.querySelector(".orderManagementBody")
+  orderManagementBody.innerHTML = "";
+  arr.forEach((order) => {
+    if(order.order[0].check === 2){
+    const orderDiv = document.createElement("div");
+    orderDiv.classList.add("historyOrder");
+    var orderid = order.id;
+    orderDiv.setAttribute("id", orderid);
+    orderDiv.innerHTML = `
+        <div class="helloUser-Order">
+          <p>User: ${order.email}</p>
+          <p>Total: </p>
+        </div>
         <div class="container">
             <table>
                 <thead>
@@ -598,7 +652,12 @@ function status(check) {
   if (check == 0) {
     return "Đang chờ...";
   } else {
-    return "Đã xác nhận!";
+      if(check == 1){
+        return "Đã xác nhận!";
+      }
+      else{
+        return "Đã hủy";
+    }
   }
 }
 function renderUserManagement() {
@@ -1161,6 +1220,22 @@ function acceptOrder(orderid) {
   }
   updateListOrderstoLocalStorage();
   alert("Đã xác nhận!");
+  renderOrderManagement();
+}
+function rejectOrder(orderid) {
+  for (var i = 0; i < listOrders.length; i++) {
+    if (listOrders[i].id === orderid) {
+      if (listOrders[i].order[0].check === 0) {
+        listOrders[i].order.forEach((item) => {
+          item.check = 2;
+        });
+      } else {
+        return;
+      }
+    }
+  }
+  updateListOrderstoLocalStorage();
+  alert("Đã hủy");
   renderOrderManagement();
 }
 function updateListOrderstoLocalStorage() {
