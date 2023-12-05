@@ -317,6 +317,7 @@ body {
 
 .action-checkout {
     background: #ffb700;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -328,6 +329,7 @@ body {
 }
 
 .action-checkout .title {
+    font-size: 1.5rem;
     color: #1a162e;
     display: flex;
     justify-content: center;
